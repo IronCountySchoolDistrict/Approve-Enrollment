@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.disabled {
+    visibility: hidden;
+}
+
+.old {
+    color: inherit !important;
+}
+
+.new {
+    color: inherit !important;
+}

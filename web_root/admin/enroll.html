@@ -1,0 +1,394 @@
+<html>
+<head>
+    <title>Enroll New Student</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+    <style>
+        td {
+            padding: 4px !important;
+        }
+    </style>
+    <script>
+        $j(document).ready(function () {
+            $j('tr:not(".headerrow"):even').css({'background-color': '#D7EBF4'});
+        });
+    </script>
+</head>
+<body>
+~[wc:admin_header_css]
+<a href="/admin/home.html" target="_top">Start Page</a> &gt;
+Enroll New Student
+~[wc:admin_navigation_css]
+<h1>Enroll New Student</h1>
+
+<div class="box-round">
+<form method="POST">
+<table border="0" cellspacing="0" cellpadding="4">
+<colgroup>
+    <col style="width: 30%;">
+    <col style="width: 20%">
+    <col style="width: 30%;">
+    <col style="width: 20%">
+</colgroup>
+<tbody>
+<tr>
+    <td class="bold">Name (Last, First Middle)</td>
+    <td>Testing Name</td>
+    <td class="bold">Nick Name</td>
+    <td>Testing Nick Name</td>
+</tr>
+<tr class="headerrow">
+    <td colspan="4" class="bold">Personal</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Social Security Number</td>
+    <td colspan="2">Testing SSN</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Email Address</td>
+    <td colspan="2">Testing Email Address</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Birthdate</td>
+    <td colspan="2">Testing Birthdate</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Gender</td>
+    <td colspan="2">Male/Female</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Current Grade</td>
+    <td colspan="2">Testing Current Grade</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Home Phone Number</td>
+    <td colspan="2">Testing Home Phone Number</td>
+</tr>
+<tr>
+    <td class="bold" colspan="2">Student Cell Number</td>
+    <td colspan="2">Student Cell Number</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Addresses</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Mailing Address</td>
+    <td colspan="2">Testing Mailing Address</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Within School Boundaries?</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Last Attended School</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Last Attended School City, State</td>
+    <td colspan="2">Cedar City, UT</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Last Attended School Phone Number</td>
+    <td colspan="2">435-143-5698</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Last Attended School Fax Number</td>
+    <td colspan="2">435-143-5698</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Previously Attended School in ICSD</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Previously Attended School in Utah</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Birthplace</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Country/Territory of Birth</td>
+    <td colspan="2">USA</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Date First Enrolled In US School</td>
+    <td colspan="2">06-21-2006</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Attended One Or More Schools Inside
+        The US Or US Territory For Fewer Than Three Full Academic Years
+    </td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Grade Levels Completed</td>
+    <td colspan="2">Kindergarten, 1st</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Language</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Primary Language</td>
+    <td colspan="2">English</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Language Spoken At Home</td>
+    <td colspan="2">English</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Language Used To Communicate</td>
+    <td colspan="2">English</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Prefered Language of Correspondence</td>
+    <td colspan="2">English</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student has been in a bilingual educational or an English as a Second Language (ESL)
+        program
+    </td>
+    <td colspan="2">ESL, Bilingual</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Emergency Contacts</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 1</td>
+    <td colspan="2">Contact Name</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 1 Contact Information</td>
+    <td colspan="2">
+        <span style="display: block;">Legal Guardian: Yes</span>
+        <span style="display: block;">Email: contact@email.com</span>
+        <span style="display: block;">Address: 1234 Test Street Cedar City, UT 84721</span>
+        <span style="display: block;">Work Phone: 435-143-5698</span>
+        <span style="display: block;">Home Phone: 435-143-5698</span>
+        <span style="display: block;">Cell Phone: 435-143-5698</span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 2</td>
+    <td colspan="2">Contact Name</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 2 Contact Information</td>
+    <td colspan="2">
+        <span style="display: block;">Legal Guardian: Yes</span>
+        <span style="display: block;">Email: contact@email.com</span>
+        <span style="display: block;">Address: 1234 Test Street Cedar City, UT 84721</span>
+        <span style="display: block;">Work Phone: 435-143-5698</span>
+        <span style="display: block;">Home Phone: 435-143-5698</span>
+        <span style="display: block;">Cell Phone: 435-143-5698</span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 3</td>
+    <td colspan="2">Contact Name</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Priority 3 Contact Information</td>
+    <td colspan="2">
+        <span style="display: block;">Legal Guardian: Yes</span>
+        <span style="display: block;">Email: contact@email.com</span>
+        <span style="display: block;">Address: 1234 Test Street Cedar City, UT 84721</span>
+        <span style="display: block;">Work Phone: 435-143-5698</span>
+        <span style="display: block;">Home Phone: 435-143-5698</span>
+        <span style="display: block;">Cell Phone: 435-143-5698</span>
+    </td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Sibling(s)</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Sibling 1</td>
+    <td colspan="2">
+        <span style="display: block;">Name: Testing Name</span>
+        <span style="display: block;">Gender: Male/Female</span>
+        <span style="display: block;">Birthdate: 05-21-1999</span>
+        <span style="display: block;">Grade: 5</span>
+    </td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">State/Federal</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Utah Resident</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">District Resident</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Immunizations Complete</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Part-Time Student</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Refugee Student</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Ethnicity</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student is Hispanic/Latino</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Ethnicity</td>
+    <td colspan="2">Asian</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Special Education</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Received Special Education Services</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Received Speech and/or Language Services</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Received 504 Services</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Is A Foster Child or Ward of the State</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Is In Juvenile Probation</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Student Has Been Previously Suspended or Expelled From School for a Safe School
+        Violation
+    </td>
+    <td colspan="2">
+        <span style="display: block;">Yes/No</span>
+        <span style="display: block;">Additional details: testing details</span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Other Information Necessary For Appropriate Educational Placement</td>
+    <td colspan="2">Testing Other Information Testing Other Information
+        Testing Other Information Testing Other Information Testing
+        Other Information Testing Other Information
+    </td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Medical</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Diabetes</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Heart</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Seizures</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">ADD/ADHD</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Hearing Impairment</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Visual Impairment</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Wears Glasses</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Asthma</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Allergies</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Medications</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Other Medical Conditions or Services Needed at School</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Physician</td>
+    <td colspan="2">
+        <span style="display: block;">Name: Dr. Doe</span>
+        <span style="display: block;">Phone: 435-687-9845</span>
+    </td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Dentist</td>
+    <td colspan="2">
+        <span style="display: block;">Name: Dr. Doe</span>
+        <span style="display: block;">Phone: 435-687-9845</span>
+    </td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">School Release</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Permission To Go On School Field Trips</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Permission for student’s personal information to be listed in the school directory</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Permission for my child's full name to be listed in newspapers, websites, television,
+        etc.
+    </td>
+    <td colspan="2">Yes/No</td>
+</tr>
+
+<tr class="headerrow">
+    <td colspan="4" class="bold">Policy</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Read and Accepted the Acceptable Use Policy</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+<tr>
+    <td colspan="2" class="bold">Read and Accepted the Safe Schools Policy</td>
+    <td colspan="2">Yes/No</td>
+</tr>
+</tbody>
+</table>
+<div class="button-row">
+    <button type="submit" id="btnSubmit" name="btnSubmit">Enroll</button>
+</div>
+</form>
+</div>
+</body>
+</html>

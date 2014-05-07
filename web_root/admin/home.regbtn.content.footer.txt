@@ -1,0 +1,7 @@
+<!-- Begin Registraion Mockup custom button -->
+<script type="text/template" id="reg-btn-template">
+    <a id="reg-btn" href='/admin/reg.html'><img src='/images/online-registration.jpg' border="0" height="50"/></a>
+</script>
+
+<script src="/scripts/RegistrationMockup/button.js"></script>
+<!-- End Registraion Mockup custom button -->
