@@ -99,26 +99,32 @@ define(function () {
             });
         },
 
-        refreshParsley: function () {
+        refreshParsley: function (block) {
             $('#reg-form').parsley().destroy();
             this.activateParsley();
+
+            if (block) {
+                this.validateBlock(block);
+            }
         },
 
         addRequiredField: function (field) {
 
             // Make field required
             field.attr({'required': ''});
+            var fieldBlock = field.closest('[data-block]').data('block');
 
             // Refresh parsley validation
-            this.refreshParsley();
+            this.refreshParsley(fieldBlock);
         },
         removeRequiredField: function (field) {
 
             // Make field not required
             field.removeAttr('required');
+            var fieldBlock = field.closest('[data-block]').data('block');
 
             // Refresh parsley validation
-            this.refreshParsley();
+            this.refreshParsley(fieldBlock);
         },
 
         /**

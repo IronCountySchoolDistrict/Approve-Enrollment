@@ -111,13 +111,14 @@ define(['validate'], function (validate) {
             tabLinks.on('click', function (e, ignore) {
                 var tabs = $('.nav');
                 // When this event is triggered, the previously selected tab still has the .active class.
-                var previouslyOpenTab = tabs.find('.active');
+                var currentlyOpenTab = tabs.find('.active');
 
                 // Tab (li element) that the user clicked on
                 var clickedTab = $(e.target).parent();
-                var previouslyOpenTabIndex = tabs.children().index(previouslyOpenTab);
-                var currentlyOpenTabIndex = tabs.children().index(clickedTab);
-                if (currentlyOpenTabIndex > previouslyOpenTabIndex) {
+                var clickedTabLink = clickedTab.find('a');
+                var currentlyOpenTabIndex = tabs.children().index(currentlyOpenTab);
+                var clickedTabIndex = tabs.children().index(clickedTab);
+                if (clickedTabIndex > currentlyOpenTabIndex) {
                     var activeTabPane = $('.tab-pane.active');
                     var currentBlock = activeTabPane.data().block;
                     var validationPassed = validate.validateBlock(currentBlock);
@@ -135,9 +136,9 @@ define(['validate'], function (validate) {
                             _this.setDisplayPrevNextButtons(e);
                             _this._replaceWindowLocation(clickedTab);
                         }
-                        var currentlyOpenTabHasToggle = clickedTab.find('a').attr('data-toggle') ? true : false;
-                        if (!currentlyOpenTabHasToggle) {
-                            clickedTab.attr({'data-toggle': 'tab'});
+                        var clickedTabHasToggle = clickedTabLink.attr('data-toggle') ? true : false;
+                        if (!clickedTabHasToggle) {
+                            clickedTabLink.attr({'data-toggle': 'tab'});
                         }
                     }
                 }

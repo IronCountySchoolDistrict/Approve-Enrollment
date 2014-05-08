@@ -108,7 +108,6 @@
 
         .noborder-tbl-head {
             border-bottom: none !important;
-            text-align: right;
         }
 
         .border-td {
@@ -119,6 +118,10 @@
             border: none !important;
             vertical-align: middle !important;
             text-align: right;
+        }
+
+        .required-field-ast {
+            color: red;
         }
 
 
@@ -172,215 +175,223 @@
 <div class="tab-content">
 <div class="invalid-form-error-message"></div>
 <div class="tab-pane fade in block1" id="personal" data-block="1">
+<div class="alert alert-info alert-dismissable" style="margin-right: 15px; margin-left: 15px;">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Required Field <span class="required-field-ast">*</span>
+</div>
 <div class="form-group col-md-12" style="overflow: auto;">
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Personal</h3></div>
 <div class="panel-body">
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td colspan="4">
-                    <div class="alert alert-info">
-                        Please enter your student's name as it appears on their <strong>Legal Birth
-                        Certificate</strong>
-                        or
-                        other <strong>Legal Document</strong>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td width-td">
-                    <!-- Override margin here so input margins are the only margins applied to this row -->
-                    <div class="col-md-12">
-                        <label for="first-name">Name *</label>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <input type="text" name="first-name" class="form-control" id="first-name"
-                               placeholder="First Name"
-                               required
-                               data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-danglingspaces/>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
-                               data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-danglingspaces/>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
-                               data-parsley-trigger="change" required
-                               data-parsley-group="block1"
-                               data-parsley-danglingspaces/>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="nick-name">Nick Name</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
-                               data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-alpha
-                               data-parsley-nospaces/>
-                    </div>
-                </td>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="student-ssn">Social Security Number</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
-                               style="width: 100%;" data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-nospaces
-                               data-parsley-ssn/>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="email-address">Student's Email Address *</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input name="email-address" class="form-control" id="email-address"
-                               placeholder="Student's Email Address" style="margin-bottom: 15px;"
-                               data-parsley-trigger="change" required
-                               data-parsley-group="block1"
-                               data-parsley-type="email"/>
-                    </div>
-                </td>
-                <td class="label-td">
-                    <div class="col-md-5">
-                        <label for="gender">Gender *</label>
-                    </div>
-                    <div class="col-md-7 field-container">
-                        <select class="form-control" name="gender" id="gender" required
-                                data-parsley-trigger="change"
-                                data-parsley-group="block1">
-                            <option></option>
-                            <option>M</option>
-                            <option>F</option>
-                        </select>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-4 ">
-                        <label for="current-grade">Current Grade *</label>
-                    </div>
-                    <div class="col-md-8 field-container">
-                        <select class="form-control" name="current-grade" id="current-grade" required
-                                data-parsley-trigger="change"
-                                data-parsley-group="block1">
-                            <option></option>
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                            <option>6</option>
-                            <option>7</option>
-                            <option>8</option>
-                            <option>9</option>
-                            <option>10</option>
-                            <option>11</option>
-                            <option>12</option>
-                        </select>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="birthdate">Birthdate *</label>
-                    </div>
-                </td>
-                <td>
+<div class="table-responsive">
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    Please enter your student's name as it appears on their <strong>Legal Birth
+                    Certificate</strong>
+                    or
+                    other <strong>Legal Document</strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td width-td">
+                <!-- Override margin here so input margins are the only margins applied to this row -->
+                <div class="col-md-12">
+                    <label for="first-name">Name <span class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input type="text" name="first-name" class="form-control" id="first-name"
+                           placeholder="First Name"
+                           required
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
+                           data-parsley-trigger="change" required
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="nick-name">Nick Name</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-alpha
+                           data-parsley-nospaces/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="student-ssn">Social Security Number</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
+                           style="width: 100%;" data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-nospaces
+                           data-parsley-ssn/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="email-address">Student's Email Address <span
+                            class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input name="email-address" class="form-control" id="email-address"
+                           placeholder="Student's Email Address" style="margin-bottom: 15px;"
+                           data-parsley-trigger="change" required
+                           data-parsley-group="block1"
+                           data-parsley-type="email"/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-5">
+                    <label for="gender">Gender <span class="required-field-ast">*</span></label>
+                </div>
+                <div class="col-md-7 field-container">
+                    <select class="form-control" name="gender" id="gender" required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option>M</option>
+                        <option>F</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-4 ">
+                    <label for="current-grade">Current Grade <span class="required-field-ast">*</span></label>
+                </div>
+                <div class="col-md-8 field-container">
+                    <select class="form-control" name="current-grade" id="current-grade" required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="birthdate">Birthdate <span class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td>
 
-                    <div class="col-md-12 field-container">
-                        <input class="form-control dateinput" name="birthdate" id="birthdate"
-                               data-date-format="mm-dd-yyyy"
-                               data-parsley-trigger="change" required placeholder="mm-dd-yyyy"
-                               data-parsley-group="block1"
-                               data-parsley-date/>
-                    </div>
-                </td>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="home-phone-number">Home Phone Number *</label>
-                    </div>
-                </td>
-                <td class="label-td">
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="home-phone-number" id="home-phone-number"
-                               placeholder="###-###-####"
-                               required data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-phonenum/>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="parent-cell-number">Parent Cell Phone</label>
-                    </div>
-                </td>
+                <div class="col-md-12 field-container">
+                    <input class="form-control dateinput" name="birthdate" id="birthdate"
+                           placeholder="mm-dd-yyyy"
+                           required
+                           data-date-format="mm-dd-yyyy"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-date/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="home-phone-number">Home Phone Number <span
+                            class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-12 field-container">
+                    <input class="form-control" name="home-phone-number" id="home-phone-number"
+                           placeholder="###-###-####"
+                           required data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-phonenum/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="parent-cell-number">Parent Cell Phone</label>
+                </div>
+            </td>
 
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="parent-cell-number" id="parent-cell-number"
-                               placeholder="###-###-####"
-                               style="width: 100%;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-phoneNum/>
-                    </div>
-                </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input class="form-control" name="parent-cell-number" id="parent-cell-number"
+                           placeholder="###-###-####"
+                           style="width: 100%;" data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-phoneNum/>
+                </div>
+            </td>
 
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="student-cell-number">Student Cell Phone</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="student-cell-number" id="student-cell-number"
-                               placeholder="###-###-####"
-                               style="width: 100%;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"
-                               data-parsley-phoneNum/>
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-    <!-- end .table-responsive -->
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="student-cell-number">Student Cell Phone</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input class="form-control" name="student-cell-number" id="student-cell-number"
+                           placeholder="###-###-####"
+                           style="width: 100%;" data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-phoneNum/>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<!-- end .table-responsive -->
 </div>
 <!-- end .panel-body -->
 </div>
 <!-- end .panel -->
 
 <div class="panel panel-default">
-    <div class="panel-heading"><h3 class="panel-title">Mailing/Resident Address</h3></div>
+    <div class="panel-heading"><h3 class="panel-title">Mailing/Residence Address</h3></div>
     <div class="panel-body">
         <div class="table-responsive">
             <table class="table table-bordered">
@@ -474,7 +485,7 @@
                 <td class="width-td">
                     <div class="col-md-12 field-container">
                         <input class="form-control" name="school-city" id="school-city" placeholder=""
-                               required data-parsley-trigger="change"
+                               data-parsley-trigger="change"
                                data-parsley-group="block1"/>
                     </div>
                 </td>
@@ -485,7 +496,7 @@
                 </td>
                 <td class="width-td">
                     <div class="col-md-12 field-container">
-                        <select class="form-control" name="school-state" id="school-state" required
+                        <select class="form-control" name="school-state" id="school-state"
                                 data-parsley-trigger="change"
                                 data-parsley-group="block1">
                             <option></option>
@@ -553,7 +564,7 @@
                 <td>
                     <div class="col-md-12 field-container">
                         <input class="form-control" name="school-phone" id="school-phone" placeholder="###-###-####"
-                               required data-parsley-trigger="change"
+                               data-parsley-trigger="change"
                                data-parsley-group="block1"
                                data-parsley-phonenum/>
                     </div>
@@ -574,9 +585,10 @@
             <tr>
                 <td class="label-td">
                     <div class="col-md-12">
-                        <label for="prev-icsd">Has this student previously attended any school in Iron County
-                            School
-                            District?</label>
+                        <label for="prev-icsd">
+                            Has this student previously attended any school in Iron County
+                            School District? <span class="required-field-ast">*</span>
+                        </label>
                     </div>
                 </td>
                 <td>
@@ -591,12 +603,13 @@
                 <td>
                     <div class="label-td col-md-12">
                         <label for="prev-utah">Has this student previously attended any school in the State of
-                            Utah?</label>
+                            Utah? <span class="required-field-ast">*</span>
+                        </label>
                     </div>
                 </td>
                 <td>
                     <div class="col-md-12 field-container">
-                        <input name="prev-utah" id="prev-utah-yes" type="radio" required data-parsley-group="block1"/>
+                        <input name="prev-utah" id="prev-utah-yes" type="radio" data-parsley-group="block1" required/>
                         <label for="prev-utah-yes">Yes</label>
 
                         <input name="prev-utah" id="prev-utah-no" type="radio"/>
@@ -625,7 +638,6 @@
                         <input class="form-control" name="count-terr-birth" id="count-terr-birth"
                                data-parsley-group="block1"
                                required
-                               data-parsley-alpha
                                data-parsley-danglingspaces/>
                     </div>
                 </td>
@@ -716,7 +728,7 @@
 <td class="width-td">
     <div class="col-md-12">
         <label for="prim-lang">What language(s) did your child use when he/she first began to talk?
-            (Primary Language)</label>
+            (Primary Language) <span class="required-field-ast">*</span></label>
     </div>
 </td>
 <td class="width-td">
@@ -888,7 +900,8 @@
 </td>
 <td class="width-td">
     <div class="col-md-12">
-        <label for="cur-lang">What language(s) does your child currently speak with you at home?</label>
+        <label for="cur-lang">What language(s) does your child currently speak with you at home?
+            <span class="required-field-ast">*</span></label>
     </div>
 </td>
 <td class="width-td">
@@ -1063,7 +1076,8 @@
     <td>
         <div class="col-md-12">
             <label for="home-lang">What language(s) do you (parents/guardians, or other adults who
-                permanently reside in the home) use when you/they speak to your child?</label>
+                permanently reside in the home) use when you/they speak to your child?
+                <span class="required-field-ast">*</span></label>
         </div>
     </td>
     <td>
@@ -1235,7 +1249,9 @@
     </td>
     <td>
         <div class="col-md-12">
-            <label for="corres-lang">In what language do you prefer to receive correspondence?</label>
+            <label for="corres-lang">In what language do you prefer to receive correspondence?
+                <span class="required-field-ast">*</span>
+            </label>
         </div>
     </td>
     <td>
@@ -1254,7 +1270,7 @@
     <td>
         <div class="col-md-12">
             <label for="bilingual">Has your child ever been in a bilingual educational or an English as a
-                Second Language (ESL) program?</label>
+                Second Language (ESL) program? <span class="required-field-ast">*</span></label>
         </div>
     </td>
     <td>
@@ -1307,8 +1323,8 @@
 <div class="form-group col-md-12">
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Emergency Contacts</h3></div>
-<div class="panel-body">
-<div class="alert alert-info alert-dismissable">At least 3 contacts are required. More contacts can be added by click on
+<div class="panel-body" style="padding-right: 5px;">
+<div class="alert alert-info alert-dismissable" style="margin-right: 8px;">At least 3 contacts are required. More contacts can be added by click on
     the green plus to the right.
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 </div>
@@ -1316,13 +1332,13 @@
 <table id="emerg-cont-table" class="table">
 <thead>
 <tr>
-    <th class="border-tbl-head">Priority *</th>
-    <th class="border-tbl-head">Legal Guardian *</th>
-    <th class="border-tbl-head">Name and Email *</th>
-    <th class="border-tbl-head">Phone Number *</th>
-    <th class="border-tbl-head">Employer *</th>
-    <th class="border-tbl-head">Relationship *</th>
-    <th class="noborder-tbl-head">
+    <th class="border-tbl-head">Priority <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Legal Guardian <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Name and Email <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Phone Number <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Employer <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Relationship <span class="required-field-ast">*</span></th>
+    <th class="noborder-tbl-head" style="text-align: center;">
         <span style="cursor: pointer;" id="add-emerg-cont-span" class="glyphicon glyphicon-plus"></span>
     </th>
 </tr>
@@ -1511,9 +1527,17 @@
                     data-parsley-group="block2"
                     style="margin-top: 25px;">
                 <option></option>
-                <option>Mother</option>
-                <option>Father</option>
-                <option>Other</option>
+                <option value="Aunt">Aunt</option>
+                <option value="Brother">Brother</option>
+                <option value="Father">Father</option>
+                <option value="Friend">Friend</option>
+                <option value="Grandfather">Grandfather</option>
+                <option value="Grandmother">Grandmother</option>
+                <option value="Mother">Mother</option>
+                <option value="Neighbor">Neighbor</option>
+                <option value="Other">Other</option>
+                <option value="Sister">Sister</option>
+                <option value="Uncle">Uncle</option>
             </select>
         </div>
     </td>
@@ -1700,9 +1724,17 @@
                     required
                     data-parsley-group="block2">
                 <option></option>
-                <option>Mother</option>
-                <option>Father</option>
-                <option>Other</option>
+                <option value="Aunt">Aunt</option>
+                <option value="Brother">Brother</option>
+                <option value="Father">Father</option>
+                <option value="Friend">Friend</option>
+                <option value="Grandfather">Grandfather</option>
+                <option value="Grandmother">Grandmother</option>
+                <option value="Mother">Mother</option>
+                <option value="Neighbor">Neighbor</option>
+                <option value="Other">Other</option>
+                <option value="Sister">Sister</option>
+                <option value="Uncle">Uncle</option>
             </select>
         </div>
     </td>
@@ -1888,9 +1920,17 @@
                     data-parsley-group="block2"
                     style="margin-top: 25px;">
                 <option></option>
-                <option>Mother</option>
-                <option>Father</option>
-                <option>Other</option>
+                <option value="Aunt">Aunt</option>
+                <option value="Brother">Brother</option>
+                <option value="Father">Father</option>
+                <option value="Friend">Friend</option>
+                <option value="Grandfather">Grandfather</option>
+                <option value="Grandmother">Grandmother</option>
+                <option value="Mother">Mother</option>
+                <option value="Neighbor">Neighbor</option>
+                <option value="Other">Other</option>
+                <option value="Sister">Sister</option>
+                <option value="Uncle">Uncle</option>
             </select>
         </div>
     </td>
@@ -1920,18 +1960,18 @@
 <div class="form-group col-md-12" style="overflow: auto;">
     <div class="panel panel-default">
         <div class="panel-heading"><h3 class="panel-title">School Age Sibling(s)</h3></div>
-        <div class="panel-body">
+        <div class="panel-body" style="padding-right: 0px;">
             <div class="table-responsive" style="width: 100%;">
                 <table id="siblings-table" class="table">
                     <thead>
                     <tr>
-                        <th class="border-tbl-head">Gender</th>
-                        <th class="border-tbl-head">Name</th>
-                        <th class="border-tbl-head">Birthdate</th>
-                        <th class="border-tbl-head">School</th>
-                        <th class="border-tbl-head">Grade</th>
+                        <th class="border-tbl-head">Gender <span class="required-field-ast">*</span></th>
+                        <th class="border-tbl-head">Name <span class="required-field-ast">*</span></th>
+                        <th class="border-tbl-head">Birthdate <span class="required-field-ast">*</span></th>
+                        <th class="border-tbl-head">School <span class="required-field-ast">*</span></th>
+                        <th class="border-tbl-head">Grade <span class="required-field-ast">*</span></th>
                         <th class="noborder-tbl-head">
-                            <span style="cursor: pointer;" id="add-sibling-span"
+                            <span style="cursor: pointer; text-align: center;" id="add-sibling-span"
                                   class="glyphicon glyphicon-plus"></span>
                         </th>
                     </tr>
@@ -1940,7 +1980,8 @@
                     <tr data-index="1">
                         <td class="border-td">
                             <select class="form-control" name="sibling-gender1" id="sibling-gender1"
-                                    data-parsley-group="block2">
+                                    data-parsley-group="block2"
+                                    required>
                                 <option></option>
                                 <option>M</option>
                                 <option>F</option>
@@ -1949,22 +1990,26 @@
                         <td class="border-td">
                             <input class="form-control" name="sibiling-name1" id="sibiling-name1"
                                    style="width: 100%;"
-                                   data-parsley-group="block2"/>
+                                   data-parsley-group="block2"
+                                   required/>
                         </td>
                         <td class="border-td">
                             <input class="form-control" name="sibling-birthdate1" id="sibling-birthdate1"
                                    placeholder="MM-DD-YYYY"
                                    style="width: 100%;"
-                                   data-parsley-group="block2"/>
+                                   data-parsley-group="block2"
+                                   required/>
                         </td>
                         <td class="border-td">
                             <input class="form-control" name="sibling-school1" id="sibling-school1"
                                    style="width: 100%;"
-                                   data-parsley-group="block2"/>
+                                   data-parsley-group="block2"
+                                   required/>
                         </td>
                         <td class="border-td">
                             <select class="form-control" name="sibling-grade1" id="sibling-grade1"
-                                    data-parsley-group="block2">
+                                    data-parsley-group="block2"
+                                    required>
                                 <option></option>
                                 <option>1</option>
                                 <option>2</option>
@@ -2818,19 +2863,23 @@
         </td>
         <td class="border-td">
             <input class="form-control" name="sibiling-name<%= index %>" id="sibiling-name<%= index %>"
-                   style="width: 100%;"/>
+                   style="width: 100%;"
+                   required/>
         </td>
         <td class="border-td">
             <input class="form-control" name="sibling-birthdate<%= index %>" id="sibling-birthdate<%= index %>"
                    placeholder="MM-DD-YYYY"
-                   style="width: 100%;"/>
+                   style="width: 100%;"
+                   required/>
         </td>
         <td class="border-td">
             <input class="form-control" name="sibling-school<%= index %>" id="sibling-school<%= index %>"
-                   style="width: 100%;"/>
+                   style="width: 100%;"
+                   required/>
         </td>
         <td class="border-td">
-            <select class="form-control" name="sibling-grade<%= index %>" id="sibling-grade<%= index %>">
+            <select class="form-control" name="sibling-grade<%= index %>" id="sibling-grade<%= index %>"
+                    required>
                 <option></option>
                 <option>1</option>
                 <option>2</option>
@@ -2854,18 +2903,18 @@
 </script>
 
 <script type="text/template" id="emerg-cont-row-template">
-    <tr data-index="<%= index %>">
-        <td class="border-td" style="width: 5%;">
-            <select class="priority input-sm form-control" id="emerg-cont-priority<%= index %>"
-                    name="emerg-cont-priority<%= index %>"
-                    data-parsley-group="block2">
-                <option value="1" selected="selected">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
-        </td>
-        <td class="border-td">
-            <div class="field-container">
+<tr data-index="<%= index %>">
+<td class="border-td" style="width: 5%;">
+    <select class="priority input-sm form-control" id="emerg-cont-priority<%= index %>"
+            name="emerg-cont-priority<%= index %>"
+            data-parsley-group="block2">
+        <option value="1" selected="selected">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</td>
+<td class="border-td">
+    <div class="field-container">
             <span style="display: block;">
                 <input name="is-leg-guar<%= index %>" id="is-leg-guar<%= index %>-yes" type="radio"
                        required
@@ -2881,19 +2930,19 @@
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar1-no">No</label>
             </span>
-            </div>
-        </td>
-        <td class="border-td" style="width: 25%;">
-            <div class="field-container">
-                <label for="merg-cont-name<%= index %>">Name</label>
-                <input class="form-control" id="merg-cont-name<%= index %>" name="emerg-cont-name<%= index %>"
-                       placeholder="Contact's Name"
-                       required
-                       data-parsley-danglingspaces
-                       data-parsley-group="block2"
-                       style="width: 100%;"/>
-            </div>
-            <div>
+    </div>
+</td>
+<td class="border-td" style="width: 25%;">
+    <div class="field-container">
+        <label for="merg-cont-name<%= index %>">Name</label>
+        <input class="form-control" id="merg-cont-name<%= index %>" name="emerg-cont-name<%= index %>"
+               placeholder="Contact's Name"
+               required
+               data-parsley-danglingspaces
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+    <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street1">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street<%= index %>"
@@ -2985,72 +3034,80 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-            </div>
-            <div class="field-container">
-                <label for="emerg-cont-email1">Email</label>
-                <input class="form-control" id="emerg-cont-email<%= index %>" name="emerg-cont-email<%= index %>"
-                       placeholder="Contact's Email"
-                       required
-                       data-parsley-danglingspaces
-                       data-parsley-type="email"
-                       data-parsley-group="block2"
-                       style="width: 100%;"/>
-            </div>
-        </td>
-        <td class="border-td">
-            <div>
-                <label for="emerg-cont-home-phone1">Home</label>
-                <input class="form-control" id="emerg-cont-home-phone<%= index %>"
-                       name="emerg-cont-home-phone<%= index %>"
-                       placeholder="###-###-####"
-                       data-parsley-group="block2"
-                       style="width: 100%;"/>
-            </div>
-            <div>
-                <label for="emerg-cont-cell-phone1">Cell</label>
-                <input class="form-control" id="emerg-cont-cell-phone<%= index %>"
-                       name="emerg-cont-cell-phone<%= index %>"
-                       placeholder="###-###-####"
-                       data-parsley-group="block2"
-                       style="width: 100%;"/>
-            </div>
-            <div>
-                <label for="emerg-cont-work-phone1">Work</label>
-                <input class="form-control" id="emerg-cont-work-phone<%= index %>"
-                       name="emerg-cont-work-phone<%= index %>"
-                       data-parsley-group="block2"
-                       placeholder="###-###-####"
-                       style="width: 100%;"/>
-            </div>
-        </td>
-        <td class="border-td">
-            <div class="field-container">
-                <input class="form-control" id="emerg-cont-employer<%= index %>" name="emerg-cont-employer<%= index %>"
-                       placeholder="Employer Name"
-                       required
-                       data-parsley-group="block2"
-                       style="width: 100%; margin-top: 25px;"/>
-            </div>
-        </td>
-        <td class="border-td">
-            <div class="field-container">
-                <select class="form-control" id="emerg-cont-relationship<%= index %>"
-                        name="emerg-cont-relationship1"
-                        required
-                        data-parsley-group="block2"
-                        style="margin-top: 25px;">
-                    <option></option>
-                    <option>Mother</option>
-                    <option>Father</option>
-                    <option>Other</option>
-                </select>
-            </div>
-        </td>
-        <td class="noborder-td">
+    </div>
+    <div class="field-container">
+        <label for="emerg-cont-email1">Email</label>
+        <input class="form-control" id="emerg-cont-email<%= index %>" name="emerg-cont-email<%= index %>"
+               placeholder="Contact's Email"
+               required
+               data-parsley-danglingspaces
+               data-parsley-type="email"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div>
+        <label for="emerg-cont-home-phone1">Home</label>
+        <input class="form-control" id="emerg-cont-home-phone<%= index %>"
+               name="emerg-cont-home-phone<%= index %>"
+               placeholder="###-###-####"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+    <div>
+        <label for="emerg-cont-cell-phone1">Cell</label>
+        <input class="form-control" id="emerg-cont-cell-phone<%= index %>"
+               name="emerg-cont-cell-phone<%= index %>"
+               placeholder="###-###-####"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+    <div>
+        <label for="emerg-cont-work-phone1">Work</label>
+        <input class="form-control" id="emerg-cont-work-phone<%= index %>"
+               name="emerg-cont-work-phone<%= index %>"
+               data-parsley-group="block2"
+               placeholder="###-###-####"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <input class="form-control" id="emerg-cont-employer<%= index %>" name="emerg-cont-employer<%= index %>"
+               placeholder="Employer Name"
+               required
+               data-parsley-group="block2"
+               style="width: 100%; margin-top: 25px;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <select class="form-control" id="emerg-cont-relationship<%= index %>"
+                name="emerg-cont-relationship1"
+                required
+                data-parsley-group="block2"
+                style="margin-top: 25px;">
+            <option></option>
+            <option value="Aunt">Aunt</option>
+            <option value="Brother">Brother</option>
+            <option value="Father">Father</option>
+            <option value="Friend">Friend</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Mother">Mother</option>
+            <option value="Neighbor">Neighbor</option>
+            <option value="Other">Other</option>
+            <option value="Sister">Sister</option>
+            <option value="Uncle">Uncle</option>
+        </select>
+    </div>
+</td>
+<td class="noborder-td">
             <span data-index="<%= index %>" style="cursor: pointer;"
                   class="remove-emerg-cont-span glyphicon glyphicon-minus"></span>
-        </td>
-    </tr>
+</td>
+</tr>
 </script>
 <!-- end table row templates -->
 
