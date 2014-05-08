@@ -91,8 +91,6 @@
             color: #555;
         }
 
-
-
         .select-label {
             color: #999 !important;
         }
@@ -178,222 +176,204 @@
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Personal</h3></div>
 <div class="panel-body">
-<div class="table-responsive">
-<table class="table table-bordered">
-<tbody>
-<tr>
-    <td colspan="4">
-        <div class="alert alert-info">
-            Please enter your student's name as it appears on their <strong>Legal Birth
-            Certificate</strong>
-            or
-            other <strong>Legal Document</strong>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td width-td">
-        <!-- Override margin here so input margins are the only margins applied to this row -->
-        <div class="col-md-12">
-            <label for="first-name">Name *</label>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input type="text" name="first-name" class="form-control" id="first-name"
-                   placeholder="First Name"
-                   required
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
-                   data-parsley-trigger="change" required
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="nick-name">Nick Name</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-alpha
-                   data-parsley-nospaces/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="student-ssn">Social Security Number *</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
-                   style="width: 100%;" data-parsley-trigger="change" required
-                   data-parsley-group="block1"
-                   data-parsley-nospaces
-                   data-parsley-ssn/>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="email-address">Email Address *</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="email-address" class="form-control" id="email-address"
-                   placeholder="Student's Email Address" style="margin-bottom: 15px;"
-                   data-parsley-trigger="change" required
-                   data-parsley-group="block1"
-                   data-parsley-type="email"/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="confirm-email-address">Confirm Email Address *</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input class="form-control" name="confirm-email-address" id="confirm-email-address"
-                   style="margin-bottom: 15px;"
-                   data-parsley-trigger="change" required data-parsley-equalto="#email-address"
-                   data-parsley-error-message="This field should match your Email Address"
-                   data-parsley-group="block1"
-                   data-parsley-type="email"/>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="birthdate">Birthdate *</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input class="form-control dateinput" name="birthdate" id="birthdate" data-date-format="mm-dd-yyyy"
-                   data-parsley-trigger="change" required placeholder="mm-dd-yyyy"
-                   data-parsley-group="block1"
-                   data-parsley-date/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-5">
-            <label for="gender">Gender *</label>
-        </div>
-        <div class="col-md-7 field-container">
-            <select class="form-control" name="gender" id="gender" required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option>M</option>
-                <option>F</option>
-            </select>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-4 ">
-            <label for="current-grade">Current Grade *</label>
-        </div>
-        <div class="col-md-8 field-container">
-            <select class="form-control" name="current-grade" id="current-grade" required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-            </select>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="home-phone-number">Home Phone Number *</label>
-        </div>
-    </td>
+    <div class="table-responsive">
+        <table class="table table-bordered">
+            <tbody>
+            <tr>
+                <td colspan="4">
+                    <div class="alert alert-info">
+                        Please enter your student's name as it appears on their <strong>Legal Birth
+                        Certificate</strong>
+                        or
+                        other <strong>Legal Document</strong>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-td width-td">
+                    <!-- Override margin here so input margins are the only margins applied to this row -->
+                    <div class="col-md-12">
+                        <label for="first-name">Name *</label>
+                    </div>
+                </td>
+                <td class="width-td">
+                    <div class="col-md-12 field-container">
+                        <input type="text" name="first-name" class="form-control" id="first-name"
+                               placeholder="First Name"
+                               required
+                               data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-danglingspaces/>
+                    </div>
+                </td>
+                <td class="width-td">
+                    <div class="col-md-12 field-container">
+                        <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
+                               data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-danglingspaces/>
+                    </div>
+                </td>
+                <td class="width-td">
+                    <div class="col-md-12 field-container">
+                        <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
+                               data-parsley-trigger="change" required
+                               data-parsley-group="block1"
+                               data-parsley-danglingspaces/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="nick-name">Nick Name</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-12 field-container">
+                        <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
+                               data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-alpha
+                               data-parsley-nospaces/>
+                    </div>
+                </td>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="student-ssn">Social Security Number</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-12 field-container">
+                        <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
+                               style="width: 100%;" data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-nospaces
+                               data-parsley-ssn/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="email-address">Student's Email Address *</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-12 field-container">
+                        <input name="email-address" class="form-control" id="email-address"
+                               placeholder="Student's Email Address" style="margin-bottom: 15px;"
+                               data-parsley-trigger="change" required
+                               data-parsley-group="block1"
+                               data-parsley-type="email"/>
+                    </div>
+                </td>
+                <td class="label-td">
+                    <div class="col-md-5">
+                        <label for="gender">Gender *</label>
+                    </div>
+                    <div class="col-md-7 field-container">
+                        <select class="form-control" name="gender" id="gender" required
+                                data-parsley-trigger="change"
+                                data-parsley-group="block1">
+                            <option></option>
+                            <option>M</option>
+                            <option>F</option>
+                        </select>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-4 ">
+                        <label for="current-grade">Current Grade *</label>
+                    </div>
+                    <div class="col-md-8 field-container">
+                        <select class="form-control" name="current-grade" id="current-grade" required
+                                data-parsley-trigger="change"
+                                data-parsley-group="block1">
+                            <option></option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="birthdate">Birthdate *</label>
+                    </div>
+                </td>
+                <td>
 
-    <td>
-        <div class="col-md-12 field-container">
-            <input class="form-control" name="home-phone-number" id="home-phone-number"
-                   placeholder="###-###-####"
-                   required data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-phonenum/>
-        </div>
-    </td>
+                    <div class="col-md-12 field-container">
+                        <input class="form-control dateinput" name="birthdate" id="birthdate"
+                               data-date-format="mm-dd-yyyy"
+                               data-parsley-trigger="change" required placeholder="mm-dd-yyyy"
+                               data-parsley-group="block1"
+                               data-parsley-date/>
+                    </div>
+                </td>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="home-phone-number">Home Phone Number *</label>
+                    </div>
+                </td>
+                <td class="label-td">
+                    <div class="col-md-12 field-container">
+                        <input class="form-control" name="home-phone-number" id="home-phone-number"
+                               placeholder="###-###-####"
+                               required data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-phonenum/>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="parent-cell-number">Parent Cell Phone</label>
+                    </div>
+                </td>
 
-    <td class="label-td">
-        <div class="col-md-12">
-            <label>Is this phone number unlisted? *</label>
-        </div>
-    </td>
+                <td>
+                    <div class="col-md-12 field-container">
+                        <input class="form-control" name="parent-cell-number" id="parent-cell-number"
+                               placeholder="###-###-####"
+                               style="width: 100%;" required data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-phoneNum/>
+                    </div>
+                </td>
 
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="unlisted" id="unlisted-yes" type="radio" data-parsley-multiple="unlisted"
-                   required data-parsley-group="block1"/>
-            <label for="unlisted-yes">Yes</label>
-
-            <input name="unlisted" id="unlisted-no" type="radio" data-parsley-multiple="unlisted"
-                   data-parsley-group="block1"/>
-            <label for="unlisted-no">No</label>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="student-cell-number">Student Cell Phone</label>
-        </div>
-    </td>
-    <td class="right-border">
-        <div class="col-md-12 field-container">
-            <input class="form-control" name="student-cell-number" id="student-cell-number"
-                   placeholder="###-###-####"
-                   style="width: 100%;" required data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-phoneNum/>
-        </div>
-    </td>
-</tr>
-</tbody>
-</table>
-</div>
-<!-- end .table-responsive -->
+                <td class="label-td">
+                    <div class="col-md-12">
+                        <label for="student-cell-number">Student Cell Phone</label>
+                    </div>
+                </td>
+                <td>
+                    <div class="col-md-12 field-container">
+                        <input class="form-control" name="student-cell-number" id="student-cell-number"
+                               placeholder="###-###-####"
+                               style="width: 100%;" required data-parsley-trigger="change"
+                               data-parsley-group="block1"
+                               data-parsley-phoneNum/>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- end .table-responsive -->
 </div>
 <!-- end .panel-body -->
 </div>
@@ -466,22 +446,10 @@
                     </td>
                 </tr>
                 <tr>
-                    <td class="label-td">
-                        <div class="col-md-12">
-                            <label for="school-boundaries">Is this address within current school boundaries?</label>
-                        </div>
-                    </td>
-                    <td>
-                        <div class="col-md-12 field-container">
-                            <input name="school-boundaries" id="school-boundaries-yes" type="radio"
-                                   data-parsley-multiple="school-boundaries" required
-                                   data-parsley-group="block1"/>
-                            <label for="school-boundaries-yes">Yes</label>
-
-                            <input name="school-boundaries" id="school-boundaries-no" type="radio"
-                                   data-parsley-multiple="school-boundaries"
-                                   data-parsley-group="block1"/>
-                            <label for="school-boundaries-no">No</label>
+                    <td colspan="4">
+                        <div class="alert alert-info">
+                            If your resident address is outside <a href="#">school boundaries</a>, you will need to
+                            fill out and return a <strong>School Relocation Form</strong> to the District Office.
                         </div>
                     </td>
                 </tr>
@@ -1951,7 +1919,7 @@
 
 <div class="form-group col-md-12" style="overflow: auto;">
     <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title">Sibling(s)</h3></div>
+        <div class="panel-heading"><h3 class="panel-title">School Age Sibling(s)</h3></div>
         <div class="panel-body">
             <div class="table-responsive" style="width: 100%;">
                 <table id="siblings-table" class="table">
