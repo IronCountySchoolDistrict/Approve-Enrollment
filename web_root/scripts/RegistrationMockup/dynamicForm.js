@@ -80,6 +80,11 @@ define(['validate'], function (validate) {
                 $('#bilingual-neither'),
                 $('#bilingual-esl, #bilingual-bilingual')
             );
+
+            this._disableOtherCheckboxes(
+                $('#part-time-neither'),
+                $('#part-time-private-school, #part-time-home-school')
+            );
         },
 
         /**
@@ -118,31 +123,42 @@ define(['validate'], function (validate) {
             hideElem.on('click', function (event) {
                 event.stopPropagation();
                 if (duration) {
-                    $(targetElem).fadeOut(duration);
+                    $(targetElem).fadeOut(duration, function () {
+                        validate.removeRequiredField(targetElem);
+                    });
 
                     // Remove help span if still shown
                     if (targetElem.next()) {
-                        targetElem.next().fadeOut(duration);
+                        targetElem.next().fadeOut(duration, function () {
+                            validate.removeRequiredField(targetElem);
+                        });
                     }
                 } else {
-                    $(targetElem).fadeOut();
+                    $(targetElem).fadeOut(function () {
+                        validate.removeRequiredField(targetElem);
+                    });
 
                     // Remove help span if still shown
                     if (targetElem.next()) {
-                        targetElem.next().fadeOut();
+                        targetElem.next().fadeOut(function () {
+                            validate.removeRequiredField(targetElem);
+                        });
                     }
                 }
-                validate.removeRequiredField(targetElem);
             });
 
             showElem.on('click', function (event) {
                 event.stopPropagation();
                 if (duration) {
-                    $(targetElem).fadeIn(duration);
+                    $(targetElem).fadeIn(duration, function () {
+                        validate.addRequiredField(targetElem);
+                    });
                 } else {
-                    $(targetElem).fadeIn();
+                    $(targetElem).fadeIn(function () {
+                        validate.addRequiredField(targetElem);
+                    });
                 }
-                validate.addRequiredField(targetElem);
+
             });
         },
 

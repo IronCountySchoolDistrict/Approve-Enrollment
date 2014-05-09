@@ -682,10 +682,6 @@
                 </td>
                 <td>
                     <div class="col-md-12 field-container">
-                        <!--
-                        <input class="form-control multiselect" name="completed-grades-label" id="completed-grades"
-                               style="display: none;"/>
-                        -->
                         <select id="completed-grades" class="multiselect" multiple="multiple"
                                 data-parsley-completedgrades
                                 data-parsley-trigger="change"
@@ -1262,7 +1258,8 @@
             <input name="corres-lang" id="corres-lang-other" type="radio"/>
             <label for="corres-lang-other">Other</label>
             <input style="display: none;" class="form-control" name="corres-lang-other-text" id="corres-lang-other-text"
-                   placeholder="Language of correspondence"/>
+                   placeholder="Language of correspondence"
+                   data-parsley-group="block1"/>
         </div>
     </td>
 </tr>
@@ -1941,16 +1938,6 @@
 </table>
 </div>
 <!-- end .table-responsive -->
-<!--
-<div id="emerg-cont-control"
-     style="display: table-cell; padding-left: 15px; vertical-align: top;">
-    <div style="height: 38px;" class="add-row-div">
-        <div style="top: 50%; position: relative; margin-top: -10px;">
-            <span style="cursor: pointer;" id="add-emerg-cont-span" class="glyphicon glyphicon-plus"></span>
-        </div>
-    </div>
-</div>
--->
 </div>
 <!-- end .panel-body -->
 </div>
@@ -2031,12 +2018,6 @@
                     </tbody>
                 </table>
             </div>
-            <!--
-            <div id="siblings-control"
-                 style="display: table-cell; padding-left: 15px; vertical-align: top; padding-top: 7px;">
-                <span style="cursor: pointer;" id="add-sibling-span" class="glyphicon glyphicon-plus"></span>
-            </div>
-            -->
         </div>
         <!-- end .panel-body -->
     </div>
@@ -2129,7 +2110,7 @@
                     </div>
                     <div class="col-md-1">
                         <label style="display: none;" id="part-time-student-label" for="part-time-student">
-                            If Yes:
+                            Reason for Part-Time enrollment:
                         </label>
                     </div>
                     <div class="col-md-5 field-container" id="part-time-options-div" style="display: none;">
@@ -2356,7 +2337,7 @@
                             </div>
                             <div class="col-md-4 field-container">
                                 <input name="special-ed-services" id="special-ed-services-yes" type="radio" required
-                                        data-parsley-group="block5"/>
+                                       data-parsley-group="block5"/>
                                 <label for="special-ed-services-yes">Yes</label>
                                 <input name="special-ed-services" id="special-ed-services-no" type="radio"/>
                                 <label for="special-ed-services-no">No</label>
@@ -2488,8 +2469,8 @@
                     <div class="col-md-6 field-container">
                         <div>
                             <input name="med-diabetes" id="med-diabetes-yes" type="radio"
-                                    required
-                                    data-parsley-group="block6"/>
+                                   required
+                                   data-parsley-group="block6"/>
                             <label for="med-diabetes-yes">Yes</label>
                             <input name="med-diabetes" id="med-diabetes-no" type="radio"/>
                             <label for="med-diabetes-no">No</label>
@@ -2608,7 +2589,8 @@
             <tr>
                 <td>
                     <div class="col-md-6" style="padding-right: 10px;">
-                        <label for="med-require-meds">Does your student require medication? <span class="required-field-ast">*</span></label>
+                        <label for="med-require-meds">Does your student require medication? <span
+                                class="required-field-ast">*</span></label>
                     </div>
                     <div class="col-md-6 field-container">
                         <input name="med-require-meds" id="med-require-meds-yes" type="radio"
@@ -2741,7 +2723,8 @@
                 <td colspan="2">
                     <div class="col-md-12">
                         <label for="medical-info">I give permission to release medical information necessary for the
-                            care of my student to physician listed above <span class="required-field-ast">*</span></label>
+                            care of my student to physician listed above <span
+                                    class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td colspan="2">
@@ -2808,7 +2791,8 @@
                             <div class="col-md-12">
                                 <label for="student-directory">I give my permission for my student’s name, address and
                                     telephone
-                                    number to be listed in the school directory <span class="required-field-ast">*</span></label>
+                                    number to be listed in the school directory <span
+                                            class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -2826,7 +2810,8 @@
                         <td>
                             <div class="col-md-12">
                                 <label for="media-full-name">I give permission for my child's full name to be listed in
-                                    newspapers, websites, television, etc. <span class="required-field-ast">*</span></label>
+                                    newspapers, websites, television, etc. <span
+                                            class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -3165,26 +3150,12 @@
     </div>
 </td>
 <td class="noborder-td">
-            <span data-index="<%= index %>" style="cursor: pointer;"
-                  class="remove-emerg-cont-span glyphicon glyphicon-minus"></span>
+    <span data-index="<%= index %>" style="cursor: pointer;"
+          class="remove-emerg-cont-span glyphicon glyphicon-minus"></span>
 </td>
 </tr>
 </script>
 <!-- end table row templates -->
-
-<!-- start button templates -->
-<script type="text/template" id="sibling-button-template">
-    <span data-index="<%= index %>" id="remove-sibling<%= index %>" style="cursor: pointer;"
-          class="remove-sibling-span glyphicon glyphicon-minus"></span>
-</script>
-<script type="text/template" id="emerg-cont-button-template">
-    <div style="height: 38px;" class="remove-row-div">
-        <div style="top: 50%; position: relative; margin-top: -10px;">
-            <span style="cursor: pointer;" class="remove-emerg-cont-span glyphicon glyphicon-minus"></span>
-        </div>
-    </div>
-</script>
-<!-- end button templates -->
 <script type="text/template" id="priority-option-template">
     <option value="<%= index %>"><%= index %></option>
 </script>
