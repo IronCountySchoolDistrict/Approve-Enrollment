@@ -21,7 +21,8 @@ define(['validate'], function (validate) {
                 $('#safe-school-violation-no'),
                 $('#safe-school-violation-yes'),
                 $('#safe-school-violation-explanation-label, #safe-school-violation-explanation'),
-                400
+                400,
+                $('#safe-school-violation-explanation')
             );
 
             // Language of correspondence
@@ -118,9 +119,20 @@ define(['validate'], function (validate) {
                 event.stopPropagation();
                 if (duration) {
                     $(targetElem).fadeOut(duration);
+
+                    // Remove help span if still shown
+                    if (targetElem.next()) {
+                        targetElem.next().fadeOut(duration);
+                    }
                 } else {
                     $(targetElem).fadeOut();
+
+                    // Remove help span if still shown
+                    if (targetElem.next()) {
+                        targetElem.next().fadeOut();
+                    }
                 }
+                validate.removeRequiredField(targetElem);
             });
 
             showElem.on('click', function (event) {
@@ -130,6 +142,7 @@ define(['validate'], function (validate) {
                 } else {
                     $(targetElem).fadeIn();
                 }
+                validate.addRequiredField(targetElem);
             });
         },
 
@@ -144,7 +157,7 @@ define(['validate'], function (validate) {
          * @param targetElem {String} - selector that will contain the elements that will be hidden or shown when hideElem or showElem is selected, respectively.
          * @param duration {Number} [duration=400] - Length of fadeIn and fadeOut animation duration.
          * @param [requiredField] {jQuery} - a form field that is required when shown, but optional when hidden.
-         *   If field is shown, make it required by calling validate.addRequiredField. If field is hidden, remove it from required fields by calling validate.removeRequiredField.
+         *   When field is shown, make it required by calling validate.addRequiredField. When field is hidden, remove it from required fields by calling validate.removeRequiredField.
          * @private
          */
         _hideShowFormElementRadioDelegate: function (hideElem, showElem, targetElem, duration, requiredField) {
@@ -156,8 +169,10 @@ define(['validate'], function (validate) {
                     $(document).find(targetElem).fadeOut();
                 }
 
-                // Field is hidden, so make it an optional field
-                validate.removeRequiredField(requiredField);
+                if (requiredField) {
+                    // Field is hidden, so make it an optional field
+                    validate.removeRequiredField(requiredField);
+                }
             });
 
             $(document).on('click', showElem, function (event) {
@@ -167,8 +182,11 @@ define(['validate'], function (validate) {
                 } else {
                     $(document).find(targetElem).fadeIn();
                 }
-                // Field is shown, so make it a required field
-                validate.addRequiredField(requiredField);
+
+                if (requiredField) {
+                    // Field is shown, so make it a required field
+                    validate.addRequiredField(requiredField);
+                }
             });
 
         },
@@ -180,15 +198,31 @@ define(['validate'], function (validate) {
          * @param {Object} toggleElem - DOM element that will toggle the targetElem.
          * @param {Object} targetElem - DOM element(s) that will be hidden or shown when toggleElem is clicked.
          * @param {Number} [duration=400] - Length of fadeIn and fadeOut animation duration.
+         * @param [requiredField] {jQuery} - a form field that is required when shown, but optional when hidden.
+         *   When field is shown, make it required by calling validate.addRequiredField. When field is hidden, remove it from required fields by calling validate.removeRequiredField.
          * @private
          * @returns {undefined}
          */
-        _hideShowFormElementCheckbox: function (toggleElem, targetElem, duration) {
+        _hideShowFormElementCheckbox: function (toggleElem, targetElem, duration, requiredField) {
             toggleElem.on('click', function () {
                 if (duration) {
-                    $(targetElem).fadeToggle(duration);
+                    $(targetElem).fadeToggle(duration, function () {
+                        var targetElemDisplay = targetElem.css('display');
+                        if (targetElemDisplay === 'none') {
+                            validate.removeRequiredField(targetElem);
+                        } else if (targetElemDisplay === 'inline-block') {
+                            validate.addRequiredField(targetElem);
+                        }
+                    });
                 } else {
-                    $(targetElem).fadeToggle();
+                    $(targetElem).fadeToggle(function () {
+                        var targetElemDisplay = targetElem.css('display');
+                        if (targetElemDisplay === 'none') {
+                            validate.removeRequiredField(targetElem);
+                        } else if (targetElemDisplay === 'inline-block') {
+                            validate.addRequiredField(targetElem);
+                        }
+                    });
                 }
             });
         }

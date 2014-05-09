@@ -1324,7 +1324,8 @@
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Emergency Contacts</h3></div>
 <div class="panel-body" style="padding-right: 5px;">
-<div class="alert alert-info alert-dismissable" style="margin-right: 8px;">At least 3 contacts are required. More contacts can be added by click on
+<div class="alert alert-info alert-dismissable" style="margin-right: 8px;">At least 3 contacts are required. More
+    contacts can be added by click on
     the green plus to the right.
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 </div>
@@ -2054,12 +2055,14 @@
                     <tr>
                         <td style="width: 50%">
                             <div class="col-md-6">
-                                <label for="utah-resident">Utah Resident?</label>
+                                <label for="utah-resident">Utah Resident? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
-                            <div class="col-md-6">
-                                <input name="utah-resident" id="utah-resident-yes" type="radio"/>
+                            <div class="col-md-6 field-container">
+                                <input name="utah-resident" id="utah-resident-yes" type="radio" required
+                                       data-parsley-group="block3"/>
                                 <label for="utah-resident-yes">Yes</label>
 
                                 <input name="utah-resident" id="utah-resident-no" type="radio"/>
@@ -2070,12 +2073,14 @@
                     <tr>
                         <td>
                             <div class="col-md-6">
-                                <label for="district-resident">District Resident?</label>
+                                <label for="district-resident">District Resident? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
-                            <div class="col-md-6">
-                                <input name="district-resident" id="district-resident-yes" type="radio"/>
+                            <div class="col-md-6 field-container">
+                                <input name="district-resident" id="district-resident-yes" type="radio" required
+                                       data-parsley-group="block3"/>
                                 <label for="district-resident-yes">Yes</label>
 
                                 <input name="district-resident" id="district-resident-no" type="radio"/>
@@ -2086,12 +2091,15 @@
                     <tr>
                         <td>
                             <div class="col-md-6">
-                                <label for="immunizations-complete">Immunizations Complete?</label>
+                                <label for="immunizations-complete">Immunizations Complete? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
-                            <div class="col-md-6">
-                                <input name="immunizations-complete" id="immunizations-complete-yes" type="radio"/>
+                            <div class="col-md-6 field-container">
+                                <input name="immunizations-complete" id="immunizations-complete-yes" type="radio"
+                                       required
+                                       data-parsley-group="block3"/>
                                 <label for="immunizations-complete-yes">Yes</label>
 
                                 <input name="immunizations-complete" id="immunizations-complete-no" type="radio"/>
@@ -2107,18 +2115,22 @@
             <div class="panel-body">
                 <div class="form-group col-md-12">
                     <div class="col-md-3">
-                        <label for="part-time">Will this student attend school Part-Time?</label>
+                        <label for="part-time">Will this student attend school Part-Time?
+                            <span class="required-field-ast">*</span>
+                        </label>
                     </div>
                     <div class="col-md-3 field-container">
-                        <input name="part-time" id="part-time-yes" type="radio"/>
+                        <input name="part-time" id="part-time-yes" type="radio" required
+                               data-parsley-group="block3"/>
                         <label for="part-time-yes">Yes</label>
 
                         <input name="part-time" id="part-time-no" type="radio"/>
                         <label for="part-time-no">No</label>
                     </div>
                     <div class="col-md-1">
-                        <label style="display: none;" id="part-time-student-label" for="part-time-student">If
-                            Yes:</label>
+                        <label style="display: none;" id="part-time-student-label" for="part-time-student">
+                            If Yes:
+                        </label>
                     </div>
                     <div class="col-md-5 field-container" id="part-time-options-div" style="display: none;">
                         <div>
@@ -2159,10 +2171,11 @@
                 </div>
                 <div class="form-group col-md-12">
                     <div class="col-md-3">
-                        <label for="refugee-student">Refugee Student</label>
+                        <label for="refugee-student">Refugee Student? <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-3">
-                        <input name="refugee-student" id="refugee-student-yes" type="radio"/>
+                    <div class="col-md-3 field-container">
+                        <input name="refugee-student" id="refugee-student-yes" type="radio" required
+                               data-parsley-group="block3"/>
                         <label for="refugee-student-yes">Yes</label>
 
                         <input name="refugee-student" id="refugee-student-no" type="radio"/>
@@ -2188,11 +2201,12 @@
                     regardless of race.
                 </div>
                 <div class="col-md-6">
-                    <label for="hisp-latino">Is this student Hispanic/Latino?</label>
+                    <label for="hisp-latino">Is this student Hispanic/Latino? <span class="required-field-ast">*</span></label>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 field-container">
                     <div>
-                        <input name="hisp-latino" id="hisp-latino-yes" type="radio"/>
+                        <input name="hisp-latino" id="hisp-latino-yes" type="radio" required
+                               data-parsley-group="block4"/>
                         <label for="hisp-latino-yes">Yes</label>
                     </div>
                     <div>
@@ -2215,8 +2229,13 @@
     <div class="form-group col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Part B</h3></div>
-            <div class="panel-body">
+            <div class="panel-body field-container">
                 <table class="table table-bordered">
+                    <tr>
+                        <td>
+                            <label>What is your student's ethnicity? <span class="required-field-ast">*</span></label>
+                        </td>
+                    </tr>
                     <tr>
                         <td>
                             <div class="alert alert-info col-md-12">
@@ -2225,7 +2244,8 @@
                                 Europe, the Middle East, or North Africa.
                             </div>
                             <div class="col-md-12" style="margin-bottom: 20px;">
-                                <input name="race" id="white" type="checkbox"/>
+                                <input name="race" id="white" type="checkbox" required
+                                       data-parsley-group="block4"/>
                                 <label for="white">White</label>
                             </div>
                         </td>
@@ -2241,7 +2261,8 @@
                             </div>
                             <div class="col-md-12" style="margin-bottom: 20px;">
                                 <div class="col-md-6" style="padding-left: 0px;">
-                                    <input name="race" id="american-ind-alaska" type="checkbox"/>
+                                    <input name="race" id="american-ind-alaska" type="checkbox"
+                                           data-parsley-group="block4"/>
                                     <label for="american-ind-alaska">American Indian/Alaska Native</label>
                                 </div>
                                 <div class="col-md-3">
@@ -2250,7 +2271,8 @@
                                 </div>
                                 <div class="col-md-3">
                                     <select name="tribal-affil" class="form-control" style="display: none;"
-                                            id="tribal-affil">
+                                            id="tribal-affil"
+                                            data-parsley-group="block4">
                                         <option></option>
                                         <option>Goshute</option>
                                         <option>Navajo</option>
@@ -2275,7 +2297,8 @@
                                 and Vietnam.
                             </div>
                             <div class="col-md-12" style="margin-bottom: 20px;">
-                                <input name="race" id="asian" type="checkbox"/>
+                                <input name="race" id="asian" type="checkbox"
+                                       data-parsley-group="block4"/>
                                 <label for="asian">Asian</label>
                             </div>
                         </td>
@@ -2288,7 +2311,8 @@
                                 of Africa.
                             </div>
                             <div class="col-md-12" style="margin-bottom: 20px;">
-                                <input name="race" id="black" type="checkbox"/>
+                                <input name="race" id="black" type="checkbox"
+                                       data-parsley-group="block4"/>
                                 <label for="black">Black</label>
                             </div>
                         </td>
@@ -2301,7 +2325,8 @@
                                 peoples of Hawaii, Guam, Samoa, Tonga, or other Pacific Islands
                             </div>
                             <div class="col-md-12" style="margin-bottom: 20px;">
-                                <input name="race" id="pacific-islander" type="checkbox"/>
+                                <input name="race" id="pacific-islander" type="checkbox"
+                                       data-parsley-group="block4"/>
                                 <label for="pacific-islander">Pacific Islander</label>
                             </div>
                         </td>
@@ -2327,10 +2352,11 @@
                         <td>
                             <div class="col-md-8">
                                 <label for="special-ed-services">Has student received special education
-                                    services?</label>
+                                    services? <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="special-ed-services" id="special-ed-services-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="special-ed-services" id="special-ed-services-yes" type="radio" required
+                                        data-parsley-group="block5"/>
                                 <label for="special-ed-services-yes">Yes</label>
                                 <input name="special-ed-services" id="special-ed-services-no" type="radio"/>
                                 <label for="special-ed-services-no">No</label>
@@ -2339,10 +2365,11 @@
                         <td>
                             <div class="col-md-8">
                                 <label for="speech-lang-services">Has student received speech and/or language
-                                    services?</label>
+                                    services? <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="speech-lang-services" id="speech-lang-services-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="speech-lang-services" id="speech-lang-services-yes" type="radio" required
+                                       data-parsley-group="block5"/>
                                 <label for="speech-lang-services-yes">Yes</label>
                                 <input name="speech-lang-services" id="speech-lang-services-no" type="radio"/>
                                 <label for="speech-lang-services-no">No</label>
@@ -2352,10 +2379,12 @@
                     <tr>
                         <td>
                             <div class="col-md-8">
-                                <label for="504-services">Has student received 504 services?</label>
+                                <label for="504-services">Has student received 504 services? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="504-services" id="504-services-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="504-services" id="504-services-yes" type="radio" required
+                                       data-parsley-group="block5"/>
                                 <label for="504-services-yes">Yes</label>
                                 <input name="504-services" id="504-services-no" type="radio"/>
                                 <label for="504-services-no">No</label>
@@ -2366,10 +2395,11 @@
                                 <label for="foster-ward-student">Student is a Foster Child or Ward of the State (For
                                     fee
                                     waiver
-                                    information)</label>
+                                    information) <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="foster-ward-student" id="foster-ward-student-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="foster-ward-student" id="foster-ward-student-yes" type="radio" required
+                                       data-parsley-group="block5"/>
                                 <label for="foster-ward-student-yes">Yes</label>
                                 <input name="foster-ward-student" id="foster-ward-student-no" type="radio"/>
                                 <label for="foster-ward-student-no">No</label>
@@ -2379,10 +2409,12 @@
                     <tr>
                         <td>
                             <div class="col-md-8">
-                                <label for="juvenile-probation">Is student in Juvenile Probation?</label>
+                                <label for="juvenile-probation">Is student in Juvenile Probation? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="juvenile-probation" id="juvenile-probation-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="juvenile-probation" id="juvenile-probation-yes" type="radio" required
+                                       data-parsley-group="block5"/>
                                 <label for="juvenile-probation-yes">Yes</label>
                                 <input name="juvenile-probation" id="juvenile-probation-no" type="radio"/>
                                 <label for="juvenile-probation-no">No</label>
@@ -2391,10 +2423,11 @@
                         <td>
                             <div class="col-md-6">
                                 <label for="other-info">Other information necessary for appropriate educational
-                                    placement</label>
+                                    placement <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-6">
-                                <textarea class="form-control" id="other-info" name="other-info"></textarea>
+                            <div class="col-md-6 field-container">
+                                <textarea class="form-control" id="other-info" name="other-info"
+                                          data-parsley-group="block5"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -2404,10 +2437,12 @@
                                 <label id="safe-school-violation" for="safe-school-violation">Has student been
                                     previously
                                     suspended or expelled from school
-                                    for a safe school violation?</label>
+                                    for a safe school violation? <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-4">
-                                <input name="safe-school-violation" id="safe-school-violation-yes" type="radio"/>
+                            <div class="col-md-4 field-container">
+                                <input name="safe-school-violation" id="safe-school-violation-yes" type="radio"
+                                       required
+                                       data-parsley-group="block5"/>
                                 <label for="safe-school-violation-yes">Yes</label>
                                 <input name="safe-school-violation" id="safe-school-violation-no" type="radio"/>
                                 <label for="safe-school-violation-no">No</label>
@@ -2419,10 +2454,12 @@
                                        id="safe-school-violation-explanation-label"
                                        style="display: none;">Please explain</label>
                             </div>
-                            <div class="col-md-6">
+                            <div class="col-md-6 field-container">
                                 <textarea class="form-control" name="safe-school-violation-explanation"
                                           id="safe-school-violation-explanation"
-                                          style="display: none;"></textarea>
+                                          style="display: none;"
+                                          required
+                                          data-parsley-group="block5"></textarea>
                             </div>
                         </td>
                     </tr>
@@ -2446,11 +2483,13 @@
             <tr>
                 <td style="width: 33.333333333%">
                     <div class="col-md-6">
-                        <label for="med-diabetes">Diabetes</label>
+                        <label for="med-diabetes">Diabetes <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 field-container">
                         <div>
-                            <input name="med-diabetes" id="med-diabetes-yes" type="radio"/>
+                            <input name="med-diabetes" id="med-diabetes-yes" type="radio"
+                                    required
+                                    data-parsley-group="block6"/>
                             <label for="med-diabetes-yes">Yes</label>
                             <input name="med-diabetes" id="med-diabetes-no" type="radio"/>
                             <label for="med-diabetes-no">No</label>
@@ -2459,10 +2498,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-heart">Heart</label>
+                        <label for="med-heart">Heart <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-heart" id="med-heart-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-heart" id="med-heart-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-heart-yes">Yes</label>
                         <input name="med-heart" id="med-heart-no" type="radio"/>
                         <label for="med-heart-no">No</label>
@@ -2470,10 +2511,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-seizures">Seizures</label>
+                        <label for="med-seizures">Seizures <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-seizures" id="med-seizures-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-seizures" id="med-seizures-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-seizures-yes">Yes</label>
                         <input name="med-seizures" id="med-seizures-no" type="radio"/>
                         <label for="med-seizures-no">No</label>
@@ -2483,10 +2526,12 @@
             <tr>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-add-adhd">ADD/ADHD</label>
+                        <label for="med-add-adhd">ADD/ADHD <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-add-adhd" id="med-add-adhd-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-add-adhd" id="med-add-adhd-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-add-adhd-yes">Yes</label>
                         <input name="med-add-adhd" id="med-add-adhd-no" type="radio"/>
                         <label for="med-add-adhd-no">No</label>
@@ -2494,10 +2539,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-hearing">Hearing Impairment</label>
+                        <label for="med-hearing">Hearing Impairment <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-hearing" id="med-hearing-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-hearing" id="med-hearing-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-hearing-yes">Yes</label>
                         <input name="med-hearing" id="med-hearing-no" type="radio"/>
                         <label for="med-hearing-no">No</label>
@@ -2505,10 +2552,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-vision">Visual Impairment</label>
+                        <label for="med-vision">Visual Impairment <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-vision" id="med-vision-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-vision" id="med-vision-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-vision-yes">Yes</label>
                         <input name="med-vision" id="med-vision-no" type="radio"/>
                         <label for="med-vision-no">No</label>
@@ -2518,10 +2567,12 @@
             <tr>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-glasses">Wears Glasses</label>
+                        <label for="med-glasses">Wears Glasses <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-glasses" id="med-glasses-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-glasses" id="med-glasses-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-glasses-yes">Yes</label>
                         <input name="med-glasses" id="med-glasses-no" type="radio"/>
                         <label for="med-glasses-no">No</label>
@@ -2529,10 +2580,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-asthma">Asthma</label>
+                        <label for="med-asthma">Asthma <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-asthma" id="med-asthma-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-asthma" id="med-asthma-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-asthma-yes">Yes</label>
                         <input name="med-asthma" id="med-asthma-no" type="radio"/>
                         <label for="med-asthma-no">No</label>
@@ -2540,10 +2593,12 @@
                 </td>
                 <td>
                     <div class="col-md-6">
-                        <label for="med-allergies">Allergies</label>
+                        <label for="med-allergies">Allergies <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-allergies" id="med-allergies-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-allergies" id="med-allergies-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-allergies-yes">Yes</label>
                         <input name="med-allergies" id="med-allergies-no" type="radio"/>
                         <label for="med-allergies-no">No</label>
@@ -2552,11 +2607,13 @@
             </tr>
             <tr>
                 <td>
-                    <div class="col-md-6">
-                        <label for="med-require-meds">Does your student require medication?</label>
+                    <div class="col-md-6" style="padding-right: 10px;">
+                        <label for="med-require-meds">Does your student require medication? <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-require-meds" id="med-require-meds-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-require-meds" id="med-require-meds-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-require-meds-yes">Yes</label>
                         <input name="med-require-meds" id="med-require-meds-no" type="radio"/>
                         <label for="med-require-meds-no">No</label>
@@ -2565,11 +2622,12 @@
                 <td colspan="2">
                     <div class="col-md-3">
                         <label id="medications-label" for="medications"
-                               style="display: none;">Medications</label>
+                               style="display: none;">Medications <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 field-container">
                         <textarea class="form-control" id="medications" name="medications"
-                                  style="display: none;"></textarea>
+                                  style="display: none;"
+                                  data-parsley-group="block6"></textarea>
                     </div>
                 </td>
             </tr>
@@ -2579,10 +2637,12 @@
                         <label id="med-other-label" for="med-other">Are there any other medical conditions or
                             services
                             needed at
-                            school?</label>
+                            school? <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-6">
-                        <input name="med-other" id="med-other-yes" type="radio"/>
+                    <div class="col-md-6 field-container">
+                        <input name="med-other" id="med-other-yes" type="radio"
+                               required
+                               data-parsley-group="block6"/>
                         <label for="med-other-yes">Yes</label>
                         <input name="med-other" id="med-other-no" type="radio"/>
                         <label for="med-other-no">No</label>
@@ -2592,11 +2652,12 @@
                     <div class="col-md-3">
                         <label id="add-med-services-label" for="add-med-services" style="display: none;">Additional
                             medical
-                            conditions or needed services</label>
+                            conditions or needed services <span class="required-field-ast">*</span></label>
                     </div>
-                    <div class="col-md-9">
+                    <div class="col-md-9 field-container">
                         <textarea class="form-control" id="add-med-services" name="add-med-services"
-                                  style="display: none;"></textarea>
+                                  style="display: none;"
+                                  data-parsley-group="block6"></textarea>
                     </div>
                 </td>
             </tr>
@@ -2633,7 +2694,7 @@
             <tr>
                 <td class="width-td label-td">
                     <div class="col-md-12">
-                        <label for="physicians-name">Physician's Name</label>
+                        <label for="physicians-name">Physician's Name <span class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td class="width-td">
@@ -2643,7 +2704,7 @@
                 </td>
                 <td class="width-td">
                     <div class="col-md-12">
-                        <label for="physicians-phone">Phone</label>
+                        <label for="physicians-phone">Phone <span class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td class="width-td">
@@ -2656,7 +2717,7 @@
             <tr>
                 <td>
                     <div class="col-md-12">
-                        <label for="dentists-name">Dentist's Name</label>
+                        <label for="dentists-name">Dentist's Name <span class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td>
@@ -2666,7 +2727,7 @@
                 </td>
                 <td>
                     <div class="col-md-12">
-                        <label for="dentists-phone">Phone</label>
+                        <label for="dentists-phone">Phone <span class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td>
@@ -2680,7 +2741,7 @@
                 <td colspan="2">
                     <div class="col-md-12">
                         <label for="medical-info">I give permission to release medical information necessary for the
-                            care of my student to physician listed above</label>
+                            care of my student to physician listed above <span class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td colspan="2">
@@ -2723,7 +2784,7 @@
                         <td style="width: 50%">
                             <div class="col-md-12">
                                 <label for="field-trips">I give permission for my child to go on school field
-                                    trips</label>
+                                    trips <span class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -2747,7 +2808,7 @@
                             <div class="col-md-12">
                                 <label for="student-directory">I give my permission for my student’s name, address and
                                     telephone
-                                    number to be listed in the school directory</label>
+                                    number to be listed in the school directory <span class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -2765,7 +2826,7 @@
                         <td>
                             <div class="col-md-12">
                                 <label for="media-full-name">I give permission for my child's full name to be listed in
-                                    newspapers, websites, television, etc.</label>
+                                    newspapers, websites, television, etc. <span class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -2792,9 +2853,9 @@
             <div class="panel-body">
                 <div class="form-group">
                     <div class="col-md-6">
-                        <label for="policy-aup">I have read and accept the Acceptable Use Policy (<a
-                                href="http://tech.irondistrict.org/sites/default/files/tech/Docs/IronK-5StudAUP.pdf">K-5</a><a
-                                href="http://tech.irondistrict.org/sites/default/files/tech/Docs/Iron6-12StudAUP.pdf">6-12</a></label>
+                        <label for="policy-aup">I have read and accept the Acceptable Use Policy
+                            (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/IronK-5StudAUP.pdf">K-5</a>)
+                            (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/Iron6-12StudAUP.pdf">6-12</a>)</label>
                     </div>
                     <div class="col-md-6">
                         <div>
