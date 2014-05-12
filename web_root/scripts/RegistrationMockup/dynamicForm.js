@@ -30,7 +30,8 @@ define(['validate'], function (validate) {
                 $('#corres-lang-eng'),
                 $('#corres-lang-other'),
                 $('#corres-lang-other-text'),
-                400
+                400,
+                $('corres-lang-other-text')
             );
 
             // Medications
@@ -38,7 +39,8 @@ define(['validate'], function (validate) {
                 $('#med-require-meds-no'),
                 $('#med-require-meds-yes'),
                 $('#medications-label, #medications'),
-                400
+                400,
+                $('#medications')
             );
 
             // Additional medical conditions or needed services
@@ -46,20 +48,23 @@ define(['validate'], function (validate) {
                 $('#med-other-no'),
                 $('#med-other-yes'),
                 $('#add-med-services-label, #add-med-services'),
-                400
+                400,
+                $('add-med-services')
             );
 
             this._hideShowFormElementCheckbox(
                 $('#american-ind-alaska'),
                 $('#tribal-affil-label, #tribal-affil'),
-                400
+                400,
+                $('#tribal-affil')
             );
 
             this._hideShowFormElementRadio(
                 $('#part-time-no'),
                 $('#part-time-yes'),
                 $('#part-time-student-label, #part-time-options-div'),
-                400
+                400,
+                $('#part-time-home-school')
             );
 
             this._hideShowFormElementRadioDelegate(
@@ -116,32 +121,34 @@ define(['validate'], function (validate) {
          * @param {Object} showElem - DOM element that will show the targetElem when selected.
          * @param {Object|Array|jQuery} targetElem - DOM element(s) that will be hidden or shown when hideElem or showElem is selected, respectively.
          * @param {Number} [duration=400] - Length of fadeIn and fadeOut animation duration.
+         * @param [requiredField] {jQuery} - a form field that is required when shown, but optional when hidden.
+         *   When field is shown, make it required by calling validate.addRequiredField. When field is hidden, remove it from required fields by calling validate.removeRequiredField.
          * @private
          * @returns {undefined}
          */
-        _hideShowFormElementRadio: function (hideElem, showElem, targetElem, duration) {
+        _hideShowFormElementRadio: function (hideElem, showElem, targetElem, duration, requiredField) {
             hideElem.on('click', function (event) {
                 event.stopPropagation();
                 if (duration) {
                     $(targetElem).fadeOut(duration, function () {
-                        validate.removeRequiredField(targetElem);
+                        validate.removeRequiredField(requiredField);
                     });
 
                     // Remove help span if still shown
                     if (targetElem.next()) {
                         targetElem.next().fadeOut(duration, function () {
-                            validate.removeRequiredField(targetElem);
+                            validate.removeRequiredField(requiredField);
                         });
                     }
                 } else {
                     $(targetElem).fadeOut(function () {
-                        validate.removeRequiredField(targetElem);
+                        validate.removeRequiredField(requiredField);
                     });
 
                     // Remove help span if still shown
                     if (targetElem.next()) {
                         targetElem.next().fadeOut(function () {
-                            validate.removeRequiredField(targetElem);
+                            validate.removeRequiredField(requiredField);
                         });
                     }
                 }
@@ -151,11 +158,11 @@ define(['validate'], function (validate) {
                 event.stopPropagation();
                 if (duration) {
                     $(targetElem).fadeIn(duration, function () {
-                        validate.addRequiredField(targetElem);
+                        validate.addRequiredField(requiredField);
                     });
                 } else {
                     $(targetElem).fadeIn(function () {
-                        validate.addRequiredField(targetElem);
+                        validate.addRequiredField(requiredField);
                     });
                 }
 
@@ -225,18 +232,18 @@ define(['validate'], function (validate) {
                     $(targetElem).fadeToggle(duration, function () {
                         var targetElemDisplay = targetElem.css('display');
                         if (targetElemDisplay === 'none') {
-                            validate.removeRequiredField(targetElem);
+                            validate.removeRequiredField(requiredField);
                         } else if (targetElemDisplay === 'inline-block') {
-                            validate.addRequiredField(targetElem);
+                            validate.addRequiredField(requiredField);
                         }
                     });
                 } else {
                     $(targetElem).fadeToggle(function () {
                         var targetElemDisplay = targetElem.css('display');
                         if (targetElemDisplay === 'none') {
-                            validate.removeRequiredField(targetElem);
+                            validate.removeRequiredField(requiredField);
                         } else if (targetElemDisplay === 'inline-block') {
-                            validate.addRequiredField(targetElem);
+                            validate.addRequiredField(requiredField);
                         }
                     });
                 }

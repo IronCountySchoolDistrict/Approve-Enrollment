@@ -79,9 +79,11 @@
             display: none;
         }
 
+        /*
         .disabled-nav {
             visibility: hidden;
         }
+        */
 
         #emerg-cont-address-state1, #emerg-cont-address-state2, #emerg-cont-address-state3 {
             color: #999;
@@ -627,6 +629,22 @@
     <div class="panel-heading"><h3 class="panel-title">Birthplace</h3></div>
     <div class="panel-body">
         <table class="table table-bordered">
+            <tr>
+                <td style="width: 50%;" colspan="2">
+                    <div class="col-md-12">
+                        <label for="">Was your student born outside the US? <span class="required-field-ast">*</span></label>
+                    </div>
+                </td>
+                <td colspan="2">
+                    <div class="col-md-12 field-container">
+                        <input name="outside-us" id="outside-us-yes" type="radio" data-parsley-group="block1" required/>
+                        <label for="outside-us-yes">Yes</label>
+
+                        <input name="outside-us" id="outside-us-no" type="radio"/>
+                        <label for="outside-us-no">No</label>
+                    </div>
+                </td>
+            </tr>
             <tr>
                 <td class="width-td">
                     <div class="col-md-12">
@@ -2094,41 +2112,51 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Part-Time</h3></div>
             <div class="panel-body">
-                <div class="form-group col-md-12">
-                    <div class="col-md-3">
-                        <label for="part-time">Will this student attend school Part-Time?
-                            <span class="required-field-ast">*</span>
-                        </label>
-                    </div>
-                    <div class="col-md-3 field-container">
-                        <input name="part-time" id="part-time-yes" type="radio" required
-                               data-parsley-group="block3"/>
-                        <label for="part-time-yes">Yes</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="width: 50%;">
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label for="part-time">Will this student attend school Part-Time?
+                                        <span class="required-field-ast">*</span>
+                                    </label>
+                                </div>
+                                <div class="col-md-6 field-container">
+                                    <input name="part-time" id="part-time-yes" type="radio" required
+                                           data-parsley-group="block3"/>
+                                    <label for="part-time-yes">Yes</label>
 
-                        <input name="part-time" id="part-time-no" type="radio"/>
-                        <label for="part-time-no">No</label>
-                    </div>
-                    <div class="col-md-1">
-                        <label style="display: none;" id="part-time-student-label" for="part-time-student">
-                            Reason for Part-Time enrollment:
-                        </label>
-                    </div>
-                    <div class="col-md-5 field-container" id="part-time-options-div" style="display: none;">
-                        <div>
-                            <input name="part-time-detail" id="part-time-home-school" type="checkbox"/>
-                            <label for="part-time-home-school">Home School</label>
-                        </div>
-                        <div>
-                            <input name="part-time-detail" id="part-time-private-school" type="checkbox"/>
-                            <label for="part-time-private-school">Private School</label>
-                        </div>
-                        <div>
-                            <input name="part-time-detail" id="part-time-neither" type="checkbox"/>
-                            <label for="part-time-neither">Neither</label>
-                        </div>
-                    </div>
-                </div>
-                <!-- end .form-group -->
+                                    <input name="part-time" id="part-time-no" type="radio"/>
+                                    <label for="part-time-no">No</label>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group col-md-12">
+                                <div class="col-md-6">
+                                    <label style="display: none;" id="part-time-student-label" for="part-time-student">
+                                        Reason for Part-Time enrollment:
+                                    </label>
+                                </div>
+                                <div class="col-md-6 field-container" id="part-time-options-div" style="display: none;">
+                                    <div>
+                                        <input name="part-time-detail" id="part-time-home-school" type="checkbox"/>
+                                        <label for="part-time-home-school">Home School</label>
+                                    </div>
+                                    <div>
+                                        <input name="part-time-detail" id="part-time-private-school" type="checkbox"/>
+                                        <label for="part-time-private-school">Private School</label>
+                                    </div>
+                                    <div>
+                                        <input name="part-time-detail" id="part-time-neither" type="checkbox"/>
+                                        <label for="part-time-neither">Neither</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end .form-group -->
+                        </td>
+                    </tr>
+                </table>
             </div>
             <!-- end .panel-body -->
         </div>
@@ -2136,33 +2164,48 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Refugee</h3></div>
             <div class="panel-body">
-                <div class="form-group col-md-12">
-                    <div class="alert alert-info">
-                        <strong>Requirement:</strong> If your student is a refugee, your school must be provided with
-                        one of the following:
-                        <ul class="">
-                            <li class="">I-94 Arrival-Departure Record form</li>
-                            <li class="">I-551 permanent resident record</li>
-                            <li class="">I-155 permanent resident record</li>
-                            <li class="">An Immigration Court Letter identifying the refugee as the result of
-                                being in the U.S. due to asylum
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="form-group col-md-12">
-                    <div class="col-md-3">
-                        <label for="refugee-student">Refugee Student? <span class="required-field-ast">*</span></label>
-                    </div>
-                    <div class="col-md-3 field-container">
-                        <input name="refugee-student" id="refugee-student-yes" type="radio" required
-                               data-parsley-group="block3"/>
-                        <label for="refugee-student-yes">Yes</label>
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="2">
+                            <div class="form-group col-md-12">
+                                <div class="alert alert-info">
+                                    <strong>Requirement:</strong> If your student is a refugee, your school must be
+                                    provided with
+                                    one of the following:
+                                    <ul class="">
+                                        <li class="">I-94 Arrival-Departure Record form</li>
+                                        <li class="">I-551 permanent resident record</li>
+                                        <li class="">I-155 permanent resident record</li>
+                                        <li class="">An Immigration Court Letter identifying the refugee as the result
+                                            of
+                                            being in the U.S. due to asylum
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
 
-                        <input name="refugee-student" id="refugee-student-no" type="radio"/>
-                        <label for="refugee-student-no">No</label>
-                    </div>
-                </div>
+                    <tr>
+                        <td style="width: 50%;">
+                            <div class="form-group col-md-12">
+                                <label for="refugee-student">Refugee Student? <span class="required-field-ast">*</span></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="form-group col-md-12 field-container">
+                                <input name="refugee-student" id="refugee-student-yes" type="radio" required
+                                       data-parsley-group="block3"/>
+                                <label for="refugee-student-yes">Yes</label>
+
+                                <input name="refugee-student" id="refugee-student-no" type="radio"/>
+                                <label for="refugee-student-no">No</label>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+
+
             </div>
             <!-- end .panel-body -->
         </div>
@@ -2176,25 +2219,37 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Part A</h3></div>
             <div class="panel-body">
-                <div class="alert alert-info">
-                    <strong>Hispanic:</strong> A person of Cuban, Mexican, Puerto Rican, South or Central American, or
-                    other Spanish culture or origin,
-                    regardless of race.
-                </div>
-                <div class="col-md-6">
-                    <label for="hisp-latino">Is this student Hispanic/Latino? <span class="required-field-ast">*</span></label>
-                </div>
-                <div class="col-md-6 field-container">
-                    <div>
-                        <input name="hisp-latino" id="hisp-latino-yes" type="radio" required
-                               data-parsley-group="block4"/>
-                        <label for="hisp-latino-yes">Yes</label>
-                    </div>
-                    <div>
-                        <input name="hisp-latino" id="hisp-latino-no" type="radio"/>
-                        <label for="hisp-latino-no">No</label>
-                    </div>
-                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td colspan="2">
+                            <div class="alert alert-info">
+                                <strong>Hispanic:</strong> A person of Cuban, Mexican, Puerto Rican, South or Central American, or
+                                other Spanish culture or origin,
+                                regardless of race.
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%;">
+                            <div class="col-md-12">
+                                <label for="hisp-latino">Is this student Hispanic/Latino? <span class="required-field-ast">*</span></label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12 field-container">
+                                <div>
+                                    <input name="hisp-latino" id="hisp-latino-yes" type="radio" required
+                                           data-parsley-group="block4"/>
+                                    <label for="hisp-latino-yes">Yes</label>
+                                </div>
+                                <div>
+                                    <input name="hisp-latino" id="hisp-latino-no" type="radio"/>
+                                    <label for="hisp-latino-no">No</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <!-- end .panel-body -->
         </div>
@@ -2210,10 +2265,10 @@
     <div class="form-group col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Part B</h3></div>
-            <div class="panel-body field-container">
-                <table class="table table-bordered">
+            <div class="panel-body">
+                <table id="race-table" class="table table-bordered">
                     <tr>
-                        <td>
+                        <td class="field-container">
                             <label>What is your student's ethnicity? <span class="required-field-ast">*</span></label>
                         </td>
                     </tr>
@@ -2250,7 +2305,7 @@
                                     <label style="display: none;" for="tribal-affil" id="tribal-affil-label">Tribal
                                         Affiliation</label>
                                 </div>
-                                <div class="col-md-3">
+                                <div class="col-md-3 field-container">
                                     <select name="tribal-affil" class="form-control" style="display: none;"
                                             id="tribal-affil"
                                             data-parsley-group="block4">
@@ -2404,7 +2459,7 @@
                         <td>
                             <div class="col-md-6">
                                 <label for="other-info">Other information necessary for appropriate educational
-                                    placement <span class="required-field-ast">*</span></label>
+                                    placement</label>
                             </div>
                             <div class="col-md-6 field-container">
                                 <textarea class="form-control" id="other-info" name="other-info"
@@ -2414,9 +2469,8 @@
                     </tr>
                     <tr>
                         <td>
-                            <div class="col-md-8">
-                                <label id="safe-school-violation" for="safe-school-violation">Has student been
-                                    previously
+                            <div class="col-md-8" style="padding-right: 18px;">
+                                <label id="safe-school-violation" for="safe-school-violation">Has student been previously
                                     suspended or expelled from school
                                     for a safe school violation? <span class="required-field-ast">*</span></label>
                             </div>

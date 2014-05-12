@@ -118,6 +118,14 @@ define(['validate'], function (validate) {
                 var clickedTabLink = clickedTab.find('a');
                 var currentlyOpenTabIndex = tabs.children().index(currentlyOpenTab);
                 var clickedTabIndex = tabs.children().index(clickedTab);
+
+                if (!ignore) {
+                    $('html, body').animate({scrollTop: 0}, 'fast');
+                    _this.setDisplayPrevNextButtons(e);
+                    _this._replaceWindowLocation(clickedTab);
+                }
+
+                /*
                 if (clickedTabIndex > currentlyOpenTabIndex) {
                     var activeTabPane = $('.tab-pane.active');
                     var currentBlock = activeTabPane.data().block;
@@ -131,17 +139,14 @@ define(['validate'], function (validate) {
 
                         // Go the the next tab
                         // TODO: Refactor some of this so tab click and prev/next button logic can be shared
-                        if (!ignore) {
-                            $('html, body').animate({scrollTop: 0}, 'fast');
-                            _this.setDisplayPrevNextButtons(e);
-                            _this._replaceWindowLocation(clickedTab);
-                        }
+
                         var clickedTabHasToggle = clickedTabLink.attr('data-toggle') ? true : false;
                         if (!clickedTabHasToggle) {
                             clickedTabLink.attr({'data-toggle': 'tab'});
                         }
                     }
                 }
+                */
             });
         },
 
