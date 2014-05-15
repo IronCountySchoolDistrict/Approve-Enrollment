@@ -1,6 +1,6 @@
 /*global define, $*/
 
-define(['underscore', 'validate'], function (_, validate) {
+define(['underscore', 'validate', 'maskedInput'], function (_, validate, maskedInput) {
     'use strict';
     return {
         main: function () {
@@ -9,14 +9,22 @@ define(['underscore', 'validate'], function (_, validate) {
             this.bindSetSelectColor();
         },
 
-        _slideInsertTableRow: function (tableRow) {
+        /**
+         *
+         * @param tableRow {jQuery} - tableRow that will be inserted into the table
+         * @param [ignoreScroll] {Boolean} - Should the scrollTop animation be used?
+         * @private
+         */
+        _slideInsertTableRow: function (tableRow, ignoreScroll) {
             var rowTds = tableRow.find('td');
             rowTds.wrapInner('<div style="display: none;" />');
             var rowDivs = rowTds.find('> div');
             rowDivs.slideDown(200).promise().done(function () {
-                $('body').animate({
-                    scrollTop: tableRow.offset().top
-                }, 500);
+                if (!ignoreScroll) {
+                    $('body').animate({
+                        scrollTop: tableRow.offset().top
+                    }, 500);
+                }
 
                 // Here, this is set to the set of rowDivs.
                 var $set = $(this);
@@ -25,8 +33,8 @@ define(['underscore', 'validate'], function (_, validate) {
                     $(elem).replaceWith($(elem).contents());
                 });
                 validate.refreshParsley();
+                maskedInput.rebindDynamicMaskedInput();
             });
-
         },
 
         /**
@@ -47,7 +55,7 @@ define(['underscore', 'validate'], function (_, validate) {
                 if (setPriority) {
                     obj.setPriorityOptions(removeRowPriority);
                 }
-                //$(this).parent().parent().remove();
+                maskedInput.rebindDynamicMaskedInput();
             });
         },
 
@@ -57,18 +65,30 @@ define(['underscore', 'validate'], function (_, validate) {
          * @returns {undefined}
          */
         _addTableRow: function (table, rowTemplate) {
-            var lastRow = $(table).find('tr').last();
+            var tableRows = $(table).find('tr');
 
             /**
-             *
              * @type {Number} - 1-based index of the last row in the table
+             * If this is the school age siblings table, check if there are any selections in lastRow.
+             * If not, set the index to 1 for the first row in the table.
+             * Check if greater than one because the tr containing th's is contained in lastRow.
              */
-            var lastRowIndex = lastRow.data().index;
+            var lastRowIndex;
+            if (tableRows.length > 1) {
+                lastRowIndex = tableRows.last().data().index;
+            } else {
+                lastRowIndex = 0;
+            }
 
             var renderedTemplate = _.template(rowTemplate, {index: lastRowIndex + 1});
-            $(renderedTemplate).insertAfter(lastRow);
+            $(renderedTemplate).insertAfter(tableRows.last());
             var newRow = $(table).find('tr').last();
-            this._slideInsertTableRow(newRow);
+            if (table.attr('id') === 'siblings-table') {
+                this._slideInsertTableRow(newRow, true);
+            } else {
+                this._slideInsertTableRow(newRow);
+            }
+
             this.bindFlipPriority();
         },
 
