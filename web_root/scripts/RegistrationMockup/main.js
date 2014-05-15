@@ -10,14 +10,15 @@ require.config({
         dynamicTable: 'RegistrationMockup/dynamicTable',
         datepicker: 'RegistrationMockup/datepicker',
         multiselect: 'RegistrationMockup/multiselect',
+        maskedInput: 'RegistrationMockup/maskedInput',
 
         // external dependencies
         underscore: 'underscore/underscore'
     }
 });
 
-require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker', 'multiselect'],
-    function (form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect) {
+require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker', 'multiselect', 'maskedInput'],
+    function (form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect, maskedInput) {
         'use strict';
         form.main();
         validate.main();
@@ -26,4 +27,5 @@ require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker'
         dynamicTable.main();
         datepicker.main();
         multiselect.main();
+        maskedInput.main();
     });
