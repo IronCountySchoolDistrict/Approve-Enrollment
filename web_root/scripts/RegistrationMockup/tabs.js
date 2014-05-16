@@ -54,7 +54,6 @@ define(['validate'], function (validate) {
                 badge = $('<span style=\"margin-left: 7px;\" class=\"badge\"><span class=\"glyphicon glyphicon-remove\"></span>');
             } else {
                 badge = '';
-                console.error('status parameter value is something other than "success" or "error"');
             }
 
             navTab.append(badge);

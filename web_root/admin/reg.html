@@ -634,7 +634,8 @@
             <tr>
                 <td style="width: 50%;" colspan="2">
                     <div class="col-md-12">
-                        <label for="">Was your student born outside the US? <span class="required-field-ast">*</span></label>
+                        <label for="">Was your student born outside the US? <span
+                                class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td colspan="2">
@@ -706,8 +707,8 @@
                                 data-parsley-completedgrades
                                 data-parsley-trigger="change"
                                 data-parsley-group="block1">
-                            <option value="-2">Preschool 2</option>
-                            <option value="-1">Preschool 1</option>
+                            <option value="-1">Pre 1</option>
+                            <option value="-2">Pre 2</option>
                             <option value="0">K</option>
                             <option>1</option>
                             <option>2</option>
@@ -1971,17 +1972,23 @@
         <div class="panel-body" style="padding-right: 0px;">
             <div class="table-responsive" style="width: 100%;">
                 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
-                    Please enter information for any siblings of school attending age below. Add a sibling by clicking on the right plus button to the right.
+                    Please enter information for any siblings of school attending age below. Add a sibling by clicking
+                    on the right plus button to the right.
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 </div>
                 <table id="siblings-table" class="table">
                     <thead>
                     <tr>
-                        <th style="width: 10%;" class="border-tbl-head">Gender <span class="required-field-ast">*</span></th>
-                        <th style="width: 25%;" class="border-tbl-head">Name <span class="required-field-ast">*</span></th>
-                        <th style="width: 25%;" class="border-tbl-head">Birthdate <span class="required-field-ast">*</span></th>
-                        <th style="width: 30%;" class="border-tbl-head">School <span class="required-field-ast">*</span></th>
-                        <th style="width: 10%;" class="border-tbl-head">Grade <span class="required-field-ast">*</span></th>
+                        <th style="width: 10%;" class="border-tbl-head">Gender <span class="required-field-ast">*</span>
+                        </th>
+                        <th style="width: 25%;" class="border-tbl-head">Name <span class="required-field-ast">*</span>
+                        </th>
+                        <th style="width: 25%;" class="border-tbl-head">Birthdate <span
+                                class="required-field-ast">*</span></th>
+                        <th style="width: 30%;" class="border-tbl-head">School <span class="required-field-ast">*</span>
+                        </th>
+                        <th style="width: 10%;" class="border-tbl-head">Grade <span class="required-field-ast">*</span>
+                        </th>
                         <th class="noborder-tbl-head">
                             <span style="cursor: pointer; text-align: center;" id="add-sibling-span"
                                   class="glyphicon glyphicon-plus"></span>
@@ -2232,7 +2239,8 @@
                     <tr>
                         <td colspan="2">
                             <div class="alert alert-info">
-                                <strong>Hispanic:</strong> A person of Cuban, Mexican, Puerto Rican, South or Central American, or
+                                <strong>Hispanic:</strong> A person of Cuban, Mexican, Puerto Rican, South or Central
+                                American, or
                                 other Spanish culture or origin,
                                 regardless of race.
                             </div>
@@ -2241,7 +2249,8 @@
                     <tr>
                         <td style="width: 50%;">
                             <div class="col-md-12">
-                                <label for="hisp-latino">Is this student Hispanic/Latino? <span class="required-field-ast">*</span></label>
+                                <label for="hisp-latino">Is this student Hispanic/Latino? <span
+                                        class="required-field-ast">*</span></label>
                             </div>
                         </td>
                         <td>
@@ -2479,7 +2488,8 @@
                     <tr>
                         <td>
                             <div class="col-md-8" style="padding-right: 18px;">
-                                <label id="safe-school-violation" for="safe-school-violation">Has student been previously
+                                <label id="safe-school-violation" for="safe-school-violation">Has student been
+                                    previously
                                     suspended or expelled from school
                                     for a safe school violation? <span class="required-field-ast">*</span></label>
                             </div>
@@ -2990,6 +3000,9 @@
             <select class="form-control" name="sibling-grade<%= index %>" id="sibling-grade<%= index %>"
                     required>
                 <option></option>
+                <option value="-1">Pre 1</option>
+                <option value="-2">Pre 2</option>
+                <option value="0">K</option>
                 <option>1</option>
                 <option>2</option>
                 <option>3</option>
@@ -3001,7 +3014,6 @@
                 <option>9</option>
                 <option>10</option>
                 <option>11</option>
-                <option>12</option>
             </select>
         </td>
         <td class="noborder-td">

@@ -109,6 +109,7 @@ define(function () {
 
         refreshParsley: function (block) {
             $('#reg-form').parsley().destroy();
+
             this.activateParsley();
 
             if (block) {
