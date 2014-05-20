@@ -188,208 +188,233 @@
 <div class="panel-heading"><h3 class="panel-title">Personal</h3></div>
 <div class="panel-body">
 <div class="table-responsive">
-    <table class="table table-bordered">
-        <tbody>
-        <tr>
-            <td colspan="4">
-                <div class="alert alert-info">
-                    Please enter your student's name as it appears on their <strong>Legal Birth
-                    Certificate</strong>
-                    or
-                    other <strong>Legal Document</strong>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="label-td width-td">
-                <!-- Override margin here so input margins are the only margins applied to this row -->
-                <div class="col-md-12">
-                    <label for="first-name">Name <span class="required-field-ast">*</span></label>
-                </div>
-            </td>
-            <td class="width-td">
-                <div class="col-md-12 field-container">
-                    <input type="text" name="first-name" class="form-control" id="first-name"
-                           placeholder="First Name"
-                           required
-                           data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-danglingspaces/>
-                </div>
-            </td>
-            <td class="width-td">
-                <div class="col-md-12 field-container">
-                    <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
-                           data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-danglingspaces/>
-                </div>
-            </td>
-            <td class="width-td">
-                <div class="col-md-12 field-container">
-                    <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
-                           data-parsley-trigger="change" required
-                           data-parsley-group="block1"
-                           data-parsley-danglingspaces/>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="nick-name">Nick Name</label>
-                </div>
-            </td>
-            <td>
-                <div class="col-md-12 field-container">
-                    <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
-                           data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-alpha
-                           data-parsley-nospaces/>
-                </div>
-            </td>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="student-ssn">Social Security Number</label>
-                </div>
-            </td>
-            <td>
-                <div class="col-md-12 field-container">
-                    <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
-                           style="width: 100%;" data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-nospaces
-                           data-parsley-ssn/>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="email-address">Student's Email Address <span
-                            class="required-field-ast">*</span></label>
-                </div>
-            </td>
-            <td>
-                <div class="col-md-12 field-container">
-                    <input name="email-address" class="form-control" id="email-address"
-                           placeholder="Student's Email Address" style="margin-bottom: 15px;"
-                           data-parsley-trigger="change" required
-                           data-parsley-group="block1"
-                           data-parsley-type="email"/>
-                </div>
-            </td>
-            <td class="label-td">
-                <div class="col-md-5">
-                    <label for="gender">Gender <span class="required-field-ast">*</span></label>
-                </div>
-                <div class="col-md-7 field-container">
-                    <select class="form-control" name="gender" id="gender" required
-                            data-parsley-trigger="change"
-                            data-parsley-group="block1">
-                        <option></option>
-                        <option>M</option>
-                        <option>F</option>
-                    </select>
-                </div>
-            </td>
-            <td>
-                <div class="col-md-4 ">
-                    <label for="current-grade">Current Grade <span class="required-field-ast">*</span></label>
-                </div>
-                <div class="col-md-8 field-container">
-                    <select class="form-control" name="current-grade" id="current-grade" required
-                            data-parsley-trigger="change"
-                            data-parsley-group="block1">
-                        <option></option>
-                        <option value="-1">Pre 1</option>
-                        <option value="-2">Pre 2</option>
-                        <option value="0">K</option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
-                        <option>11</option>
-                        <option>12</option>
-                    </select>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="birthdate">Birthdate <span class="required-field-ast">*</span></label>
-                </div>
-            </td>
-            <td>
+<table class="table table-bordered">
+<tbody>
+<tr>
+    <td colspan="4">
+        <div class="alert alert-info">
+            Please enter your student's name as it appears on their <strong>Legal Birth
+            Certificate</strong>
+            or
+            other <strong>Legal Document</strong>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="label-td width-td">
+        <!-- Override margin here so input margins are the only margins applied to this row -->
+        <div class="col-md-12">
+            <label for="first-name">Name <span class="required-field-ast">*</span></label>
+        </div>
+    </td>
+    <td class="width-td">
+        <div class="col-md-12 field-container">
+            <input type="text" name="first-name" class="form-control" id="first-name"
+                   placeholder="First Name"
+                   required
+                   data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-danglingspaces/>
+        </div>
+    </td>
+    <td class="width-td">
+        <div class="col-md-12 field-container">
+            <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
+                   data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-danglingspaces/>
+        </div>
+    </td>
+    <td class="width-td">
+        <div class="col-md-12 field-container">
+            <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
+                   data-parsley-trigger="change" required
+                   data-parsley-group="block1"
+                   data-parsley-danglingspaces/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="nick-name">Nick Name</label>
+        </div>
+    </td>
+    <td>
+        <div class="col-md-12 field-container">
+            <input name="nick-name" class="form-control" id="nick-name" placeholder="Nick Name"
+                   data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-alpha
+                   data-parsley-nospaces/>
+        </div>
+    </td>
+    <td class="label-td">
+        <div class="col-md-5">
+            <label for="student-ssn">Social Security Number</label>
+        </div>
+        <div class="col-md-7 field-container">
+            <input class="form-control" name="student-ssn" id="student-ssn" placeholder="###-##-####"
+                   style="width: 100%;" data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-nospaces
+                   data-parsley-ssn/>
+        </div>
+    </td>
+    <td>
+        <div class="col-md-5">
+            <label for="gender">Gender <span class="required-field-ast">*</span></label>
+        </div>
+        <div class="col-md-7 field-container">
+            <select class="form-control" name="gender" id="gender" required
+                    data-parsley-trigger="change"
+                    data-parsley-group="block1">
+                <option></option>
+                <option>M</option>
+                <option>F</option>
+            </select>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="email-address">Student's Email Address <span
+                    class="required-field-ast">*</span></label>
+        </div>
+    </td>
+    <td>
+        <div class="col-md-12 field-container">
+            <input name="email-address" class="form-control" id="email-address"
+                   placeholder="Student's Email Address" style="margin-bottom: 15px;"
+                   data-parsley-trigger="change" required
+                   data-parsley-group="block1"
+                   data-parsley-type="email"/>
+        </div>
+    </td>
+    <td class="label-td">
+        <div class="col-md-5">
+            <label for="current-grade">Last Attended Grade <span class="required-field-ast">*</span></label>
+        </div>
+        <div class="col-md-7 field-container">
+            <select class="form-control" name="current-grade" id="last-attended-grade" required
+                    data-parsley-trigger="change"
+                    data-parsley-group="block1">
+                <option></option>
+                <option value="-1">Pre 1</option>
+                <option value="-2">Pre 2</option>
+                <option value="0">K</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+        </div>
+    </td>
+    <td>
+        <div class="col-md-5">
+            <label for="current-grade">Current Grade <span class="required-field-ast">*</span></label>
+        </div>
+        <div class="col-md-7 field-container">
+            <select class="form-control" name="current-grade" id="current-grade" required
+                    data-parsley-trigger="change"
+                    data-parsley-group="block1">
+                <option></option>
+                <option value="-1">Pre 1</option>
+                <option value="-2">Pre 2</option>
+                <option value="0">K</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="birthdate">Birthdate <span class="required-field-ast">*</span></label>
+        </div>
+    </td>
+    <td>
 
-                <div class="col-md-12 field-container">
-                    <input class="form-control dateinput" name="birthdate" id="birthdate"
-                           placeholder="mm-dd-yyyy"
-                           required
-                           data-date-format="mm-dd-yyyy"
-                           data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-date/>
-                </div>
-            </td>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="home-phone-number">Home Phone Number <span
-                            class="required-field-ast">*</span></label>
-                </div>
-            </td>
-            <td class="label-td">
-                <div class="col-md-12 field-container">
-                    <input class="form-control" name="home-phone-number" id="home-phone-number"
-                           placeholder="###-###-####"
-                           required data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-phonenum/>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="parent-cell-number">Parent Cell Phone</label>
-                </div>
-            </td>
+        <div class="col-md-12 field-container">
+            <input class="form-control dateinput" name="birthdate" id="birthdate"
+                   placeholder="mm-dd-yyyy"
+                   required
+                   data-date-format="mm-dd-yyyy"
+                   data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-date/>
+        </div>
+    </td>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="home-phone-number">Home Phone Number <span
+                    class="required-field-ast">*</span></label>
+        </div>
+    </td>
+    <td class="label-td">
+        <div class="col-md-12 field-container">
+            <input class="form-control" name="home-phone-number" id="home-phone-number"
+                   placeholder="###-###-####"
+                   required data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-phonenum/>
+        </div>
+    </td>
+</tr>
+<tr>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="parent-cell-number">Parent Cell Phone</label>
+        </div>
+    </td>
 
-            <td>
-                <div class="col-md-12 field-container">
-                    <input class="form-control" name="parent-cell-number" id="parent-cell-number"
-                           placeholder="###-###-####"
-                           style="width: 100%;" data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-phoneNum/>
-                </div>
-            </td>
+    <td>
+        <div class="col-md-12 field-container">
+            <input class="form-control" name="parent-cell-number" id="parent-cell-number"
+                   placeholder="###-###-####"
+                   style="width: 100%;" data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-phoneNum/>
+        </div>
+    </td>
 
-            <td class="label-td">
-                <div class="col-md-12">
-                    <label for="student-cell-number">Student Cell Phone</label>
-                </div>
-            </td>
-            <td>
-                <div class="col-md-12 field-container">
-                    <input class="form-control" name="student-cell-number" id="student-cell-number"
-                           placeholder="###-###-####"
-                           style="width: 100%;" data-parsley-trigger="change"
-                           data-parsley-group="block1"
-                           data-parsley-phoneNum/>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+    <td class="label-td">
+        <div class="col-md-12">
+            <label for="student-cell-number">Student Cell Phone</label>
+        </div>
+    </td>
+    <td>
+        <div class="col-md-12 field-container">
+            <input class="form-control" name="student-cell-number" id="student-cell-number"
+                   placeholder="###-###-####"
+                   style="width: 100%;" data-parsley-trigger="change"
+                   data-parsley-group="block1"
+                   data-parsley-phoneNum/>
+        </div>
+    </td>
+</tr>
+</tbody>
+</table>
 </div>
 <!-- end .table-responsive -->
 </div>
@@ -409,7 +434,7 @@
                             <label for="mailing-address">Mailing Address/P.O. Box</label>
                         </div>
                     </td>
-                    <td>
+                    <td class="width-td">
                         <div class="col-md-12 field-container">
                             <input class="form-control" name="mailing-address" id="mailing-address"
                                    placeholder="Mailing Address"
@@ -417,18 +442,81 @@
                                    data-parsley-group="block1"/>
                         </div>
                     </td>
-                    <td>
+                    <td class="width-td">
                         <div class="col-md-12 field-container">
                             <input class="form-control" name="mailing-city" id="mailing-city" placeholder="Mailing City"
                                    style="margin-bottom: 15px;" required data-parsley-trigger="change"
                                    data-parsley-group="block1"/>
                         </div>
                     </td>
-                    <td>
+                    <td class="width-td">
                         <div class="col-md-12 field-container">
-                            <input class="form-control" name="mailing-zip" id="mailing-zip" placeholder="Mailing Zip"
-                                   style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                                   data-parsley-group="block1"/>
+                            <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
+                                <input class="form-control" name="mailing-zip" id="mailing-zip"
+                                       placeholder="Mailing Zip"
+                                       required
+                                       data-parsley-trigger="change"
+                                       data-parsley-group="block1"/>
+                            </div>
+                            <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                                <select class="form-control" name="mailing-state" id="mailing-state"
+                                        required
+                                        data-parsley-trigger="change"
+                                        data-parsley-group="block1">
+                                    <option></option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
                         </div>
                     </td>
                 </tr>
@@ -456,10 +544,72 @@
                     </td>
                     <td>
                         <div class="col-md-12 field-container">
-                            <input class="form-control" name="residence-zip" id="residence-zip"
-                                   placeholder="Residence Zip"
-                                   style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                                   data-parsley-group="block1"/>
+                            <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
+                                <input class="form-control" name="residence-zip" id="residence-zip"
+                                       placeholder="Residence Zip"
+                                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                                       data-parsley-group="block1"/>
+                            </div>
+
+                            <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                                <select class="form-control" name="residence-state" id="residence-state"
+                                        required
+                                        data-parsley-trigger="change"
+                                        data-parsley-group="block1">
+                                    <option></option>
+                                    <option value="AL">Alabama</option>
+                                    <option value="AK">Alaska</option>
+                                    <option value="AZ">Arizona</option>
+                                    <option value="AR">Arkansas</option>
+                                    <option value="CA">California</option>
+                                    <option value="CO">Colorado</option>
+                                    <option value="CT">Connecticut</option>
+                                    <option value="DE">Delaware</option>
+                                    <option value="DC">District Of Columbia</option>
+                                    <option value="FL">Florida</option>
+                                    <option value="GA">Georgia</option>
+                                    <option value="HI">Hawaii</option>
+                                    <option value="ID">Idaho</option>
+                                    <option value="IL">Illinois</option>
+                                    <option value="IN">Indiana</option>
+                                    <option value="IA">Iowa</option>
+                                    <option value="KS">Kansas</option>
+                                    <option value="KY">Kentucky</option>
+                                    <option value="LA">Louisiana</option>
+                                    <option value="ME">Maine</option>
+                                    <option value="MD">Maryland</option>
+                                    <option value="MA">Massachusetts</option>
+                                    <option value="MI">Michigan</option>
+                                    <option value="MN">Minnesota</option>
+                                    <option value="MS">Mississippi</option>
+                                    <option value="MO">Missouri</option>
+                                    <option value="MT">Montana</option>
+                                    <option value="NE">Nebraska</option>
+                                    <option value="NV">Nevada</option>
+                                    <option value="NH">New Hampshire</option>
+                                    <option value="NJ">New Jersey</option>
+                                    <option value="NM">New Mexico</option>
+                                    <option value="NY">New York</option>
+                                    <option value="NC">North Carolina</option>
+                                    <option value="ND">North Dakota</option>
+                                    <option value="OH">Ohio</option>
+                                    <option value="OK">Oklahoma</option>
+                                    <option value="OR">Oregon</option>
+                                    <option value="PA">Pennsylvania</option>
+                                    <option value="RI">Rhode Island</option>
+                                    <option value="SC">South Carolina</option>
+                                    <option value="SD">South Dakota</option>
+                                    <option value="TN">Tennessee</option>
+                                    <option value="TX">Texas</option>
+                                    <option value="UT">Utah</option>
+                                    <option value="VT">Vermont</option>
+                                    <option value="VA">Virginia</option>
+                                    <option value="WA">Washington</option>
+                                    <option value="WV">West Virginia</option>
+                                    <option value="WI">Wisconsin</option>
+                                    <option value="WY">Wyoming</option>
+                                </select>
+                            </div>
                         </div>
                     </td>
                 </tr>
