@@ -10,4 +10,4 @@ The data that the Parent enters will be stored in a temporary, "staging" table. 
 
 Admin Side
 ----------
-4. All three of the Parent side sides funnel into the Admin Side, which is where an PS Admin (usually a secretary) will examine, verify, validate, and modify (when needed) the data that the Parent entered. Once it is verified here, it will be imported into PS proper. Some of the data will need to be imported using the REST Enroll New Student functionality, other pieces will be customized data imports that tie into student contacts, etc.
+4. All three of the Parent side sides funnel into the Admin Side, which is where a PS Admin (usually a secretary) will examine, verify, validate, and modify (when needed) the data that the Parent entered. Once it is verified here, it will be imported into PS proper. Some of the data will need to be imported using the REST Enroll New Student functionality, other pieces will be customized data imports that tie into student contacts, etc.
