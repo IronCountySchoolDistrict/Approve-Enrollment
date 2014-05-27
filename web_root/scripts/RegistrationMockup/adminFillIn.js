@@ -1,5 +1,6 @@
 /*global $, define*/
 
+// Handles the population of data into the registration form from the staging table.
 define(function () {
     'use strict';
 
@@ -9,7 +10,7 @@ define(function () {
     return {
 
         fillInFields: function () {
-            
+
         },
 
         main: function () {
