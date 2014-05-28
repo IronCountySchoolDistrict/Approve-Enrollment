@@ -3,14 +3,14 @@ require.config({
     baseUrl: '/scripts',
     paths: {
         // app modules
-        form: 'RegistrationMockup/form',
-        validate: 'RegistrationMockup/validate',
-        tabs: 'RegistrationMockup/tabs',
-        dynamicForm: 'RegistrationMockup/dynamicForm',
-        dynamicTable: 'RegistrationMockup/dynamicTable',
-        datepicker: 'RegistrationMockup/datepicker',
-        multiselect: 'RegistrationMockup/multiselect',
-        maskedInput: 'RegistrationMockup/maskedInput',
+        form: 'reg-parent/js/form',
+        validate: 'reg-parent/js/validate',
+        tabs: 'reg-parent/js/tabs',
+        dynamicForm: 'reg-parent/js/dynamicForm',
+        dynamicTable: 'reg-parent/js/dynamicTable',
+        datepicker: 'reg-parent/js/datepicker',
+        multiselect: 'reg-parent/js/multiselect',
+        maskedInput: 'reg-parent/js/maskedInput',
 
         // external dependencies
         underscore: 'underscore/underscore'

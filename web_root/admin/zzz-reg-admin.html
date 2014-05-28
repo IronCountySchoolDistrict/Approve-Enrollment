@@ -2,29 +2,30 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Registration Mockup</title>
-    <link href="/scripts/RegistrationMockup/extern/bootstrap/css/bootstrap.css" rel="stylesheet">
+    <title>ICSD Registration</title>
+    <link href="/scripts/reg-form/extern/bootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/css/datepicker.css" rel="stylesheet">
-    <link href="/scripts/RegistrationMockup/extern/bootstrap-tokenfield/css/bootstrap-tokenfield.css" rel="stylesheet">
-    <link href="/scripts/RegistrationMockup/datepicker.css" rel="stylesheet">
-    <link href="/scripts/RegistrationMockup/bootstrap-multiselect.css" rel="stylesheet">
+    <link href="/scripts/reg-form/extern/bootstrap-tokenfield/css/bootstrap-tokenfield.css" rel="stylesheet">
+    <link href="/scripts/reg-form/css/datepicker.css" rel="stylesheet">
+    <link href="/scripts/reg-form/bootstrap-multiselect.css" rel="stylesheet">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
-    <script src="/scripts/RegistrationMockup/extern/bootstrap-tokenfield/js/bootstrap-tokenfield.js"></script>
 
-    <script src="/scripts/RegistrationMockup/extern/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
+    <script src="/scripts/reg-form/extern/bootstrap-multiselect/js/bootstrap-multiselect.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 
-    <script src="/scripts/RegistrationMockup/extern/parsley/js/parsley-2.0.0.js"></script>
+    <script src="/scripts/reg-form/extern/parsley/js/parsley-2.0.0.js"></script>
 
-    <script src="/scripts/RegistrationMockup/extern/jquery.maskedinput/jquery.maskedinput.js"></script>
+    <script src="/scripts/reg-form/extern/jquery.maskedinput/jquery.maskedinput.js"></script>
 
-    <script src="/scripts/RegistrationMockup/main.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js"></script>
+
+    <script src="/scripts/reg-form/js/main.js"></script>
     <style>
         @media (max-width: 979px) {
             .table-responsive {
@@ -142,30 +143,38 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a href="/admin/reg.html" class="navbar-brand">Registration</a>
+            <a id="brand" href="/admin/reg.html" class="navbar-brand">Registration</a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="#personal" data-toggle="tab" class="enabled-nav">Personal Info</a>
+                    <a id="tab1" href="#personal" data-toggle="tab" class="enabled-nav">Personal Info</a>
                 </li>
                 <li>
-                    <a href="#con-sib" data-toggle="tab" class="disabled-nav">Contacts/Siblings</a>
+                    <a id="tab2" href="#con-sib" data-toggle="tab" class="disabled-nav">Contacts/Siblings</a>
                 </li>
                 <li>
-                    <a href="#state-fed" data-toggle="tab" class="disabled-nav">State/Federal</a>
+                    <a id="tab3" href="#state-fed" data-toggle="tab" class="disabled-nav">State/Federal</a>
                 </li>
                 <li>
-                    <a href="#eth" data-toggle="tab" class="disabled-nav">Ethnicity</a>
+                    <a id="tab4" href="#eth" data-toggle="tab" class="disabled-nav">Ethnicity</a>
                 </li>
                 <li>
-                    <a href="#placement" data-toggle="tab" class="disabled-nav">Placement</a>
+                    <a id="tab5" href="#placement" data-toggle="tab" class="disabled-nav">Placement</a>
                 </li>
                 <li>
-                    <a href="#medical" data-toggle="tab" class="disabled-nav">Medical</a>
+                    <a id="tab6" href="#medical" data-toggle="tab" class="disabled-nav">Medical</a>
                 </li>
                 <li>
-                    <a href="#sch-release" data-toggle="tab" class="disabled-nav">School Release</a>
+                    <a id="tab7" href="#sch-release" data-toggle="tab" class="disabled-nav">School Release</a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" style="padding-right: 15px; padding-top: 7px;">
+                <li>
+                    <button id="language-english" class="btn btn-primary" role="button" style="margin-right: 2px;">
+                        English
+                    </button>
+                    <button id="language-spanish" class="btn btn-primary" role="button">Spanish</button>
                 </li>
             </ul>
         </nav>
@@ -181,11 +190,12 @@
 <div class="tab-pane fade in block1" id="personal" data-block="1">
 <div class="alert alert-info alert-dismissable" style="margin-right: 15px; margin-left: 15px;">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-    Required Field <span class="required-field-ast">*</span>
+    <span id="required-field">Required Field</span> <span class="required-field-ast">*</span>
 </div>
 <div class="form-group col-md-12" style="overflow: auto;">
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">Personal</h3></div>
+<div class="panel-heading">
+    <h3 id="personal-panel" class="panel-title">Personal</h3></div>
 <div class="panel-body">
 <div class="table-responsive">
 <table class="table table-bordered">
@@ -425,205 +435,209 @@
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Mailing/Residence Address</h3></div>
 <div class="panel-body">
-    <div class="table-responsive">
-        <table class="table table-bordered">
-            <tbody>
-            <tr>
-                <td class="width-td label-td">
-                    <div class="col-md-12">
-                        <label for="mailing-address">Mailing Address/P.O. Box</label>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="mailing-address" id="mailing-address"
-                               placeholder="Mailing Address"
-                               style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"/>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="mailing-city" id="mailing-city" placeholder="Mailing City"
-                               style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"/>
-                    </div>
-                </td>
-                <td class="width-td">
-                    <div class="col-md-12 field-container">
-                        <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
-                            <input class="form-control" name="mailing-zip" id="mailing-zip"
-                                   placeholder="Mailing Zip"
-                                   required
-                                   data-parsley-trigger="change"
-                                   data-parsley-group="block1"/>
-                        </div>
-                        <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
-                            <select class="form-control" name="mailing-state" id="mailing-state"
-                                    required
-                                    data-parsley-trigger="change"
-                                    data-parsley-group="block1">
-                                <option></option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NV">Nevada</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="OH">Ohio</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="OR">Oregon</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="TX">Texas</option>
-                                <option value="UT">Utah</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WA">Washington</option>
-                                <option value="WV">West Virginia</option>
-                                <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <div class="col-md-12">
-                        <label for="residence-address">Residence Address</label>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="residence-address" id="residence-address"
-                               placeholder="Residence Address"
-                               style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"/>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <input class="form-control" name="residence-city" id="residence-city"
-                               placeholder="Residence City"
-                               style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                               data-parsley-group="block1"/>
-                    </div>
-                </td>
-                <td>
-                    <div class="col-md-12 field-container">
-                        <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
-                            <input class="form-control" name="residence-zip" id="residence-zip"
-                                   placeholder="Residence Zip"
-                                   style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                                   data-parsley-group="block1"/>
-                        </div>
+<div class="table-responsive">
+<table class="table table-bordered">
+    <tbody>
+    <tr>
+        <td class="width-td label-td">
+            <div class="col-md-12">
+                <label for="mailing-address">Mailing Address/P.O. Box</label>
+            </div>
+        </td>
+        <td class="width-td">
+            <div class="col-md-12 field-container">
+                <input class="form-control" name="mailing-address" id="mailing-address"
+                       placeholder="Mailing Address"
+                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       data-parsley-group="block1"/>
+            </div>
+        </td>
+        <td class="width-td">
+            <div class="col-md-12 field-container">
+                <input class="form-control" name="mailing-city" id="mailing-city" placeholder="Mailing City"
+                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       data-parsley-group="block1"/>
+            </div>
+        </td>
+        <td class="width-td">
+            <div class="col-md-12 field-container">
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
+                    <input class="form-control" name="mailing-zip" id="mailing-zip"
+                           placeholder="Mailing Zip"
+                           required
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"/>
+                </div>
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                    <select class="form-control" name="mailing-state" id="mailing-state"
+                            required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td class="label-td">
+            <div class="col-md-12">
+                <label for="residence-address">Residence Address</label>
+            </div>
+        </td>
+        <td>
+            <div class="col-md-12 field-container">
+                <input class="form-control" name="residence-address" id="residence-address"
+                       placeholder="Residence Address"
+                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       data-parsley-group="block1"/>
+            </div>
+        </td>
+        <td>
+            <div class="col-md-12 field-container">
+                <input class="form-control" name="residence-city" id="residence-city"
+                       placeholder="Residence City"
+                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       data-parsley-group="block1"/>
+            </div>
+        </td>
+        <td>
+            <div class="col-md-12 field-container">
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
+                    <input class="form-control" name="residence-zip" id="residence-zip"
+                           placeholder="Residence Zip"
+                           style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                           data-parsley-group="block1"/>
+                </div>
 
-                        <div class="col-md-6" style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
-                            <select class="form-control" name="residence-state" id="residence-state"
-                                    required
-                                    data-parsley-trigger="change"
-                                    data-parsley-group="block1">
-                                <option></option>
-                                <option value="AL">Alabama</option>
-                                <option value="AK">Alaska</option>
-                                <option value="AZ">Arizona</option>
-                                <option value="AR">Arkansas</option>
-                                <option value="CA">California</option>
-                                <option value="CO">Colorado</option>
-                                <option value="CT">Connecticut</option>
-                                <option value="DE">Delaware</option>
-                                <option value="DC">District Of Columbia</option>
-                                <option value="FL">Florida</option>
-                                <option value="GA">Georgia</option>
-                                <option value="HI">Hawaii</option>
-                                <option value="ID">Idaho</option>
-                                <option value="IL">Illinois</option>
-                                <option value="IN">Indiana</option>
-                                <option value="IA">Iowa</option>
-                                <option value="KS">Kansas</option>
-                                <option value="KY">Kentucky</option>
-                                <option value="LA">Louisiana</option>
-                                <option value="ME">Maine</option>
-                                <option value="MD">Maryland</option>
-                                <option value="MA">Massachusetts</option>
-                                <option value="MI">Michigan</option>
-                                <option value="MN">Minnesota</option>
-                                <option value="MS">Mississippi</option>
-                                <option value="MO">Missouri</option>
-                                <option value="MT">Montana</option>
-                                <option value="NE">Nebraska</option>
-                                <option value="NV">Nevada</option>
-                                <option value="NH">New Hampshire</option>
-                                <option value="NJ">New Jersey</option>
-                                <option value="NM">New Mexico</option>
-                                <option value="NY">New York</option>
-                                <option value="NC">North Carolina</option>
-                                <option value="ND">North Dakota</option>
-                                <option value="OH">Ohio</option>
-                                <option value="OK">Oklahoma</option>
-                                <option value="OR">Oregon</option>
-                                <option value="PA">Pennsylvania</option>
-                                <option value="RI">Rhode Island</option>
-                                <option value="SC">South Carolina</option>
-                                <option value="SD">South Dakota</option>
-                                <option value="TN">Tennessee</option>
-                                <option value="TX">Texas</option>
-                                <option value="UT">Utah</option>
-                                <option value="VT">Vermont</option>
-                                <option value="VA">Virginia</option>
-                                <option value="WA">Washington</option>
-                                <option value="WV">West Virginia</option>
-                                <option value="WI">Wisconsin</option>
-                                <option value="WY">Wyoming</option>
-                            </select>
-                        </div>
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="4">
-                    <div class="alert alert-info">
-                        If your resident address is outside <a href="#">school boundaries</a>, you will need to
-                        fill out and return a <strong>School Relocation Form</strong> to the District Office.
-                    </div>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                    <select class="form-control" name="residence-state" id="residence-state"
+                            required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option value="AL">Alabama</option>
+                        <option value="AK">Alaska</option>
+                        <option value="AZ">Arizona</option>
+                        <option value="AR">Arkansas</option>
+                        <option value="CA">California</option>
+                        <option value="CO">Colorado</option>
+                        <option value="CT">Connecticut</option>
+                        <option value="DE">Delaware</option>
+                        <option value="DC">District Of Columbia</option>
+                        <option value="FL">Florida</option>
+                        <option value="GA">Georgia</option>
+                        <option value="HI">Hawaii</option>
+                        <option value="ID">Idaho</option>
+                        <option value="IL">Illinois</option>
+                        <option value="IN">Indiana</option>
+                        <option value="IA">Iowa</option>
+                        <option value="KS">Kansas</option>
+                        <option value="KY">Kentucky</option>
+                        <option value="LA">Louisiana</option>
+                        <option value="ME">Maine</option>
+                        <option value="MD">Maryland</option>
+                        <option value="MA">Massachusetts</option>
+                        <option value="MI">Michigan</option>
+                        <option value="MN">Minnesota</option>
+                        <option value="MS">Mississippi</option>
+                        <option value="MO">Missouri</option>
+                        <option value="MT">Montana</option>
+                        <option value="NE">Nebraska</option>
+                        <option value="NV">Nevada</option>
+                        <option value="NH">New Hampshire</option>
+                        <option value="NJ">New Jersey</option>
+                        <option value="NM">New Mexico</option>
+                        <option value="NY">New York</option>
+                        <option value="NC">North Carolina</option>
+                        <option value="ND">North Dakota</option>
+                        <option value="OH">Ohio</option>
+                        <option value="OK">Oklahoma</option>
+                        <option value="OR">Oregon</option>
+                        <option value="PA">Pennsylvania</option>
+                        <option value="RI">Rhode Island</option>
+                        <option value="SC">South Carolina</option>
+                        <option value="SD">South Dakota</option>
+                        <option value="TN">Tennessee</option>
+                        <option value="TX">Texas</option>
+                        <option value="UT">Utah</option>
+                        <option value="VT">Vermont</option>
+                        <option value="VA">Virginia</option>
+                        <option value="WA">Washington</option>
+                        <option value="WV">West Virginia</option>
+                        <option value="WI">Wisconsin</option>
+                        <option value="WY">Wyoming</option>
+                    </select>
+                </div>
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td colspan="4">
+            <div class="alert alert-info">
+                If your resident address is outside <a href="#">school boundaries</a>, you will need to
+                fill out and return a <strong>School Relocation Form</strong> to the District Office.
+            </div>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
 </div>
 <!-- end .panel-body -->
 </div>

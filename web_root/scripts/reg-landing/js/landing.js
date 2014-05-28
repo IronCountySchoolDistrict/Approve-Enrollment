@@ -3,6 +3,18 @@
 (function () {
     'use strict';
 
+    var lang = {
+        '#language-english': {
+            'english': 'English',
+            'spanish': 'Ingles'
+        },
+
+        '#language-spanish': {
+            'english': 'Spanish',
+            'spanish': 'Espanol'
+        }
+    };
+
     var spanish = {
         '#language-english': 'Ingles',
         '#language-spanish': 'Espanol',
@@ -19,8 +31,8 @@
     });
 
     $('#language-spanish').on('click', function () {
-        $.each(spanish, function (key, value) {
-            $(key).text(value);
+        $.each(lang, function (key, value) {
+            $(key).text(value.spanish);
         });
     });
 

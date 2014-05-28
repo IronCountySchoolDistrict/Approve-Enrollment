@@ -14,7 +14,7 @@ define(function () {
         },
 
         main: function () {
-            this.fillInFields;
+            this.fillInFields();
         }
     };
 });
