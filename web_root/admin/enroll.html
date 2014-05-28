@@ -9,6 +9,8 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.js"></script>
 
+    <script src="/scripts/reg-admin/js/enroll.js"></script>
+
     <style>
         td {
             padding: 4px !important;
@@ -16,6 +18,10 @@
 
         .glyphicon-edit {
             cursor: pointer;
+        }
+
+        .required-field-ast {
+            color: red;
         }
     </style>
 </head>
@@ -45,19 +51,32 @@ Enroll New Student
             <table border="0" cellspacing="0" cellpadding="4" class="table table-bordered table-hover table-striped">
                 <tbody>
                 <tr>
-                    <td class="bold" style="width: 30%;">Social Security Number</td>
+                    <td class="bold" style="width: 30%;">Social Security Number <span class="required-field-ast">*</span></td>
                     <td>
-                        <span><input id="ssn" type="text" style="display: none;" value="Testing SSN">Testing SSN</input></span>
+                        <!-- Field value -->
+                        <span class="field-value">Testing SSN</span>
                         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#ssn"></span>
+
+                        <!-- Field edit -->
+                        <input name="ssn" class="edit" id="ssn" type="text" style="display: none;">
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
                     </td>
                 </tr>
                 <tr>
-                    <td class="bold">Email Address</td>
-                    <td>Testing Email Address</td>
+                    <td class="bold">Email Address <span class="required-field-ast">*</span></td>
+                    <td>
+                        <span class="field-value">Testing Email Address</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#email-address"></span>
+
+                        <input name="email-address" class="edit" id="email-address" type="text" style="display: none;">
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="bold">Birthdate</td>
-                    <td>Testing Birthdate</td>
+                    <td>
+                        <span class="field-value">05-25-1998</span>
+                    </td>
                 </tr>
                 <tr>
                     <td class="bold">Gender</td>
