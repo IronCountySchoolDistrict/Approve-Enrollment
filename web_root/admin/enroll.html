@@ -32,9 +32,13 @@ Enroll New Student
 ~[wc:admin_navigation_css]
 
 <form method="POST">
-<h1 id="name-header" style="display: inline-block; margin-left: 20px;">Name (Last, First Middle)</h1>
-<span style="font-size: 20px; margin-left: 5px; cursor: pointer;" class="glyphicon glyphicon-edit"
-      data-edit="#name-header"></span>
+<h1 class="field-value" id="name-header" style="display: inline-block; margin-left: 20px;">Name (Last, First Middle)</h1>
+<!--<span style="font-size: 20px; margin-left: 5px; cursor: pointer;" class="glyphicon glyphicon-edit"-->
+      <!--data-edit="#first-name,#middle-name,#last-name"></span>-->
+<input name="first-name" class="edit" id="first-name" type="text" style="display: none; margin-left: 20px; margin-top: 20px;" placeholder="First Name">
+<input name="middle-name" class="edit" id="middle-name" type="text" style="display: none; margin-left: 20px; margin-top: 20px;" placeholder="Middle Name">
+<input name="last-name" class="edit" id="last-name" type="text" style="display: none; margin-left: 20px; margin-top: 20px;" placeholder="Last Name">
+<a style="background-color: transparent; display: none;" class="btn btn-default save">Save</a>
 
 <div class="box-round">
 <div class="panel-group" id="accordion">
@@ -51,10 +55,22 @@ Enroll New Student
             <table border="0" cellspacing="0" cellpadding="4" class="table table-bordered table-hover table-striped">
                 <tbody>
                 <tr>
+                    <td class="bold" style="width: 30%;">Nickname</td>
+                    <td>
+                        <!-- Field value -->
+                        <span id="nickname-field-value" class="field-value">Testing Nickname</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#nickname"></span>
+
+                        <!-- Field edit -->
+                        <input name="nickname" class="edit" id="nickname" type="text" style="display: none;">
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+                    </td>
+                </tr>
+                <tr>
                     <td class="bold" style="width: 30%;">Social Security Number <span class="required-field-ast">*</span></td>
                     <td>
                         <!-- Field value -->
-                        <span class="field-value">Testing SSN</span>
+                        <span id="ssn-field-value" class="field-value">Testing SSN</span>
                         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#ssn"></span>
 
                         <!-- Field edit -->
@@ -65,7 +81,7 @@ Enroll New Student
                 <tr>
                     <td class="bold">Email Address <span class="required-field-ast">*</span></td>
                     <td>
-                        <span class="field-value">Testing Email Address</span>
+                        <span id="email-address-field-value" class="field-value">Testing Email Address</span>
                         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#email-address"></span>
 
                         <input name="email-address" class="edit" id="email-address" type="text" style="display: none;">
@@ -75,7 +91,11 @@ Enroll New Student
                 <tr>
                     <td class="bold">Birthdate</td>
                     <td>
-                        <span class="field-value">05-25-1998</span>
+                        <span id="birthdate-field-value" class="field-value">05-25-1998</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit" data-edit="#birthdate"></span>
+
+                        <input name="birthdate" class="edit" id="birthdate" type="text" style="display: none;">
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
                     </td>
                 </tr>
                 <tr>
