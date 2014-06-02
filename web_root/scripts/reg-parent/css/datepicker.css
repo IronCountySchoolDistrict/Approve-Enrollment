@@ -10,4 +10,15 @@
 
 .new {
     color: inherit !important;
+
+    /* Override PS styling */
+    background-color: transparent !important;
+    background-image: none !important;
+    text-shadow: none !important;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.datepicker th {
+    background-color: white;
 }

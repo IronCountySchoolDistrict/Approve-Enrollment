@@ -306,10 +306,10 @@
     </td>
     <td class="label-td">
         <div class="col-md-5">
-            <label for="current-grade">Last Attended Grade <span class="required-field-ast">*</span></label>
+            <label for="last-attended-grade">Last Attended Grade <span class="required-field-ast">*</span></label>
         </div>
         <div class="col-md-7 field-container">
-            <select class="form-control" name="current-grade" id="last-attended-grade" required
+            <select class="form-control" name="last-attended-grade" id="last-attended-grade" required
                     data-parsley-trigger="change"
                     data-parsley-group="block1">
                 <option></option>
@@ -464,15 +464,7 @@
         <td class="width-td">
             <div class="col-md-12 field-container">
                 <div class="col-md-6"
-                     style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
-                    <input class="form-control" name="mailing-zip" id="mailing-zip"
-                           placeholder="Mailing Zip"
-                           required
-                           data-parsley-trigger="change"
-                           data-parsley-group="block1"/>
-                </div>
-                <div class="col-md-6"
-                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                    style="padding-bottom: 0px !important; padding-left: 0; padding-right: 4px;">
                     <select class="form-control" name="mailing-state" id="mailing-state"
                             required
                             data-parsley-trigger="change"
@@ -531,6 +523,14 @@
                         <option value="WY">Wyoming</option>
                     </select>
                 </div>
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                    <input class="form-control" name="mailing-zip" id="mailing-zip"
+                           placeholder="Mailing Zip"
+                           required
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"/>
+                </div>
             </div>
         </td>
     </tr>
@@ -559,15 +559,7 @@
         <td>
             <div class="col-md-12 field-container">
                 <div class="col-md-6"
-                     style="padding-bottom: 0px !important; padding-left: 0px; padding-right: 4px;">
-                    <input class="form-control" name="residence-zip" id="residence-zip"
-                           placeholder="Residence Zip"
-                           style="margin-bottom: 15px;" required data-parsley-trigger="change"
-                           data-parsley-group="block1"/>
-                </div>
-
-                <div class="col-md-6"
-                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                     style="padding-bottom: 0px !important; padding-left: 0; padding-right: 4px;">
                     <select class="form-control" name="residence-state" id="residence-state"
                             required
                             data-parsley-trigger="change"
@@ -625,6 +617,13 @@
                         <option value="WI">Wisconsin</option>
                         <option value="WY">Wyoming</option>
                     </select>
+                </div>
+                <div class="col-md-6"
+                     style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
+                    <input class="form-control" name="residence-zip" id="residence-zip"
+                           placeholder="Residence Zip"
+                           style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                           data-parsley-group="block1"/>
                 </div>
             </div>
         </td>
@@ -769,7 +768,7 @@
                         <input name="prev-icsd" id="prev-icsd-yes" type="radio" data-parsley-group="block1" required/>
                         <label for="prev-icsd-yes">Yes</label>
 
-                        <input name="prev-icsd" id="prev-icsd-no" type="radio"/>
+                        <input name="prev-icsd" id="prev-icsd-no" type="radio">
                         <label for="prev-icsd-no">No</label>
                     </div>
                 </td>

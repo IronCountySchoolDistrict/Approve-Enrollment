@@ -1,6 +1,6 @@
 /*global $*/
 
-(function () {
+$(document).ready(function () {
     'use strict';
 
     var lang = {
@@ -12,22 +12,16 @@
         '#language-spanish': {
             'english': 'Spanish',
             'spanish': 'Espanol'
+        },
+
+        '#welcome': {
+            'english': 'Welcome to Registration!',
+            'spanish': 'Bienvenido al registro!'
         }
     };
 
-    var spanish = {
-        '#language-english': 'Ingles',
-        '#language-spanish': 'Espanol',
-        '#welcome': 'Bienvenido al registro!'
-    };
-
-    var english = {
-        '#language-english': 'English',
-        '#language-spanish': 'Spanish'
-    };
-
     $('#returning-student').on('click', function () {
-        $('#returning-steps').slideDown();
+        $('#returning-steps').parent().slideDown();
     });
 
     $('#language-spanish').on('click', function () {
@@ -37,8 +31,8 @@
     });
 
     $('#language-english').on('click', function () {
-        $.each(english, function (key, value) {
-            $(key).text(value);
+        $.each(lang, function (key, value) {
+            $(key).text(value.english);
         });
     });
-}());
+});
