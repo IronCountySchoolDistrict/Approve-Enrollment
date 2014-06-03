@@ -1,4 +1,4 @@
-/*global $j*/
+/*global $j,_*/
 
 $j(document).ready(function () {
     'use strict';
@@ -23,7 +23,7 @@ $j(document).ready(function () {
         if (nodeName === 'input' && (nodeType === 'radio' || nodeType === 'checkbox')) {
             // Since this is a radio or checkbox element, there are multiple DOM elements in the field var.
             // Find out which elements in "field" are selected.
-            var selectedElems = $j.filter(field, function (elem) {
+            var selectedElems = _.filter(field, function (elem) {
                 return $j(elem).prop('checked');
             });
 
@@ -76,6 +76,8 @@ $j(document).ready(function () {
         var $fieldValueElems = $target.siblings('.field-value');
         var saveBtn = $target.siblings('.save');
 
+        /*
+
         $j.each($fieldValueElems, function (key, elem) {
 
             // Every span that shows the value of a field (.field-value elements)
@@ -90,6 +92,8 @@ $j(document).ready(function () {
             $j(corresEditSelector).val($j(elem).text());
         });
 
+        */
+
         $editElements.css({'display': 'inline'});
         saveBtn.css({'display': 'inline'});
 
@@ -103,15 +107,5 @@ $j(document).ready(function () {
         });
     });
 
-    // Bind datepicker
-    var nowTemp = new Date();
-    var twoYearsAgo = new Date(nowTemp.getFullYear() - 2, nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    var twentyYearsAgo = new Date(nowTemp.getFullYear() - 20, nowTemp.getMonth(), nowTemp.getDate(), 0, 0, 0, 0);
-    $j('.dateinput').datepicker({
-        autoclose: true,
-        startView: 'decade',
-        startDate: twentyYearsAgo,
-        endDate: twoYearsAgo,
-        format: 'mm-dd-yyyy'
-    });
+
 });

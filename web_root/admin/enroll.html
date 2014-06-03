@@ -11,6 +11,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.3.0/js/bootstrap-datepicker.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore.js" async></script>
 
     <script src="/scripts/reg-admin/js/enroll.js"></script>
 
@@ -475,32 +476,156 @@ Enroll New Student
         <input class="edit" name="prev-icsd" id="prev-icsd-no" type="radio"/>
         <label class="edit" for="prev-icsd-no">No</label>
         <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
-
-
     </td>
 </tr>
 <tr>
     <td class="bold">Student Has Previously Attended School in Utah</td>
-    <td>Yes/No</td>
-</tr>
+    <td>
+        <span id="prev-utah-field-value" class="field-value" data-edit-elem="[name=prev-utah]">No</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
 
+        <input class="edit" name="prev-utah" id="prev-utah-yes" type="radio"/>
+        <label class="edit" for="prev-utah-yes">Yes</label>
+        <input class="edit" name="prev-utah" id="prev-utah-no" type="radio"/>
+        <label class="edit" for="prev-utah-no">No</label>
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+
+    </td>
+</tr>
+<tr>
+    <td class="bold">Student born outside the US?</td>
+    <td>
+        <span id="outside-us-field-value" class="field-value" data-edit-elem="[name=outside-us]">Yes</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        <input class="edit" name="outside-us" id="outside-us-yes" type="radio"/>
+        <label class="edit" for="outside-us-yes">Yes</label>
+        <input class="edit" name="outside-us" id="outside-us-no" type="radio"/>
+        <label class="edit" for="outside-us-no">No</label>
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+
+    </td>
+</tr>
 <tr>
     <td class="bold">Country/Territory of Birth</td>
-    <td>USA</td>
-</tr>
-<tr>
-    <td class="bold">Date First Enrolled In US School</td>
-    <td>06-21-2006</td>
-</tr>
-<tr>
-    <td class="bold">Student Has Attended One Or More Schools Inside
-        The US Or US Territory For Fewer Than Three Full Academic Years
+    <td>
+        <span id="count-terr-birth-field-value" class="field-value" data-edit-elem="#count-terr-birth">USA</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        <input class="edit" name="count-terr-birth" id="count-terr-birth">
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
     </td>
-    <td>Yes/No</td>
+</tr>
+<tr>
+    <td class="bold">If student is born outside the US/US Territory, date first enrolled in US school</td>
+    <td>
+        <span id="date-first-enrolled-field-value" class="field-value"
+              data-edit-elem="#date-first-enrolled">05-12-2003</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        <input class="edit" name="date-first-enrolled" id="date-first-enrolled">
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+<tr>
+    <td class="bold">Student Has Attended One Or More Schools Inside The US Or US Territory For Fewer Than Three Full
+        Academic Years
+    </td>
+    <td>
+        <span id="three-ac-yrs-field-value" class="field-value" data-edit-elem="[name=three-ac-yrs]">No</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        <input class="edit" name="three-ac-yrs" id="three-ac-yrs-yes" type="radio"/>
+        <label class="edit" for="three-ac-yrs-yes">Yes</label>
+        <input class="edit" name="three-ac-yrs" id="three-ac-yrs-no" type="radio"/>
+        <label class="edit" for="three-ac-yrs-no">No</label>
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    </td>
 </tr>
 <tr>
     <td class="bold">Grade Levels Completed</td>
-    <td>Kindergarten, 1st</td>
+    <td>
+        <span id="completed-grades-field-value" class="field-value" data-edit-elem="#completed-grades">Pre 1, K</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        <div>
+            <label class="edit" for="three-ac-yrs-yes">Pre 1</label>
+            <input class="edit" name="completed-grades--1" id="completed-grades--1" type="checkbox">
+        </div>
+        <div>
+            <label class="edit" for="three-ac-yrs-yes">Pre 2</label>
+            <input class="edit" name="completed-grades--2" id="completed-grades--2" type="checkbox">
+
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">Kindergarten</label>
+                <input class="edit" name="completed-grades-0" id="completed-grades--0" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">1</label>
+                <input class="edit" name="completed-grades-1" id="completed-grades-1" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">2</label>
+                <input class="edit" name="completed-grades-2" id="completed-grades-2" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">3</label>
+                <input class="edit" name="completed-grades-3" id="completed-grades-3" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">4</label>
+                <input class="edit" name="completed-grades-4" id="completed-grades-4" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">5</label>
+                <input class="edit" name="completed-grades-5" id="completed-grades-5" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">6</label>
+                <input class="edit" name="completed-grades-6" id="completed-grades-6" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">7</label>
+                <input class="edit" name="completed-grades-7" id="completed-grades-7" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">8</label>
+                <input class="edit" name="completed-grades-8" id="completed-grades-8" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">9</label>
+                <input class="edit" name="completed-grades-9" id="completed-grades-9" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">10</label>
+                <input class="edit" name="completed-grades-10" id="completed-grades-10" type="checkbox">
+            </div>
+            <div>
+                <label class="edit" for="three-ac-yrs-yes">11</label>
+                <input class="edit" name="completed-grades-11" id="completed-grades-11" type="checkbox">
+            </div>
+
+
+            <!--
+            <select id="completed-grades" class="edit" style="display: none;">
+                <option value="-1">Pre 1</option>
+                <option value="-2">Pre 2</option>
+                <option value="0">K</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+            </select>
+            -->
+            <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    </td>
 </tr>
 
 <tr>
