@@ -2,7 +2,7 @@
 <plugin xmlns="http://plugin.powerschool.pearson.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         description="Online Student Registration for PowerSchool"
-        name="PS Registration (PS7.11)"
+        name="PS Registration"
         version="1.0"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">
     <publisher name="Iron County School District Data Team">
