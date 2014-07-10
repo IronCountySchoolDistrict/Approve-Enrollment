@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
+    <extensionname>U_REGISTRATION</extensionname>
+    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS" childName="U_DEF_EMERG_CONTS" comment="">
+        <field name="address_state" type="String" length="40"/>
+        <field name="cell_phone" type="String" length="40"/>
+        <field name="address_zip" type="String" length="40"/>
+        <field name="email" type="String" length="40"/>
+        <field name="work_phone" type="String" length="40"/>
+        <field name="employer" type="String" length="40"/>
+        <field name="address_street" type="String" length="40"/>
+        <field name="name" type="String" length="40"/>
+        <field name="staging_id" type="Integer"/>
+        <field name="home_phone" type="String" length="40"/>
+        <field name="address_city" type="String" length="40"/>
+        <field name="is_leg_guar" type="Boolean"/>
+        <field name="relationship" type="String" length="40"/>
+        <field name="priority" type="Integer"/>
+    </extendedTable>
+    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS" childName="U_DEF_SIBLINGS" comment="">
+        <field name="gender" type="String" length="1"/>
+        <field name="staging_id" type="Integer"/>
+        <field name="grade" type="String" length="40"/>
+        <field name="school" type="String" length="40"/>
+        <field name="name" type="String" length="40"/>
+        <field name="birthdate" type="String" length="40"/>
+    </extendedTable>
+    <extendedTable type="standalone" dbTableName="U_DEF_STAGING" childName="U_DEF_STAGING" comment="">
+        <field name="staging_id" type="Integer"/>
+
+        <field name="first_name" type="String" length="50"/>
+        <field name="midde_name" type="String" length="40"/>
+        <field name="last_name" type="String" length="40"/>
+        <field name="nickname" type="String" length="40"/>
+        <field name="ssn" type="String" length="40"/>
+        <field name="email_address" type="String" length="40"/>
+        <field name="last_attended_grade" type="String" length="40"/>
+        <field name="birthdate" type="String" length="40"/>
+        <field name="gender" type="String" length="40"/>
+        <field name="current_grade" type="String" length="40"/>
+        <field name="home_phone_number" type="String" length="40"/>
+        <field name="student_cell_number" type="String" length="40"/>
+        <field name="mailing_address" type="String" length="60"/>
+        <field name="mailing_city" type="String" length="40"/>
+        <field name="mailing_state" type="String" length="40"/>
+        <field name="mailing_zip" type="String" length="10"/>
+        <field name="residence_address" type="String" length="60"/>
+        <field name="residence_city" type="String" length="40"/>
+        <field name="residence_state" type="String" length="2"/>
+        <field name="residence_zip" type="String" length="10"/>
+
+        <field name="sibling_grade" type="String" length="40"/>
+        <field name="sibling_school" type="String" length="40"/>
+        <field name="sibling_name" type="String" length="40"/>
+        <field name="sibling_birthdate" type="String" length="40"/>
+    </extendedTable>
+</psExtension>
