@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
-    <extensionname>U_REGISTRATION</extensionname>
-    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS" childName="U_DEF_EMERG_CONTS" comment="">
+    <extensionname>U_REGISTRATION3</extensionname>
+    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS3" childName="U_DEF_EMERG_CONTS3" comment="">
         <field name="address_state" type="String" length="40"/>
         <field name="cell_phone" type="String" length="40"/>
         <field name="address_zip" type="String" length="40"/>
@@ -17,7 +17,7 @@
         <field name="relationship" type="String" length="40"/>
         <field name="priority" type="Integer"/>
     </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS" childName="U_DEF_SIBLINGS" comment="">
+    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS3" childName="U_DEF_SIBLINGS3" comment="">
         <field name="gender" type="String" length="1"/>
         <field name="staging_id" type="Integer"/>
         <field name="grade" type="String" length="40"/>
@@ -25,11 +25,9 @@
         <field name="name" type="String" length="40"/>
         <field name="birthdate" type="String" length="40"/>
     </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_STAGING" childName="U_DEF_STAGING" comment="">
-        <field name="staging_id" type="Integer"/>
-
+    <extendedTable type="standalone" dbTableName="U_DEF_STAGING3" childName="U_DEF_STAGING3" comment="">
         <field name="first_name" type="String" length="50"/>
-        <field name="midde_name" type="String" length="40"/>
+        <field name="middle_name" type="String" length="40"/>
         <field name="last_name" type="String" length="40"/>
         <field name="nickname" type="String" length="40"/>
         <field name="ssn" type="String" length="40"/>
@@ -48,10 +46,61 @@
         <field name="residence_city" type="String" length="40"/>
         <field name="residence_state" type="String" length="2"/>
         <field name="residence_zip" type="String" length="10"/>
+        <field name="school_city" type="String" length="40"/>
+        <field name="school_zip" type="String" length="2"/>
+        <field name="school_phone" type="String" length="40"/>
+        <field name="school_fax" type="String" length="40"/>
+        <field name="prev_icsd" type="Boolean"/>
+        <field name="prev_utah" type="Boolean"/>
+        <field name="count_terr_birth" type="String" length="40"/>
+        <field name="date_first_enrolled" type="String" length="40"/>
+        <field name="three_ac_yrs" type="Boolean"/>
+        <field name="completed_grades" type="String" length="40"/>
+        <field name="prim_lang" type="String" length="40"/>
+        <field name="cur_lang" type="String" length="40"/>
+        <field name="home_lang" type="String" length="40"/>
+        <field name="corres_lang" type="String" length="40"/>
+        <field name="bilingual" type="String" length="40"/>
+        <field name="prev_icsd" type="Boolean"/>
+        <field name="prev_utah" type="Boolean"/>
+        <field name="immunizations_complete" type="Boolean"/>
+        <field name="part_time" type="Boolean"/>
+        <field name="part_time_detail" type="String" length="40"/>
+        <field name="part_time_other_desc" type="String" length="40"/>
+        <field name="refugee" type="String" length="40"/>
+        <field name="hisp_latino" type="Boolean"/>
+        <field name="race" type="String" length="40"/>
+        <field name="special_ed_services" type="Boolean"/>
+        <field name="speech_lang_services" type="Boolean"/>
+        <field name="services_504" type="Boolean"/>
+        <field name="foster_ward_student" type="Boolean"/>
+        <field name="juvenile_probation" type="Boolean"/>
+        <field name="other_info" type="String" length="40"/>
+        <field name="safe_school_violation" type="Boolean"/>
+        <field name="safe_school_violation_explanation" type="String" length="40"/>
+        <field name="med_diabetes" type="Boolean"/>
+        <field name="med_heart" type="Boolean"/>
+        <field name="med_seizures" type="Boolean"/>
+        <field name="med_add_adhd" type="Boolean"/>
+        <field name="med_hearing" type="Boolean"/>
+        <field name="med_vision" type="Boolean"/>
+        <field name="med_glasses" type="Boolean"/>
+        <field name="med_asthma" type="Boolean"/>
+        <field name="med_allergies" type="Boolean"/>
+        <field name="med_require_meds" type="Boolean"/>
+        <field name="medication" type="String" length="100"/>
+        <field name="med_other" type="Boolean"/>
+        <field name="add_med_services" type="String" length="100"/>
+        <field name="physicans_name" type="String" length="60"/>
+        <field name="physicans_phone" type="String" length="30"/>
+        <field name="dentists_name" type="String" length="60"/>
+        <field name="dentists_phone" type="String" length="30"/>
+        <field name="medical_info" type="Boolean"/>
+        <field name="field_trips" type="Boolean"/>
+        <field name="student_directory" type="Boolean"/>
+        <field name="media_full_name" type="Boolean"/>
+        <field name="policy_aup" type="Boolean"/>
+        <field name="policy_safe_schools" type="Boolean"/>
 
-        <field name="sibling_grade" type="String" length="40"/>
-        <field name="sibling_school" type="String" length="40"/>
-        <field name="sibling_name" type="String" length="40"/>
-        <field name="sibling_birthdate" type="String" length="40"/>
     </extendedTable>
 </psExtension>

@@ -450,14 +450,16 @@
             <div class="col-md-12 field-container">
                 <input class="form-control" name="mailing-address" id="mailing-address"
                        placeholder="Mailing Address"
-                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       style="margin-bottom: 15px;"
+                       data-parsley-trigger="change"
                        data-parsley-group="block1"/>
             </div>
         </td>
         <td class="width-td">
             <div class="col-md-12 field-container">
                 <input class="form-control" name="mailing-city" id="mailing-city" placeholder="Mailing City"
-                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       style="margin-bottom: 15px;"
+                       data-parsley-trigger="change"
                        data-parsley-group="block1"/>
             </div>
         </td>
@@ -466,7 +468,6 @@
                 <div class="col-md-6"
                      style="padding-bottom: 0px !important; padding-left: 0; padding-right: 4px;">
                     <select class="form-control" name="mailing-state" id="mailing-state"
-                            required
                             data-parsley-trigger="change"
                             data-parsley-group="block1">
                         <option></option>
@@ -527,7 +528,6 @@
                      style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
                     <input class="form-control" name="mailing-zip" id="mailing-zip"
                            placeholder="Mailing Zip"
-                           required
                            data-parsley-trigger="change"
                            data-parsley-group="block1"/>
                 </div>
@@ -544,7 +544,8 @@
             <div class="col-md-12 field-container">
                 <input class="form-control" name="residence-address" id="residence-address"
                        placeholder="Residence Address"
-                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       style="margin-bottom: 15px;"
+                       data-parsley-trigger="change"
                        data-parsley-group="block1"/>
             </div>
         </td>
@@ -552,7 +553,8 @@
             <div class="col-md-12 field-container">
                 <input class="form-control" name="residence-city" id="residence-city"
                        placeholder="Residence City"
-                       style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                       style="margin-bottom: 15px;"
+                       data-parsley-trigger="change"
                        data-parsley-group="block1"/>
             </div>
         </td>
@@ -561,7 +563,6 @@
                 <div class="col-md-6"
                      style="padding-bottom: 0px !important; padding-left: 0; padding-right: 4px;">
                     <select class="form-control" name="residence-state" id="residence-state"
-                            required
                             data-parsley-trigger="change"
                             data-parsley-group="block1">
                         <option></option>
@@ -622,7 +623,7 @@
                      style="padding-bottom: 0px !important; padding-left: 4px; padding-right: 0px;">
                     <input class="form-control" name="residence-zip" id="residence-zip"
                            placeholder="Residence Zip"
-                           style="margin-bottom: 15px;" required data-parsley-trigger="change"
+                           style="margin-bottom: 15px;" data-parsley-trigger="change"
                            data-parsley-group="block1"/>
                 </div>
             </div>
@@ -849,7 +850,8 @@
                         inside the US or US Territory for fewer than three full academic years?</label>
 
                     <div class="alert alert-info">
-                        The three years do not need to be consecutive, but <strong>do</strong> need to be complete academic years.
+                        The three years do not need to be consecutive, but <strong>do</strong> need to be complete
+                        academic years.
                     </div>
                 </td>
                 <td>
@@ -871,6 +873,7 @@
                 <td>
                     <div class="col-md-12 field-container">
                         <select id="completed-grades" class="multiselect" multiple="multiple"
+                                name="completed-grades"
                                 data-parsley-completedgrades
                                 data-parsley-trigger="change"
                                 data-parsley-group="block1">
@@ -2140,7 +2143,7 @@
             <div class="table-responsive" style="width: 100%;">
                 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
                     Please enter information for any siblings of school attending age below. Add a sibling by clicking
-                    on the right plus button to the right.
+                    on the plus button to the right.
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                 </div>
                 <table id="siblings-table" class="table">
@@ -2914,7 +2917,7 @@
             <tr>
                 <td class="width-td label-td">
                     <div class="col-md-12">
-                        <label for="physicians-name">Physician's Name <span class="required-field-ast">*</span></label>
+                        <label for="physicians-name">Physician's Name</label>
                     </div>
                 </td>
                 <td class="width-td">
@@ -2924,7 +2927,7 @@
                 </td>
                 <td class="width-td">
                     <div class="col-md-12">
-                        <label for="physicians-phone">Phone <span class="required-field-ast">*</span></label>
+                        <label for="physicians-phone">Physician's Phone Number</label>
                     </div>
                 </td>
                 <td class="width-td">
@@ -2937,7 +2940,7 @@
             <tr>
                 <td>
                     <div class="col-md-12">
-                        <label for="dentists-name">Dentist's Name <span class="required-field-ast">*</span></label>
+                        <label for="dentists-name">Dentist's Name</label>
                     </div>
                 </td>
                 <td>
@@ -2947,7 +2950,7 @@
                 </td>
                 <td>
                     <div class="col-md-12">
-                        <label for="dentists-phone">Phone <span class="required-field-ast">*</span></label>
+                        <label for="dentists-phone">Dentist's Phone Number</label>
                     </div>
                 </td>
                 <td>
