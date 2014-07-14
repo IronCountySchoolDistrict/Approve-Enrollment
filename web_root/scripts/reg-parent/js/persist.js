@@ -89,7 +89,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]grade',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]name',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]school',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]staging_id',
+                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]staging_id'
             ];
 
             var siblingsData = [];
@@ -122,80 +122,432 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
         },
 
         getStagingDataFromTable: function (extGroup, extTable) {
-            var emergContsDbeFields = [
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_STATE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICIANS_PHONE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PREV_UTAH',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_FAX',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_HEARING',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICAL_INFO',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SPEECH_LANG_SERVICES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SPECIAL_ED_SERVICES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SERVICES_504',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]HOME_PHONE_NUMBER',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]OTHER_INFO',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]FIRST_NAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]JUVENILE_PROBATION',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]GENDER',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICATION',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]LAST_NAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]CORRES_LANG',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_CITY',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_CITY',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PRIM_LANG',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]FOSTER_WARD_STUDENT',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]POLICY_SAFE_SCHOOLS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]THREE_AC_YRS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_ADDRESS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]BILINGUAL',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_ADDRESS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_ZIP',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_DIRECTORY',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ADD_ADHD',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]HOME_LANG',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]BIRTHDATE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MIDDLE_NAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_CELL_NUMBER',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_SEIZURES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]COMPLETED_GRADES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_VISION',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_ADDRESS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]EMAIL_ADDRESS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ASTHMA',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_ZIP',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDIA_FULL_NAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]HISP_LATINO',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_GLASSES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]CURRENT_GRADE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_PHONE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_REQUIRE_MEDS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_HEART',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]FIELD_TRIPS',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]IMMUNIZATIONS_COMPLETE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ALLERGIES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]REFUGEE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SSN',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]ADD_MED_SERVICES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]LAST_ATTENDED_GRADE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SAFE_SCHOOL_VIOLATION',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_ZIP',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_STATE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_CITY',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME_DETAIL',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]CUR_LANG',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME_OTHER_DESC',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]DATE_FIRST_ENROLLED',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICANS_NAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]PREV_ICSD',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]POLICY_AUP',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_DIABETES',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]DENTISTS_PHONE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]RACE',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]NICKNAME',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]COUNT_TERR_BIRTH',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]DENTISTS_NAME'
-            ];
+            var stagingData = [];
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]FIRST_NAME',
+                value: $('#first-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MIDDLE_NAME',
+                value: $('#middle-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]LAST_NAME',
+                value: $('#last-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]NICKNAME',
+                value: $('#nickname').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SSN',
+                value: $('#ssn').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]GENDER',
+                value: $('#gender').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]EMAIL_ADDRESS',
+                value: $('#email-address').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]LAST_ATTENDED_GRADE',
+                value: $('#last-attended-grade').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]CURRENT_GRADE',
+                value: $('#current-grade').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]BIRTHDATE',
+                value: $('#birthdate').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]HOME_PHONE_NUMBER',
+                value: $('#home-phone-number').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PARENT_CELL_NUMBER',
+                value: $('#parent-cell-number').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_CELL_NUMBER',
+                value: $('#student-cell-number').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_ADDRESS',
+                value: $('#mailing-address').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_CITY',
+                value: $('#mailing-city').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_STATE',
+                value: $('#mailing-state').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MAILING_ZIP',
+                value: $('#mailing-zip').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_ADDRESS',
+                value: $('#residence-address').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_CITY',
+                value: $('#residence-city').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_STATE',
+                value: $('#residence-state').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RESIDENCE_ZIP',
+                value: $('#residence-zip').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_CITY',
+                value: $('#school-city').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_STATE',
+                value: $('#school-state').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_PHONE',
+                value: $('#school-phone').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_FAX',
+                value: $('#school-fax').val()
+            });
+
+            if ($('#prev-icsd-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PREV_ICSD',
+                    value: 1
+                });
+            }
+
+            if ($('#prev-utah-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PREV_UTAH',
+                    value: 1
+                });
+            }
+
+            if ($('#outside-us-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]OUTSIDE_US',
+                    value: 1
+                });
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]COUNT_TERR_BIRTH',
+                    value: $('#count-terr-birth').val()
+                });
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]DATE_FIRST_ENROLLED',
+                    value: $('#date-first-enrolled').val()
+                });
+
+
+                if ($('three-ac-yrs-yes').is(':checked')) {
+                    stagingData.push({
+                        name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]THREE_AC_YRS',
+                        value: 1
+                    });
+
+                    stagingData.push({
+                        name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]COMPLETED_GRADES',
+                        value: $('#completed-grades').val().join(',')
+                    });
+                }
+            }
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PRIM_LANG',
+                value: $('#prim-lang').val()
+            });
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]CUR_LANG',
+                value: $('#cur-lang').val()
+            });
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]HOME_LANG',
+                value: $('#home-lang').val()
+            });
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]CORRES_LANG',
+                value: $('#corres-lang').val()
+            });
+
+
+            if (!$('#bilingual-neither').is(':checked')) {
+
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]BILINGUAL',
+                    value: 1
+                });
+            }
+
+            if ($('#utah-resident-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]UTAH_RESIDENT',
+                    value: 1
+                });
+            }
+
+            if ($('#district-resident-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]DISTRICT_RESIDENT',
+                    value: 1
+                });
+            }
+
+            if ($('#immunizations-complete-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]IMMUNIZATIONS_COMPLETE',
+                    value: 1
+                });
+            }
+
+            if ($('#part-time-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME',
+                    value: 1
+                });
+            }
+
+            //TODO: Reason for Part-Time enrollment processing here
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME_DETAIL',
+                value: 1
+            });
+
+            if ($('#refugee-student-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]REFUGEE',
+                    value: $('#last-name').val()
+                });
+            }
+
+            if ($('#hisp-latino-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]HISP_LATINO',
+                    value: 1
+                });
+            }
+
+            //TODO: Make sure race is processed correctly here.
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RACE',
+                value: $('#last-name').val()
+            });
+
+            if ($('#special-ed-services-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SPECIAL_ED_SERVICES',
+                    value: 1
+                });
+            }
+
+            if ($('#speech-lang-services-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SPEECH_LANG_SERVICES',
+                    value: 1
+                });
+            }
+
+            if ($('#504-services-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SERVICES_504',
+                    value: 1
+                });
+            }
+
+            if ($('#foster-ward-student-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]FOSTER_WARD_STUDENT',
+                    value: 1
+                });
+            }
+
+            if ($('#juvenile-probation-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]JUVENILE_PROBATION',
+                    value: 1
+                });
+            }
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]OTHER_INFO',
+                value: $('#other-info')
+            });
+
+            if ($('#safe-school-violation-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SAFE_SCHOOL_VIOLATION',
+                    value: 1
+                });
+
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SAFE_SCHOOL_VIOLATION_EXPLANATION',
+                    value: $('#safe-school-violation-explanation')
+                });
+            }
+
+
+            if ($('#med-diabetes-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_DIABETES',
+                    value: 1
+                });
+            }
+
+            if ($('#med-heart-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_HEART',
+                    value: 1
+                });
+            }
+
+            if ($('#med-seizures-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_SEIZURES',
+                    value: 1
+                });
+            }
+
+            if ($('#med-add-adhd-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ADD_ADHD',
+                    value: 1
+                });
+            }
+
+            if ($('#med-hearing-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_HEARING',
+                    value: 1
+                });
+            }
+
+            if ($('#med-vision-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_VISION',
+                    value: 1
+                });
+            }
+
+            if ($('#med-glasses-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_GLASSES',
+                    value: 1
+                });
+            }
+
+            if ($('#med-asthma-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ASTHMA',
+                    value: 1
+                });
+            }
+
+            if ($('#med-allergies-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_ALLERGIES',
+                    value: 1
+                });
+            }
+
+            if ($('#med-require-meds-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_REQUIRE_MEDS',
+                    value: 1
+                });
+
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICATIONS',
+                    value: $('#medications')
+                });
+
+            }
+
+            if ($('#med-other-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MED_OTHER',
+                    value: 1
+                });
+
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]ADD_MED_SERVICES',
+                    value: $('#add-med-services').val()
+                });
+            }
+
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICANS_NAME',
+                value: $('#last-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICIANS_PHONE',
+                value: $('#last-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]DENTISTS_NAME',
+                value: $('#last-name').val()
+            });
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]DENTISTS_PHONE',
+                value: $('#last-name').val()
+            });
+
+            if ($('#medical-info-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICAL_INFO',
+                    value: 1
+                });
+            }
+
+            if ($('#field-trips-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]FIELD_TRIPS',
+                    value: 1
+                });
+            }
+
+            if ($('#student-directory-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_DIRECTORY',
+                    value: 1
+                });
+            }
+
+            if ($('#media-full-name-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDIA_FULL_NAME',
+                    value: 1
+                });
+            }
+
+            if ($('#policy-aup-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]POLICY_AUP',
+                    value: 1
+                });
+            }
+
+            if ($('#policy-safe-schools-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]POLICY_SAFE_SCHOOLS',
+                    value: 1
+                });
+            }
         },
 
         main: function () {

@@ -150,7 +150,7 @@
                     <a id="tab1" href="#personal" data-toggle="tab" class="enabled-nav">Personal Info</a>
                 </li>
                 <li>
-                    <a id="tab2" href="#con-sib" data-toggle="tab" class="disabled-nav">Emergency Contacts</a>
+                    <a id="tab2" href="#con-sib" data-toggle="tab" class="disabled-nav">Contacts</a>
                 </li>
                 <li>
                     <a id="tab3" href="#state-fed" data-toggle="tab" class="disabled-nav">State/Federal</a>
@@ -280,8 +280,8 @@
                     data-parsley-trigger="change"
                     data-parsley-group="block1">
                 <option></option>
-                <option>M</option>
-                <option>F</option>
+                <option>Male</option>
+                <option>Female</option>
             </select>
         </div>
     </td>
@@ -289,8 +289,7 @@
 <tr>
     <td class="label-td">
         <div class="col-md-12">
-            <label for="email-address">Student's Email Address <span
-                    class="required-field-ast">*</span></label>
+            <label for="email-address">Student's Email Address</label>
         </div>
     </td>
     <td>
@@ -298,7 +297,6 @@
             <input name="email-address" class="form-control" id="email-address"
                    placeholder="Student's Email Address"
                    style="margin-bottom: 15px;"
-                   required
                    data-parsley-trigger="change"
                    data-parsley-group="block1"
                    data-parsley-type="email"/>
@@ -846,12 +844,14 @@
             </tr>
             <tr>
                 <td>
-                    <label for="three-ac-yrs">Has this student attended one or more schools
-                        inside the US or US Territory for fewer than three full academic years?</label>
+                    <div class="col-md-12">
+                        <label for="three-ac-yrs">Has this student attended one or more schools
+                            inside the US or US Territory for fewer than three full academic years?</label>
 
-                    <div class="alert alert-info">
-                        The three years do not need to be consecutive, but <strong>do</strong> need to be complete
-                        academic years.
+                        <div class="alert alert-info">
+                            The three years do not need to be consecutive, but <strong>do</strong> need to be complete
+                            academic years.
+                        </div>
                     </div>
                 </td>
                 <td>
@@ -921,11 +921,12 @@
 <td class="width-td">
     <div class="col-md-12 field-container">
         <select class="form-control" id="prim-lang"
+                name="prim-lang"
                 required
                 data-parsley-trigger="change"
                 data-parsley-group="block1">
             <option></option>
-            <option value="English ">English</option>
+            <option value="English">English</option>
             <option value="Spanish">Spanish</option>
             <option value="Russian">Russian</option>
             <option value="Arabic">Arabic</option>
@@ -1094,11 +1095,364 @@
 <td class="width-td">
     <div class="col-md-12 field-container">
         <select class="form-control" id="cur-lang"
+                name="cur-lang"
                 required
                 data-parsley-trigger="change"
                 data-parsley-group="block1">
             <option></option>
-            <option value="English ">English</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Russian">Russian</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Navajo">Navajo</option>
+            <option disabled="disabled">-----------</option>
+            <option value="Achinese (Aceh)">Achinese (Aceh)</option>
+            <option value="Acoli">Acoli</option>
+            <option value="Afrikaans">Afrikaans</option>
+            <option value="Albanian">Albanian</option>
+            <option value="American Sign Language">American Sign Language</option>
+            <option value="Amharic">Amharic</option>
+            <option value="Apache">Apache</option>
+            <option value="Arapaho">Arapaho</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Assyrian Neo-Aramaic">Assyrian Neo-Aramaic</option>
+            <option value="Basque">Basque</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Bosnian">Bosnian</option>
+            <option value="Bulgarian">Bulgarian</option>
+            <option value="Burmese">Burmese</option>
+            <option value="Cambodian (Khmer)">Cambodian (Khmer)</option>
+            <option value="Cantonese">Cantonese</option>
+            <option value="Cebuano - Philippines">Cebuano - Philippines</option>
+            <option value="Central Quiché">Central Quiché</option>
+            <option value="Chamorro">Chamorro</option>
+            <option value="Cherokee">Cherokee</option>
+            <option value="Chichewa">Chichewa</option>
+            <option value="Chinese (other than Cantonese or Mandarin)">Chinese (other than Cantonese or Mandarin)
+            </option>
+            <option value="Chuukese (Trukese)">Chuukese (Trukese)</option>
+            <option value="Creole English-based (other than Tok Pisin)">Creole English-based (other than Tok
+                Pisin)
+            </option>
+            <option value="Creole French-based (other than Haitian)">Creole French-based (other than Haitian)
+            </option>
+            <option value="Creole Portuguese-based">Creole Portuguese-based</option>
+            <option value="Croatian">Croatian</option>
+            <option value="Cushitic">Cushitic</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Dari (Eastern Farsi)">Dari (Eastern Farsi)</option>
+            <option value="Dinka">Dinka</option>
+            <option value="Dutch (Flemish)">Dutch (Flemish)</option>
+            <option value="Efik (Riverain Ibibio)">Efik (Riverain Ibibio)</option>
+            <option value="Eskimo-Aleut">Eskimo-Aleut</option>
+            <option value="Fijian">Fijian</option>
+            <option value="Filipino (Pilipino)">Filipino (Pilipino)</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="Ga-Rankuwa">Ga-Rankuwa</option>
+            <option value="Gbaya">Gbaya</option>
+            <option value="Georgian">Georgian</option>
+            <option value="German">German</option>
+            <option value="Gokana">Gokana</option>
+            <option value="Goshute">Goshute</option>
+            <option value="Grebo (Globo)">Grebo (Globo)</option>
+            <option value="Greek">Greek</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Haitian">Haitian</option>
+            <option value="Hausa">Hausa</option>
+            <option value="Hawaiian">Hawaiian</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Hmong">Hmong</option>
+            <option value="Hopi">Hopi</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Iban">Iban</option>
+            <option value="Icelandic">Icelandic</option>
+            <option value="Igbo (Ibo)">Igbo (Ibo)</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Kakwa">Kakwa</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Kanuma">Kanuma</option>
+            <option value="Karen">Karen</option>
+            <option value="Korean">Korean</option>
+            <option value="Krahn">Krahn</option>
+            <option value="Kru">Kru</option>
+            <option value="Kurdish">Kurdish</option>
+            <option value="Lao">Lao</option>
+            <option value="Lingala">Lingala</option>
+            <option value="Lithuanian">Lithuanian</option>
+            <option value="Lozi">Lozi</option>
+            <option value="Maay (Maimai, Rahanween)">Maay (Maimai, Rahanween)</option>
+            <option value="Mabaan (Southern Burun)">Mabaan (Southern Burun)</option>
+            <option value="Macedonian">Macedonian</option>
+            <option value="Madi">Madi</option>
+            <option value="Malagasy">Malagasy</option>
+            <option value="Malay">Malay</option>
+            <option value="Mandarin">Mandarin</option>
+            <option value="Mandingo">Mandingo</option>
+            <option value="Maori">Maori</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Marshallese">Marshallese</option>
+            <option value="Mongolian">Mongolian</option>
+            <option value="Mortlockese">Mortlockese</option>
+            <option value="Mushungulu">Mushungulu</option>
+            <option value="Nepali">Nepali</option>
+            <option value="Ngambay">Ngambay</option>
+            <option value="North American Indian (other than any listed separately)">North American Indian (other
+                than any listed separately)
+            </option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Nubian">Nubian</option>
+            <option value="Nuer">Nuer</option>
+            <option value="Paiute">Paiute</option>
+            <option value="Palauan">Palauan</option>
+            <option value="Papiamento">Papiamento</option>
+            <option value="Persian (Farsi)">Persian (Farsi)</option>
+            <option value="Pingelapese">Pingelapese</option>
+            <option value="Pohnpeian">Pohnpeian</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Pushto (Pashto)">Pushto (Pashto)</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Ronga">Ronga</option>
+            <option value="Rundi (Kirundi, Urundi)">Rundi (Kirundi, Urundi)</option>
+            <option value="Samoan">Samoan</option>
+            <option value="Serbian">Serbian</option>
+            <option value="Sherpa">Sherpa</option>
+            <option value="Shoshone">Shoshone</option>
+            <option value="Sindi">Sindi</option>
+            <option value="Sinhalese">Sinhalese</option>
+            <option value="Siouan (Sioux)">Siouan (Sioux)</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Slovenian">Slovenian</option>
+            <option value="Somali">Somali</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Swiss German">Swiss German</option>
+            <option value="Tagalog">Tagalog</option>
+            <option value="Tahitian">Tahitian</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
+            <option value="Tibetan">Tibetan</option>
+            <option value="Tigrigna (Tigrinya)">Tigrigna (Tigrinya)</option>
+            <option value="Tohono O'odham (Papago)">Tohono O'odham (Papago)</option>
+            <option value="Tok Pisin">Tok Pisin</option>
+            <option value="Tongan">Tongan</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Uduk (Twampa)">Uduk (Twampa)</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Ute">Ute</option>
+            <option value="Vai">Vai</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Western Farsi">Western Farsi</option>
+            <option value="Wolof (Gambian)">Wolof (Gambian)</option>
+            <option value="Yapese">Yapese</option>
+            <option value="Yoruba">Yoruba</option>
+            <option value="Zulu">Zulu</option>
+            <option value="Zuni">Zuni</option>
+        </select>
+    </div>
+</td>
+</tr>
+<tr>
+<td>
+    <div class="col-md-12">
+        <label for="home-lang">What language(s) do you (parents/guardians, or other adults who
+            permanently reside in the home) use when you/they speak to your child?
+            <span class="required-field-ast">*</span></label>
+    </div>
+</td>
+<td>
+    <div class="col-md-12 field-container">
+        <select class="form-control" id="home-lang"
+                name="home-lang"
+                required
+                data-parsley-trigger="change"
+                data-parsley-group="block1">
+            <option></option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="Russian">Russian</option>
+            <option value="Arabic">Arabic</option>
+            <option value="Navajo">Navajo</option>
+            <option disabled="disabled">-----------</option>
+            <option value="Achinese (Aceh)">Achinese (Aceh)</option>
+            <option value="Acoli">Acoli</option>
+            <option value="Afrikaans">Afrikaans</option>
+            <option value="Albanian">Albanian</option>
+            <option value="American Sign Language">American Sign Language</option>
+            <option value="Amharic">Amharic</option>
+            <option value="Apache">Apache</option>
+            <option value="Arapaho">Arapaho</option>
+            <option value="Armenian">Armenian</option>
+            <option value="Assyrian Neo-Aramaic">Assyrian Neo-Aramaic</option>
+            <option value="Basque">Basque</option>
+            <option value="Bengali">Bengali</option>
+            <option value="Bosnian">Bosnian</option>
+            <option value="Bulgarian">Bulgarian</option>
+            <option value="Burmese">Burmese</option>
+            <option value="Cambodian (Khmer)">Cambodian (Khmer)</option>
+            <option value="Cantonese">Cantonese</option>
+            <option value="Cebuano - Philippines">Cebuano - Philippines</option>
+            <option value="Central Quiché">Central Quiché</option>
+            <option value="Chamorro">Chamorro</option>
+            <option value="Cherokee">Cherokee</option>
+            <option value="Chichewa">Chichewa</option>
+            <option value="Chinese (other than Cantonese or Mandarin)">Chinese (other than Cantonese or Mandarin)
+            </option>
+            <option value="Chuukese (Trukese)">Chuukese (Trukese)</option>
+            <option value="Creole English-based (other than Tok Pisin)">Creole English-based (other than Tok
+                Pisin)
+            </option>
+            <option value="Creole French-based (other than Haitian)">Creole French-based (other than Haitian)
+            </option>
+            <option value="Creole Portuguese-based">Creole Portuguese-based</option>
+            <option value="Croatian">Croatian</option>
+            <option value="Cushitic">Cushitic</option>
+            <option value="Czech">Czech</option>
+            <option value="Danish">Danish</option>
+            <option value="Dari (Eastern Farsi)">Dari (Eastern Farsi)</option>
+            <option value="Dinka">Dinka</option>
+            <option value="Dutch (Flemish)">Dutch (Flemish)</option>
+            <option value="Efik (Riverain Ibibio)">Efik (Riverain Ibibio)</option>
+            <option value="Eskimo-Aleut">Eskimo-Aleut</option>
+            <option value="Fijian">Fijian</option>
+            <option value="Filipino (Pilipino)">Filipino (Pilipino)</option>
+            <option value="Finnish">Finnish</option>
+            <option value="French">French</option>
+            <option value="Ga-Rankuwa">Ga-Rankuwa</option>
+            <option value="Gbaya">Gbaya</option>
+            <option value="Georgian">Georgian</option>
+            <option value="German">German</option>
+            <option value="Gokana">Gokana</option>
+            <option value="Goshute">Goshute</option>
+            <option value="Grebo (Globo)">Grebo (Globo)</option>
+            <option value="Greek">Greek</option>
+            <option value="Gujarati">Gujarati</option>
+            <option value="Haitian">Haitian</option>
+            <option value="Hausa">Hausa</option>
+            <option value="Hawaiian">Hawaiian</option>
+            <option value="Hebrew">Hebrew</option>
+            <option value="Hindi">Hindi</option>
+            <option value="Hmong">Hmong</option>
+            <option value="Hopi">Hopi</option>
+            <option value="Hungarian">Hungarian</option>
+            <option value="Iban">Iban</option>
+            <option value="Icelandic">Icelandic</option>
+            <option value="Igbo (Ibo)">Igbo (Ibo)</option>
+            <option value="Indonesia">Indonesia</option>
+            <option value="Italian">Italian</option>
+            <option value="Japanese">Japanese</option>
+            <option value="Kakwa">Kakwa</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Kanuma">Kanuma</option>
+            <option value="Karen">Karen</option>
+            <option value="Korean">Korean</option>
+            <option value="Krahn">Krahn</option>
+            <option value="Kru">Kru</option>
+            <option value="Kurdish">Kurdish</option>
+            <option value="Lao">Lao</option>
+            <option value="Lingala">Lingala</option>
+            <option value="Lithuanian">Lithuanian</option>
+            <option value="Lozi">Lozi</option>
+            <option value="Maay (Maimai, Rahanween)">Maay (Maimai, Rahanween)</option>
+            <option value="Mabaan (Southern Burun)">Mabaan (Southern Burun)</option>
+            <option value="Macedonian">Macedonian</option>
+            <option value="Madi">Madi</option>
+            <option value="Malagasy">Malagasy</option>
+            <option value="Malay">Malay</option>
+            <option value="Mandarin">Mandarin</option>
+            <option value="Mandingo">Mandingo</option>
+            <option value="Maori">Maori</option>
+            <option value="Marathi">Marathi</option>
+            <option value="Marshallese">Marshallese</option>
+            <option value="Mongolian">Mongolian</option>
+            <option value="Mortlockese">Mortlockese</option>
+            <option value="Mushungulu">Mushungulu</option>
+            <option value="Nepali">Nepali</option>
+            <option value="Ngambay">Ngambay</option>
+            <option value="North American Indian (other than any listed separately)">North American Indian (other
+                than any listed separately)
+            </option>
+            <option value="Norwegian">Norwegian</option>
+            <option value="Nubian">Nubian</option>
+            <option value="Nuer">Nuer</option>
+            <option value="Paiute">Paiute</option>
+            <option value="Palauan">Palauan</option>
+            <option value="Papiamento">Papiamento</option>
+            <option value="Persian (Farsi)">Persian (Farsi)</option>
+            <option value="Pingelapese">Pingelapese</option>
+            <option value="Pohnpeian">Pohnpeian</option>
+            <option value="Polish">Polish</option>
+            <option value="Portuguese">Portuguese</option>
+            <option value="Punjabi">Punjabi</option>
+            <option value="Pushto (Pashto)">Pushto (Pashto)</option>
+            <option value="Romanian">Romanian</option>
+            <option value="Ronga">Ronga</option>
+            <option value="Rundi (Kirundi, Urundi)">Rundi (Kirundi, Urundi)</option>
+            <option value="Samoan">Samoan</option>
+            <option value="Serbian">Serbian</option>
+            <option value="Sherpa">Sherpa</option>
+            <option value="Shoshone">Shoshone</option>
+            <option value="Sindi">Sindi</option>
+            <option value="Sinhalese">Sinhalese</option>
+            <option value="Siouan (Sioux)">Siouan (Sioux)</option>
+            <option value="Slovak">Slovak</option>
+            <option value="Slovenian">Slovenian</option>
+            <option value="Somali">Somali</option>
+            <option value="Swahili">Swahili</option>
+            <option value="Swedish">Swedish</option>
+            <option value="Swiss German">Swiss German</option>
+            <option value="Tagalog">Tagalog</option>
+            <option value="Tahitian">Tahitian</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Thai">Thai</option>
+            <option value="Tibetan">Tibetan</option>
+            <option value="Tigrigna (Tigrinya)">Tigrigna (Tigrinya)</option>
+            <option value="Tohono O'odham (Papago)">Tohono O'odham (Papago)</option>
+            <option value="Tok Pisin">Tok Pisin</option>
+            <option value="Tongan">Tongan</option>
+            <option value="Turkish">Turkish</option>
+            <option value="Uduk (Twampa)">Uduk (Twampa)</option>
+            <option value="Ukrainian">Ukrainian</option>
+            <option value="Urdu">Urdu</option>
+            <option value="Ute">Ute</option>
+            <option value="Vai">Vai</option>
+            <option value="Vietnamese">Vietnamese</option>
+            <option value="Welsh">Welsh</option>
+            <option value="Western Farsi">Western Farsi</option>
+            <option value="Wolof (Gambian)">Wolof (Gambian)</option>
+            <option value="Yapese">Yapese</option>
+            <option value="Yoruba">Yoruba</option>
+            <option value="Zulu">Zulu</option>
+            <option value="Zuni">Zuni</option>
+        </select>
+    </div>
+</td>
+<td>
+    <div class="col-md-12">
+        <label for="corres-lang">In what language do you prefer to receive correspondence?
+            <span class="required-field-ast">*</span>
+        </label>
+    </div>
+</td>
+<td>
+    <div class="col-md-12 field-container">
+        <select class="form-control" id="corres-lang"
+                name="corres-lang"
+                required
+                data-parsley-trigger="change"
+                data-parsley-group="block1">
+            <option></option>
+            <option value="English">English</option>
             <option value="Spanish">Spanish</option>
             <option value="Russian">Russian</option>
             <option value="Arabic">Arabic</option>
@@ -1262,201 +1616,6 @@
 <tr>
     <td>
         <div class="col-md-12">
-            <label for="home-lang">What language(s) do you (parents/guardians, or other adults who
-                permanently reside in the home) use when you/they speak to your child?
-                <span class="required-field-ast">*</span></label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <select class="form-control" id="home-lang"
-                    required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option value="English ">English</option>
-                <option value="Spanish">Spanish</option>
-                <option value="Russian">Russian</option>
-                <option value="Arabic">Arabic</option>
-                <option value="Navajo">Navajo</option>
-                <option disabled="disabled">-----------</option>
-                <option value="Achinese (Aceh)">Achinese (Aceh)</option>
-                <option value="Acoli">Acoli</option>
-                <option value="Afrikaans">Afrikaans</option>
-                <option value="Albanian">Albanian</option>
-                <option value="American Sign Language">American Sign Language</option>
-                <option value="Amharic">Amharic</option>
-                <option value="Apache">Apache</option>
-                <option value="Arapaho">Arapaho</option>
-                <option value="Armenian">Armenian</option>
-                <option value="Assyrian Neo-Aramaic">Assyrian Neo-Aramaic</option>
-                <option value="Basque">Basque</option>
-                <option value="Bengali">Bengali</option>
-                <option value="Bosnian">Bosnian</option>
-                <option value="Bulgarian">Bulgarian</option>
-                <option value="Burmese">Burmese</option>
-                <option value="Cambodian (Khmer)">Cambodian (Khmer)</option>
-                <option value="Cantonese">Cantonese</option>
-                <option value="Cebuano - Philippines">Cebuano - Philippines</option>
-                <option value="Central Quiché">Central Quiché</option>
-                <option value="Chamorro">Chamorro</option>
-                <option value="Cherokee">Cherokee</option>
-                <option value="Chichewa">Chichewa</option>
-                <option value="Chinese (other than Cantonese or Mandarin)">Chinese (other than Cantonese or Mandarin)
-                </option>
-                <option value="Chuukese (Trukese)">Chuukese (Trukese)</option>
-                <option value="Creole English-based (other than Tok Pisin)">Creole English-based (other than Tok
-                    Pisin)
-                </option>
-                <option value="Creole French-based (other than Haitian)">Creole French-based (other than Haitian)
-                </option>
-                <option value="Creole Portuguese-based">Creole Portuguese-based</option>
-                <option value="Croatian">Croatian</option>
-                <option value="Cushitic">Cushitic</option>
-                <option value="Czech">Czech</option>
-                <option value="Danish">Danish</option>
-                <option value="Dari (Eastern Farsi)">Dari (Eastern Farsi)</option>
-                <option value="Dinka">Dinka</option>
-                <option value="Dutch (Flemish)">Dutch (Flemish)</option>
-                <option value="Efik (Riverain Ibibio)">Efik (Riverain Ibibio)</option>
-                <option value="Eskimo-Aleut">Eskimo-Aleut</option>
-                <option value="Fijian">Fijian</option>
-                <option value="Filipino (Pilipino)">Filipino (Pilipino)</option>
-                <option value="Finnish">Finnish</option>
-                <option value="French">French</option>
-                <option value="Ga-Rankuwa">Ga-Rankuwa</option>
-                <option value="Gbaya">Gbaya</option>
-                <option value="Georgian">Georgian</option>
-                <option value="German">German</option>
-                <option value="Gokana">Gokana</option>
-                <option value="Goshute">Goshute</option>
-                <option value="Grebo (Globo)">Grebo (Globo)</option>
-                <option value="Greek">Greek</option>
-                <option value="Gujarati">Gujarati</option>
-                <option value="Haitian">Haitian</option>
-                <option value="Hausa">Hausa</option>
-                <option value="Hawaiian">Hawaiian</option>
-                <option value="Hebrew">Hebrew</option>
-                <option value="Hindi">Hindi</option>
-                <option value="Hmong">Hmong</option>
-                <option value="Hopi">Hopi</option>
-                <option value="Hungarian">Hungarian</option>
-                <option value="Iban">Iban</option>
-                <option value="Icelandic">Icelandic</option>
-                <option value="Igbo (Ibo)">Igbo (Ibo)</option>
-                <option value="Indonesia">Indonesia</option>
-                <option value="Italian">Italian</option>
-                <option value="Japanese">Japanese</option>
-                <option value="Kakwa">Kakwa</option>
-                <option value="Kannada">Kannada</option>
-                <option value="Kanuma">Kanuma</option>
-                <option value="Karen">Karen</option>
-                <option value="Korean">Korean</option>
-                <option value="Krahn">Krahn</option>
-                <option value="Kru">Kru</option>
-                <option value="Kurdish">Kurdish</option>
-                <option value="Lao">Lao</option>
-                <option value="Lingala">Lingala</option>
-                <option value="Lithuanian">Lithuanian</option>
-                <option value="Lozi">Lozi</option>
-                <option value="Maay (Maimai, Rahanween)">Maay (Maimai, Rahanween)</option>
-                <option value="Mabaan (Southern Burun)">Mabaan (Southern Burun)</option>
-                <option value="Macedonian">Macedonian</option>
-                <option value="Madi">Madi</option>
-                <option value="Malagasy">Malagasy</option>
-                <option value="Malay">Malay</option>
-                <option value="Mandarin">Mandarin</option>
-                <option value="Mandingo">Mandingo</option>
-                <option value="Maori">Maori</option>
-                <option value="Marathi">Marathi</option>
-                <option value="Marshallese">Marshallese</option>
-                <option value="Mongolian">Mongolian</option>
-                <option value="Mortlockese">Mortlockese</option>
-                <option value="Mushungulu">Mushungulu</option>
-                <option value="Nepali">Nepali</option>
-                <option value="Ngambay">Ngambay</option>
-                <option value="North American Indian (other than any listed separately)">North American Indian (other
-                    than any listed separately)
-                </option>
-                <option value="Norwegian">Norwegian</option>
-                <option value="Nubian">Nubian</option>
-                <option value="Nuer">Nuer</option>
-                <option value="Paiute">Paiute</option>
-                <option value="Palauan">Palauan</option>
-                <option value="Papiamento">Papiamento</option>
-                <option value="Persian (Farsi)">Persian (Farsi)</option>
-                <option value="Pingelapese">Pingelapese</option>
-                <option value="Pohnpeian">Pohnpeian</option>
-                <option value="Polish">Polish</option>
-                <option value="Portuguese">Portuguese</option>
-                <option value="Punjabi">Punjabi</option>
-                <option value="Pushto (Pashto)">Pushto (Pashto)</option>
-                <option value="Romanian">Romanian</option>
-                <option value="Ronga">Ronga</option>
-                <option value="Rundi (Kirundi, Urundi)">Rundi (Kirundi, Urundi)</option>
-                <option value="Samoan">Samoan</option>
-                <option value="Serbian">Serbian</option>
-                <option value="Sherpa">Sherpa</option>
-                <option value="Shoshone">Shoshone</option>
-                <option value="Sindi">Sindi</option>
-                <option value="Sinhalese">Sinhalese</option>
-                <option value="Siouan (Sioux)">Siouan (Sioux)</option>
-                <option value="Slovak">Slovak</option>
-                <option value="Slovenian">Slovenian</option>
-                <option value="Somali">Somali</option>
-                <option value="Swahili">Swahili</option>
-                <option value="Swedish">Swedish</option>
-                <option value="Swiss German">Swiss German</option>
-                <option value="Tagalog">Tagalog</option>
-                <option value="Tahitian">Tahitian</option>
-                <option value="Tamil">Tamil</option>
-                <option value="Telugu">Telugu</option>
-                <option value="Thai">Thai</option>
-                <option value="Tibetan">Tibetan</option>
-                <option value="Tigrigna (Tigrinya)">Tigrigna (Tigrinya)</option>
-                <option value="Tohono O'odham (Papago)">Tohono O'odham (Papago)</option>
-                <option value="Tok Pisin">Tok Pisin</option>
-                <option value="Tongan">Tongan</option>
-                <option value="Turkish">Turkish</option>
-                <option value="Uduk (Twampa)">Uduk (Twampa)</option>
-                <option value="Ukrainian">Ukrainian</option>
-                <option value="Urdu">Urdu</option>
-                <option value="Ute">Ute</option>
-                <option value="Vai">Vai</option>
-                <option value="Vietnamese">Vietnamese</option>
-                <option value="Welsh">Welsh</option>
-                <option value="Western Farsi">Western Farsi</option>
-                <option value="Wolof (Gambian)">Wolof (Gambian)</option>
-                <option value="Yapese">Yapese</option>
-                <option value="Yoruba">Yoruba</option>
-                <option value="Zulu">Zulu</option>
-                <option value="Zuni">Zuni</option>
-            </select>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12">
-            <label for="corres-lang">In what language do you prefer to receive correspondence?
-                <span class="required-field-ast">*</span>
-            </label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="corres-lang" id="corres-lang-eng" type="radio"/>
-            <label for="corres-lang-eng">English</label>
-
-            <input name="corres-lang" id="corres-lang-other" type="radio"/>
-            <label for="corres-lang-other">Other</label>
-            <input style="display: none;" class="form-control" name="corres-lang-other-text" id="corres-lang-other-text"
-                   placeholder="Language of correspondence"
-                   data-parsley-group="block1"/>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td>
-        <div class="col-md-12">
             <label for="bilingual">Has your child ever been in a bilingual educational or an English as a
                 Second Language (ESL) program? <span class="required-field-ast">*</span></label>
         </div>
@@ -1464,30 +1623,19 @@
     <td>
         <div class="col-md-12 field-container">
             <span style="display: block;">
-                <input name="bilingual" id="bilingual-esl" type="checkbox"
+                <input name="bilingual-yes" id="bilingual-yes" type="radio"
                        required
-                       data-parsley-bilingual
                        data-parsley-multiple="bilingual"
                        data-parsley-trigger="change"
-                       data-parsley-group="block1"
-                       style="margin-right: 5px;"/>
-                <label for="bilingual-esl" id="bilingual-esl-label">ESL</label>
-                </span>
-            <span style="display: block;">
-                <input name="bilingual" id="bilingual-bilingual" type="checkbox"
-                       data-parsley-multiple="bilingual"
-                       data-parsley-trigger="change"
-                       data-parsley-group="block1"
-                       style="margin-right: 5px;"/>
-                <label for="bilingual-bilingual" id="bilingual-bilingual-label">Bilingual</label>
+                       data-parsley-group="block2"/>
+                <label for="bilingual-yes">Yes</label>
             </span>
             <span style="display: block;">
-                <input name="bilingual" id="bilingual-neither" type="checkbox"
+                <input name="bilingual-no" id="bilingual-no" type="radio"
                        data-parsley-multiple="bilingual"
                        data-parsley-trigger="change"
-                       data-parsley-group="block1"
-                       style="margin-right: 5px;"/>
-                <label for="bilingual-neither" id="bilingual-neither-label">Neither</label>
+                       data-parsley-group="block2"/>
+                <label for="bilingual-no">No</label>
             </span>
         </div>
     </td>
@@ -1510,7 +1658,7 @@
 <div class="tab-pane fade in block2" id="con-sib" data-block="2">
 <div class="form-group col-md-12">
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">Emergency Contacts</h3></div>
+<div class="panel-heading"><h3 class="panel-title">Parent/Guardian and Emergency Contacts</h3></div>
 <div class="panel-body" style="padding-right: 2px;">
 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">At least 3 contacts are required. More
     contacts can be added by clicking on
@@ -2138,7 +2286,7 @@
 
 <div class="form-group col-md-12" style="overflow: auto;">
     <div class="panel panel-default">
-        <div class="panel-heading"><h3 class="panel-title">School Age Sibling(s)</h3></div>
+        <div class="panel-heading"><h3 class="panel-title">School-Age Sibling(s)</h3></div>
         <div class="panel-body" style="padding-right: 0px;">
             <div class="table-responsive" style="width: 100%;">
                 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
@@ -2172,8 +2320,8 @@
                                     data-parsley-group="block2"
                                     required>
                                 <option></option>
-                                <option>M</option>
-                                <option>F</option>
+                                <option>Male</option>
+                                <option>Female</option>
                             </select>
                         </td>
                         <td class="border-td field-container">
@@ -2201,6 +2349,9 @@
                                     data-parsley-group="block2"
                                     required>
                                 <option></option>
+                                <option value="-1">Pre 1</option>
+                                <option value="-2">Pre 2</option>
+                                <option value="0">K</option>
                                 <option>1</option>
                                 <option>2</option>
                                 <option>3</option>
@@ -2601,15 +2752,15 @@
                     <tr>
                         <td>
                             <div class="col-md-8">
-                                <label for="504-services">Has student received 504 services? <span
+                                <label for="services-504">Has student received 504 services? <span
                                         class="required-field-ast">*</span></label>
                             </div>
                             <div class="col-md-4 field-container">
-                                <input name="504-services" id="504-services-yes" type="radio" required
+                                <input name="services-504" id="services-504-yes" type="radio" required
                                        data-parsley-group="block5"/>
-                                <label for="504-services-yes">Yes</label>
-                                <input name="504-services" id="504-services-no" type="radio"/>
-                                <label for="504-services-no">No</label>
+                                <label for="services-504-yes">Yes</label>
+                                <input name="services-504" id="services-504-no" type="radio"/>
+                                <label for="services-504-no">No</label>
                             </div>
                         </td>
                         <td>

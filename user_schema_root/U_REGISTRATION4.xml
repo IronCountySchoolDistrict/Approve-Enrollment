@@ -37,6 +37,7 @@
         <field name="gender" type="String" length="40"/>
         <field name="current_grade" type="String" length="40"/>
         <field name="home_phone_number" type="String" length="40"/>
+        <field name="parent_cell_number" type="String" length="40"/>
         <field name="student_cell_number" type="String" length="40"/>
         <field name="mailing_address" type="String" length="60"/>
         <field name="mailing_city" type="String" length="40"/>
@@ -47,11 +48,12 @@
         <field name="residence_state" type="String" length="2"/>
         <field name="residence_zip" type="String" length="10"/>
         <field name="school_city" type="String" length="40"/>
-        <field name="school_zip" type="String" length="2"/>
+        <field name="school_state" type="String" length="2"/>
         <field name="school_phone" type="String" length="40"/>
         <field name="school_fax" type="String" length="40"/>
         <field name="prev_icsd" type="Boolean"/>
         <field name="prev_utah" type="Boolean"/>
+        <field name="outside_us" type="Boolean"/>
         <field name="count_terr_birth" type="String" length="40"/>
         <field name="date_first_enrolled" type="String" length="40"/>
         <field name="three_ac_yrs" type="Boolean"/>
@@ -63,6 +65,8 @@
         <field name="bilingual" type="String" length="40"/>
         <field name="prev_icsd" type="Boolean"/>
         <field name="prev_utah" type="Boolean"/>
+        <field name="utah_resident" type="Boolean"/>
+        <field name="district_resident" type="Boolean"/>
         <field name="immunizations_complete" type="Boolean"/>
         <field name="part_time" type="Boolean"/>
         <field name="part_time_detail" type="String" length="40"/>
@@ -88,7 +92,7 @@
         <field name="med_asthma" type="Boolean"/>
         <field name="med_allergies" type="Boolean"/>
         <field name="med_require_meds" type="Boolean"/>
-        <field name="medication" type="String" length="100"/>
+        <field name="medications" type="String" length="100"/>
         <field name="med_other" type="Boolean"/>
         <field name="add_med_services" type="String" length="100"/>
         <field name="physicans_name" type="String" length="60"/>

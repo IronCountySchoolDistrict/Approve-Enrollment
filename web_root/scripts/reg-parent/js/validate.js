@@ -95,7 +95,7 @@ define(function () {
                 errorTemplate: '<span></span>',
                 excluded: ':hidden'
             }).subscribe('parsley:form:validated', function (ParsleyForm) {
-                var activeTab = $('li.active a');
+                var activeTab = $('.nav li.active a');
                 require(['tabs'], function (tabs) {
                     if (ParsleyForm.validationResult) {
                         tabs.setTabStatus(activeTab, 'success');
