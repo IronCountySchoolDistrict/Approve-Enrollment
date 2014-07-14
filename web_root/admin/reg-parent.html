@@ -1660,10 +1660,13 @@
 <div class="panel panel-default">
 <div class="panel-heading"><h3 class="panel-title">Parent/Guardian and Emergency Contacts</h3></div>
 <div class="panel-body" style="padding-right: 2px;">
-<div class="alert alert-info alert-dismissable" style="margin-right: 13px;">At least 3 contacts are required. More
-    contacts can be added by clicking on
-    the green plus button to the right.
+<div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    <ul>
+        <li>At least 3 contacts are required.</li>
+        <li>Parent/Guardian information should be entered here.</li>
+        <li>More contacts can be added by clicking on the green plus button to the right.</li>
+    </ul>
 </div>
 <div class="table-responsive" style="display: table-cell; width: 100%;">
 <table id="emerg-cont-table" class="table">
@@ -2290,9 +2293,16 @@
         <div class="panel-body" style="padding-right: 0px;">
             <div class="table-responsive" style="width: 100%;">
                 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
-                    Please enter information for any siblings of school attending age below. Add a sibling by clicking
-                    on the plus button to the right.
                     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                    <ul>
+                        <li>Add a sibling by clicking on the plus button to the right.</li>
+                        <li>Only siblings that are of school attending should be entered.</li>
+                        <li>
+                            Enter the school that your student's sibling is <strong>currently</strong> attending.
+                            In the summer months, enter the school the sibling will attend the
+                            <strong>following</strong> school year.
+                        </li>
+                    </ul>
                 </div>
                 <table id="siblings-table" class="table">
                     <thead>
@@ -2314,60 +2324,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <tr data-index="1">
-                        <td class="border-td field-container">
-                            <select class="form-control" name="sibling-gender1" id="sibling-gender1"
-                                    data-parsley-group="block2"
-                                    required>
-                                <option></option>
-                                <option>Male</option>
-                                <option>Female</option>
-                            </select>
-                        </td>
-                        <td class="border-td field-container">
-                            <input class="form-control" name="sibiling-name1" id="sibiling-name1"
-                                   style="width: 100%;"
-                                   data-parsley-group="block2"
-                                   required/>
-                        </td>
-                        <td class="border-td field-container">
-                            <input class="form-control dateinput" name="sibling-birthdate1" id="sibling-birthdate1"
-                                   placeholder="mm-dd-yyyy"
-                                   style="width: 100%;"
-                                   data-parsley-group="block2"
-                                   required
-                                   data-date-format="mm-dd-yyyy"/>
-                        </td>
-                        <td class="border-td field-container">
-                            <input class="form-control" name="sibling-school1" id="sibling-school1"
-                                   style="width: 100%;"
-                                   data-parsley-group="block2"
-                                   required/>
-                        </td>
-                        <td class="border-td field-container">
-                            <select class="form-control" name="sibling-grade1" id="sibling-grade1"
-                                    data-parsley-group="block2"
-                                    required>
-                                <option></option>
-                                <option value="-1">Pre 1</option>
-                                <option value="-2">Pre 2</option>
-                                <option value="0">K</option>
-                                <option>1</option>
-                                <option>2</option>
-                                <option>3</option>
-                                <option>4</option>
-                                <option>5</option>
-                                <option>6</option>
-                                <option>7</option>
-                                <option>8</option>
-                                <option>9</option>
-                                <option>10</option>
-                                <option>11</option>
-                                <option>12</option>
-                            </select>
-                        </td>
-                        <td class="noborder-td"></td>
-                    </tr>
+                        <!--
+                            Sibling rows get inserted here
+                             See #sibling-row-template
+                        -->
                     </tbody>
                 </table>
             </div>
@@ -3177,7 +3137,8 @@
                         <td>
                             <div class="col-md-12" style="margin-top: 10px;">
                                 <div class="alert alert-info">
-                                    Directory information includes names, address, and telephone numbers ONLY!
+                                    Directory information <strong>only</strong> includes names, addresses, and telephone
+                                    numbers. The directory is only used for school purposes.
                                 </div>
                             </div>
                             <div class="col-md-12">
@@ -3228,37 +3189,47 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Policy</h3></div>
             <div class="panel-body">
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <label for="policy-aup">I have read and accept the Acceptable Use Policy
-                            (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/IronK-5StudAUP.pdf">K-5</a>)
-                            (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/Iron6-12StudAUP.pdf">6-12</a>)</label>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            <input name="policy-aup" id="policy-aup-yes" type="radio"/>
-                            <label for="policy-aup-yes">Yes</label>
-                            <input name="policy-aup" id="policy-aup-no" type="radio"/>
-                            <label for="policy-aup-no">No</label>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-6">
-                        <label for="policy-safe-schools">I have read and accept the
-                            <a href="http://irondistrict.org/handbook/policy-handbook-table-contents/section-j/policy/safe-schools-policy">Safe
-                                Schools Policy</a>
-                        </label>
-                    </div>
-                    <div class="col-md-6">
-                        <div>
-                            <input name="policy-safe-schools" id="policy-safe-schools-yes" type="radio"/>
-                            <label for="policy-safe-schools-yes">Yes</label>
-                            <input name="policy-safe-schools" id="policy-safe-schools-no" type="radio"/>
-                            <label for="policy-safe-schools-no">No</label>
-                        </div>
-                    </div>
-                </div>
+                <table class="table table-bordered">
+                    <tr>
+                        <td style="width: 50%">
+                            <div class="col-md-12">
+                                <label for="policy-aup">I have read and accept the Acceptable Use Policy
+                                    (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/IronK-5StudAUP.pdf">K-5</a>)
+                                    (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/Iron6-12StudAUP.pdf">6-12</a>)</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-12">
+                                <div>
+                                    <input name="policy-aup" id="policy-aup-yes" type="radio"/>
+                                    <label for="policy-aup-yes">Yes</label>
+                                    <input name="policy-aup" id="policy-aup-no" type="radio"/>
+                                    <label for="policy-aup-no">No</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 50%">
+                            <div class="col-md-12">
+                                <label for="policy-safe-schools">I have read and accept the
+                                    <a href="http://irondistrict.org/handbook/policy-handbook-table-contents/section-j/policy/safe-schools-policy">Safe
+                                        Schools Policy</a>
+                                </label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-6">
+                                <div>
+                                    <input name="policy-safe-schools" id="policy-safe-schools-yes" type="radio"/>
+                                    <label for="policy-safe-schools-yes">Yes</label>
+                                    <input name="policy-safe-schools" id="policy-safe-schools-no" type="radio"/>
+                                    <label for="policy-safe-schools-no">No</label>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
             </div>
             <!-- end .panel-body -->
         </div>
@@ -3292,31 +3263,38 @@
 <!-- start table row templates -->
 <script type="text/template" id="sibling-row-template">
     <tr data-index="<%= index %>">
-        <td class="border-td">
-            <select class="form-control" name="sibling-gender<%= index %>" id="sibling-gender<%= index %>">
+        <td class="border-td field-container">
+            <select class="form-control" name="sibling-gender<%= index %>" id="sibling-gender<%= index %>"
+                    data-parsley-group="block2"
+                    required>
                 <option></option>
-                <option>M</option>
-                <option>F</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
         </td>
-        <td class="border-td">
+        <td class="border-td field-container">
             <input class="form-control" name="sibiling-name<%= index %>" id="sibiling-name<%= index %>"
                    style="width: 100%;"
+                   data-parsley-group="block2"
                    required/>
         </td>
-        <td class="border-td">
+        <td class="border-td field-container">
             <input class="form-control" name="sibling-birthdate<%= index %>" id="sibling-birthdate<%= index %>"
                    placeholder="mm-dd-yyyy"
                    style="width: 100%;"
-                   required/>
+                   required
+                   data-parsley-group="block2"
+                   data-date-format="mm-dd-yyyy"/>
         </td>
-        <td class="border-td">
+        <td class="border-td field-container">
             <input class="form-control" name="sibling-school<%= index %>" id="sibling-school<%= index %>"
                    style="width: 100%;"
-                   required/>
+                   required
+                   data-parsley-group="block2"/>
         </td>
-        <td class="border-td">
+        <td class="border-td field-container">
             <select class="form-control" name="sibling-grade<%= index %>" id="sibling-grade<%= index %>"
+                    data-parsley-group="block2"
                     required>
                 <option></option>
                 <option value="-1">Pre 1</option>
