@@ -26,6 +26,8 @@ define(function () {
                 '[id^=emerg-cont-work-phone]').mask('999-999-9999');
 
             $('[id^=sibling-birthdate]').mask('99-99-9999');
+
+            $('#ssn').mask('999-99-9999');
         },
 
         /**
