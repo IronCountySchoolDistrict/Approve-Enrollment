@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
-    <extensionname>U_REGISTRATION3</extensionname>
-    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS3" childName="U_DEF_EMERG_CONTS3" comment="">
+    <extensionname>U_REGISTRATION5</extensionname>
+    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS4" childName="U_DEF_EMERG_CONTS4" comment="">
         <field name="address_state" type="String" length="40"/>
         <field name="cell_phone" type="String" length="40"/>
         <field name="address_zip" type="String" length="40"/>
@@ -17,7 +17,7 @@
         <field name="relationship" type="String" length="40"/>
         <field name="priority" type="Integer"/>
     </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS3" childName="U_DEF_SIBLINGS3" comment="">
+    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS4" childName="U_DEF_SIBLINGS4" comment="">
         <field name="gender" type="String" length="1"/>
         <field name="staging_id" type="Integer"/>
         <field name="grade" type="String" length="40"/>
@@ -25,7 +25,7 @@
         <field name="name" type="String" length="40"/>
         <field name="birthdate" type="String" length="40"/>
     </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_STAGING4" childName="U_DEF_STAGING4" comment="">
+    <extendedTable type="standalone" dbTableName="U_DEF_STAGING6" childName="U_DEF_STAGING6" comment="">
         <field name="first_name" type="String" length="50"/>
         <field name="middle_name" type="String" length="40"/>
         <field name="last_name" type="String" length="40"/>
@@ -70,7 +70,6 @@
         <field name="immunizations_complete" type="Boolean"/>
         <field name="part_time" type="Boolean"/>
         <field name="part_time_detail" type="String" length="40"/>
-        <field name="part_time_other_desc" type="String" length="40"/>
         <field name="refugee" type="String" length="40"/>
         <field name="hisp_latino" type="Boolean"/>
         <field name="race" type="String" length="40"/>
@@ -95,8 +94,8 @@
         <field name="medications" type="String" length="100"/>
         <field name="med_other" type="Boolean"/>
         <field name="add_med_services" type="String" length="100"/>
-        <field name="physicans_name" type="String" length="60"/>
-        <field name="physicans_phone" type="String" length="30"/>
+        <field name="physicians_name" type="String" length="60"/>
+        <field name="physicians_phone" type="String" length="30"/>
         <field name="dentists_name" type="String" length="60"/>
         <field name="dentists_phone" type="String" length="30"/>
         <field name="medical_info" type="Boolean"/>
