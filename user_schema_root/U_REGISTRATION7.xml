@@ -25,7 +25,7 @@
         <field name="name" type="String" length="40"/>
         <field name="birthdate" type="String" length="40"/>
     </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_STAGING6" childName="U_DEF_STAGING6" comment="">
+    <extendedTable type="standalone" dbTableName="U_DEF_STAGING7" childName="U_DEF_STAGING7" comment="">
         <field name="first_name" type="String" length="50"/>
         <field name="middle_name" type="String" length="40"/>
         <field name="last_name" type="String" length="40"/>
@@ -78,9 +78,9 @@
         <field name="services_504" type="Boolean"/>
         <field name="foster_ward_student" type="Boolean"/>
         <field name="juvenile_probation" type="Boolean"/>
-        <field name="other_info" type="String" length="40"/>
+        <field name="other_info" type="String" length="200"/>
         <field name="safe_school_violation" type="Boolean"/>
-        <field name="safe_school_violation_explanation" type="String" length="40"/>
+        <field name="safe_school_violation_expl" type="String" length="40"/>
         <field name="med_diabetes" type="Boolean"/>
         <field name="med_heart" type="Boolean"/>
         <field name="med_seizures" type="Boolean"/>

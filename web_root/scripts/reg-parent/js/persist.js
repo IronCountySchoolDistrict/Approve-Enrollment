@@ -1,13 +1,13 @@
 /*global define, $, _*/
 
-define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings, _) {
+define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts, siblings, staging, _) {
     'use strict';
     return {
         config: {
-            extGroup: 'U_REGISTRATION2',
-            extEmergContTable: 'U_DEF_EMERG_CONTS2',
-            extSiblingTable: 'U_DEF_SIBLINGS2',
-            extStagingTable: 'U_DEF_STAGING2'
+            extGroup: 'U_REGISTRATION5',
+            extEmergContTable: 'U_DEF_EMERG_CONTS4',
+            extSiblingTable: 'U_DEF_SIBLINGS4',
+            extStagingTable: 'U_DEF_STAGING7'
         },
 
         bindFormSubmit: function () {
@@ -27,8 +27,11 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 var siblingsRows = $('#siblings-table tr[data-index]');
                 _.each(siblingsRows, function (row, index) {
                     var siblingFormData = _this.getSiblingFromTable(_this.config.extGroup, _this.config.extSiblingTable, index + 1);
-                    siblings.save(siblingFormData);
+                    //siblings.save(siblingFormData);
                 });
+
+                var stagingData = _this.getStagingDataFromTable(_this.config.extGroup, _this.config.extStagingTable);
+                staging.save(stagingData);
             });
         },
 
@@ -219,10 +222,6 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_PHONE',
                 value: $('#school-phone').val()
             });
-            stagingData.push({
-                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SCHOOL_FAX',
-                value: $('#school-fax').val()
-            });
 
             if ($('#prev-icsd-yes').is(':checked')) {
                 stagingData.push({
@@ -253,7 +252,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 });
 
 
-                if ($('three-ac-yrs-yes').is(':checked')) {
+                if ($('#three-ac-yrs-yes').is(':checked')) {
                     stagingData.push({
                         name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]THREE_AC_YRS',
                         value: 1
@@ -287,8 +286,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
             });
 
 
-            if (!$('#bilingual-neither').is(':checked')) {
-
+            if ($('#bilingual-yes').is(':checked')) {
                 stagingData.push({
                     name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]BILINGUAL',
                     value: 1
@@ -321,13 +319,31 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                     name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME',
                     value: 1
                 });
-            }
 
-            //TODO: Reason for Part-Time enrollment processing here
-            stagingData.push({
-                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME_DETAIL',
-                value: 1
-            });
+                var selectedPartTimeDetail = _.filter($('[name="part-time-detail"]'), function(elem) {
+                    if ($(elem).is(':checked')) {
+                        return elem;
+                    }
+                });
+
+                var partTimeDetailVal;
+                if (selectedPartTimeDetail.length > 1) {
+                    partTimeDetailVal = _.map($(selectedPartTimeDetail), function (elem) {
+                        return $(elem).val()
+                    });
+                    partTimeDetailVal = partTimeDetailVal.join(',');
+                } else if (selectedPartTimeDetail.length === 1) {
+                    partTimeDetailVal = $(selectedPartTimeDetail).val();
+                }
+
+                if (partTimeDetailVal) {
+                    stagingData.push({
+                        name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PART_TIME_DETAIL',
+                        value: partTimeDetailVal
+                    });
+                }
+
+            }
 
             if ($('#refugee-student-yes').is(':checked')) {
                 stagingData.push({
@@ -343,7 +359,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 });
             }
 
-            //TODO: Make sure race is processed correctly here.
+
             stagingData.push({
                 name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]RACE',
                 value: $('#last-name').val()
@@ -363,7 +379,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 });
             }
 
-            if ($('#504-services-yes').is(':checked')) {
+            if ($('#services-504-yes').is(':checked')) {
                 stagingData.push({
                     name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SERVICES_504',
                     value: 1
@@ -386,7 +402,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
 
             stagingData.push({
                 name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]OTHER_INFO',
-                value: $('#other-info')
+                value: $('#other-info').val()
             });
 
             if ($('#safe-school-violation-yes').is(':checked')) {
@@ -396,8 +412,8 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                 });
 
                 stagingData.push({
-                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SAFE_SCHOOL_VIOLATION_EXPLANATION',
-                    value: $('#safe-school-violation-explanation')
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SAFE_SCHOOL_VIOLATION_EXPL',
+                    value: $('#safe-school-violation-expl').val()
                 });
             }
 
@@ -473,7 +489,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
 
                 stagingData.push({
                     name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICATIONS',
-                    value: $('#medications')
+                    value: $('#medications').val()
                 });
 
             }
@@ -491,7 +507,7 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
             }
 
             stagingData.push({
-                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICANS_NAME',
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PHYSICIANS_NAME',
                 value: $('#last-name').val()
             });
             stagingData.push({
@@ -548,6 +564,13 @@ define(['emergConts', 'siblings', 'underscore'], function (emergConts, siblings,
                     value: 1
                 });
             }
+
+            stagingData.push({
+                name: 'ac',
+                value: 'prim'
+            });
+
+            return stagingData;
         },
 
         main: function () {

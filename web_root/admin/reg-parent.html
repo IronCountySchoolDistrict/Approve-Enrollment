@@ -142,7 +142,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a id="brand" href="/admin/reg.html" class="navbar-brand">Registration</a>
+            <a id="brand" href="#" class="navbar-brand">Registration</a>
         </div>
         <nav class="collapse navbar-collapse" role="navigation">
             <ul class="nav navbar-nav">
@@ -1623,7 +1623,7 @@
     <td>
         <div class="col-md-12 field-container">
             <span style="display: block;">
-                <input name="bilingual-yes" id="bilingual-yes" type="radio"
+                <input name="bilingual" id="bilingual-yes" type="radio"
                        required
                        data-parsley-multiple="bilingual"
                        data-parsley-trigger="change"
@@ -1631,7 +1631,7 @@
                 <label for="bilingual-yes">Yes</label>
             </span>
             <span style="display: block;">
-                <input name="bilingual-no" id="bilingual-no" type="radio"
+                <input name="bilingual" id="bilingual-no" type="radio"
                        data-parsley-multiple="bilingual"
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
@@ -2434,16 +2434,18 @@
                                     </label>
                                 </div>
                                 <div class="col-md-6 field-container" id="part-time-options-div" style="display: none;">
+                                    <!-- Values for these inputs are the home-school codes found on our Utah State page in PowerSchool. -->
                                     <div>
-                                        <input name="part-time-detail" id="part-time-home-school" type="checkbox"/>
+                                        <input name="part-time-detail" id="part-time-home-school" type="checkbox" value="H"/>
                                         <label for="part-time-home-school">Home School</label>
                                     </div>
                                     <div>
-                                        <input name="part-time-detail" id="part-time-private-school" type="checkbox"/>
+                                        <input name="part-time-detail" id="part-time-private-school" type="checkbox" value="P"/>
                                         <label for="part-time-private-school">Private School</label>
                                     </div>
                                     <div>
-                                        <input name="part-time-detail" id="part-time-neither" type="checkbox"/>
+                                        <!-- Neither value is "S" for Stable, found on Utah State page -->
+                                        <input name="part-time-detail" id="part-time-neither" type="checkbox" value="S"/>
                                         <label for="part-time-neither">Neither</label>
                                     </div>
                                 </div>
