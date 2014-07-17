@@ -76,7 +76,6 @@ $j(document).ready(function () {
         var $fieldValueElems = $target.siblings('.field-value');
         var saveBtn = $target.siblings('.save');
 
-        /*
 
         $j.each($fieldValueElems, function (key, elem) {
 
@@ -91,8 +90,6 @@ $j(document).ready(function () {
             // the edit element.
             $j(corresEditSelector).val($j(elem).text());
         });
-
-        */
 
         $editElements.css({'display': 'inline'});
         saveBtn.css({'display': 'inline'});

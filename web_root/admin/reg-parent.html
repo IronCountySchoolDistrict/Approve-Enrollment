@@ -237,7 +237,8 @@
     <td class="width-td">
         <div class="col-md-12 field-container">
             <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
-                   data-parsley-trigger="change" required
+                   data-parsley-trigger="change"
+                   required
                    data-parsley-group="block1"
                    data-parsley-danglingspaces/>
         </div>
@@ -385,7 +386,8 @@
         <div class="col-md-12 field-container">
             <input class="form-control" name="home-phone-number" id="home-phone-number"
                    placeholder="###-###-####"
-                   required data-parsley-trigger="change"
+                   required
+                   data-parsley-trigger="change"
                    data-parsley-group="block1"
                    data-parsley-phonenum/>
         </div>
@@ -1665,6 +1667,7 @@
     <ul>
         <li>At least 3 contacts are required.</li>
         <li>Parent/Guardian information should be entered here.</li>
+        <li>Please enter at least one phone number per contact.</li>
         <li>More contacts can be added by clicking on the green plus button to the right.</li>
     </ul>
 </div>
@@ -1673,9 +1676,9 @@
 <thead>
 <tr>
     <th class="border-tbl-head">Priority <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Legal Guardian <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 12%;">Legal Guardian <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Name and Email <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Phone Number <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 23%;">Phone Number (One per contact) <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Employer <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Relationship <span class="required-field-ast">*</span></th>
     <th class="noborder-tbl-head" style="text-align: center;">
@@ -1685,17 +1688,17 @@
 </thead>
 <tbody>
 <tr data-index="1">
-    <td class="border-td" style="width: 8%;">
-        <select class="priority input-sm form-control" id="emerg-cont-priority1"
-                name="emerg-cont-priority1"
-                data-parsley-group="block2">
-            <option value="1" selected="selected">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
+<td class="border-td" style="width: 8%;">
+    <select class="priority input-sm form-control" id="emerg-cont-priority1"
+            name="emerg-cont-priority1"
+            data-parsley-group="block2">
+        <option value="1" selected="selected">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+</td>
+<td class="border-td">
+    <div class="field-container">
             <span style="display: block;">
                 <input name="is-leg-guar1" id="is-leg-guar1-yes" type="radio"
                        required
@@ -1711,19 +1714,19 @@
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar1-no">No</label>
             </span>
-        </div>
-    </td>
-    <td class="border-td" style="width: 25%;">
-        <div class="field-container">
-            <label for="emerg-cont-name1">Name</label>
-            <input class="form-control" id="emerg-cont-name1" name="emerg-cont-name1"
-                   placeholder="Contact's Name"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-        <div>
+    </div>
+</td>
+<td class="border-td" style="width: 25%;">
+    <div class="field-container">
+        <label for="emerg-cont-name1">Name</label>
+        <input class="form-control" id="emerg-cont-name1" name="emerg-cont-name1"
+               placeholder="Contact's Name"
+               required
+               data-parsley-danglingspaces
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+    <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street1">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street1" name="emerg-cont-address-street1"
@@ -1812,76 +1815,88 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-        </div>
-        <div class="field-container">
-            <label for="emerg-cont-email1">Email</label>
-            <input class="form-control" id="emerg-cont-email1" name="emerg-cont-email1"
-                   placeholder="Contact's Email"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-type="email"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
-            <label for="emerg-cont-home-phone1">Home</label>
-            <input class="form-control" id="emerg-cont-home-phone1"
-                   name="emerg-cont-home-phone1"
-                   placeholder="###-###-####"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-        <div>
-            <label for="emerg-cont-cell-phone1">Cell</label>
-            <input class="form-control" id="emerg-cont-cell-phone1"
-                   name="emerg-cont-cell-phone1"
-                   placeholder="###-###-####"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-        <div>
-            <label for="emerg-cont-work-phone1">Work</label>
-            <input class="form-control" id="emerg-cont-work-phone1"
-                   name="emerg-cont-work-phone1"
-                   data-parsley-group="block2"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <input class="form-control" id="emerg-cont-employer1" name="emerg-cont-employer1"
-                   placeholder="Employer Name"
-                   required
-                   data-parsley-group="block2"
-                   style="width: 100%; margin-top: 25px;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <select class="form-control" id="emerg-cont-relationship1"
-                    name="emerg-cont-relationship1"
-                    required
-                    data-parsley-group="block2"
-                    style="margin-top: 25px;">
-                <option></option>
-                <option value="Aunt">Aunt</option>
-                <option value="Brother">Brother</option>
-                <option value="Father">Father</option>
-                <option value="Friend">Friend</option>
-                <option value="Grandfather">Grandfather</option>
-                <option value="Grandmother">Grandmother</option>
-                <option value="Mother">Mother</option>
-                <option value="Neighbor">Neighbor</option>
-                <option value="Other">Other</option>
-                <option value="Sister">Sister</option>
-                <option value="Uncle">Uncle</option>
-            </select>
-        </div>
-    </td>
-    <td class="noborder-td"></td>
+    </div>
+    <div class="field-container">
+        <label for="emerg-cont-email1">Email</label>
+        <input class="form-control" id="emerg-cont-email1" name="emerg-cont-email1"
+               placeholder="Contact's Email"
+               required
+               data-parsley-danglingspaces
+               data-parsley-type="email"
+               data-parsley-trigger="change"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td field-container">
+    <!--
+    Setting the contphone attribute to a value sends
+    that value to the validator as the requirements parameter.
+    Leaving this here for version 2.
+    -->
+    <div>
+        <label for="emerg-cont-home-phone1">Home</label>
+        <input class="form-control" id="emerg-cont-home-phone1"
+               name="emerg-cont-home-phone1"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-group="block2"
+               data-parsley-validate-if-empty
+               data-parsley-trigger="change"/>
+    </div>
+    <div>
+        <label for="emerg-cont-cell-phone1">Cell</label>
+        <input class="form-control" id="emerg-cont-cell-phone1"
+               name="emerg-cont-cell-phone1"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-group="block2"
+               data-parsley-validate-if-empty
+               data-parsley-trigger="change"/>
+    </div>
+    <div>
+        <label for="emerg-cont-work-phone1">Work</label>
+        <input class="form-control" id="emerg-cont-work-phone1"
+               name="emerg-cont-work-phone1"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-group="block2"
+               data-parsley-validate-if-empty
+               data-parsley-trigger="change"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <input class="form-control" id="emerg-cont-employer1" name="emerg-cont-employer1"
+               placeholder="Employer Name"
+               required
+               data-parsley-group="block2"
+               style="width: 100%; margin-top: 25px;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <select class="form-control" id="emerg-cont-relationship1"
+                name="emerg-cont-relationship1"
+                required
+                data-parsley-group="block2"
+                style="margin-top: 25px;">
+            <option></option>
+            <option value="Aunt">Aunt</option>
+            <option value="Brother">Brother</option>
+            <option value="Father">Father</option>
+            <option value="Friend">Friend</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Mother">Mother</option>
+            <option value="Neighbor">Neighbor</option>
+            <option value="Other">Other</option>
+            <option value="Sister">Sister</option>
+            <option value="Uncle">Uncle</option>
+        </select>
+    </div>
+</td>
+<td class="noborder-td"></td>
 </tr>
 <tr data-index="2">
     <td class="border-td" style="width: 5%;">
@@ -2028,8 +2043,8 @@
             <input class="form-control" id="emerg-cont-home-phone2"
                    name="emerg-cont-home-phone2"
                    placeholder="###-###-####"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
+                   style="width: 100%;"
+                   data-parsley-group="block2"/>
         </div>
         <div>
             <label for="emerg-cont-cell-phone2">Cell</label>
@@ -2081,16 +2096,16 @@
     <td class="noborder-td"></td>
 </tr>
 <tr data-index="3">
-    <td class="border-td" style="width: 5%;">
-        <select class="priority input-sm form-control" id="emerg-cont-priority3"
-                name="emerg-cont-priority3">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3" selected="selected">3</option>
-        </select>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
+<td class="border-td" style="width: 5%;">
+    <select class="priority input-sm form-control" id="emerg-cont-priority3"
+            name="emerg-cont-priority3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected="selected">3</option>
+    </select>
+</td>
+<td class="border-td">
+    <div class="field-container">
             <span style="display: block;">
                 <input name="is-leg-guar3" id="is-leg-guar3-yes" type="radio"
                        required
@@ -2106,19 +2121,19 @@
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar3-no">No</label>
             </span>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <label for="emerg-cont-name3">Name</label>
-            <input class="form-control" id="emerg-cont-name3" name="emerg-cont-name3"
-                   placeholder="Contact's Name"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-        <div>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <label for="emerg-cont-name3">Name</label>
+        <input class="form-control" id="emerg-cont-name3" name="emerg-cont-name3"
+               placeholder="Contact's Name"
+               required
+               data-parsley-danglingspaces
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+    <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street3">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street3" name="emerg-cont-address-street3"
@@ -2208,73 +2223,76 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-        </div>
-        <div class="field-container">
-            <label for="emerg-cont-email3">Email</label>
-            <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
-                   placeholder="Contact's Email"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-type="email"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
-            <label for="emerg-cont-home-phone3">Home</label>
-            <input class="form-control" id="emerg-cont-home-phone3"
-                   name="emerg-cont-home-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-        <div>
-            <label for="emerg-cont-cell-phone3">Cell</label>
-            <input class="form-control" id="emerg-cont-cell-phone3"
-                   name="emerg-cont-cell-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-        <div>
-            <label for="emerg-cont-work-phone3">Work</label>
-            <input class="form-control" id="emerg-cont-work-phone3"
-                   name="emerg-cont-work-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
-                   placeholder="Employer Name"
-                   required
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <select class="form-control" id="emerg-cont-relationship3"
-                    name="emerg-cont-relationship3"
-                    required
-                    data-parsley-group="block2"
-                    style="margin-top: 25px;">
-                <option></option>
-                <option value="Aunt">Aunt</option>
-                <option value="Brother">Brother</option>
-                <option value="Father">Father</option>
-                <option value="Friend">Friend</option>
-                <option value="Grandfather">Grandfather</option>
-                <option value="Grandmother">Grandmother</option>
-                <option value="Mother">Mother</option>
-                <option value="Neighbor">Neighbor</option>
-                <option value="Other">Other</option>
-                <option value="Sister">Sister</option>
-                <option value="Uncle">Uncle</option>
-            </select>
-        </div>
-    </td>
-    <td class="noborder-td"></td>
+    </div>
+    <div class="field-container">
+        <label for="emerg-cont-email3">Email</label>
+        <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
+               placeholder="Contact's Email"
+               required
+               data-parsley-danglingspaces
+               data-parsley-type="email"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div>
+        <label for="emerg-cont-home-phone3">Home</label>
+        <input class="form-control" id="emerg-cont-home-phone3"
+               name="emerg-cont-home-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+    <div>
+        <label for="emerg-cont-cell-phone3">Cell</label>
+        <input class="form-control" id="emerg-cont-cell-phone3"
+               name="emerg-cont-cell-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+    <div>
+        <label for="emerg-cont-work-phone3">Work</label>
+        <input class="form-control" id="emerg-cont-work-phone3"
+               name="emerg-cont-work-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
+               placeholder="Employer Name"
+               required
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <select class="form-control" id="emerg-cont-relationship3"
+                name="emerg-cont-relationship3"
+                required
+                data-parsley-group="block2"
+                style="margin-top: 25px;">
+            <option></option>
+            <option value="Aunt">Aunt</option>
+            <option value="Brother">Brother</option>
+            <option value="Father">Father</option>
+            <option value="Friend">Friend</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Mother">Mother</option>
+            <option value="Neighbor">Neighbor</option>
+            <option value="Other">Other</option>
+            <option value="Sister">Sister</option>
+            <option value="Uncle">Uncle</option>
+        </select>
+    </div>
+</td>
+<td class="noborder-td"></td>
 </tr>
 </tbody>
 </table>
@@ -2324,10 +2342,10 @@
                     </tr>
                     </thead>
                     <tbody>
-                        <!--
-                            Sibling rows get inserted here
-                             See #sibling-row-template
-                        -->
+                    <!--
+                        Sibling rows get inserted here
+                         See #sibling-row-template
+                    -->
                     </tbody>
                 </table>
             </div>
@@ -2436,16 +2454,19 @@
                                 <div class="col-md-6 field-container" id="part-time-options-div" style="display: none;">
                                     <!-- Values for these inputs are the home-school codes found on our Utah State page in PowerSchool. -->
                                     <div>
-                                        <input name="part-time-detail" id="part-time-home-school" type="checkbox" value="H"/>
+                                        <input name="part-time-detail" id="part-time-home-school" type="checkbox"
+                                               value="H"/>
                                         <label for="part-time-home-school">Home School</label>
                                     </div>
                                     <div>
-                                        <input name="part-time-detail" id="part-time-private-school" type="checkbox" value="P"/>
+                                        <input name="part-time-detail" id="part-time-private-school" type="checkbox"
+                                               value="P"/>
                                         <label for="part-time-private-school">Private School</label>
                                     </div>
                                     <div>
                                         <!-- Neither value is "S" for Stable, found on Utah State page -->
-                                        <input name="part-time-detail" id="part-time-neither" type="checkbox" value="S"/>
+                                        <input name="part-time-detail" id="part-time-neither" type="checkbox"
+                                               value="S"/>
                                         <label for="part-time-neither">Neither</label>
                                     </div>
                                 </div>
@@ -3347,7 +3368,7 @@
             </span>
             <span style="display: block;">
                 <input name="is-leg-guar<%= index %>" id="is-leg-guar<%= index %>-no" type="radio"
-                       data-parsley-multiple="is-leg-guar1"
+                       data-parsley-multiple="is-leg-guar<%= index %>"
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar1-no">No</label>
@@ -3366,7 +3387,7 @@
     </div>
     <div>
             <span class="field-container">
-                <label for="emerg-cont-address-street1">Additional Address</label>
+                <label for="emerg-cont-address-street<%= index %>">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street<%= index %>"
                        name="emerg-cont-address-street<%= index %>"
                        placeholder="Contact's Street Address"
@@ -3458,7 +3479,7 @@
             </span>
     </div>
     <div class="field-container">
-        <label for="emerg-cont-email1">Email</label>
+        <label for="emerg-cont-email<%= index %>">Email</label>
         <input class="form-control" id="emerg-cont-email<%= index %>" name="emerg-cont-email<%= index %>"
                placeholder="Contact's Email"
                required
@@ -3470,28 +3491,31 @@
 </td>
 <td class="border-td">
     <div>
-        <label for="emerg-cont-home-phone1">Home</label>
+        <label for="emerg-cont-home-phone<%= index %>">Home</label>
         <input class="form-control" id="emerg-cont-home-phone<%= index %>"
                name="emerg-cont-home-phone<%= index %>"
                placeholder="###-###-####"
                data-parsley-group="block2"
-               style="width: 100%;"/>
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
     </div>
     <div>
-        <label for="emerg-cont-cell-phone1">Cell</label>
+        <label for="emerg-cont-cell-phone<%= index %>">Cell</label>
         <input class="form-control" id="emerg-cont-cell-phone<%= index %>"
                name="emerg-cont-cell-phone<%= index %>"
                placeholder="###-###-####"
                data-parsley-group="block2"
-               style="width: 100%;"/>
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
     </div>
     <div>
-        <label for="emerg-cont-work-phone1">Work</label>
+        <label for="emerg-cont-work-phone<%= index %>">Work</label>
         <input class="form-control" id="emerg-cont-work-phone<%= index %>"
                name="emerg-cont-work-phone<%= index %>"
                data-parsley-group="block2"
                placeholder="###-###-####"
-               style="width: 100%;"/>
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
     </div>
 </td>
 <td class="border-td">
@@ -3506,7 +3530,7 @@
 <td class="border-td">
     <div class="field-container">
         <select class="form-control" id="emerg-cont-relationship<%= index %>"
-                name="emerg-cont-relationship1"
+                name="emerg-cont-relationship<%= index %>"
                 required
                 data-parsley-group="block2"
                 style="margin-top: 25px;">

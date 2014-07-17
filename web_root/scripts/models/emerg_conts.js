@@ -9,7 +9,7 @@ define(function() {
          */
         save: function (formData) {
             var encodedPostData = $.param(formData);
-            $.get('/admin/tlist/ps-registration/emerg_conts.html', function() {
+            $.get('/admin/tlist/reg-parent/emerg_conts.html', function() {
                 $.ajax({
                     data: encodedPostData,
                     type: 'POST',

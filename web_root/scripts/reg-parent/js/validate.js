@@ -71,6 +71,34 @@ define(function () {
                     return value.length > 0;
                 }, 58)
                 .addMessage('en', 'bilingual', 'You must select 1 or 2 of the above choices.');
+
+            window.ParsleyValidator
+                .addValidator('contphone', function (value, index) {
+                    //Just make sure at least one phone number has data filled in.
+                    //Input mask for phone number will ensure correct data format.
+
+                    //At least one of the phone fields must be filled in.
+                    var homePhone = $('#emerg-cont-home-phone' + index);
+                    var cellPhone = $('#emerg-cont-cell-phone' + index);
+                    var workPhone = $('#emerg-cont-work-phone' + index);
+
+                    if (homePhone.val() === '' && cellPhone.val() === '' && workPhone.val() === '') {
+                        var helpBlocks = homePhone.parent().parent().find('.help-block');
+                        var allHelpBlocksEmpty = true;
+                        _.each(helpBlocks, function(elem) {
+                            // A span tag is inserted into the helpBlocks span when
+                            // an error message is shown.
+                            if ($(elem).find('span').length !== 0) {
+                                allHelpBlocksEmpty = false;
+                            }
+                        });
+                        var validationResult = !allHelpBlocksEmpty;
+                        //If one of the help blocks is already populated, return true so there is only one
+                        // error message displayed
+                        return validationResult;
+                    }
+                }, 57)
+                .addMessage('en', 'contphone', 'At least one phone number for this contact must be given.');
         },
 
         activateParsley: function () {
