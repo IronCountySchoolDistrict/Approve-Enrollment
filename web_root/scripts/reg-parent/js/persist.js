@@ -171,10 +171,6 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 value: $('#home-phone-number').val()
             });
             stagingData.push({
-                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PARENT_CELL_NUMBER',
-                value: $('#parent-cell-number').val()
-            });
-            stagingData.push({
                 name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_CELL_NUMBER',
                 value: $('#student-cell-number').val()
             });

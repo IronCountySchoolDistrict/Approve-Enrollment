@@ -37,7 +37,6 @@
         <field name="gender" type="String" length="40"/>
         <field name="current_grade" type="String" length="40"/>
         <field name="home_phone_number" type="String" length="40"/>
-        <field name="parent_cell_number" type="String" length="40"/>
         <field name="student_cell_number" type="String" length="40"/>
         <field name="mailing_address" type="String" length="60"/>
         <field name="mailing_city" type="String" length="40"/>
