@@ -4,10 +4,11 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
     'use strict';
     return {
         config: {
-            extGroup: 'U_REGISTRATION5',
-            extEmergContTable: 'U_DEF_EMERG_CONTS4',
-            extSiblingTable: 'U_DEF_SIBLINGS4',
-            extStagingTable: 'U_DEF_STAGING7'
+            stagingExtGroup: 'U_REG_STAGING',
+            extendedStagingGroup: 'U_DEF_STAGING9_EXT',
+            extEmergContTable: 'U_DEF_EMERG_CONTS6',
+            extSiblingTable: 'U_DEF_SIBLINGS6',
+            extStagingTable: 'U_DEF_STAGING9'
         },
 
         bindFormSubmit: function () {
@@ -19,18 +20,18 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 // Load emerg. contact data and save each row individually.
                 var emergContactsRows = $('#emerg-cont-table tr[data-index]');
                 _.each(emergContactsRows, function (row, index) {
-                    var contactFormData = _this.getEmergContFromTable(_this.config.extGroup, _this.config.extEmergContTable, index + 1);
+                    var contactFormData = _this.getEmergContFromTable(_this.config.stagingExtGroup, _this.config.extEmergContTable, index + 1);
 
                     //emergConts.save(contactFormData);
                 });
 
                 var siblingsRows = $('#siblings-table tr[data-index]');
                 _.each(siblingsRows, function (row, index) {
-                    var siblingFormData = _this.getSiblingFromTable(_this.config.extGroup, _this.config.extSiblingTable, index + 1);
+                    var siblingFormData = _this.getSiblingFromTable(_this.config.stagingExtGroup, _this.config.extSiblingTable, index + 1);
                     //siblings.save(siblingFormData);
                 });
 
-                var stagingData = _this.getStagingDataFromTable(_this.config.extGroup, _this.config.extStagingTable);
+                var stagingData = _this.getStagingDataFromTable(_this.config.stagingExtGroup, _this.config.extStagingTable);
                 staging.save(stagingData);
             });
         },
