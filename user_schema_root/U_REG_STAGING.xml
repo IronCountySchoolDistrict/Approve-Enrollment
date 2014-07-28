@@ -1,31 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
-    <extensionname>U_REGISTRATION5</extensionname>
-    <extendedTable type="standalone" dbTableName="U_DEF_EMERG_CONTS4" childName="U_DEF_EMERG_CONTS4" comment="">
-        <field name="address_state" type="String" length="40"/>
-        <field name="cell_phone" type="String" length="40"/>
-        <field name="address_zip" type="String" length="40"/>
-        <field name="email" type="String" length="40"/>
-        <field name="work_phone" type="String" length="40"/>
-        <field name="employer" type="String" length="40"/>
-        <field name="address_street" type="String" length="40"/>
-        <field name="name" type="String" length="40"/>
-        <field name="staging_id" type="Integer"/>
-        <field name="home_phone" type="String" length="40"/>
-        <field name="address_city" type="String" length="40"/>
-        <field name="is_leg_guar" type="Boolean"/>
-        <field name="relationship" type="String" length="40"/>
-        <field name="priority" type="Integer"/>
-    </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_SIBLINGS4" childName="U_DEF_SIBLINGS4" comment="">
-        <field name="gender" type="String" length="1"/>
-        <field name="staging_id" type="Integer"/>
-        <field name="grade" type="String" length="40"/>
-        <field name="school" type="String" length="40"/>
-        <field name="name" type="String" length="40"/>
-        <field name="birthdate" type="String" length="40"/>
-    </extendedTable>
-    <extendedTable type="standalone" dbTableName="U_DEF_STAGING7" childName="U_DEF_STAGING7" comment="">
+    <extensionname>U_REG_STAGING</extensionname>
+
+    <extendedTable type="standalone" dbTableName="U_DEF_STAGING9" childName="U_DEF_STAGING9" comment="">
         <field name="first_name" type="String" length="50"/>
         <field name="middle_name" type="String" length="40"/>
         <field name="last_name" type="String" length="40"/>
