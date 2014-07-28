@@ -1,0 +1,21 @@
+~[tlist_sql;
+    SELECT
+        BIRTHDATE,
+        GENDER,
+        GRADE,
+        ID,
+        NAME,
+        SCHOOL,
+        U_DEF_STAGING9ID
+    FROM U_DEF_SIBLINGS6
+    WHERE U_DEF_STAGING9ID=~[gpv:staging_id]]
+        {
+            "birthdate": "~(birthdate)",
+            "gender": "~(gender)",
+            "grade": "~(grade)",
+            "id": "~(id)",
+            "name": "~(name)",
+            "school": "~(school)",
+            "u_def_staging9id": "~(u_def_staging9id)"
+        }
+[/tlist_sql]
