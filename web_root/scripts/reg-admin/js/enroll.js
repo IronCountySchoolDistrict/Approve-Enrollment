@@ -16,7 +16,7 @@ $j(document).ready(function () {
         var nodeType = field.prop('type');
 
         if (nodeName === 'select' ||
-                (nodeName === 'input' && (nodeType === 'text' || !nodeType))) {
+            (nodeName === 'input' && (nodeType === 'text' || !nodeType))) {
             return field.val();
         }
 
@@ -85,10 +85,31 @@ $j(document).ready(function () {
             // contains the selector f the corresponding edit form element.
             var corresEditSelector = $j(elem).data().editElem;
 
-            // Copy the value of the .field-value element to the edit element
-            // so when the user clicks the edit button, the .field-value value is shown in
-            // the edit element.
-            $j(corresEditSelector).val($j(elem).text());
+            var corresEditElems = $j(corresEditSelector);
+            var editType = corresEditElems.eq(0).attr('type');
+
+
+            if (editType === 'radio') {
+
+                // Text value of the span label that displays the read-only value of the field
+                var fieldValueText = elem.innerText;
+
+                // Iterate through form elements, set the correct radio to checked
+                $j.each(corresEditElems, function (index, editElem) {
+                    var editLabelText = $j(editElem).next().text();
+
+                    // Edit field label and read-only value span label must match for
+                    // the element to be checked.
+                    if (fieldValueText === editLabelText) {
+                        $j(editElem).attr('checked', true);
+                    }
+                })
+            } else {
+                // Copy the value of the .field-value element to the edit element
+                // so when the user clicks the edit button, the .field-value value is shown in
+                // the edit element.
+                $j(corresEditSelector).val($j(elem).text());
+            }
         });
 
         $editElements.css({'display': 'inline'});
