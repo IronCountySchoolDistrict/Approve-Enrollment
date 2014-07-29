@@ -20,9 +20,9 @@ define(['validate'], function (validate) {
             this._hideShowFormElementRadio(
                 $('#safe-school-violation-no'),
                 $('#safe-school-violation-yes'),
-                $('#safe-school-violation-explanation-label, #safe-school-violation-explanation'),
+                $('#safe-school-violation-expl-label, #safe-school-violation-expl'),
                 400,
-                $('#safe-school-violation-explanation')
+                $('#safe-school-violation-expl')
             );
 
             // Language of correspondence
