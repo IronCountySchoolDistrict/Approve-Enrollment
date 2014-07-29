@@ -879,15 +879,54 @@ Enroll New Student
                 </tr>
                 <tr>
                     <td class="bold">Student Has Received 504 Services</td>
-                    <td>Yes/No</td>
+                    <td>
+                        <span id="speech-lang-services-field-value" class="field-value"
+                              data-edit-elem="[name=services-504]">Yes</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+                        <input class="edit" name="speech-lang-services" id="speech-lang-services-yes" type="radio"/>
+                        <label class="edit" for="speech-lang-services-yes">Yes</label>
+                        <input class="edit" name="speech-lang-services" id="speech-lang-services-no" type="radio"/>
+                        <label class="edit" for="speech-lang-services-no">No</label>
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="bold">Student Is A Foster Child or Ward of the State</td>
-                    <td>Yes/No</td>
+                    <td>
+                        <span id="foster-ward-student-field-value" class="field-value"
+                              data-edit-elem="[name=foster-ward-student]">Yes</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+                        <input class="edit" name="foster-ward-student" id="foster-ward-student-yes" type="radio"/>
+                        <label class="edit" for="foster-ward-student-yes">Yes</label>
+                        <input class="edit" name="foster-ward-student" id="foster-ward-student-no" type="radio"/>
+                        <label class="edit" for="foster-ward-student-no">No</label>
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+                    </td>
                 </tr>
                 <tr>
                     <td class="bold">Student Is In Juvenile Probation</td>
-                    <td>Yes/No</td>
+                    <td>
+                        <span id="juvenile-probation-field-value" class="field-value"
+                              data-edit-elem="[name=juvenile-probation]">Yes</span>
+                        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+                        <input class="edit" name="juvenile-probation" id="juvenile-probation-yes" type="radio"/>
+                        <label class="edit" for="juvenile-probation-yes">Yes</label>
+                        <input class="edit" name="juvenile-probation" id="juvenile-probation-no" type="radio"/>
+                        <label class="edit" for="juvenile-probation-no">No</label>
+                        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        Other information necessary for appropriate educational placement
+                    </td>
+                    <td>
+                        <span style="display: block;">Yes/No</span>
+                        <span style="display: block;">Additional details: testing details</span>
+                    </td>
                 </tr>
                 <tr>
                     <td class="bold">Student Has Been Previously Suspended or Expelled From School for a Safe School
@@ -900,7 +939,8 @@ Enroll New Student
                 </tr>
                 <tr>
                     <td class="bold">Other Information Necessary For Appropriate Educational Placement</td>
-                    <td>Testing Other Information Testing Other Information
+                    <td>
+                    Testing Other Information Testing Other Information
                         Testing Other Information Testing Other Information Testing
                         Other Information Testing Other Information
                     </td>

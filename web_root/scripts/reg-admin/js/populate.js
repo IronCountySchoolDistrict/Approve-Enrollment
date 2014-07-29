@@ -4,14 +4,7 @@ define(function () {
     'use strict';
     return {
         main: function () {
-
-        },
-
-        /**
-         * See enroll.js
-         */
-        convertBooleanToEnglish: function (value) {
-            return value ? "Yes" : "No";
+            this.populateStaging();
         },
 
         /**
@@ -53,22 +46,29 @@ define(function () {
 
             $j('#prev-icsd-field-value').html(stagingData.prevIcsd ? "Yes" : "No");
             $j('#prev-utah-field-value').html(stagingData.prevUtah ? "Yes" : "No");
+            $j('#outside-us-field-value').html(stagingData.outsideUs);
             $j('#count-terr-birth-field-value').html(stagingData.countTerrBirth);
             $j('#date-first-enrolled-field-value').html(stagingData.dateFirstEnrolled);
             $j('#three-ac-yrs-field-value').html(stagingData.threeAcYrs);
             $j('#completed-grades-field-value').html(stagingData.completedGrades);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
-            $j('#outside-us-field-value').html(stagingData.outsideUs);
+            $j('#prim-lang-field-value').html(stagingData.outsideUs);
+            $j('#home-lang-field-value').html(stagingData.outsideUs);
+            $j('#corres-lang-field-value').html(stagingData.outsideUs);
+            $j('#bilingual-field-value').html(stagingData.outsideUs);
+            $j('#utah-resident-field-value').html(stagingData.outsideUs);
+            $j('#district-resident-field-value').html(stagingData.outsideUs);
+            $j('#immunizations-complete-field-value').html(stagingData.outsideUs);
+            $j('#part-time-field-value').html(stagingData.outsideUs);
+            $j('#refugee-student-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
+            $j('#race-birth-field-value').html(stagingData.outsideUs);
+            $j('#special-ed-services-field-value').html(stagingData.outsideUs);
+            $j('#speech-lang-services-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
+            $j('#hisp-latino-field-value').html(stagingData.outsideUs);
 
         }
     }
