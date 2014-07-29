@@ -4,11 +4,11 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
     'use strict';
     return {
         config: {
-            stagingExtGroup: 'U_REG_STAGING',
-            extendedStagingGroup: 'U_DEF_STAGING9_EXT',
-            extEmergContTable: 'U_DEF_EMERG_CONTS6',
-            extSiblingTable: 'U_DEF_SIBLINGS6',
-            extStagingTable: 'U_DEF_STAGING9'
+            stagingExtGroup: 'U_REG_STAGING2',
+            extendedStagingGroup: 'U_REG_STAGING_EXT2',
+            extEmergContTable: 'U_DEF_EMERG_CONTS7',
+            extSiblingTable: 'U_DEF_SIBLINGS7',
+            extStagingTable: 'U_DEF_STAGING10'
         },
 
         bindFormSubmit: function () {
@@ -40,6 +40,7 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
          * Create the form data object from the table row HTML.
          * @param extGroup database extension group
          * @param extTable database extension table
+         * @param contactIndex {Number} - index of the contact that is getting extracted
          * @returns {Object}
          */
         getEmergContFromTable: function (extGroup, extTable, contactIndex) {
@@ -51,7 +52,8 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]work_phone',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]employer',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]address_street',
-                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]name',
+                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]first_name',
+                    'CF-[:0.' + extGroup + '.' + extTable + ':-1]last_name',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]home_phone',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]address_city',
                     'CF-[:0.' + extGroup + '.' + extTable + ':-1]relationship',
@@ -67,8 +69,9 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
             emergContData.push($('#emerg-cont-email' + contactIndex).val());
             emergContData.push($('#emerg-cont-work-phone' + contactIndex).val());
             emergContData.push($('#emerg-cont-employer' + contactIndex).val());
-            emergContData.push($('#emerg-cont-address-state' + contactIndex).val());
-            emergContData.push($('#emerg-cont-name' + contactIndex).val());
+            emergContData.push($('#emerg-cont-address-street' + contactIndex).val());
+            emergContData.push($('#emerg-cont-first-name' + contactIndex).val());
+            emergContData.push($('#emerg-cont-last-name' + contactIndex).val());
             emergContData.push($('#emerg-cont-home-phone' + contactIndex).val());
             emergContData.push($('#emerg-cont-address-city' + contactIndex).val());
             emergContData.push($('#emerg-cont-relationship' + contactIndex).val());
@@ -520,9 +523,9 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 value: $('#last-name').val()
             });
 
-            if ($('#medical-info-yes').is(':checked')) {
+            if ($('#medical-release-yes').is(':checked')) {
                 stagingData.push({
-                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICAL_INFO',
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]MEDICAL_RELEASE',
                     value: 1
                 });
             }
@@ -561,6 +564,13 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                     value: 1
                 });
             }
+
+            // Hardcoded Enrollment Year.
+            // ver 2.0 will have the user pick which enrollment year the student is enrolling in.
+            stagingData.push({
+                name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]ENROLLMENT_YEAR',
+                value: '2400'
+            });
 
             stagingData.push({
                 name: 'ac',
