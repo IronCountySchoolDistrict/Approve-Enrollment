@@ -9,25 +9,29 @@
         EMPLOYER,
         HOME_PHONE,
         IS_LEG_GUAR,
-        NAME,
+        FIRST_NAME,
+        LAST_NAME,
         PRIORITY,
         RELATIONSHIP,
-        U_DEF_STAGING9ID
-    FROM U_DEF_EMERG_CONTS6
-    WHERE U_DEF_STAGING9ID=~[gpv:staging_id]]
+        WORK_PHONE,
+        U_DEF_STAGING10ID
+    FROM U_DEF_EMERG_CONTS7
+    WHERE U_DEF_STAGING10ID=~[gpv:staging_id]]
         {
-            "address_city": "~(address_city)",
-            "address_state": "~(address_state)",
-            "address_street": "~(address_street)",
-            "address_zip": "~(address_zip)",
-            "cell_phone": "~(cell_phone)",
+            "addressCity": "~(address_city)",
+            "addressState": "~(address_state)",
+            "addressStreet": "~(address_street)",
+            "addressZip": "~(address_zip)",
+            "cellPhone": "~(cell_phone)",
             "email": "~(email)",
             "employer": "~(employer)",
-            "home_phone": "~(home_phone)",
-            "is_leg_guar": "~(is_leg_guar)",
-            "name": "~(name)",
+            "homePhone": "~(home_phone)",
+            "isLegGuar": "~(is_leg_guar)",
+            "firstName": "~(first_name)",
+            "lastName": "~(last_name)",
             "priority": "~(priority)",
             "relationship": "~(relationship)",
-            "u_def_staging9id": "~(u_def_staging9id)"
+            "workPhone": "~(work_phone)",
+            "u_def_staging10id": "~(u_def_staging10id)"
         }
 [/tlist_sql]
