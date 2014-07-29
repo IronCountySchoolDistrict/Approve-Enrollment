@@ -281,8 +281,8 @@
                     data-parsley-trigger="change"
                     data-parsley-group="block1">
                 <option></option>
-                <option>Male</option>
-                <option>Female</option>
+                <option value="M">Male</option>
+                <option value="F">Female</option>
             </select>
         </div>
     </td>
@@ -1662,8 +1662,9 @@
 <tr>
     <th class="border-tbl-head">Priority <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head" style="width: 12%;">Legal Guardian <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Name and Email <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head" style="width: 23%;">Phone Number (One per contact) <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Name, Email, Address <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 23%;">Phone Number (One or more per contact) <span
+            class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Employer <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Relationship <span class="required-field-ast">*</span></th>
     <th class="noborder-tbl-head" style="text-align: center;">
@@ -1702,14 +1703,25 @@
     </div>
 </td>
 <td class="border-td" style="width: 25%;">
-    <div class="field-container">
-        <label for="emerg-cont-name1">Name</label>
-        <input class="form-control" id="emerg-cont-name1" name="emerg-cont-name1"
-               placeholder="Contact's Name"
-               required
-               data-parsley-danglingspaces
-               data-parsley-group="block2"
-               style="width: 100%;"/>
+    <div>
+        <span class="field-container"
+              style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
+            <label for="emerg-cont-first-name1">Name</label>
+
+                <input class="form-control" id="emerg-cont-first-name1" name="emerg-cont-first-name1"
+                       placeholder="First Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"/>
+        </span>
+        <span class="field-container" style="display: inline-block; width: 48%; margin-top: 25px;">
+                <input class="form-control" id="emerg-cont-last-name1" name="emerg-cont-last-name1"
+                       placeholder="Last Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"
+                       style="width: 100%;"/>
+        </span>
     </div>
     <div>
             <span class="field-container">
@@ -1912,14 +1924,25 @@
         </div>
     </td>
     <td class="border-td">
-        <div class="field-container">
-            <label for="emerg-cont-name2">Name</label>
-            <input class="form-control" id="emerg-cont-name2" name="emerg-cont-name2"
-                   placeholder="Contact's Name"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
+        <div>
+        <span class="field-container"
+              style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
+            <label for="emerg-cont-first-name1">Name</label>
+
+                <input class="form-control" id="emerg-cont-first-name2" name="emerg-cont-first-name2"
+                       placeholder="First Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"/>
+        </span>
+        <span class="field-container" style="display: inline-block; width: 48%; margin-top: 25px;">
+                <input class="form-control" id="emerg-cont-last-name2" name="emerg-cont-last-name2"
+                       placeholder="Last Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"
+                       style="width: 100%;"/>
+        </span>
         </div>
         <div>
             <span class="field-container">
@@ -2081,16 +2104,16 @@
     <td class="noborder-td"></td>
 </tr>
 <tr data-index="3">
-<td class="border-td" style="width: 5%;">
-    <select class="priority input-sm form-control" id="emerg-cont-priority3"
-            name="emerg-cont-priority3">
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3" selected="selected">3</option>
-    </select>
-</td>
-<td class="border-td">
-    <div class="field-container">
+    <td class="border-td" style="width: 5%;">
+        <select class="priority input-sm form-control" id="emerg-cont-priority3"
+                name="emerg-cont-priority3">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3" selected="selected">3</option>
+        </select>
+    </td>
+    <td class="border-td">
+        <div class="field-container">
             <span style="display: block;">
                 <input name="is-leg-guar3" id="is-leg-guar3-yes" type="radio"
                        required
@@ -2106,19 +2129,30 @@
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar3-no">No</label>
             </span>
-    </div>
-</td>
-<td class="border-td">
-    <div class="field-container">
-        <label for="emerg-cont-name3">Name</label>
-        <input class="form-control" id="emerg-cont-name3" name="emerg-cont-name3"
-               placeholder="Contact's Name"
-               required
-               data-parsley-danglingspaces
-               data-parsley-group="block2"
-               style="width: 100%;"/>
-    </div>
-    <div>
+        </div>
+    </td>
+    <td class="border-td">
+        <div>
+        <span class="field-container"
+              style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
+            <label for="emerg-cont-first-name1">Name</label>
+
+                <input class="form-control" id="emerg-cont-first-name3" name="emerg-cont-first-name3"
+                       placeholder="First Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"/>
+        </span>
+        <span class="field-container" style="display: inline-block; width: 48%; margin-top: 25px;">
+                <input class="form-control" id="emerg-cont-last-name3" name="emerg-cont-last-name3"
+                       placeholder="Last Name"
+                       required
+                       data-parsley-danglingspaces
+                       data-parsley-group="block2"
+                       style="width: 100%;"/>
+        </span>
+        </div>
+        <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street3">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street3" name="emerg-cont-address-street3"
@@ -2208,76 +2242,76 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-    </div>
-    <div class="field-container">
-        <label for="emerg-cont-email3">Email</label>
-        <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
-               placeholder="Contact's Email"
-               required
-               data-parsley-danglingspaces
-               data-parsley-type="email"
-               data-parsley-group="block2"
-               style="width: 100%;"/>
-    </div>
-</td>
-<td class="border-td">
-    <div>
-        <label for="emerg-cont-home-phone3">Home</label>
-        <input class="form-control" id="emerg-cont-home-phone3"
-               name="emerg-cont-home-phone3"
-               placeholder="###-###-####"
-               style="width: 100%;"
-               data-parsley-validate-if-empty/>
-    </div>
-    <div>
-        <label for="emerg-cont-cell-phone3">Cell</label>
-        <input class="form-control" id="emerg-cont-cell-phone3"
-               name="emerg-cont-cell-phone3"
-               placeholder="###-###-####"
-               style="width: 100%;"
-               data-parsley-validate-if-empty/>
-    </div>
-    <div>
-        <label for="emerg-cont-work-phone3">Work</label>
-        <input class="form-control" id="emerg-cont-work-phone3"
-               name="emerg-cont-work-phone3"
-               placeholder="###-###-####"
-               style="width: 100%;"
-               data-parsley-validate-if-empty/>
-    </div>
-</td>
-<td class="border-td">
-    <div class="field-container">
-        <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
-               placeholder="Employer Name"
-               required
-               data-parsley-group="block2"
-               style="width: 100%;"/>
-    </div>
-</td>
-<td class="border-td">
-    <div class="field-container">
-        <select class="form-control" id="emerg-cont-relationship3"
-                name="emerg-cont-relationship3"
-                required
-                data-parsley-group="block2"
-                style="margin-top: 25px;">
-            <option></option>
-            <option value="Aunt">Aunt</option>
-            <option value="Brother">Brother</option>
-            <option value="Father">Father</option>
-            <option value="Friend">Friend</option>
-            <option value="Grandfather">Grandfather</option>
-            <option value="Grandmother">Grandmother</option>
-            <option value="Mother">Mother</option>
-            <option value="Neighbor">Neighbor</option>
-            <option value="Other">Other</option>
-            <option value="Sister">Sister</option>
-            <option value="Uncle">Uncle</option>
-        </select>
-    </div>
-</td>
-<td class="noborder-td"></td>
+        </div>
+        <div class="field-container">
+            <label for="emerg-cont-email3">Email</label>
+            <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
+                   placeholder="Contact's Email"
+                   required
+                   data-parsley-danglingspaces
+                   data-parsley-type="email"
+                   data-parsley-group="block2"
+                   style="width: 100%;"/>
+        </div>
+    </td>
+    <td class="border-td">
+        <div>
+            <label for="emerg-cont-home-phone3">Home</label>
+            <input class="form-control" id="emerg-cont-home-phone3"
+                   name="emerg-cont-home-phone3"
+                   placeholder="###-###-####"
+                   style="width: 100%;"
+                   data-parsley-validate-if-empty/>
+        </div>
+        <div>
+            <label for="emerg-cont-cell-phone3">Cell</label>
+            <input class="form-control" id="emerg-cont-cell-phone3"
+                   name="emerg-cont-cell-phone3"
+                   placeholder="###-###-####"
+                   style="width: 100%;"
+                   data-parsley-validate-if-empty/>
+        </div>
+        <div>
+            <label for="emerg-cont-work-phone3">Work</label>
+            <input class="form-control" id="emerg-cont-work-phone3"
+                   name="emerg-cont-work-phone3"
+                   placeholder="###-###-####"
+                   style="width: 100%;"
+                   data-parsley-validate-if-empty/>
+        </div>
+    </td>
+    <td class="border-td">
+        <div class="field-container">
+            <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
+                   placeholder="Employer Name"
+                   required
+                   data-parsley-group="block2"
+                   style="width: 100%;"/>
+        </div>
+    </td>
+    <td class="border-td">
+        <div class="field-container">
+            <select class="form-control" id="emerg-cont-relationship3"
+                    name="emerg-cont-relationship3"
+                    required
+                    data-parsley-group="block2"
+                    style="margin-top: 25px;">
+                <option></option>
+                <option value="Aunt">Aunt</option>
+                <option value="Brother">Brother</option>
+                <option value="Father">Father</option>
+                <option value="Friend">Friend</option>
+                <option value="Grandfather">Grandfather</option>
+                <option value="Grandmother">Grandmother</option>
+                <option value="Mother">Mother</option>
+                <option value="Neighbor">Neighbor</option>
+                <option value="Other">Other</option>
+                <option value="Sister">Sister</option>
+                <option value="Uncle">Uncle</option>
+            </select>
+        </div>
+    </td>
+    <td class="noborder-td"></td>
 </tr>
 </tbody>
 </table>
@@ -2789,13 +2823,13 @@
                         </td>
                         <td>
                             <div class="col-md-6">
-                                <label for="safe-school-violation-explanation"
-                                       id="safe-school-violation-explanation-label"
+                                <label for="safe-school-violation-expl"
+                                       id="safe-school-violation-expl-label"
                                        style="display: none;">Please explain</label>
                             </div>
                             <div class="col-md-6 field-container">
-                                <textarea class="form-control" name="safe-school-violation-explanation"
-                                          id="safe-school-violation-explanation"
+                                <textarea class="form-control" name="safe-school-violation-expl"
+                                          id="safe-school-violation-expl"
                                           style="display: none;"
                                           required
                                           data-parsley-group="block5"></textarea>
@@ -3082,18 +3116,18 @@
             <tr>
                 <td colspan="2">
                     <div class="col-md-12">
-                        <label for="medical-info">I give permission to release medical information necessary for the
+                        <label for="medical-release">I give permission to release medical information necessary for the
                             care of my student to physician listed above <span
                                     class="required-field-ast">*</span></label>
                     </div>
                 </td>
                 <td colspan="2">
                     <div class="col-md-12">
-                        <input name="medical-info" id="medical-info-yes" type="radio"/>
-                        <label for="medical-info-yes">Yes</label>
+                        <input name="medical-release" id="medical-release-yes" type="radio"/>
+                        <label for="medical-release-yes">Yes</label>
 
-                        <input name="medical-info" id="medical-info-no" type="radio"/>
-                        <label for="medical-info-no">No</label>
+                        <input name="medical-release" id="medical-release-no" type="radio"/>
+                        <label for="medical-release-no">No</label>
                     </div>
                 </td>
             </tr>
@@ -3281,7 +3315,7 @@
             </select>
         </td>
         <td class="border-td field-container">
-            <input class="form-control" name="sibiling-name<%= index %>" id="sibiling-name<%= index %>"
+            <input class="form-control" name="sibling-name<%= index %>" id="sibling-name<%= index %>"
                    style="width: 100%;"
                    data-parsley-group="block2"
                    required/>
