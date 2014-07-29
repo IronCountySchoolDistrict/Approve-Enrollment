@@ -1,3 +1,4 @@
+[
 ~[tlist_sql;
     SELECT
         BIRTHDATE,
@@ -6,9 +7,9 @@
         ID,
         NAME,
         SCHOOL,
-        U_DEF_STAGING9ID
-    FROM U_DEF_SIBLINGS6
-    WHERE U_DEF_STAGING9ID=~[gpv:staging_id]]
+        U_DEF_STAGING10ID
+    FROM U_DEF_SIBLINGS7
+    WHERE U_DEF_STAGING10ID=~[gpv:staging_id]]
         {
             "birthdate": "~(birthdate)",
             "gender": "~(gender)",
@@ -16,6 +17,8 @@
             "id": "~(id)",
             "name": "~(name)",
             "school": "~(school)",
-            "u_def_staging9id": "~(u_def_staging9id)"
-        }
+            "u_def_staging10id": "~(u_def_staging10id)"
+        },
 [/tlist_sql]
+    {}
+]
