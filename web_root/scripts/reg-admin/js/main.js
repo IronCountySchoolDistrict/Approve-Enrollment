@@ -6,6 +6,8 @@ require.config({
         enroll: 'reg-admin/js/enroll',
         datepicker: 'reg-admin/js/datepicker',
         populate: 'reg-admin/js/populate',
+        b64: 'reg-admin/js/b64',
+        api: 'reg-admin/js/api',
 
         // external dependencies
         underscore: 'underscore/underscore'
