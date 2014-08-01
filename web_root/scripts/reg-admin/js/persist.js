@@ -8,7 +8,7 @@ define(function () {
 
         bindPostApi: function() {
             var _this = this;
-            $j('#enroll-form').on('submit', function(e) {
+            $j('#btnSubmit').on('submit', function(e) {
                 _this.postApiFields();
             });
         },
@@ -23,7 +23,7 @@ define(function () {
             };
 
             $j.ajax({
-                url: '205.125.100.99/enroll',
+                url: 'http://205.125.100.99/enroll',
                 type: 'POST',
                 dataType: 'json',
                 data: apiFields,
