@@ -270,17 +270,41 @@ define(['underscore'], function (_) {
          */
         populateStaging: function (stagingData) {
             $j('#first-name-field-value').html(stagingData.firstName);
+            $j('#first-name').val(stagingData.firstName);
+
             $j('#middle-name-field-value').html(stagingData.middleName);
+            $j('#middle-name').val(stagingData.middleName);
+
             $j('#last-name-field-value').html(stagingData.lastName);
+            $j('#last-name').val(stagingData.lastName);
 
             $j('#nickname-field-value').html(stagingData.nickname);
+
             $j('#ssn-field-value').html(stagingData.ssn);
+            $j('#ssn').val(stagingData.ssn);
+
             $j('#gender-field-value').html(stagingData.gender);
+            $j('#gender').val(stagingData.gender);
+
             $j('#email-address-field-value').html(stagingData.emailAddress);
+            $j('#email-address').val(stagingData.emailAddress);
+
             $j('#last-attended-grade-field-value').html(stagingData.lastAttendedGrade);
+
             $j('#current-grade-field-value').html(stagingData.currentGrade);
+            _.each($j('#current-grade').find('option'), function(grade) {
+                if ($j(grade).attr('value') === stagingData.currentGrade) {
+                    $j(grade).attr('selected', true);
+                }
+            });
+            $j('#current-grade-').val(stagingData.currentGrade);
+
             $j('#birthdate-field-value').html(stagingData.birthdate);
+            $j('#birthdate').val(stagingData.birthdate);
+
             $j('#home-phone-number-field-value').html(stagingData.homePhoneNumber);
+            $j('#home-phone-number').val(stagingData.homePhoneNumber);
+
             $j('#student-cell-number-field-value').html(stagingData.studentCellNumber);
 
             $j('#mailing-address-field-value').html(stagingData.mailingAddress + ' ' +
@@ -288,10 +312,21 @@ define(['underscore'], function (_) {
                 stagingData.mailingState + ' ' +
                 stagingData.mailingZip);
 
+            $j('#mailing-address').val(stagingData.mailingAddress);
+            $j('#mailing-city').val(stagingData.mailingCity);
+            $j('#mailing-state').val(stagingData.mailingState);
+            $j('#mailing-zip').val(stagingData.mailingZip);
+
+
             $j('#residence-address-field-value').html(stagingData.residenceAddress + ' ' +
-                stagingData.residenceAddress + ' ' +
-                stagingData.residenceAddress + ' ' +
-                stagingData.residenceAddress);
+                stagingData.residenceCity + ' ' +
+                stagingData.residenceState + ' ' +
+                stagingData.residenceZip);
+
+            $j('#residence-address').val(stagingData.residenceAddress);
+            $j('#residence-city').val(stagingData.residenceCity);
+            $j('#residence-state').val(stagingData.residenceState);
+            $j('#residence-zip').val(stagingData.residenceZip);
 
             $j('#school-city-field-value').html(stagingData.schoolCity);
             $j('#school-state-field-value').html(stagingData.schoolState);
@@ -316,7 +351,13 @@ define(['underscore'], function (_) {
             $j('#refugee-student-field-value').html(stagingData.refugee ? "Yes" : "No");
 
             $j('#hisp-latino-field-value').html(stagingData.hispLatino ? "Yes" : "No");
-            $j('#race-birth-field-value').html(stagingData.race);
+            if (stagingData.hispLatino) {
+                $j('#hisp-latino-yes').attr('checked', true);
+            } else {
+                $j('#hisp-latino-no').attr('checked', true);
+            }
+            $j('#race-field-value').html(stagingData.race);
+            $j('#race').val(stagingData.race);
 
             $j('#special-ed-services-field-value').html(stagingData.specialEdServices ? "Yes" : "No");
             $j('#speech-lang-services-field-value').html(stagingData.speechLangServices ? "Yes" : "No");
