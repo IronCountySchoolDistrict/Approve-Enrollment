@@ -33,6 +33,9 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
 
                 var stagingData = _this.getStagingDataFromTable(_this.config.stagingExtGroup, _this.config.extStagingTable);
                 staging.save(stagingData);
+
+                //Redirect to registration complete
+                window.location = '/admin/reg-done.html';
             });
         },
 

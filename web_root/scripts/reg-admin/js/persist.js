@@ -28,11 +28,11 @@ define(function () {
                 number: $j('#home-phone-number').val(),
                 mailing_street: $j('#mailing-address').val(),
                 mailing_city: $j('#mailing-city').val(),
-                mailing_state: $j('#mailing-state').val(),
+                mailing_state: $j('#mailing-state option:selected').val(),
                 mailing_zip: $j('#mailing-zip').val(),
                 residence_street: $j('#residence-address').val(),
                 residence_city: $j('#residence-city').val(),
-                residence_state: $j('#residence-state').val(),
+                residence_state: $j('#residence-state option:selected').val(),
                 residence_zip: $j('#residence-zip').val(),
                 scheduling_reporting_ethnicity: $j('#race').val()
             };
