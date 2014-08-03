@@ -1,0 +1,12 @@
+[
+    ~[tlist_sql;
+        select id, first_name, middle_name, last_name from u_def_staging10
+    ]
+        {
+            "stagingId": "~(id)",
+            "firstName": "~(first_name)",
+            "middleName": "~(middle_name)",
+            "lastName": "~(last_name)"
+        },
+    [/tlist_sql]{}
+]
