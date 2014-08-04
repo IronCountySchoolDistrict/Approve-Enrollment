@@ -1,0 +1,7 @@
+~[tlist_sql;
+    select count(*)
+    from u_def_staging10
+    where staging_enroll_status != 1
+]
+    {"count": "~(count)"}
+[/tlist_sql]
