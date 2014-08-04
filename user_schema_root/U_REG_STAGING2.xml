@@ -80,7 +80,7 @@
         <field name="media_full_name" type="Boolean"/>
         <field name="policy_aup" type="Boolean"/>
         <field name="policy_safe_schools" type="Boolean"/>
-        <field name="staging_enroll_status" type="Boolean" comment="Has the student been enrolled on the admin side yet?"/>
+        <field name="staging_enroll_status" type="Boolean" comment="Has the student been enrolled on the admin side yet? null=Have NOT been registered, 1=HAS been registered"/>
         <field name="enrollment_year" type="Integer" comment="School year that the student is registering for"/>
     </extendedTable>
 </psExtension>
