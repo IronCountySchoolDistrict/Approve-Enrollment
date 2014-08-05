@@ -76,7 +76,6 @@
         <field name="dentists_phone" type="String" length="30"/>
         <field name="medical_release" type="Boolean"/>
         <field name="field_trips" type="Boolean"/>
-        <field name="student_directory" type="Boolean"/>
         <field name="media_full_name" type="Boolean"/>
         <field name="policy_aup" type="Boolean"/>
         <field name="policy_safe_schools" type="Boolean"/>

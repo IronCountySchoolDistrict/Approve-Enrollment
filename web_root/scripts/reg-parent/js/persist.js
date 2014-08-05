@@ -540,12 +540,6 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 });
             }
 
-            if ($('#student-directory-yes').is(':checked')) {
-                stagingData.push({
-                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]STUDENT_DIRECTORY',
-                    value: 1
-                });
-            }
 
             if ($('#media-full-name-yes').is(':checked')) {
                 stagingData.push({
