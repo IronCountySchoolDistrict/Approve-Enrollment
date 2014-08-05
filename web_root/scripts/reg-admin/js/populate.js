@@ -236,6 +236,7 @@ define(['underscore'], function (_) {
 
                 $j('#emerg-cont-first-name' + oneBasedIndex + '-field-value').html(elem.firstName);
                 $j('#emerg-cont-last-name' + oneBasedIndex + '-field-value').html(elem.lastName);
+                $j('#emerg-cont-relationship' + oneBasedIndex + '-field-value').html(elem.relationship);
                 $j('#is-leg-guar' + oneBasedIndex + '-field-value').html(elem.isLegGuar ? "Yes" : "No");
 
                 $j('#emerg-cont-email' + oneBasedIndex + '-field-value').html(elem.email);
