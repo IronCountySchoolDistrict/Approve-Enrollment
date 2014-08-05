@@ -1467,7 +1467,7 @@
 <tr>
     <th class="border-tbl-head">Priority <span class="required-field-ast">*</span></th>
     <th class="border-tbl-head" style="width: 12%;">Parent/Legal Guardian <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Name, Email, Address <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head">Name, Email, Address</th>
     <th class="border-tbl-head" style="width: 23%;">Phone Number (One or more per contact) <span
             class="required-field-ast">*</span></th>
     <th class="border-tbl-head">Employer <span class="required-field-ast">*</span></th>
@@ -1511,7 +1511,7 @@
     <div>
         <span class="field-container"
               style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
-            <label for="emerg-cont-first-name1">Name</label>
+            <label for="emerg-cont-first-name1">Name <span class="required-field-ast">*</span></label>
 
                 <input class="form-control" id="emerg-cont-first-name1" name="emerg-cont-first-name1"
                        placeholder="First Name"
@@ -1533,27 +1533,25 @@
                 <label for="emerg-cont-address-street1">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street1" name="emerg-cont-address-street1"
                        placeholder="Contact's Street Address"
-                       required
-                       data-parsley-danglingspaces
                        data-parsley-group="block2"
+                       data-parsley-danglingspaces
                        style="width: 100%;"/>
             </span>
             <span class="field-container">
                 <input class="form-control" id="emerg-cont-address-city1"
                        name="emerg-cont-address-city1"
                        placeholder="Contact's City"
-                       required
                        data-parsley-danglingspaces
                        data-parsley-group="block2"
                        style="width: 100%;"/>
             </span>
             <span class="field-container"
                   style="padding-right:4px; padding-left:0; width: 63%; display:inline-block; vertical-align: top;">
-                <select class="form-control" name="emerg-cont-address-state1" id="emerg-cont-address-state1"
+                <select class="form-control" id="emerg-cont-address-state1"
+                        name="emerg-cont-address-state1"
                         data-parsley-trigger="change"
                         data-parsley-group="block2"
-                        style="margin-right: 8px; padding-right: 5px;"
-                        required>
+                        style="margin-right: 8px; padding-right: 5px;">
                     <option value="" class="select-label" disabled selected>State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -1612,7 +1610,6 @@
                 <input style="margin-bottom: 10px; padding-right: 0;" class="form-control"
                        id="emerg-cont-address-zip1" name="emerg-cont-address-zip1" placeholder="Zip"
                        maxlength="5"
-                       required
                        data-parsley-danglingspaces
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
@@ -1622,7 +1619,6 @@
         <label for="emerg-cont-email1">Email</label>
         <input class="form-control" id="emerg-cont-email1" name="emerg-cont-email1"
                placeholder="Contact's Email"
-               required
                data-parsley-danglingspaces
                data-parsley-type="email"
                data-parsley-trigger="change"
