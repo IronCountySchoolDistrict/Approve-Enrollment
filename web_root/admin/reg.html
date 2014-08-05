@@ -197,203 +197,204 @@
     <h3 id="personal-panel" class="panel-title">Personal</h3></div>
 <div class="panel-body">
 <div class="table-responsive">
-<table class="table table-bordered">
-<tbody>
-<tr>
-    <td colspan="4">
-        <div class="alert alert-info">
-            Please enter your student's name as it appears on their <strong>Legal Birth
-            Certificate</strong>
-            or
-            other <strong>Legal Document</strong>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td width-td">
-        <!-- Override margin here so input margins are the only margins applied to this row -->
-        <div class="col-md-12">
-            <label for="first-name">Name <span class="required-field-ast">*</span></label>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input type="text" name="first-name" class="form-control" id="first-name"
-                   placeholder="First Name"
-                   required
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-    <td class="width-td">
-        <div class="col-md-12 field-container">
-            <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
-                   data-parsley-trigger="change"
-                   required
-                   data-parsley-group="block1"
-                   data-parsley-danglingspaces/>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="nick-name">Nickname</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="nickname" class="form-control" id="nickname" placeholder="Nickname"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-alpha
-                   data-parsley-nospaces/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-5">
-            <label for="student-ssn">Social Security Number</label>
-        </div>
-        <div class="col-md-7 field-container">
-            <input class="form-control" name="ssn" id="ssn" placeholder="###-##-####"
-                   style="width: 100%; padding-right: 10px;"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-nospaces
-                   data-parsley-ssn/>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-5">
-            <label for="gender">Gender <span class="required-field-ast">*</span></label>
-        </div>
-        <div class="col-md-7 field-container">
-            <select class="form-control" name="gender" id="gender" required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option value="M">Male</option>
-                <option value="F">Female</option>
-            </select>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="email-address">Student's Email Address</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input name="email-address" class="form-control" id="email-address"
-                   placeholder="Student's Email Address"
-                   style="margin-bottom: 15px;"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-type="email"/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-5">
-            <label for="last-attended-grade">Last Attended Grade <span class="required-field-ast">*</span></label>
-        </div>
-        <div class="col-md-7 field-container">
-            <select class="form-control" name="last-attended-grade" id="last-attended-grade" required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option>None</option>
-                <option value="-1">Pre 1</option>
-                <option value="-2">Pre 2</option>
-                <option value="0">K</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-            </select>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-5">
-            <label for="current-grade">Current Grade <span class="required-field-ast">*</span></label>
-        </div>
-        <div class="col-md-7 field-container">
-            <select class="form-control" name="current-grade" id="current-grade" required
-                    data-parsley-trigger="change"
-                    data-parsley-group="block1">
-                <option></option>
-                <option value="-1">Pre 1</option>
-                <option value="-2">Pre 2</option>
-                <option value="0">K</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
-                <option>11</option>
-                <option>12</option>
-            </select>
-        </div>
-    </td>
-</tr>
-<tr>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="birthdate">Birthdate <span class="required-field-ast">*</span></label>
-        </div>
-    </td>
-    <td>
+    <table class="table table-bordered">
+        <tbody>
+        <tr>
+            <td colspan="4">
+                <div class="alert alert-info">
+                    Please enter your student's name as it appears on their <strong>Legal Birth
+                    Certificate</strong>
+                    or
+                    other <strong>Legal Document</strong>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td width-td">
+                <!-- Override margin here so input margins are the only margins applied to this row -->
+                <div class="col-md-12">
+                    <label for="first-name">Name <span class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input type="text" name="first-name" class="form-control" id="first-name"
+                           placeholder="First Name"
+                           required
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input name="middle-name" class="form-control" id="middle-name" placeholder="Middle Name"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+            <td class="width-td">
+                <div class="col-md-12 field-container">
+                    <input name="last-name" class="form-control" id="last-name" placeholder="Last Name"
+                           data-parsley-trigger="change"
+                           required
+                           data-parsley-group="block1"
+                           data-parsley-danglingspaces/>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="nick-name">Nickname</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input name="nickname" class="form-control" id="nickname" placeholder="Nickname"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-alpha
+                           data-parsley-nospaces/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-5">
+                    <label for="student-ssn">Social Security Number</label>
+                </div>
+                <div class="col-md-7 field-container">
+                    <input class="form-control" name="ssn" id="ssn" placeholder="###-##-####"
+                           style="width: 100%; padding-right: 10px;"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-nospaces
+                           data-parsley-ssn/>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-5">
+                    <label for="gender">Gender <span class="required-field-ast">*</span></label>
+                </div>
+                <div class="col-md-7 field-container">
+                    <select class="form-control" name="gender" id="gender" required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option value="M">Male</option>
+                        <option value="F">Female</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="email-address">Student's Email Address</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input name="email-address" class="form-control" id="email-address"
+                           placeholder="Student's Email Address"
+                           style="margin-bottom: 15px;"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-type="email"/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-5">
+                    <label for="last-attended-grade">Last Attended Grade <span
+                            class="required-field-ast">*</span></label>
+                </div>
+                <div class="col-md-7 field-container">
+                    <select class="form-control" name="last-attended-grade" id="last-attended-grade" required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option>None</option>
+                        <option value="-1">Pre 1</option>
+                        <option value="-2">Pre 2</option>
+                        <option value="0">K</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-5">
+                    <label for="current-grade">Current Grade <span class="required-field-ast">*</span></label>
+                </div>
+                <div class="col-md-7 field-container">
+                    <select class="form-control" name="current-grade" id="current-grade" required
+                            data-parsley-trigger="change"
+                            data-parsley-group="block1">
+                        <option></option>
+                        <option value="-1">Pre 1</option>
+                        <option value="-2">Pre 2</option>
+                        <option value="0">K</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                    </select>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="birthdate">Birthdate <span class="required-field-ast">*</span></label>
+                </div>
+            </td>
+            <td>
 
-        <div class="col-md-12 field-container">
-            <input class="form-control dateinput" name="birthdate" id="birthdate"
-                   placeholder="mm-dd-yyyy"
-                   required
-                   data-date-format="mm-dd-yyyy"
-                   data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-date/>
-        </div>
-    </td>
-    <td class="label-td">
-        <div class="col-md-12">
-            <label for="student-cell-number">Student Cell Phone</label>
-        </div>
-    </td>
-    <td>
-        <div class="col-md-12 field-container">
-            <input class="form-control" name="student-cell-number" id="student-cell-number"
-                   placeholder="###-###-####"
-                   style="width: 100%;" data-parsley-trigger="change"
-                   data-parsley-group="block1"
-                   data-parsley-phoneNum/>
-        </div>
-    </td>
-</tr>
-</tbody>
-</table>
+                <div class="col-md-12 field-container">
+                    <input class="form-control dateinput" name="birthdate" id="birthdate"
+                           placeholder="mm-dd-yyyy"
+                           required
+                           data-date-format="mm-dd-yyyy"
+                           data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-date/>
+                </div>
+            </td>
+            <td class="label-td">
+                <div class="col-md-12">
+                    <label for="student-cell-number">Student Cell Phone</label>
+                </div>
+            </td>
+            <td>
+                <div class="col-md-12 field-container">
+                    <input class="form-control" name="student-cell-number" id="student-cell-number"
+                           placeholder="###-###-####"
+                           style="width: 100%;" data-parsley-trigger="change"
+                           data-parsley-group="block1"
+                           data-parsley-phoneNum/>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 <!-- end .table-responsive -->
 </div>
@@ -1699,16 +1700,16 @@
 <td class="noborder-td"></td>
 </tr>
 <tr data-index="2">
-    <td class="border-td" style="width: 5%;">
-        <select class="priority input-sm form-control" id="emerg-cont-priority2"
-                name="emerg-cont-priority2">
-            <option value="1">1</option>
-            <option value="2" selected="selected">2</option>
-            <option value="3">3</option>
-        </select>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
+<td class="border-td" style="width: 5%;">
+    <select class="priority input-sm form-control" id="emerg-cont-priority2"
+            name="emerg-cont-priority2">
+        <option value="1">1</option>
+        <option value="2" selected="selected">2</option>
+        <option value="3">3</option>
+    </select>
+</td>
+<td class="border-td">
+    <div class="field-container">
             <span style="display: block;">
             <input name="is-leg-guar2" id="is-leg-guar2-yes" type="radio"
                    required
@@ -1724,10 +1725,10 @@
                    data-parsley-group="block2"/>
             <label for="is-leg-guar2-no">No</label>
             </span>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
+    </div>
+</td>
+<td class="border-td">
+    <div>
         <span class="field-container"
               style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
             <label for="emerg-cont-first-name1">Name</label>
@@ -1746,8 +1747,8 @@
                        data-parsley-group="block2"
                        style="width: 100%;"/>
         </span>
-        </div>
-        <div>
+    </div>
+    <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street2">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street2" name="emerg-cont-address-street2"
@@ -1836,87 +1837,87 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-        </div>
-        <div class="field-container">
-            <label for="emerg-cont-email2">Email</label>
-            <input class="form-control" id="emerg-cont-email2" name="emerg-cont-email2"
-                   placeholder="Contact's Email"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-type="email"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
-            <label for="emerg-cont-home-phone2">Home</label>
-            <input class="form-control" id="emerg-cont-home-phone2"
-                   name="emerg-cont-home-phone2"
-                   placeholder="###-###-####"
-                   style="width: 100%;"
-                   data-parsley-group="block2"/>
-        </div>
-        <div>
-            <label for="emerg-cont-cell-phone2">Cell</label>
-            <input class="form-control" id="emerg-cont-cell-phone2"
-                   name="emerg-cont-cell-phone2"
-                   data-parsley-group="block2"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-        <div>
-            <label for="emerg-cont-work-phone2">Work</label>
-            <input class="form-control" id="emerg-cont-work-phone2"
-                   name="emerg-cont-work-phone2"
-                   data-parsley-group="block2"
-                   placeholder="###-###-####"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <input class="form-control" id="emerg-cont-employer2" name="emerg-cont-employer2"
-                   style="width: 100%;"
-                   placeholder="Employer Name"
-                   required
-                   data-parsley-group="block2"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <select class="form-control" id="emerg-cont-relationship2"
-                    name="emerg-cont-relationship2"
-                    required
-                    data-parsley-group="block2">
-                <option></option>
-                <option value="Father">Father</option>
-                <option value="Mother">Mother</option>
-                <option value="Aunt">Aunt</option>
-                <option value="Brother">Brother</option>
-                <option value="Friend">Friend</option>
-                <option value="Grandfather">Grandfather</option>
-                <option value="Grandmother">Grandmother</option>
-                <option value="Neighbor">Neighbor</option>
-                <option value="Other">Other</option>
-                <option value="Sister">Sister</option>
-                <option value="Uncle">Uncle</option>
-            </select>
-        </div>
-    </td>
-    <td class="noborder-td"></td>
+    </div>
+    <div class="field-container">
+        <label for="emerg-cont-email2">Email</label>
+        <input class="form-control" id="emerg-cont-email2" name="emerg-cont-email2"
+               placeholder="Contact's Email"
+               required
+               data-parsley-danglingspaces
+               data-parsley-type="email"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div>
+        <label for="emerg-cont-home-phone2">Home</label>
+        <input class="form-control" id="emerg-cont-home-phone2"
+               name="emerg-cont-home-phone2"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-group="block2"/>
+    </div>
+    <div>
+        <label for="emerg-cont-cell-phone2">Cell</label>
+        <input class="form-control" id="emerg-cont-cell-phone2"
+               name="emerg-cont-cell-phone2"
+               data-parsley-group="block2"
+               placeholder="###-###-####"
+               style="width: 100%;"/>
+    </div>
+    <div>
+        <label for="emerg-cont-work-phone2">Work</label>
+        <input class="form-control" id="emerg-cont-work-phone2"
+               name="emerg-cont-work-phone2"
+               data-parsley-group="block2"
+               placeholder="###-###-####"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <input class="form-control" id="emerg-cont-employer2" name="emerg-cont-employer2"
+               style="width: 100%;"
+               placeholder="Employer Name"
+               required
+               data-parsley-group="block2"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <select class="form-control" id="emerg-cont-relationship2"
+                name="emerg-cont-relationship2"
+                required
+                data-parsley-group="block2">
+            <option></option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Aunt">Aunt</option>
+            <option value="Brother">Brother</option>
+            <option value="Friend">Friend</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Neighbor">Neighbor</option>
+            <option value="Other">Other</option>
+            <option value="Sister">Sister</option>
+            <option value="Uncle">Uncle</option>
+        </select>
+    </div>
+</td>
+<td class="noborder-td"></td>
 </tr>
 <tr data-index="3">
-    <td class="border-td" style="width: 5%;">
-        <select class="priority input-sm form-control" id="emerg-cont-priority3"
-                name="emerg-cont-priority3">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3" selected="selected">3</option>
-        </select>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
+<td class="border-td" style="width: 5%;">
+    <select class="priority input-sm form-control" id="emerg-cont-priority3"
+            name="emerg-cont-priority3">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3" selected="selected">3</option>
+    </select>
+</td>
+<td class="border-td">
+    <div class="field-container">
             <span style="display: block;">
                 <input name="is-leg-guar3" id="is-leg-guar3-yes" type="radio"
                        required
@@ -1932,10 +1933,10 @@
                        data-parsley-group="block2"/>
                 <label for="is-leg-guar3-no">No</label>
             </span>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
+    </div>
+</td>
+<td class="border-td">
+    <div>
         <span class="field-container"
               style="padding-right:4px; padding-left:0; width: 50%; display:inline-block; vertical-align: top;">
             <label for="emerg-cont-first-name1">Name</label>
@@ -1954,8 +1955,8 @@
                        data-parsley-group="block2"
                        style="width: 100%;"/>
         </span>
-        </div>
-        <div>
+    </div>
+    <div>
             <span class="field-container">
                 <label for="emerg-cont-address-street3">Additional Address</label>
                 <input class="form-control" id="emerg-cont-address-street3" name="emerg-cont-address-street3"
@@ -2045,76 +2046,76 @@
                        data-parsley-trigger="change"
                        data-parsley-group="block2"/>
             </span>
-        </div>
-        <div class="field-container">
-            <label for="emerg-cont-email3">Email</label>
-            <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
-                   placeholder="Contact's Email"
-                   required
-                   data-parsley-danglingspaces
-                   data-parsley-type="email"
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div>
-            <label for="emerg-cont-home-phone3">Home</label>
-            <input class="form-control" id="emerg-cont-home-phone3"
-                   name="emerg-cont-home-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"
-                   data-parsley-validate-if-empty/>
-        </div>
-        <div>
-            <label for="emerg-cont-cell-phone3">Cell</label>
-            <input class="form-control" id="emerg-cont-cell-phone3"
-                   name="emerg-cont-cell-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"
-                   data-parsley-validate-if-empty/>
-        </div>
-        <div>
-            <label for="emerg-cont-work-phone3">Work</label>
-            <input class="form-control" id="emerg-cont-work-phone3"
-                   name="emerg-cont-work-phone3"
-                   placeholder="###-###-####"
-                   style="width: 100%;"
-                   data-parsley-validate-if-empty/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
-                   placeholder="Employer Name"
-                   required
-                   data-parsley-group="block2"
-                   style="width: 100%;"/>
-        </div>
-    </td>
-    <td class="border-td">
-        <div class="field-container">
-            <select class="form-control" id="emerg-cont-relationship3"
-                    name="emerg-cont-relationship3"
-                    required
-                    data-parsley-group="block2"
-                    style="margin-top: 25px;">
-                <option></option>
-                <option value="Father">Father</option>
-                <option value="Mother">Mother</option>
-                <option value="Aunt">Aunt</option>
-                <option value="Brother">Brother</option>
-                <option value="Friend">Friend</option>
-                <option value="Grandfather">Grandfather</option>
-                <option value="Grandmother">Grandmother</option>
-                <option value="Neighbor">Neighbor</option>
-                <option value="Other">Other</option>
-                <option value="Sister">Sister</option>
-                <option value="Uncle">Uncle</option>
-            </select>
-        </div>
-    </td>
-    <td class="noborder-td"></td>
+    </div>
+    <div class="field-container">
+        <label for="emerg-cont-email3">Email</label>
+        <input class="form-control" id="emerg-cont-email3" name="emerg-cont-email3"
+               placeholder="Contact's Email"
+               required
+               data-parsley-danglingspaces
+               data-parsley-type="email"
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div>
+        <label for="emerg-cont-home-phone3">Home</label>
+        <input class="form-control" id="emerg-cont-home-phone3"
+               name="emerg-cont-home-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+    <div>
+        <label for="emerg-cont-cell-phone3">Cell</label>
+        <input class="form-control" id="emerg-cont-cell-phone3"
+               name="emerg-cont-cell-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+    <div>
+        <label for="emerg-cont-work-phone3">Work</label>
+        <input class="form-control" id="emerg-cont-work-phone3"
+               name="emerg-cont-work-phone3"
+               placeholder="###-###-####"
+               style="width: 100%;"
+               data-parsley-validate-if-empty/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <input class="form-control" id="emerg-cont-employer3" name="emerg-cont-employer3"
+               placeholder="Employer Name"
+               required
+               data-parsley-group="block2"
+               style="width: 100%;"/>
+    </div>
+</td>
+<td class="border-td">
+    <div class="field-container">
+        <select class="form-control" id="emerg-cont-relationship3"
+                name="emerg-cont-relationship3"
+                required
+                data-parsley-group="block2"
+                style="margin-top: 25px;">
+            <option></option>
+            <option value="Father">Father</option>
+            <option value="Mother">Mother</option>
+            <option value="Aunt">Aunt</option>
+            <option value="Brother">Brother</option>
+            <option value="Friend">Friend</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Neighbor">Neighbor</option>
+            <option value="Other">Other</option>
+            <option value="Sister">Sister</option>
+            <option value="Uncle">Uncle</option>
+        </select>
+    </div>
+</td>
+<td class="noborder-td"></td>
 </tr>
 </tbody>
 </table>
@@ -2556,7 +2557,14 @@
                         <td>
                             <div class="col-md-8">
                                 <label for="services-504">Has student received 504 services? <span
-                                        class="required-field-ast">*</span></label>
+                                        class="required-field-ast">*</span>
+                                    <span id="504-tooltip" style="cursor: pointer;" class="glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Section 504 is a federal law that protects students with
+                                            disabilities from being discriminated against at school.  It requires the school
+                                            to give your child the same opportunities as students without disabilities who
+                                            go to school.  The school does this through a &quot;reasonable accommodation
+                                            or modification.&quot;"></span>
+                                </label>
                             </div>
                             <div class="col-md-4 field-container">
                                 <input name="services-504" id="services-504-yes" type="radio" required
@@ -2850,8 +2858,9 @@
             <div class="alert alert-info">
                 The school district provides vision, hearing and dental screenings to specific grade levels.
                 If you choose to opt out of any of these screenings, a
-                <strong>School Exemption Form</strong> is
-                available at the <strong>school office</strong> and is available online
+                <strong>
+                    <a href="http://irondistrict.org/sites/default/files/Docs/nurse/VISION-SCREENING-PERMISSION-SLIP.pdf">School Exemption Form</a>
+                </strong> is available at the <strong>school office</strong> and is available online
                 <a href="http://irondistrict.org/sites/default/files/Docs/nurse/VISION-SCREENING-PERMISSION-SLIP.pdf">here</a>.
                 It must be completed and returned to the school.
             </div>
@@ -3012,7 +3021,8 @@
                     <tr>
                         <td style="width: 50%">
                             <div class="col-md-12">
-                                <label for="policy-aup">I have read and accept the Student Computer Acceptable Use Policy
+                                <label for="policy-aup">I have read and accept the Student Computer Acceptable Use
+                                    Policy
                                     (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/IronK-5StudAUP.pdf">K-5</a>)
                                     (<a href="http://tech.irondistrict.org/sites/default/files/tech/Docs/Iron6-12StudAUP.pdf">6-12</a>)</label>
                             </div>
