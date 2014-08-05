@@ -12,6 +12,7 @@ require.config({
         multiselect: 'reg-parent/js/multiselect',
         maskedInput: 'reg-parent/js/maskedInput',
         persist: 'reg-parent/js/persist',
+        tooltip: 'reg-parent/js/tooltip',
         emergConts: 'models/emerg_conts',
         siblings: 'models/siblings',
         staging: 'models/staging',
@@ -21,8 +22,8 @@ require.config({
     }
 });
 
-require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker', 'multiselect', 'maskedInput', 'persist'],
-    function (form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect, maskedInput, persist) {
+require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker', 'multiselect', 'maskedInput', 'persist', 'tooltip'],
+    function (form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect, maskedInput, persist, tooltip) {
         'use strict';
         form.main();
         validate.main();
@@ -33,4 +34,5 @@ require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker'
         multiselect.main();
         maskedInput.main();
         persist.main();
+        tooltip.main();
     });
