@@ -1324,16 +1324,30 @@ Enroll New Student
                       data-edit-elem="#emerg-cont-relationship<%= index %>"></span>
                 <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
 
-                <input class="edit" name="emerg-cont-relationship<%= index %>" id="emerg-cont-relationship<%= index %>">
+                <select class="edit" id="emerg-cont-relationship<%= index %>" name="emerg-cont-relationship<%= index %>">
+                    <option></option>
+                    <option value="Father">Father</option>
+                    <option value="Mother">Mother</option>
+                    <option value="Mother">Step-Father</option>
+                    <option value="Mother">Step-Mother</option>
+                    <option value="Aunt">Aunt</option>
+                    <option value="Brother">Brother</option>
+                    <option value="Friend">Friend</option>
+                    <option value="Grandfather">Grandfather</option>
+                    <option value="Grandmother">Grandmother</option>
+                    <option value="Neighbor">Neighbor</option>
+                    <option value="Other">Other</option>
+                    <option value="Sister">Sister</option>
+                    <option value="Uncle">Uncle</option>
+                </select>
                 <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
             </span>
 
             <span style="display: block;">
-                <span class="bold">Legal Guardian </span>
+                <span class="bold">Legal Guardian: </span>
                 <span id="is-leg-guar<%= index %>-field-value" class="field-value"
                       data-edit-elem="[name=is-leg-guar<%= index %>]"></span>
                 <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
-
 
                 <input class="edit" name="is-leg-guar<%= index %>" id="is-leg-guar<%= index %>-yes" type="radio"/>
                 <label class="edit" for="is-leg-guar<%= index %>-yes" style="padding-right: 0 !important;">Yes</label>
