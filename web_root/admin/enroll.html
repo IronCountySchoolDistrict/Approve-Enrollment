@@ -1319,6 +1319,16 @@ Enroll New Student
             </span>
 
             <span style="display: block;">
+                <span class="bold">Relationship: </span>
+                <span id="emerg-cont-relationship<%= index %>-field-value" class="field-value"
+                      data-edit-elem="#emerg-cont-relationship<%= index %>"></span>
+                <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+                <input class="edit" name="emerg-cont-relationship<%= index %>" id="emerg-cont-relationship<%= index %>">
+                <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+            </span>
+
+            <span style="display: block;">
                 <span class="bold">Legal Guardian </span>
                 <span id="is-leg-guar<%= index %>-field-value" class="field-value"
                       data-edit-elem="[name=is-leg-guar<%= index %>]"></span>
@@ -1359,7 +1369,8 @@ Enroll New Student
                 <input class="edit" name="emerg-cont-address-street<%= index %>"
                        id="emerg-cont-address-street<%= index %>">
                 <input class="edit" name="emerg-cont-address-city<%= index %>" id="emerg-cont-address-city<%= index %>">
-                <select class="edit" name="emerg-cont-address-state<%= index %>" id="emerg-cont-address-state<%= index %>">
+                <select class="edit" name="emerg-cont-address-state<%= index %>"
+                        id="emerg-cont-address-state<%= index %>">
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
                     <option value="AZ">Arizona</option>
