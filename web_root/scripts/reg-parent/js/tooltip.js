@@ -7,7 +7,7 @@ define(function () {
             this.bindTooltip();
         },
         bindTooltip: function () {
-            $('#504-tooltip').tooltip();
+            $('.bind-tooltip').tooltip();
         }
     };
 });
