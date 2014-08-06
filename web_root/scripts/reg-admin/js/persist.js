@@ -45,7 +45,7 @@ define(function () {
 
 
             $j.ajax({
-                url: 'http://205.125.100.99/enroll',
+                url: 'http://psit.irondistrict.org/enroll',
                 type: 'POST',
                 crossDomain: true,
                 dataType: 'json',
