@@ -360,7 +360,8 @@ define(['underscore'], function (_) {
             $j('#race-field-value').html(stagingData.race);
             $j('#race').val(stagingData.race);
 
-            $j('#special-ed-services-field-value').html(stagingData.specialEdServices ? "Yes" : "No");
+            $j('#past-special-ed-services-field-value').html(stagingData.pastSpecialEdServices ? "Yes" : "No");
+            $j('#current-special-ed-services-field-value').html(stagingData.currentSpecialEdServices ? "Yes" : "No");
             $j('#speech-lang-services-field-value').html(stagingData.speechLangServices ? "Yes" : "No");
             $j('#services-504-field-value').html(stagingData.services504 ? "Yes" : "No");
             $j('#foster-ward-student-field-value').html(stagingData.fosterWardStudent ? "Yes" : "No");

@@ -43,6 +43,15 @@ define(['validate'], function (validate) {
                 $('#medications')
             );
 
+            // Currently receiving special education services
+            this._hideShowFormElementRadio(
+                $('#past-special-ed-services-no'),
+                $('#past-special-ed-services-yes'),
+                $('#current-special-ed-services-label, #current-special-ed-services-div'),
+                400,
+                $('#current-special-ed-services-yes')
+            );
+
             // Additional medical conditions or needed services
             this._hideShowFormElementRadio(
                 $('#med-other-no'),

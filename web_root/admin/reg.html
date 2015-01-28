@@ -2527,39 +2527,10 @@
         <div class="panel panel-default">
             <div class="panel-heading"><h3 class="panel-title">Special Education</h3></div>
             <div class="panel-body">
-
                 <table class="table table-bordered">
                     <tbody>
                     <tr>
-                        <td>
-                            <div class="col-md-8">
-                                <label for="special-ed-services">Has student ever received special education
-                                    services? <span class="required-field-ast">*</span></label>
-                            </div>
-                            <div class="col-md-4 field-container">
-                                <input name="special-ed-services" id="special-ed-services-yes" type="radio" required
-                                       data-parsley-group="block5"/>
-                                <label for="special-ed-services-yes">Yes</label>
-                                <input name="special-ed-services" id="special-ed-services-no" type="radio"/>
-                                <label for="special-ed-services-no">No</label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="col-md-8">
-                                <label for="speech-lang-services">Has student ever received speech and/or language
-                                    services? <span class="required-field-ast">*</span></label>
-                            </div>
-                            <div class="col-md-4 field-container">
-                                <input name="speech-lang-services" id="speech-lang-services-yes" type="radio" required
-                                       data-parsley-group="block5"/>
-                                <label for="speech-lang-services-yes">Yes</label>
-                                <input name="speech-lang-services" id="speech-lang-services-no" type="radio"/>
-                                <label for="speech-lang-services-no">No</label>
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>
+                        <td style="width: 50%;">
                             <div class="col-md-8">
                                 <label for="services-504">Has student ever received 504 services? <span
                                         class="required-field-ast">*</span>
@@ -2583,7 +2554,7 @@
                             <div class="col-md-8">
                                 <label for="foster-ward-student">Is student a Foster Child or Ward of the State?<span class="required-field-ast">*</span>
                                     <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-info-sign" data-toggle="tooltip" data-placement="bottom"
-                                        title="For fee waiver information"></span>
+                                          title="For fee waiver information"></span>
                                 </label>
                             </div>
                             <div class="col-md-4 field-container">
@@ -2595,6 +2566,36 @@
                             </div>
                         </td>
                     </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-8">
+                                <label for="past-special-ed-services">Has this student ever received special education
+                                    services? <span class="required-field-ast">*</span></label>
+                            </div>
+                            <div class="col-md-4 field-container">
+                                <input name="past-special-ed-services" id="past-special-ed-services-yes" type="radio" required
+                                       data-parsley-group="block5"/>
+                                <label for="past-special-ed-services-yes">Yes</label>
+                                <input name="past-special-ed-services" id="past-special-ed-services-no" type="radio"/>
+                                <label for="past-special-ed-services-no">No</label>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="col-md-8">
+                                <label for="current-special-ed-services" style="display: none;" id="current-special-ed-services-label">Is this student currently receiving sped services?
+                                    <span class="required-field-ast">*</span>
+                                </label>
+                            </div>
+                            <div class="col-md-4 field-container" style="display: none;" id="current-special-ed-services-div">
+                                <input name="current-special-ed-services" id="current-special-ed-services-yes" type="radio" required
+                                       data-parsley-group="block5"/>
+                                <label for="current-special-ed-services-yes">Yes</label>
+                                <input name="current-special-ed-services" id="current-special-ed-services-no" type="radio"/>
+                                <label for="current-special-ed-services-no">No</label>
+                            </div>
+                        </td>
+                    </tr>
+
                     <tr>
                         <td>
                             <div class="col-md-8">
@@ -2610,13 +2611,16 @@
                             </div>
                         </td>
                         <td>
-                            <div class="col-md-6">
-                                <label for="other-info">Other information necessary for appropriate educational
-                                    placement</label>
+                            <div class="col-md-8">
+                                <label for="speech-lang-services">Has student ever received speech and/or language
+                                    services? <span class="required-field-ast">*</span></label>
                             </div>
-                            <div class="col-md-6 field-container">
-                                <textarea class="form-control" id="other-info" name="other-info"
-                                          data-parsley-group="block5"></textarea>
+                            <div class="col-md-4 field-container">
+                                <input name="speech-lang-services" id="speech-lang-services-yes" type="radio" required
+                                       data-parsley-group="block5"/>
+                                <label for="speech-lang-services-yes">Yes</label>
+                                <input name="speech-lang-services" id="speech-lang-services-no" type="radio"/>
+                                <label for="speech-lang-services-no">No</label>
                             </div>
                         </td>
                     </tr>
@@ -2651,6 +2655,19 @@
                                           data-parsley-group="block5"></textarea>
                             </div>
                         </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="col-md-6">
+                                <label for="other-info">Other information necessary for appropriate educational
+                                    placement</label>
+                            </div>
+                            <div class="col-md-6 field-container">
+                                    <textarea class="form-control" id="other-info" name="other-info"
+                                              data-parsley-group="block5"></textarea>
+                            </div>
+                        </td>
+                        <td></td>
                     </tr>
                     </tbody>
                 </table>

@@ -368,9 +368,16 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 value: $('#last-name').val()
             });
 
-            if ($('#special-ed-services-yes').is(':checked')) {
+            if ($('#past-special-ed-services-yes').is(':checked')) {
                 stagingData.push({
-                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]SPECIAL_ED_SERVICES',
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]PAST_SPECIAL_ED_SERVICES',
+                    value: 1
+                });
+            }
+
+            if ($('#current_special-ed-services-yes').is(':checked')) {
+                stagingData.push({
+                    name: 'CF-[:0.' + extGroup + '.' + extTable + ':-1]CURRENT_SPECIAL_ED_SERVICES',
                     value: 1
                 });
             }

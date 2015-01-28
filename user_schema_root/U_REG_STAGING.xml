@@ -48,7 +48,8 @@
         <field name="refugee" type="Boolean"/>
         <field name="hisp_latino" type="Boolean"/>
         <field name="race" type="String" length="40"/>
-        <field name="special_ed_services" type="Boolean"/>
+        <field name="past_special_ed_services" type="Boolean" comment="Has this student ever received special education services?"/>
+        <field name="current_special_ed_services" type="Boolean" comment="Is this student currently receiving sped services?"/>
         <field name="speech_lang_services" type="Boolean"/>
         <field name="services_504" type="Boolean"/>
         <field name="foster_ward_student" type="Boolean"/>
