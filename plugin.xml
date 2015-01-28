@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://plugin.powerschool.pearson.com"
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        description="Online Student Registration for new students in PowerSchool"
+        description="Online Student Registration for PowerSchool"
         name="New Student Enrollment"
         version="1.0"
         xsi:schemaLocation="http://plugin.powerschool.pearson.com plugin.xsd">

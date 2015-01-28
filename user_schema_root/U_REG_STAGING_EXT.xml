@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
+    <extensionname>U_REG_STAGING_EXT</extensionname>
+    <extendedTable coreTable="U_REG_STAGING" dbTableName="U_SIBLINGS" childName="U_DEF_SIBLINGS" comment="">
+        <field name="gender" type="String" length="1"/>
+        <field name="grade" type="String" length="40"/>
+        <field name="school" type="String" length="40"/>
+        <field name="name" type="String" length="40"/>
+        <field name="birthdate" type="String" length="40"/>
+    </extendedTable>
+</psExtension>
