@@ -409,6 +409,26 @@
 <table class="table table-bordered">
     <tbody>
     <tr>
+        <td style="width: 50%;" colspan="2">
+            <div class="col-md-12">
+                <label for="outside-us">Is this student homeless?
+                    <span class="required-field-ast">*</span>
+                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                          title="Not living in a permanent residence with the student's immediate family."></span>
+                </label>
+            </div>
+        </td>
+        <td colspan="2">
+            <div class="col-md-12 field-container">
+                <input name="student-is-homeless" id="student-is-homeless-yes" type="radio" data-parsley-group="block1" required/>
+                <label for="student-is-homeless-yes">Yes</label>
+
+                <input name="student-is-homeless" id="student-is-homeless-no" type="radio"/>
+                <label for="student-is-homeless-no">No</label>
+            </div>
+        </td>
+    </tr>
+    <tr id="mailing-address-row" style="display: none;">
         <td class="width-td label-td">
             <div class="col-md-12">
                 <label for="mailing-address">Mailing Address/P.O. Box</label>
@@ -502,7 +522,7 @@
             </div>
         </td>
     </tr>
-    <tr>
+    <tr id="residence-address-row" style="display: none;">
         <td class="label-td">
             <div class="col-md-12">
                 <label for="residence-address">Residence Address</label>
@@ -594,6 +614,13 @@
                            style="margin-bottom: 15px;" data-parsley-trigger="change"
                            data-parsley-group="block1"/>
                 </div>
+            </div>
+        </td>
+    </tr>
+    <tr id="homeless-student-message-row">
+        <td colspan="4">
+            <div class="alert alert-info">
+                Homeless student registration message here.
             </div>
         </td>
     </tr>
@@ -771,7 +798,7 @@
             <tr>
                 <td style="width: 50%;" colspan="2">
                     <div class="col-md-12">
-                        <label for="outside-us">Was your student born outside the US? <span
+                        <label for="outside-us">Was this student born outside the US? <span
                                 class="required-field-ast">*</span></label>
                     </div>
                 </td>
