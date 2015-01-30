@@ -348,7 +348,7 @@ define(['underscore'], function (_) {
             $j('#utah-resident-field-value').html(stagingData.utahResident ? "Yes" : "No");
             $j('#district-resident-field-value').html(stagingData.districtResident ? "Yes" : "No");
             $j('#immunizations-complete-field-value').html(stagingData.immunizationsComplete ? "Yes" : "No");
-            $j('#part-time-field-value').html(stagingData.partTime ? "Yes" : "No");
+            $j('#full-time-field-value').html(stagingData.partTime ? "Yes" : "No");
             $j('#refugee-student-field-value').html(stagingData.refugee ? "Yes" : "No");
 
             $j('#hisp-latino-field-value').html(stagingData.hispLatino ? "Yes" : "No");

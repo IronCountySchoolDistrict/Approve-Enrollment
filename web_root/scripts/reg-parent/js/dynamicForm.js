@@ -1,4 +1,4 @@
-/*global $, define*/
+/*global $, define, document, jQuery*/
 
 define(['validate'], function (validate) {
     'use strict';
@@ -22,28 +22,10 @@ define(['validate'], function (validate) {
             args.noElem = $('#safe-school-violation-no');
             args.yesTargetElem = $('#safe-school-violation-expl-label, #safe-school-violation-expl');
             args.duration = 400;
-            args.requiredField = $('#safe-school-violation-expl');
-            this._hideShowFormElementRadio.apply(args);
+            args.yesRequiredField = $('#safe-school-violation-expl');
+            this._hideShowFormElementRadio(args);
             args = {};
 
-            // Language of correspondence
-            args.yesElem = $('#safe-school-violation-yes');
-            args.noElem = $('#safe-school-violation-no');
-            args.yesTargetElem = $('#safe-school-violation-expl-label, #safe-school-violation-expl');
-            args.duration = 400;
-            args.requiredField = $('#safe-school-violation-expl');
-            this._hideShowFormElementRadio.apply(args);
-            args = {};
-
-
-            // Language of correspondence
-            this._hideShowFormElementRadio(
-                $('#corres-lang-eng'),
-                $('#corres-lang-other'),
-                $('#corres-lang-other-text'),
-                400,
-                $('corres-lang-other-text')
-            );
 
             // Medications
             args.yesElem = $('#med-require-meds-yes');
@@ -51,16 +33,16 @@ define(['validate'], function (validate) {
             args.yesTargetElem = $('#medications-label, #medications');
             args.duration = 400;
             args.requiredField = $('#medications');
-            this._hideShowFormElementRadio.apply(args);
+            this._hideShowFormElementRadio(args);
             args = {};
 
             // Mailing/Residence/homeless address
             args.yesElem = $('#student-is-homeless-yes');
             args.noElem = $('#student-is-homeless-no');
-            args.yesTargetElem = $('#mailing-address-row, #residence-address-row');
-            args.noTargetElem = $('#homeless-student-message-row');
+            args.yesTargetElem = $('#homeless-student-message-row');
+            args.noTargetElem = $('#mailing-address-row, #residence-address-row, #school-relocation-message-row');
             args.duration = 400;
-            this._hideShowFormElementRadio.apply(args);
+            this._hideShowFormElementRadio(args);
             args = {};
 
             // Currently receiving special education services
@@ -69,7 +51,7 @@ define(['validate'], function (validate) {
             args.yesTargetElem = $('#current-special-ed-services-label, #current-special-ed-services-div');
             args.duration = 400;
             args.requiredField = $('#current-special-ed-services-yes');
-            this._hideShowFormElementRadio.apply(args);
+            this._hideShowFormElementRadio(args);
             args = {};
 
             // Additional medical conditions or needed services
@@ -78,7 +60,8 @@ define(['validate'], function (validate) {
             args.yesTargetElem = $('#add-med-services-label, #add-med-services');
             args.duration = 400;
             args.requiredField = $('add-med-services');
-            this._hideShowFormElementRadio.apply(args);
+            this._hideShowFormElementRadio(args);
+            args = {};
 
             this._hideShowFormElementCheckbox(
                 $('#american-ind-alaska'),
@@ -87,13 +70,13 @@ define(['validate'], function (validate) {
                 $('#tribal-affil')
             );
 
-            this._hideShowFormElementRadio(
-                $('#part-time-no'),
-                $('#part-time-yes'),
-                $('#part-time-student-label, #part-time-options-div'),
-                400,
-                $('#part-time-home-school')
-            );
+            // Full-Time Student
+            args.yesElem = $('#full-time-yes');
+            args.noElem = $('#full-time-no');
+            args.noTargetElem = $('#part-time-student-label, #part-time-options-div');
+            args.duration = 400;
+            args.requiredField = $('#part-time-home-school');
+            this._hideShowFormElementRadio(args);
 
             this._hideShowFormElementRadioDelegate(
                 '#three-ac-yrs-no',
@@ -112,11 +95,6 @@ define(['validate'], function (validate) {
             this._disableOtherCheckboxes(
                 $('#bilingual-neither'),
                 $('#bilingual-esl, #bilingual-bilingual')
-            );
-
-            this._disableOtherCheckboxes(
-                $('#part-time-neither'),
-                $('#part-time-private-school, #part-time-home-school')
             );
         },
 
@@ -142,82 +120,91 @@ define(['validate'], function (validate) {
         },
 
         /**
+         *
+         * @param fieldElem {jQuery}
+         * @param [duration] {number}
+         * @param requiredField {jQuery}
+         * @private
+         */
+        _hideField: function (fieldElem, duration, requiredField) {
+            if (!duration) {
+                duration = 400;
+            }
+            // Check if there is a help span that can also be hidden
+            var helpBlock = fieldElem.next('.help-block');
+            if (helpBlock.length) {
+                fieldElem.add(helpBlock);
+            }
+            fieldElem.fadeOut(duration, function () {
+                if (fieldElem.filter(':hidden') && requiredField) {
+                    validate.removeRequiredField(requiredField);
+                }
+            });
+        },
+
+        /**
+         *
+         * @param fieldElem {jQuery}
+         * @param [duration] {number}
+         * @param requiredField {jQuery}
+         * @private
+         */
+        _showField: function (fieldElem, duration, requiredField) {
+            if (duration) {
+                duration = 400;
+            }
+
+            fieldElem.fadeIn(duration, function () {
+                if (fieldElem.filter(':not(:hidden)') && requiredField) {
+                    validate.addRequiredField(requiredField);
+                }
+            });
+        },
+
+        /**
          * Pass in show and hide DOM elements, and this function will bind fadeIn and fadeOut jQuery function calls
          * to yesTargetElem when they are selected.
          * Use this function for Yes and No Radio elements.
-         * @param {Object} yesElem - DOM element that will show the yesTargetElem when selected.
-         * @param {Object} noElem - DOM element that will hide the yesTargetElem when selected.
-         * @param {Object|Array|jQuery} yesTargetElem - DOM element(s) that will be shown when yesElem is selected and hidden when yesElem is not selected.
-         * @param {Object|Array|jQuery} [noTargetElem] - DOM element(s) that will be shown when nosElem is selected and hidden when yesElem is not selected.
-         * @param {Number} [duration=400] - Length of fadeIn and fadeOut animation duration.
-         * @param [yesRequiredField] {jQuery} - one or more form fields that is required when the yesElem is selected and yesTargetElem is shown, but optional when hidden.
+         * @param {Object} context - Arguments object
+         * @param {Object} context.yesElem - DOM element that will show the yesTargetElem when selected.
+         * @param {Object} context.noElem - DOM element that will hide the noTargetElem when selected.
+         * @param {Object|Array|jQuery} context.yesTargetElem - DOM element(s) that will be shown when yesElem is selected and hidden when yesElem is not selected.
+         * @param {Object|Array|jQuery} [context.noTargetElem] - DOM element(s) that will be shown when nosElem is selected and hidden when yesElem is not selected.
+         * @param {Number} [context.duration=400] - Length of fadeIn and fadeOut animation duration.
+         * @param {jQuery} [context.yesRequiredField] - one or more form fields that is required when the yesElem is selected and yesTargetElem is shown, but optional when hidden.
          *   When field is shown, make it required by calling validate.addRequiredField. When field is hidden, remove it from required fields by calling validate.removeRequiredField.
-         * @param [noRequiredField] {jQuery} - one or more form fields that is required when the noElem is selected and noTargetElem is shown. See also @param yesRequiredField.
+         * @param {jQuery} [context.noRequiredField] - one or more form fields that is required when the noElem is selected and noTargetElem is shown. See also @param yesRequiredField.
          * @private
-         * @returns {undefined}
+         * @return {null}
          */
-        _hideShowFormElementRadio: function (yesElem, noElem, yesTargetElem, noTargetElem, duration, yesRequiredField, noRequiredField) {
-            noElem.on('click', function (event) {
-                event.stopPropagation();
-                if (duration) {
-                    $(yesTargetElem).fadeOut(duration, function () {
-                        // Only remove required fields that are hidden
-                        if (yesRequiredField.filter(':hidden')) {
-                            validate.removeRequiredField(yesRequiredField);
-                        }
-                    });
-
-                    if (noTargetElem) {
-                        $(noTargetElem).fadeIn(duration, function () {
-                            if (yesRequiredField.filter(':not(:hidden)')) {
-                                validate.addRequiredField(yesRequiredField);
-                            }
-                        });
+        _hideShowFormElementRadio: function (context) {
+            var _this = this;
+            if (!context.duration) {
+                context.duration = 400;
+            }
+            if (context.noElem) {
+                context.noElem.on('click', function (event) {
+                    event.stopPropagation();
+                    if (context.noTargetElem) {
+                        _this._showField(context.noTargetElem, context.duration, context.noRequiredField);
                     }
-
-                    // Remove help span if still shown
-                    if (yesTargetElem.next()) {
-                        yesTargetElem.next().fadeOut(duration, function () {
-                            if (yesRequiredField.filter(':hidden')) {
-                                validate.removeRequiredField(yesRequiredField);
-                            }
-                        });
+                    if (context.yesTargetElem) {
+                        _this._hideField(context.yesTargetElem, context.duration, context.yesRequiredField);
                     }
-                } else {
-                    $(yesTargetElem).fadeOut(function () {
-                        if (yesRequiredField) {
-                            validate.removeRequiredField(yesRequiredField);
-                        }
-                    });
+                });
+            }
 
-                    // Remove help span if still shown
-                    if (yesTargetElem.next()) {
-                        yesTargetElem.next().fadeOut(function () {
-                            if (yesRequiredField) {
-                                validate.removeRequiredField(yesRequiredField);
-                            }
-                        });
+            if (context.yesElem) {
+                context.yesElem.on('click', function (event) {
+                    event.stopPropagation();
+                    if (context.noTargetElem) {
+                        _this._hideField(context.noTargetElem, context.duration);
                     }
-                }
-            });
-
-            yesElem.on('click', function (event) {
-                event.stopPropagation();
-                if (duration) {
-                    $(yesTargetElem).fadeIn(duration, function () {
-                        if (yesRequiredField) {
-                            validate.addRequiredField(yesRequiredField);
-                        }
-                    });
-                } else {
-                    $(yesTargetElem).fadeIn(function () {
-                        if (yesRequiredField) {
-                            validate.addRequiredField(yesRequiredField);
-                        }
-                    });
-                }
-
-            });
+                    if (context.yesTargetElem) {
+                        _this._showField(context.yesTargetElem, context.duration);
+                    }
+                });
+            }
         },
 
         /**

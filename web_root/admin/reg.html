@@ -38,6 +38,10 @@
             }
         }
 
+        .bind-tooltip {
+            color: blue;
+        }
+
         .label-td {
             white-space: normal !important;
         }
@@ -617,18 +621,18 @@
             </div>
         </td>
     </tr>
-    <tr id="homeless-student-message-row">
+    <tr id="school-relocation-message-row" style="display: none;">
         <td colspan="4">
             <div class="alert alert-info">
-                Homeless student registration message here.
+                If your resident address is outside <a href="#" style="font-weight: bold;">school boundaries</a>, you will need to
+                fill out and return a <strong>School Relocation Form</strong> to the District Office.
             </div>
         </td>
     </tr>
-    <tr>
+    <tr id="homeless-student-message-row" style="display: none;">
         <td colspan="4">
             <div class="alert alert-info">
-                If your resident address is outside <a href="#">school boundaries</a>, you will need to
-                fill out and return a <strong>School Relocation Form</strong> to the District Office.
+                Homeless student registration message here.
             </div>
         </td>
     </tr>
@@ -1478,7 +1482,7 @@
 <div class="tab-pane fade in block2" id="con-sib" data-block="2">
 <div class="form-group col-md-12">
 <div class="panel panel-default">
-<div class="panel-heading"><h3 class="panel-title">Parent/Guardian and Emergency Contacts</h3></div>
+<div class="panel-heading"><h3 class="panel-title">Legal Parents/Guardians</h3></div>
 <div class="panel-body" style="padding-right: 2px;">
 <div class="alert alert-info alert-dismissable" style="margin-right: 13px;">
     <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
@@ -1493,13 +1497,9 @@
 <table id="emerg-cont-table" class="table">
 <thead>
 <tr>
-    <th class="border-tbl-head">Priority <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head" style="width: 12%;">Parent/Legal Guardian <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Name, Email, Address</th>
-    <th class="border-tbl-head" style="width: 23%;">Phone Number (One or more per contact) <span
-            class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Employer <span class="required-field-ast">*</span></th>
-    <th class="border-tbl-head">Relationship <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 33%;">Contact <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 33%;">Address <span class="required-field-ast">*</span></th>
+    <th class="border-tbl-head" style="width: 33%;">Contact Info</th>
     <th class="noborder-tbl-head" style="text-align: center;">
         <span style="cursor: pointer;" id="add-emerg-cont-span" class="glyphicon glyphicon-plus"></span>
     </th>
@@ -1507,7 +1507,769 @@
 </thead>
 <tbody>
 <tr data-index="1">
-<td class="border-td" style="width: 8%;">
+
+    <td class="border-td">
+        <span class="field-container">
+            <label id="first-name-label" for="first-name">First Name: </label>
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                title="Contact's First Name">
+            </span>
+            <input type="text"
+               id="first-name"
+               class="contact-input"
+               placeholder="Contact's First Name"
+               required/>
+        </span>
+        <br/>
+        <label id="last-name-label" for="first-name">Last Name: </label>
+        <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+              title="Contact's Last Name">
+        </span>
+        <input type="text"
+               id="last-name"
+               class="contact-input"
+               placeholder="Contact's Last Name"
+               required/>
+        <br/>
+        <br/>
+        <label id="priority-label" for="priority">Priority:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                  title="In what order do you want us to try to contact this student's parents/legal guardians?">
+            </span>
+        </label>
+        <select id="priority">
+            <option></option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <br/>
+        <br/>
+        <label for="relationship">Relationship:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+              title="How is this contact related to the student?">
+            </span>
+        </label>
+        <select id="relationship" required>
+            <option></option>
+            <option value="Mother">Mother</option>
+            <option value="Father">Father</option>
+            <option value="Step Father">Step Father</option>
+            <option value="Step Mother">Step Mother</option>
+            <option value="Foster Father">Foster Father</option>
+            <option value="Foster Mother">Foster Mother</option>
+            <option value="Grandfather">Grandfather</option>
+            <option value="Grandmother">Grandmother</option>
+            <option value="Aunt">Aunt</option>
+            <option value="Uncle">Uncle</option>
+            <option value="Sibling">Sibling</option>
+            <option value="Friend">Friend</option>
+            <option value="Probation Officer">Probation Officer</option>
+            <option value="Counselor">Counselor</option>
+            <option value="Caseworker">Caseworker</option>
+            <option value="Occupational Therapist">Occupational Therapist</option>
+            <option value="Speech Therapist">Speech Therapist</option>
+            <option value="Physical Therapist">Physical Therapist</option>
+            <option value="Teacher Consultant">Teacher Consultant</option>
+            <option value="Adult Student">Adult Student</option>
+            <option value="Teaching Parent">Teaching Parent</option>
+            <option value="Other">Other</option>
+        </select>
+        <br/>
+        <br/>
+        <label id="employer-label">Employer:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                  title="Name of the contact's place of employment. Please note that this is NOT the title/position of this contact's job.">
+            </span>
+        </label>
+        <input class="info-input" id="employer" type="text"/>
+        <br/>
+        <br/>
+        <label id="corres-lang-label">Language of Correspondence:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+              title="In what language would you like to receive correspondence?">
+            </span>
+        </label>
+        <select class="info-input" id="corres-lang">
+            <option value="ENG">English</option>
+            <option value="SPA">Spanish</option>
+        </select>
+    </td>
+    <td class="border-td">
+        <label style="display: block;">Residence Address:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+              title="Contact's address of residence">
+            </span>
+        </label>
+        <label class="street-label">Street: </label>
+        <input type="text"
+               id="residence-street"
+               class="address-input"
+               placeholder="Residence Street"
+               data-parsley-resaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+        <label class="city-label">City: </label>
+        <input type="text"
+               id="residence-city"
+               class="address-input"
+               placeholder="Residence City"
+               data-parsley-resaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+        <label class="state-label">State: </label>
+        <select class="address-input"
+                id="residence-state"
+                data-parsley-resaddress
+                data-parsley-trigger="change"
+                data-parsley-validate-if-empty>
+            <option></option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+        <label class="zip-label">Zip Code: </label>
+        <input type="text"
+               id="residence-zip"
+               class="address-input"
+               placeholder="Residence Zip"
+               data-parsley-resaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+        <br/>
+
+        <label style="display: block;">Mailing Address:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                  title="Contact's mailing address.
+                         Please fill out the mailing address fields only if this contact
+                         would like to receive mail through an address that is different
+                         from their residence address.
+                         For example, if this contact uses a P.O. Box to receive mail, please list it here.">
+            </span>
+        </label>
+        <label class="street-label">Street: </label>
+        <input type="text"
+               id="mailing-street"
+               class="address-input"
+               placeholder="Mailing Street"
+               data-parsley-mailaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+        <label class="city-label">City: </label>
+        <input type="text"
+               id="mailing-city"
+               class="address-input"
+               placeholder="Mailing City"
+               data-parsley-mailaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+        <label class="state-label">State: </label>
+        <select class="address-input" id="mailing-state"
+                data-parsley-mailaddress
+                data-parsley-trigger="change"
+                data-parsley-validate-if-empty>
+            <option></option>
+            <option value="AL">Alabama</option>
+            <option value="AK">Alaska</option>
+            <option value="AZ">Arizona</option>
+            <option value="AR">Arkansas</option>
+            <option value="CA">California</option>
+            <option value="CO">Colorado</option>
+            <option value="CT">Connecticut</option>
+            <option value="DE">Delaware</option>
+            <option value="DC">District Of Columbia</option>
+            <option value="FL">Florida</option>
+            <option value="GA">Georgia</option>
+            <option value="HI">Hawaii</option>
+            <option value="ID">Idaho</option>
+            <option value="IL">Illinois</option>
+            <option value="IN">Indiana</option>
+            <option value="IA">Iowa</option>
+            <option value="KS">Kansas</option>
+            <option value="KY">Kentucky</option>
+            <option value="LA">Louisiana</option>
+            <option value="ME">Maine</option>
+            <option value="MD">Maryland</option>
+            <option value="MA">Massachusetts</option>
+            <option value="MI">Michigan</option>
+            <option value="MN">Minnesota</option>
+            <option value="MS">Mississippi</option>
+            <option value="MO">Missouri</option>
+            <option value="MT">Montana</option>
+            <option value="NE">Nebraska</option>
+            <option value="NV">Nevada</option>
+            <option value="NH">New Hampshire</option>
+            <option value="NJ">New Jersey</option>
+            <option value="NM">New Mexico</option>
+            <option value="NY">New York</option>
+            <option value="NC">North Carolina</option>
+            <option value="ND">North Dakota</option>
+            <option value="OH">Ohio</option>
+            <option value="OK">Oklahoma</option>
+            <option value="OR">Oregon</option>
+            <option value="PA">Pennsylvania</option>
+            <option value="RI">Rhode Island</option>
+            <option value="SC">South Carolina</option>
+            <option value="SD">South Dakota</option>
+            <option value="TN">Tennessee</option>
+            <option value="TX">Texas</option>
+            <option value="UT">Utah</option>
+            <option value="VT">Vermont</option>
+            <option value="VA">Virginia</option>
+            <option value="WA">Washington</option>
+            <option value="WV">West Virginia</option>
+            <option value="WI">Wisconsin</option>
+            <option value="WY">Wyoming</option>
+        </select>
+        <label class="zip-label">Zip Code: </label>
+        <input class="address-input" id="mailing-zip" type="text"
+               data-parsley-mailaddress
+               data-parsley-trigger="change"
+               data-parsley-validate-if-empty/>
+    </td>
+    <td class="border-td">
+        <label id="email-label">Email:
+            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                  title="Email address of contact for this student; if specifying for a Parent or Legal Guardian, Report Cards will be sent to this email address for this specific student.">
+            </span>
+
+        </label>
+        <input class="info-input" id="email" type="text" placeholder="Email"
+               data-parsley-type="email"/>
+                    <span>
+                        <label style="display: block; padding-bottom: 5px;">Contact Options:
+                            <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                  title="This email address will automatically be enrolled in our parent notification
+                                system with the options you provide below. We strongly recommend that you enable Emergency alerts and
+                                any addition notification types you would like to receive in the table below.">
+                            </span>
+                        </label>
+                        <table class="table table-bordered" style="table-layout: fixed;">
+                            <thead>
+                            <tr>
+                                <th>Notification Type</th>
+                                <th>Enable</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td>Emergency
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Emergency notifications are considered most urgent and are often associated with a potential threat, a school lockdown, or a disaster with possible student safety concerns.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="email-opts-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>High Priority
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications that are NOT emergency but are higher in priority.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="email-opts-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>General
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications about events and activities occurring at school/district.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="email-opts-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attendance
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications for when a student is absent or tardy but is not excused.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="email-opts-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Survey
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications used by school/district for parent feedback and surveys.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="email-opts-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </span>
+        <br/>
+        <hr/>
+                    <span>
+                        <span style="display: inline-block; float: left;">
+                            <label id="phone1type-label">
+                                Type:
+                            </label>
+                            <br>
+                            <select id="phone1type"
+                                    data-parsley-onephonereq
+                                    data-parsley-phone1type
+                                    data-parsley-validate-if-empty
+                                    data-parsley-trigger="change">
+                                <option></option>
+                                <option value="Home">Home</option>
+                                <option value="Cell">Cell</option>
+                                <option value="Work">Work</option>
+                            </select>
+                        </span>
+                        <span style="display: inline-block; float: right;">
+                            <label id="phone1-label">
+                                Number:
+                            </label>
+                            <br>
+                            <input type="text" class="info-input" id="phone1"
+                                   data-parsley-onephonereq
+                                   data-parsley-phone1num
+                                   data-parsley-validate-if-empty
+                                   data-parsley-trigger="change"/>
+                        </span>
+                    </span>
+                    <span>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Notification Type</th>
+                                <th>Voice</th>
+                                <th>Text</th>
+                            </tr>
+                            <tr>
+                                <td>Emergency
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                      title="Emergency notifications are considered most urgent and are often associated with a potential threat, a school lockdown, or a disaster with possible student safety concerns.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-voice-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-text-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>High Priority
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                      title="Notifications that are NOT emergency but are higher in priority.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-voice-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-text-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>General
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications about events and activities occurring at school/district.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-voice-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-text-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attendance
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications for when a student is absent or tardy but is not excused.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-voice-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-text-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Survey
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                      title="Notifications used by school/district for parent feedback and surveys.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-voice-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone1-opts-text-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </span>
+        <hr/>
+                    <span>
+                        <span style="display: inline-block; float: left;">
+                            <label id="phone2type-label">
+                                Type:
+                            </label>
+                            <br>
+                            <select id="phone2type"
+                                    data-parsley-phone2type
+                                    data-parsley-trigger="change">
+                                <option></option>
+                                <option value="Home">Home</option>
+                                <option value="Cell">Cell</option>
+                                <option value="Work">Work</option>
+                            </select>
+                        </span>
+                        <span style="display: inline-block; float: right;">
+                            <label id="phone2-label">
+                                Number:
+                            </label>
+                            <br>
+                            <input class="info-input" id="phone2" type="text"
+                                   data-parsley-phone2num
+                                   data-parsley-trigger="change"
+                                   data-parsley-validate-if-empty/>
+                        </span>
+                    </span>
+                    <span>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Notification Type</th>
+                                <th>Voice</th>
+                                <th>Text</th>
+                            </tr>
+                            <tr>
+                                <td>Emergency
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                        title="Emergency notifications are considered most urgent and are often associated with a potential threat, a school lockdown, or a disaster with possible student safety concerns.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-voice-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-text-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>High Priority
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                        title="Notifications that are NOT emergency but are higher in priority.">
+                                    </span>
+                                </td>
+                                <td><input type="checkbox"
+                                           id="phone2-opts-voice-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false"></td>
+                                <td><input type="checkbox"
+                                           id="phone2-opts-text-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false"></td>
+                            </tr>
+                            <tr>
+                                <td>General
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications about events and activities occurring at school/district.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-voice-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-text-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attendance
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications for when a student is absent or tardy but is not excused.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-voice-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-text-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Survey
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications used by school/district for parent feedback and surveys.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-voice-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone2-opts-text-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+        <hr>
+                    <span>
+                        <span style="display: inline-block; float: left;">
+                            <label id="phone3type-label">
+                                Type:
+                            </label>
+                            <br>
+                            <select id="phone3type"
+                                    data-parsley-phone3type
+                                    data-parsley-trigger="change">
+                                <option></option>
+                                <option value="Home">Home</option>
+                                <option value="Cell">Cell</option>
+                                <option value="Work">Work</option>
+                            </select>
+                        </span>
+                        <span style="display: inline-block; float: right;">
+                            <label id="phone3-label">
+                                Number:
+                            </label>
+                            <br>
+                            <input class="info-input" id="phone3" type="text"
+                                   data-parsley-phone3num
+                                   data-parsley-trigger="change"
+                                   data-parsley-validate-if-empty/>
+                        </span>
+                    </span>
+                    <span>
+                        <table class="table table-bordered">
+                            <tr>
+                                <th>Notification Type</th>
+                                <th>Voice</th>
+                                <th>Text</th>
+                            </tr>
+                            <tr>
+                                <td>Emergency
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Emergency notifications are considered most urgent and are often associated with a potential threat, a school lockdown, or a disaster with possible student safety concerns.">
+                                    </span>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-voice-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-text-emergency"
+                                           checked
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>High Priority
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications that are NOT emergency but are higher in priority.">
+                                    </span>
+                                </td>
+                                <td><input type="checkbox"
+                                           id="phone3-opts-voice-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false"></td>
+                                <td><input type="checkbox"
+                                           id="phone3-opts-text-high-priority"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false"></td>
+                            </tr>
+                            <tr>
+                                <td>General
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications about events and activities occurring at school/district.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-voice-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-text-general"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Attendance
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications for when a student is absent or tardy but is not excused.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-voice-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-text-attendance"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Survey
+                                    <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                          title="Notifications used by school/district for parent feedback and surveys.">
+                                    </span>
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-voice-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                                <td>
+                                    <input type="checkbox"
+                                           id="phone3-opts-text-survey"
+                                           data-parsley-excluded
+                                           data-parsley-ui-enabled="false">
+                                </td>
+                            </tr>
+                        </table>
+                    </span>
+    </td>
+
+
+<!--
+    <td class="border-td" style="width: 8%;">
     <select class="priority input-sm form-control" id="emerg-cont-priority1"
             name="emerg-cont-priority1"
             data-parsley-group="block2">
@@ -1655,11 +2417,6 @@
     </div>
 </td>
 <td class="border-td field-container">
-    <!--
-    Setting the contphone attribute to a value sends
-    that value to the validator as the requirements parameter.
-    Leaving this here for version 2.
-    -->
     <div>
         <label for="emerg-cont-home-phone1">Home</label>
         <input class="form-control" id="emerg-cont-home-phone1"
@@ -2144,6 +2901,7 @@
 </td>
 <td class="noborder-td"></td>
 </tr>
+-->
 </tbody>
 </table>
 </div>
@@ -2273,24 +3031,26 @@
             </div>
         </div>
         <div class="panel panel-default">
-            <div class="panel-heading"><h3 class="panel-title">Part-Time</h3></div>
+            <div class="panel-heading"><h3 class="panel-title">Full-Time</h3></div>
             <div class="panel-body">
                 <table class="table table-bordered">
                     <tr>
                         <td style="width: 50%;">
                             <div class="form-group col-md-12">
                                 <div class="col-md-6">
-                                    <label for="part-time">Will this student attend school Part-Time?
+                                    <label for="full-time">Will this student be attending school Full-Time?
                                         <span class="required-field-ast">*</span>
+                                        <span style="cursor: pointer;" class="bind-tooltip glyphicon glyphicon-question-sign" data-toggle="tooltip" data-placement="bottom"
+                                              title="Half-Day Kindergarten is still considered Full-Time"></span>
                                     </label>
                                 </div>
                                 <div class="col-md-6 field-container">
-                                    <input name="part-time" id="part-time-yes" type="radio" required
+                                    <input name="full-time" id="full-time-yes" type="radio" required
                                            data-parsley-group="block3"/>
-                                    <label for="part-time-yes">Yes</label>
+                                    <label for="full-time-yes">Yes</label>
 
-                                    <input name="part-time" id="part-time-no" type="radio"/>
-                                    <label for="part-time-no">No</label>
+                                    <input name="full-time" id="full-time-no" type="radio"/>
+                                    <label for="full-time-no">No</label>
                                 </div>
                             </div>
                         </td>
@@ -2320,9 +3080,9 @@
                                     </div>
                                     <div>
                                         <!-- Neither value is "S" for Stable, found on Utah State page -->
-                                        <input name="part-time-detail" id="part-time-neither" type="radio"
+                                        <input name="part-time-detail" id="part-time-other-state-school" type="radio"
                                                value="S"/>
-                                        <label for="part-time-neither">Neither</label>
+                                        <label for="part-time-other-state-school">Other State school</label>
                                     </div>
                                 </div>
                             </div>
@@ -2566,7 +3326,8 @@
                                             disabilities from being discriminated against at school.  It requires the school
                                             to give your child the same opportunities as students without disabilities who
                                             go to school.  The school does this through a &quot;reasonable accommodation
-                                            or modification.&quot;"></span>
+                                            or modification.&quot;">
+                                     </span>
                                 </label>
                             </div>
                             <div class="col-md-4 field-container">
