@@ -4210,7 +4210,7 @@
                                                         <label for="part-time-private-school">Online School</label>
                                                     </div>
                                                     <div>
-                                                        <!-- Neither value is "S" for Stable, found on Utah State page -->
+                                                        <!-- Other value is "S" for Stable, found on Utah State page -->
                                                         <input name="part-time-detail" id="part-time-other-state-school"
                                                                type="radio"
                                                                value="S"/>
@@ -4236,17 +4236,13 @@
                                             <div class="form-group col-md-12">
                                                 <div class="alert alert-info">
                                                     <strong>Requirement:</strong> If your student is a refugee, your
-                                                    school must be
-                                                    provided with
-                                                    one of the following:
+                                                    school must be provided with one of the following:
                                                     <ul class="">
                                                         <li class="">I-94 Arrival-Departure Record form</li>
                                                         <li class="">I-551 permanent resident record</li>
                                                         <li class="">I-155 permanent resident record</li>
                                                         <li class="">An Immigration Court Letter identifying the refugee
-                                                            as the result
-                                                            of
-                                                            being in the U.S. due to asylum
+                                                            as the result of being in the U.S. due to asylum
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -4589,8 +4585,8 @@
                                                     student been
                                                     previously
                                                     suspended or expelled from school
-                                                    for a safe school violation? <span
-                                                            class="required-field-ast">*</span></label>
+                                                    for a safe school violation? <span class="required-field-ast">*</span>
+                                                </label>
                                             </div>
                                             <div class="col-md-4 field-container">
                                                 <input name="safe-school-violation" id="safe-school-violation-yes"
@@ -4610,11 +4606,17 @@
                                                        style="display: none;">Please explain</label>
                                             </div>
                                             <div class="col-md-6 field-container">
-                                <textarea class="form-control" name="safe-school-violation-expl"
-                                          id="safe-school-violation-expl"
-                                          style="display: none;"
-                                          required
-                                          data-parsley-group="block5"></textarea>
+                                                <textarea class="form-control"
+                                                          name="safe-school-violation-expl"
+                                                          id="safe-school-violation-expl"
+                                                          style="display: none;"
+                                                          required
+                                                          data-parsley-group="block5"></textarea>
+                                                <span id="safe-school-violation-expl-rem-chars" style="
+                                                    display: none;
+                                                    color: grey;
+                                                    line-height: 1.0em;
+                                                    font-size: small;">400 characters remaining</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -4626,8 +4628,13 @@
                                                     placement</label>
                                             </div>
                                             <div class="col-md-6 field-container">
-                                    <textarea class="form-control" id="other-info" name="other-info"
-                                              data-parsley-group="block5"></textarea>
+                                                <textarea class="form-control" id="other-info" name="other-info"
+                                                    data-parsley-group="block5"></textarea>
+                                                <span id="other-info-rem-chars" style="
+                                                    display: block;
+                                                    color: grey;
+                                                    line-height: 1.0em;
+                                                    font-size: small;">400 characters remaining</span>
                                             </div>
                                         </td>
                                         <td></td>
@@ -4804,9 +4811,14 @@
                                                         class="required-field-ast">*</span></label>
                                             </div>
                                             <div class="col-md-9 field-container">
-                        <textarea class="form-control" id="medications" name="medications"
-                                  style="display: none;"
-                                  data-parsley-group="block6"></textarea>
+                                                <textarea class="form-control" id="medications" name="medications"
+                                                          style="display: none;"
+                                                          data-parsley-group="block6"></textarea>
+                                                <span id="medications-rem-chars" style="
+                                                    display: none;
+                                                    color: grey;
+                                                    line-height: 1.0em;
+                                                    font-size: small;">400 characters remaining</span>
                                             </div>
                                         </td>
                                     </tr>
@@ -4837,9 +4849,14 @@
                                                             class="required-field-ast">*</span></label>
                                             </div>
                                             <div class="col-md-9 field-container">
-                        <textarea class="form-control" id="add-med-services" name="add-med-services"
-                                  style="display: none;"
-                                  data-parsley-group="block6"></textarea>
+                                                <textarea class="form-control" id="add-med-services" name="add-med-services"
+                                                          style="display: none;"
+                                                          data-parsley-group="block6"></textarea>
+                                                <span id="medications-rem-chars" style="
+                                                    display: none;
+                                                    color: grey;
+                                                    line-height: 1.0em;
+                                                    font-size: small;">400 characters remaining</span>
                                             </div>
                                         </td>
                                     </tr>

@@ -1,6 +1,6 @@
 /*global define, $, _*/
 
-define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts, siblings, staging, _) {
+define(['underscore'], function (_) {
     'use strict';
     return {
         config: {
@@ -22,7 +22,6 @@ define(['emergConts', 'siblings', 'staging', 'underscore'], function (emergConts
                 _.each(emergContactsRows, function (row, index) {
                     var contactFormData = _this.getEmergContFromTable(_this.config.stagingExtGroup, _this.config.extEmergContTable, index + 1);
 
-                    //emergConts.save(contactFormData);
                 });
 
                 var siblingsRows = $('#siblings-table tr[data-index]');

@@ -20,7 +20,7 @@ define(['validate'], function (validate) {
             var args = {};
             args.yesElem = $('#safe-school-violation-yes');
             args.noElem = $('#safe-school-violation-no');
-            args.yesTargetElem = $('#safe-school-violation-expl-label, #safe-school-violation-expl');
+            args.yesTargetElem = $('#safe-school-violation-expl-label, #safe-school-violation-expl, #safe-school-violation-expl-rem-chars');
             args.duration = 400;
             args.yesRequiredField = $('#safe-school-violation-expl');
             this._hideShowFormElementRadio(args);

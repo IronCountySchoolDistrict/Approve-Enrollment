@@ -65,7 +65,7 @@ define(['underscore', 'validate', 'maskedInput'], function (_, validate, maskedI
          * @returns {undefined}
          */
         _addTableRow: function (table, rowTemplate) {
-            var tableRows = $(table).find('tr');
+            var tableRows = $(table).find('tr[data-index]');
 
             /**
              * @type {Number} - 1-based index of the last row in the table

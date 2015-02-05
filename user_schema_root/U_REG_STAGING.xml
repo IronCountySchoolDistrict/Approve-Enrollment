@@ -54,9 +54,9 @@
         <field name="services_504" type="Boolean" comment="Has student ever received 504 services?"/>
         <field name="foster_ward_student" type="Boolean" comment="Is student a Foster Child or Ward of the State?"/>
         <field name="juvenile_probation" type="Boolean" comment="Is student in Juvenile Probation?"/>
-        <field name="other_info" type="String" length="200" comment="Other information necessary for appropriate educational placement"/>
+        <field name="other_info" type="String" length="400" comment="Other information necessary for appropriate educational placement"/>
         <field name="safe_school_violation" type="Boolean" comment="Has student been previously suspended or expelled from school for a safe school violation?"/>
-        <field name="safe_school_violation_expl" type="String" length="40" comment="Other information necessary for appropriate educational placement"/>
+        <field name="safe_school_violation_expl" type="String" length="400" comment="Other information necessary for appropriate educational placement"/>
         <field name="med_diabetes" type="Boolean"/>
         <field name="med_heart" type="Boolean"/>
         <field name="med_seizures" type="Boolean"/>
@@ -67,9 +67,9 @@
         <field name="med_asthma" type="Boolean"/>
         <field name="med_allergies" type="Boolean"/>
         <field name="med_require_meds" type="Boolean"/>
-        <field name="medications" type="String" length="100"/>
+        <field name="medications" type="String" length="400"/>
         <field name="med_other" type="Boolean"/>
-        <field name="add_med_services" type="String" length="100"/>
+        <field name="add_med_services" type="String" length="400"/>
         <field name="physicians_name" type="String" length="60"/>
         <field name="physicians_phone" type="String" length="30"/>
         <field name="dentists_name" type="String" length="60"/>

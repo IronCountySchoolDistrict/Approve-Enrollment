@@ -102,36 +102,38 @@ define(function () {
         },
 
         activateParsley: function () {
-            $('#reg-form').parsley({
-                classHandler: function (ParsleyField) {
-                    //Is the current ParsleyField a checkbox in the Race table (one Ethnicity page)
-                    if (ParsleyField.$element.is($('#race-table').find('input'))) {
-                        return ParsleyField.$element.parents('.table').find('.field-container').eq(0);
-                    }
-                    return ParsleyField.$element.closest('.field-container');
-                },
-                errorsContainer: function (fieldInstance) {
-                    if (fieldInstance.$element.is($('#race-table').find('input'))) {
-                        return fieldInstance.$element.parents('.table').find('.field-container').eq(0);
-                    }
-                    return fieldInstance.$element.closest('.field-container');
-                },
-                // bootstrap form classes
-                successClass: 'has-success has-feedback',
-                errorClass: 'has-error has-feedback',
-                errorsWrapper: '<span class=\"help-block\"></span>',
-                errorTemplate: '<span></span>',
-                excluded: ':hidden'
-            }).subscribe('parsley:form:validated', function (ParsleyForm) {
-                var activeTab = $('.nav li.active a');
-                require(['tabs'], function (tabs) {
-                    if (ParsleyForm.validationResult) {
-                        tabs.setTabStatus(activeTab, 'success');
-                    } else {
-                        tabs.setTabStatus(activeTab, 'error');
-                    }
-                });
+            $(function () {
+                $('#reg-form').parsley({
+                    classHandler: function (ParsleyField) {
+                        //Is the current ParsleyField a checkbox in the Race table (one Ethnicity page)
+                        if (ParsleyField.$element.is($('#race-table').find('input'))) {
+                            return ParsleyField.$element.parents('.table').find('.field-container').eq(0);
+                        }
+                        return ParsleyField.$element.closest('.field-container');
+                    },
+                    errorsContainer: function (fieldInstance) {
+                        if (fieldInstance.$element.is($('#race-table').find('input'))) {
+                            return fieldInstance.$element.parents('.table').find('.field-container').eq(0);
+                        }
+                        return fieldInstance.$element.closest('.field-container');
+                    },
+                    // bootstrap form classes
+                    successClass: 'has-success has-feedback',
+                    errorClass: 'has-error has-feedback',
+                    errorsWrapper: '<span class=\"help-block\"></span>',
+                    errorTemplate: '<span></span>',
+                    excluded: ':hidden, input[data-parsley-exclude]'
+                }).subscribe('parsley:form:validated', function (ParsleyForm) {
+                    var activeTab = $('.nav li.active a');
+                    require(['tabs'], function (tabs) {
+                        if (ParsleyForm.validationResult) {
+                            tabs.setTabStatus(activeTab, 'success');
+                        } else {
+                            tabs.setTabStatus(activeTab, 'error');
+                        }
+                    });
 
+                });
             });
         },
 
