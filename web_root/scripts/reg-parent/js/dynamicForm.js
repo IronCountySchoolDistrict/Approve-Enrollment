@@ -16,8 +16,17 @@ define(['validate'], function (validate) {
          */
         bindHideShow: function () {
 
-            // Suspended/expelled explanation box.
+            // Student born outside the US.
             var args = {};
+            args.yesElem = $('#outside-us-yes');
+            args.noElem = $('#outside-us-no');
+            args.yesTargetElem = $('.outside-us-row');
+            args.duration = 400;
+            args.yesRequiredField = $('#count-terr-birth');
+            this._hideShowFormElementRadio(args);
+            args = {};
+
+            // Suspended/expelled explanation box.
             args.yesElem = $('#safe-school-violation-yes');
             args.noElem = $('#safe-school-violation-no');
             args.yesTargetElem = $('#safe-school-violation-expl-label, #safe-school-violation-expl, #safe-school-violation-expl-rem-chars');
