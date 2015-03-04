@@ -18,6 +18,80 @@
 </tr>
 </script>
 
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+-->
+<script id="form-element-textarea-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <textarea name="{{fieldName}}" class="edit" id="{{fieldId}}">
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-radio-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+            <label for="{{fieldId}}">
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-checkbox-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+            <label for="{{fieldId}}">
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
 
 <!--
     @param fieldLabel
