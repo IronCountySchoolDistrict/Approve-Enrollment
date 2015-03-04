@@ -4,9 +4,8 @@ define(['underscore'], function (_) {
     'use strict';
     return {
         config: {
-            stagingExtGroup: 'U_REG_STAGING2',
-            extendedStagingGroup: 'U_REG_STAGING_EXT2',
-            extEmergContTable: 'U_DEF_EMERG_CONTS7',
+            stagingExtGroup: 'U_REG_STAGING',
+            extendedStagingGroup: 'U_REG_STAGING_EXT',
             extSiblingTable: 'U_DEF_SIBLINGS7',
             extStagingTable: 'U_DEF_STAGING10'
         },

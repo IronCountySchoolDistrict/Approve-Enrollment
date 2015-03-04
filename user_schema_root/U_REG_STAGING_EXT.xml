@@ -2,7 +2,7 @@
 <psExtension xmlns="http://www.powerschool.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
              xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
     <extensionname>U_REG_STAGING_EXT</extensionname>
-    <extendedTable coreTable="U_REG_STAGING" dbTableName="U_SIBLING" childName="U_DEF_SIBLING" comment="">
+    <extendedTable coreTable="U_REG_STAGING" dbTableName="U_SIBLING" childName="U_SIBLING" comment="">
         <field name="gender" type="String" length="1"/>
         <field name="grade" type="String" length="40"/>
         <field name="school" type="String" length="40"/>

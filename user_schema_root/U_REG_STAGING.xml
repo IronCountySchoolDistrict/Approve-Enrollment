@@ -38,6 +38,7 @@
         <field name="prim_lang" type="String" length="40" comment="Primary Language"/>
         <field name="cur_lang" type="String" length="40" comment="Current Language"/>
         <field name="home_lang" type="String" length="40" comment="Language spoken at home"/>
+        <field name="parent_lang" type="String" length="40" comment="What language(s) do you (parents/guardians, or other adults who permanently reside in the home) use when you/they speak to your child?"/>
         <field name="corres_lang" type="String" length="40" comment="Language of correspondence (ENG or SPA)"/>
         <field name="bilingual" type="String" length="40" comment="Has your child ever been in a bilingual educational or an English as a Second Language (ESL) program?"/>
         <field name="utah_resident" type="Boolean"/>
@@ -48,6 +49,7 @@
         <field name="refugee" type="Boolean" comment=""/>
         <field name="hisp_latino" type="Boolean" comment="Is this student Hispanic/Latino?"/>
         <field name="race" type="String" length="40" comment="What is your student's race?"/>
+        <field name="trib_affil" type="String" length="40" comment="What is your student's tribal affiliation?"/>
         <field name="past_special_ed_services" type="Boolean" comment="Has this student ever received special education services?"/>
         <field name="current_special_ed_services" type="Boolean" comment="Is this student currently receiving sped services?"/>
         <field name="speech_lang_services" type="Boolean" comment="Has student ever received speech and/or language services?"/>

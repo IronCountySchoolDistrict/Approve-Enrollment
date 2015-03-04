@@ -3,17 +3,17 @@ require.config({
     baseUrl: '/scripts',
     paths: {
         // app modules
-        form: 'reg-parent/js/form',
-        validate: 'reg-parent/js/validate',
-        tabs: 'reg-parent/js/tabs',
-        dynamicForm: 'reg-parent/js/dynamicForm',
-        dynamicTable: 'reg-parent/js/dynamicTable',
-        datepicker: 'reg-parent/js/datepicker',
-        multiselect: 'reg-parent/js/multiselect',
-        maskedInput: 'reg-parent/js/maskedInput',
-        persist: 'reg-parent/js/persist',
-        tooltip: 'reg-parent/js/tooltip',
-        remChars: 'reg-parent/js/remChars',
+        form: 'reg/reg/js/form',
+        validate: 'reg/js/validate',
+        tabs: 'reg/js/tabs',
+        dynamicForm: 'reg/js/dynamicForm',
+        dynamicTable: 'reg/js/dynamicTable',
+        datepicker: 'reg/js/datepicker',
+        multiselect: 'reg/js/multiselect',
+        maskedInput: 'reg/js/maskedInput',
+        persist: 'reg/js/persist',
+        tooltip: 'reg/js/tooltip',
+        remChars: 'reg/js/remChars',
 
         // external dependencies
         underscore: 'underscore/underscore'
@@ -21,7 +21,7 @@ require.config({
 });
 
 require(['form', 'validate', 'tabs', 'dynamicForm', 'dynamicTable', 'datepicker', 'multiselect', 'maskedInput', 'persist', 'tooltip', 'remChars'],
-    function (form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect, maskedInput, persist, tooltip, remChars) {
+    function(form, validate, tabs, dynamicForm, dynamicTable, datepicker, multiselect, maskedInput, persist, tooltip, remChars) {
         'use strict';
         form.main();
         tabs.main();

@@ -109,7 +109,7 @@ define(function () {
                             if (fieldValueText === editLabelText) {
                                 $j(editElem).attr('checked', true);
                             }
-                        })
+                        });
                     } else {
                         // Copy the value of the .field-value element to the edit element
                         // so when the user clicks the edit button, the .field-value value is shown in
@@ -131,5 +131,5 @@ define(function () {
                 });
             });
         }
-    }
+    };
 });

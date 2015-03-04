@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>Pending Registrations</title>
+    ~[wc:commonscripts]
+    <link href="/images/css/screen.css" rel="stylesheet" media="screen">
+    <link href="/images/css/print.css" rel="stylesheet" media="print">
+
+    <script>
+        require(['underscore'], function (_) {
+            'use strict';
+            $j.getJSON('/admin/tlist/reg-admin/pending.html', function (resp) {
+                resp.pop();
+                var template = $j('#pending-template').html();
+                var appendSelect = $j('#pending-list');
+                _.each(resp, function (pendingStud) {
+                    var renderedTemplate = _.template(template, pendingStud);
+                    appendSelect.append(renderedTemplate);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+~[wc:admin_header_css]
+<a href="/admin/home.html" target="_top">Start Page</a> &gt;
+Pending Registrations
+~[wc:admin_navigation_css]
+<h1>Pending Registrations</h1>
+
+<div class="box-round">
+    <ul id="pending-list">
+
+    </ul>
+</div>
+
+<script type="text/template" id="pending-template">
+    <li>
+        <a href="/admin/enroll.html?id=<%= stagingId %>"><%= lastName %>, <%= firstName %> <%= middleName %></a>
+    </li>
+</script>
+</body>
+
+</html>
