@@ -900,12 +900,5 @@
     "fieldId": "dentists-name",
     "fieldName": "dentists_name",
     "fieldValue": "~[gpv:dentists-name]"
-  },
-  {
-    "template": "form-element-input-template",
-    "fieldLabel": "Dentist's Name",
-    "fieldId": "dentists-name",
-    "fieldName": "dentists_name",
-    "fieldValue": "~[gpv:dentists-name]"
   }
 ]

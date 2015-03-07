@@ -1,0 +1,111 @@
+[{
+    "_comment": {
+        "_field_descriptions": {
+            "fb_title": "Form Builder Element Title",
+            "fb_description": "Form Builder Element Description",
+            "gpv_field_name": "name of the gpv variable that will be passed to approve-fields.json"
+        }
+    }
+}, {
+    "fb_title": "Social Security Number",
+    "gpv_field_name": "ssn"
+}, {
+    "fb_title": "Mailing Address",
+    "gpv_field_name": "mailing-address"
+}, {
+    "fb_title": "City",
+    "position": 8,
+    "gpv_field_name": "mailing-city"
+}, {
+    "fb_title": "State",
+    "position": 8,
+    "gpv_field_name": "mailing-state"
+}, {
+    "fb_title": "Zip Code",
+    "position": 8,
+    "gpv_field_name": "mailing-zip"
+}, {
+    "fb_title": "Physical Address",
+    "gpv_field_name": "residence-address"
+}, {
+    "fb_title": "City",
+    "position": 4,
+    "gpv_field_name": "residence-city"
+}, {
+    "fb_title": "State",
+    "position": 6,
+    "gpv_field_name": "residence-state"
+}, {
+    "fb_title": "Zip Code",
+    "position": 4,
+    "gpv_field_name": "residence-zip"
+}, {
+    "fb_title": "Is this Student Hispanic/Latino?",
+    "gpv_field_name": "hisp-latino"
+}, {
+    "fb_title": "What is the Student's race?",
+    "gpv_field_name": "race"
+}, {
+    "fb_title": "Tribal Affiliation",
+    "gpv_field_name": "trib-affil"
+}, {
+    "fb_title": "Country or Territory of Student's Birth",
+    "gpv_field_name": "outside-us"
+}, {
+    "fb_description": "What Country is the student's place of Birth",
+    "gpv_field_name": "count-terr-birth"
+}, {
+    "fb_description": "If born outside the U.S., when was the first date of enrollment in a U.S. school?",
+    "gpv_field_name": "date-first-enrolled"
+}, {
+    "fb_description": "What language(s) did your child use when he/she first begin to talk?",
+    "gpv_field_name": "prim-lang"
+}, {
+    "fb_description": "What language(s) does your child currently speak with you at home?",
+    "gpv_field_name": "cur-lang"
+}, {
+    "fb_description": "What language(s) do you (parents/guardians, or other adults who permanently reside in the home) use when you/they speak to your child?",
+    "gpv_field_name": "parent-lang"
+}, {
+    "fb_title": "Diabetes",
+    "gpv_field_name": "diabetes"
+}, {
+    "fb_title": "Heart",
+    "gpv_field_name": "heart"
+}, {
+    "fb_title": "Seizures",
+    "gpv_field_name": "seizures"
+}, {
+    "fb_title": "Hearing Impairment",
+    "gpv_field_name": "hearing-impairment"
+}, {
+    "fb_title": "Visual Impairment",
+    "gpv_field_name": "visual-impairment"
+}, {
+    "fb_title": "Wears Glasses",
+    "gpv_field_name": "wears-glasses"
+}, {
+    "fb_title": "Asthma",
+    "gpv_field_name": "asthma"
+}, {
+    "fb_title": "ADD/ADHD",
+    "gpv_field_name": "add-adhd"
+}, {
+    "fb_title": "Allergies",
+    "gpv_field_name": "allergies"
+}, {
+    "fb_description": "Please list Allergies",
+    "gpv_field_name": "allergies-list"
+}, {
+    "fb_description": "Please list any medications your child will need to have at school (some medications may require specific approval forms)",
+    "gpv_field_name": "medications"
+}, {
+    "fb_description": "List any medical conditions or services needed at school:",
+    "gpv_field_name": "interventions"
+}, {
+    "fb_title": "Physician's Name",
+    "gpv_field_name": "physicians-name"
+}, {
+    "fb_title": "Dentist's Name",
+    "gpv_field_name": "interventions"
+}]

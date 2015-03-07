@@ -3,10 +3,6 @@ define(function () {
     'use strict';
     return {
 
-        main: function () {
-            this.bindEditHandler();
-        },
-
         /**
          * Return the text representation of the value of a form element.
          * Text boxes, select dropdowns, just return the text in the box.
