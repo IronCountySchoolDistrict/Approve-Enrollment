@@ -90,6 +90,10 @@ define(["Handlebars", "reg/handlebars-helpers"], function(Handlebars, handlebars
             return $j.getJSON("/scripts/approve-enrollment/json/fb-field-map.json");
         },
 
+        getApproveResponseList: function() {
+            
+        },
+
         getEnrollment: function() {
             var requests = [],
                 self = this;
