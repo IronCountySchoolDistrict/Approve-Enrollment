@@ -155,21 +155,28 @@
 -->
 <script id="form-element-address-template" type="text/x-handlebars-template">
 <tr>
-    <span id="{{addressFieldId}}-field-value" class="field-value"
-    data-edit-elem="#{{addressFieldId}}">{{addressFieldValue}}</span>
-    <span id="{{cityFieldId}}-field-value" class="field-value" data-edit-elem="#{{cityFieldId}}">{{cityFieldValue}}</span>
-    <span class="hide-on-edit">, </span>
-    <span id="{{stateFieldId}}-field-value" class="field-value" data-edit-elem="#{{stateFieldId}}">{{stateFieldValue}}</span>
-    <span id="{{zipFieldId}}-field-value" class="field-value" data-edit-elem="#{{zipFieldId}}">{{zipFieldValue}}</span>
-    <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
-    <input class="edit" name="{{addressFieldName}}" id="{{addressFieldId}}">
-    <input class="edit" name="{{cityFieldName}}" id="{{cityFieldId}}">
-    <select class="edit" name="{{stateFieldName}}" id="{{stateFieldId}}">
-        {{#each options}}
-            <option {{#if value}}value="{{value}}"{{/if}}>{{label}}</option>
-        {{/each}}
-    </select>
-    <input class="edit" name="{{zipFieldName}}" id="{{zipFieldId}}">
-    <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    <td class="bold" style="width: 30%;">
+        {{fieldLabel}}
+    </td>
+    <td>
+        <span id="{{addressFieldId}}-field-value" class="field-value"
+        data-edit-elem="#{{addressFieldId}}">{{addressFieldValue}}</span>
+        <span id="{{cityFieldId}}-field-value" class="field-value" data-edit-elem="#{{cityFieldId}}">{{cityFieldValue}}</span>
+        {{#unless hideComma}}
+            <span class="hide-on-edit">, </span>
+        {{/unless}}
+        <span id="{{stateFieldId}}-field-value" class="field-value" data-edit-elem="#{{stateFieldId}}">{{stateFieldValue}}</span>
+        <span id="{{zipFieldId}}-field-value" class="field-value" data-edit-elem="#{{zipFieldId}}">{{zipFieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        <input class="edit" name="{{addressFieldName}}" id="{{addressFieldId}}">
+        <input class="edit" name="{{cityFieldName}}" id="{{cityFieldId}}">
+        <select class="edit" name="{{stateFieldName}}" id="{{stateFieldId}}">
+            {{#each options}}
+                <option {{#if value}}value="{{value}}"{{/if}} {{#ifCond value stateFieldValue}}selected{{/ifCond}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <input class="edit" name="{{zipFieldName}}" id="{{zipFieldId}}">
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    </td>
 </tr>
 </script>

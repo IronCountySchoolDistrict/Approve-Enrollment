@@ -6,25 +6,77 @@ define(["Handlebars", "reg/handlebars-helpers"], function(Handlebars, handlebars
     "use strict";
     return {
         populateForm: function() {
+            loadingDialogInstance.open();
             handlebarsHelpers.bindHelpers();
             var self = this;
             var requests = [];
             requests.push(this.getEnrollment());
             requests.push(self.getFieldMap());
+            requests.push(self.getStudentIds());
             requests.push(self.insertTemplates());
-            $j.when.apply($j, requests).then(function(enrollment, fieldMap) {
-                var gpvObject = self.formToGpvObject(enrollment[0].form.elements, fieldMap[0]);
-                var gpvParam = $j.param(gpvObject);
-				$j.getJSON("/admin/approve-enrollment/json/approve-fields.json?" + gpvParam, function(fields) {
-					$j.each(fields, function(index, field) {
-						var templateId = field.template;
-						var templateStr = $j('#' + templateId).html();
-						var template = Handlebars.compile(templateStr);
-						var compiledTemplate = template(field);
-                        $j('#approve-table > tbody').append(compiledTemplate);
-					});
-				});
+            $j.when.apply($j, requests).then(function(enrollment, fieldMap, studentIds) {
+                var studentIds = studentIds[0];
+                self.getCoreStudentData(studentIds).then(function(studentCoreData) {
+                    var gpvObject = self.formToGpvObject(enrollment[0].form.elements, fieldMap[0]);
+
+                    // Add coreStudentData fields to gpvObject
+                    gpvObject.unshift({
+                        name: "first-name",
+                        value: studentCoreData.first_name
+                    });
+                    gpvObject.unshift({
+                        name: "middle-name",
+                        value: studentCoreData.middle_name
+                    });
+                    gpvObject.unshift({
+                        name: "last-name",
+                        value: studentCoreData.last_name
+                    });
+                    gpvObject.unshift({
+                        name: "gender",
+                        value: studentCoreData.gender
+                    });
+                    gpvObject.unshift({
+                        name: "dob",
+                        value: new Date(studentCoreData.dob).toLocaleDateString()
+                    });
+                    var gpvParam = $j.param(gpvObject);
+                    $j.getJSON("/admin/approve-enrollment/json/approve-fields.json?" + gpvParam, function(fields) {
+                        $j.each(fields, function(index, field) {
+
+                            // Is the field an address field? 
+                            if (field.hasOwnProperty('addressFieldValue')) {
+                                // Make sure all four fields for this address are not blank 
+                                if (field.addressFieldValue === "" ||
+                                    field.cityFieldValue === "" ||
+                                    field.stateFieldValue === "" ||
+                                    field.zipFieldValue === "") {
+
+                                    // Blank out all address fields if all fields are not present.
+                                    field.addressFieldValue = "";
+                                    field.cityFieldValue = "";
+                                    field.stateFieldValue = "";
+                                    field.zipFieldValue = "";
+
+                                    // Create a variable that will be used to hide the comma in the address template.
+                                    field.hideComma = true;
+                                }
+                            }
+                            var templateId = field.template;
+                            var templateStr = $j('#' + templateId).html();
+                            var template = Handlebars.compile(templateStr);
+                            var compiledTemplate = template(field);
+                            $j('#approve-table > tbody').append(compiledTemplate);
+                        });
+        
+                        loadingDialogInstance.forceClose();
+                    });
+                });
 			});
+        },
+
+        getCoreStudentData: function(studentIds) {
+            return $j.getJSON('/admin/approve-enrollment/json/enrollment.json.html?action=get.student.fields&student_id=' + studentIds.id);
         },
 
         insertTemplates: function() {
@@ -88,10 +140,6 @@ define(["Handlebars", "reg/handlebars-helpers"], function(Handlebars, handlebars
 
         getFieldMap: function() {
             return $j.getJSON("/scripts/approve-enrollment/json/fb-field-map.json");
-        },
-
-        getApproveResponseList: function() {
-            
         },
 
         getEnrollment: function() {

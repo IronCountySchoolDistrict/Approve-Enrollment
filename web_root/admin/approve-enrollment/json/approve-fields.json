@@ -43,6 +43,7 @@
   },
   {
     "template": "form-element-address-template",
+    "fieldLabel": "Mailing Address",
     "addressFieldId": "mailing-address",
     "addressFieldName": "mailing_address",
     "addressFieldValue": "~[gpv:mailing-address]",
@@ -51,7 +52,7 @@
     "cityFieldValue": "~[gpv:mailing-city]",
     "stateFieldId": "mailing-state",
     "stateFieldName": "mailing_state",
-    "stateFieldValue": "~[gpv:mailing-city]",
+    "stateFieldValue": "~[gpv:mailing-state]",
     "zipFieldId": "mailing-zip",
     "zipFieldName": "mailing_zip",
     "zipFieldValue": "~[gpv:mailing-zip]",
@@ -296,6 +297,7 @@
   },
   {
     "template": "form-element-address-template",
+    "fieldLabel": "Physical Address",
     "addressFieldId": "residence-address",
     "addressFieldName": "residence_address",
     "addressFieldValue": "~[gpv:residence-address]",
@@ -304,7 +306,7 @@
     "cityFieldValue": "~[gpv:residence-city]",
     "stateFieldId": "residence-state",
     "stateFieldName": "residence_state",
-    "stateFieldValue": "~[gpv:residence-city]",
+    "stateFieldValue": "~[gpv:residence-state]",
     "zipFieldId": "residence-zip",
     "zipFieldName": "residence_zip",
     "zipFieldValue": "~[gpv:residence-zip]",
