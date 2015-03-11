@@ -44,6 +44,10 @@ define(["Handlebars", "reg/handlebars-helpers"], function(Handlebars, handlebars
                     $j.getJSON("/admin/approve-enrollment/json/approve-fields.json?" + gpvParam, function(fields) {
                         $j.each(fields, function(index, field) {
 
+                            if (field.hasOwnProperty('inputs')) {
+                                debugger;
+                            }
+
                             // Is the field an address field? 
                             if (field.hasOwnProperty('addressFieldValue')) {
                                 // Make sure all four fields for this address are not blank 

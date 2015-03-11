@@ -53,12 +53,12 @@
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>
         {{!-- Field value --}}
-        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">{{fieldValue}}</span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label for="{{fieldId}}">
+            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{../fieldName}}" class="edit" id="{{fieldId}}" type="text" />
+            <label class="edit" for="{{fieldId}}">{{fieldInputLabel}}</label>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
