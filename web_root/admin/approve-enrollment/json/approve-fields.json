@@ -556,17 +556,17 @@
       {
         "fieldId": "hisp-latino-yes",
         "fieldName": "hisp-latino",
-        "fieldInputValue": "United States",
-        "fieldInputLabel": "United States"
+        "fieldInputValue": "1",
+        "fieldInputLabel": "Yes"
       },
       {
         "fieldId": "hisp-latino-no",
         "fieldName": "hisp-latino",
-        "fieldInputValue": "Other",
-        "fieldInputLabel": "Other"
+        "fieldInputValue": "0",
+        "fieldInputLabel": "No"
       }
     ],
-    "fieldValue": "~[gpv:hisp-latino]"
+    "fieldValue": "~[gpv:hisp-latino]",
   },
   {
     "template": "form-element-checkbox-template",
