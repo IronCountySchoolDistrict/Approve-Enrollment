@@ -135,7 +135,7 @@ define(["Handlebars", "reg/handlebars-helpers"], function(Handlebars, handlebars
                 }
                 
             }); 
-            return gpvObjects; 
+            return gpvObjects;
         },
 
         getFieldMap: function() {

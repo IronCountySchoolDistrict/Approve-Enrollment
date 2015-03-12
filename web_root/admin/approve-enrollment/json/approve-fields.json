@@ -552,6 +552,7 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Is this Student Hispanic/Latino?",
+    "fieldName": "hisp-latino",
     "inputs": [
       {
         "fieldId": "hisp-latino-yes",
@@ -567,6 +568,7 @@
       }
     ],
     "fieldValue": "~[gpv:hisp-latino]",
+    "fieldValueLabel": "~[gpv:hisp-latino-label]"
   },
   {
     "template": "form-element-checkbox-template",

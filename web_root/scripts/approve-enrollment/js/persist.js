@@ -8,7 +8,7 @@ define(function() {
 
         bindPostApi: function() {
             var _this = this;
-            $j('#btnSubmit').on('click', function(e) {
+            $j('#submit').one('click', function(e) {
                 _this.postApiFields();
             });
         },
