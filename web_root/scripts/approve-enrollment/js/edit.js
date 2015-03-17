@@ -1,6 +1,6 @@
 /*global $j,_,define*/
-define(function () {
-    'use strict';
+define(function() {
+    "use strict";
     return {
 
         /**
@@ -11,32 +11,32 @@ define(function () {
          * @param {jQuery} field
          * @return String
          */
-        fieldToString: function (field) {
-            var nodeName = field.prop('nodeName').toLowerCase();
-            var nodeType = field.prop('type');
+        fieldToString: function(field) {
+            var nodeName = field.prop("nodeName").toLowerCase();
+            var nodeType = field.prop("type");
 
-            if (nodeName === 'select' ||
-                (nodeName === 'input' && (nodeType === 'text' || !nodeType))) {
+            if (nodeName === "select" ||
+                (nodeName === "input" && (nodeType === "text" || !nodeType))) {
                 return field.val();
             }
 
-            if (nodeName === 'input' && (nodeType === 'radio' || nodeType === 'checkbox')) {
+            if (nodeName === "input" && (nodeType === "radio" || nodeType === "checkbox")) {
                 // Since this is a radio or checkbox element, there are multiple DOM elements in the field var.
                 // Find out which elements in "field" are selected.
-                var selectedElems = _.filter(field, function (elem) {
-                    return $j(elem).prop('checked');
+                var selectedElems = _.filter(field, function(elem) {
+                    return $j(elem).prop("checked");
                 });
 
                 var textArray = [];
 
-                $j.each(selectedElems, function (key, elem) {
+                $j.each(selectedElems, function(key, elem) {
                     // Find the element's corresponding label by matching the for attribute of the label
                     // with the field's id
-                    var label = $j('[for="' + $j(elem).prop('id') + '"]');
+                    var label = $j('[for="' + $j(elem).prop("id") + '"]');
                     textArray.push(label.text());
                 });
 
-                return textArray.toString();
+                return textArray.join(", ");
             }
         },
 
@@ -46,40 +46,50 @@ define(function () {
          *
          * @param target save button that was clicked by the user
          */
-        saveHandler: function (target, _this) {
+        saveHandler: function(target, _this) {
             var $saveBtn = $j(target);
-            var $fieldValueElems = $saveBtn.siblings('.field-value');
-            var $editElements = $saveBtn.siblings('.edit');
-            var $editBtn = $saveBtn.siblings('.glyphicon-edit');
+            var $fieldValueElems = $saveBtn.siblings(".field-value");
+            var $editElements = $saveBtn.siblings(".edit");
+            var $editBtn = $saveBtn.siblings(".glyphicon-edit");
 
-            $j.each($fieldValueElems, function (key, elem) {
+            $j.each($fieldValueElems, function(key, elem) {
                 var corresEditSelector = $j(elem).data().editElem;
 
                 $j(elem).text(_this.fieldToString($j(corresEditSelector)));
             });
 
-            $saveBtn.css({'display': 'none'});
-            $editElements.css({'display': 'none'});
+            $saveBtn.css({
+                "display": "none"
+            });
+            $editElements.css({
+                "display": "none"
+            });
 
-            $fieldValueElems.css({'display': 'inline'});
-            $editBtn.css({'display': 'inline'});
+            $fieldValueElems.css({
+                "display": "inline"
+            });
+            $editBtn.css({
+                "display": "inline"
+            });
 
-            $saveBtn.parents('tr').addClass('danger');
+            $saveBtn.parents("tr").addClass("danger");
 
-            $saveBtn.siblings('.hide-on-edit').css({'display': 'inline'});
+            $saveBtn.siblings(".hide-on-edit").css({
+                "display": "inline"
+            });
         },
 
-        bindEditHandler: function () {
+        bindEditHandler: function() {
             // "this" gets set to the element that triggered the event,
             // so save it here so it can be accessed in the callback
             var _this = this;
-            $j(document).on('click', '.glyphicon-edit', function (e) {
+            $j(document).on("click", ".glyphicon-edit", function(e) {
                 var $target = $j(e.target);
-                var $editElements = $target.siblings('.edit');
-                var $fieldValueElems = $target.siblings('.field-value');
-                var saveBtn = $target.siblings('.save');
+                var $editElements = $target.siblings(".edit");
+                var $fieldValueElems = $target.siblings(".field-value");
+                var saveBtn = $target.siblings(".save");
 
-                $j.each($fieldValueElems, function (key, elem) {
+                $j.each($fieldValueElems, function(key, elem) {
 
                     // Every span that shows the value of a field (.field-value elements)
                     // has a corresponding element (input, checkbox, etc.) that will edit
@@ -88,22 +98,22 @@ define(function () {
                     var corresEditSelector = $j(elem).data().editElem;
 
                     var corresEditElems = $j(corresEditSelector);
-                    var editType = corresEditElems.eq(0).attr('type');
+                    var editType = corresEditElems.eq(0).attr("type");
 
 
-                    if (editType === 'radio') {
+                    if (editType === "radio") {
 
                         // Text value of the span label that displays the read-only value of the field
                         var fieldValueText = elem.innerText.replace(" ", "");
 
                         // Iterate through form elements, set the correct radio to checked
-                        $j.each(corresEditElems, function (index, editElem) {
+                        $j.each(corresEditElems, function(index, editElem) {
                             var editLabelText = $j(editElem).next().text();
 
                             // Edit field label and read-only value span label must match for
                             // the element to be checked.
                             if (fieldValueText === editLabelText) {
-                                $j(editElem).attr('checked', true);
+                                $j(editElem).attr("checked", true);
                             }
                         });
                     } else {
@@ -116,22 +126,34 @@ define(function () {
 
 
                 // If the edit elements have the "edit-block" class, they should be have the "display: block;"
-                // CSS rule. If they don't have this class, they should have the "display: inline;" rule.
-                if ($target.siblings('.block-edit').length > 0) {
-                    $editElements.css({'display': 'block'});
+                // CSS rule. If they don"t have this class, they should have the "display: inline;" rule.
+                if ($target.siblings(".block-edit").length > 0) {
+                    $editElements.css({
+                        "display": "block"
+                    });
                 } else {
-                    $editElements.css({'display': 'inline'});
+                    $editElements.css({
+                        "display": "inline"
+                    });
                 }
-                
-                saveBtn.css({'display': 'inline'});
-                
 
-                $target.css({'display': 'none'});
-                $fieldValueElems.css({'display': 'none'});
+                saveBtn.css({
+                    "display": "inline"
+                });
 
-                $target.siblings('.hide-on-edit').css({'display': 'none'});
 
-                $j('.save').on('click', function (e) {
+                $target.css({
+                    "display": "none"
+                });
+                $fieldValueElems.css({
+                    "display": "none"
+                });
+
+                $target.siblings(".hide-on-edit").css({
+                    "display": "none"
+                });
+
+                $j(".save").on("click", function(e) {
                     _this.saveHandler(e.target, _this);
                 });
             });

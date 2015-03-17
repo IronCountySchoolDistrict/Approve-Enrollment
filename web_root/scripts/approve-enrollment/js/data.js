@@ -84,6 +84,8 @@
                 if (field.fieldValue.indexOf(piValue) > -1) {
                     cleanValue.push("Pacific Islander");
                 }
+
+                return cleanValue.join(', ');
             },
 
             // Make sure all four fields for this address are not blank 
