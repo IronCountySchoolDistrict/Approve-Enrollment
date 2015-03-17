@@ -94,7 +94,7 @@ define(function () {
                     if (editType === 'radio') {
 
                         // Text value of the span label that displays the read-only value of the field
-                        var fieldValueText = elem.innerText;
+                        var fieldValueText = elem.innerText.replace(" ", "");
 
                         // Iterate through form elements, set the correct radio to checked
                         $j.each(corresEditElems, function (index, editElem) {
@@ -114,8 +114,17 @@ define(function () {
                     }
                 });
 
-                $editElements.css({'display': 'inline'});
+
+                // If the edit elements have the "edit-block" class, they should be have the "display: block;"
+                // CSS rule. If they don't have this class, they should have the "display: inline;" rule.
+                if ($target.siblings('.block-edit').length > 0) {
+                    $editElements.css({'display': 'block'});
+                } else {
+                    $editElements.css({'display': 'inline'});
+                }
+                
                 saveBtn.css({'display': 'inline'});
+                
 
                 $target.css({'display': 'none'});
                 $fieldValueElems.css({'display': 'none'});

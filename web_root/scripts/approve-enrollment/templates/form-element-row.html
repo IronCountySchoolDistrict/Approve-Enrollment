@@ -56,6 +56,34 @@
         <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
             {{#ifCond fieldValue "0"}}No{{/ifCond}}
             {{#ifCond fieldValue "1"}}Yes{{/ifCond}}
+        </span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+            <label class="edit" for="{{fieldId}}">{{fieldInputLabel}}</label>
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-radio-count-birth-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
             {{#ifCond fieldValue "United States"}}United States{{/ifCond}}
             {{#ifCond fieldValue "Other"}}Other{{/ifCond}}
         </span>
@@ -90,8 +118,64 @@
         {{!-- Field edit --}}
         {{#each inputs}}
             <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label for="{{fieldId}}">
+            <label for="{{fieldId}}"></label>
         {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-checkbox-race-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            
+            {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)|"}}<span class="race-field-value-span">White</span>{{/ifContains}}
+            
+            {{#ifContains fieldValue "A person having origins in or from any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment. (including American Indian)|I"}}<span class="race-field-value-span">American Indian</span>{{/ifContains}}
+
+            {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam. (Asian)|A"}}<span class="race-field-value-span">Asian</span>{{/ifContains}}
+
+            {{#ifContains fieldValue "A person having origins in or ancestors from any of the black racial groups of Africa. (Black)|B"}}<span class="race-field-value-span">Black</span>{{/ifContains}}
+
+            {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of Hawaii, Guam, Samoa, Tonga, or other Pacific Islands. (Pacific Islander)|P"}}<span class="race-field-value-span">Pacific Islander</span>{{/ifContains}}
+            
+        </span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text">
+            <label class="race-field-label-span" for="race-white">White</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "A person having origins in or from any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment. (including American Indian)|I"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text">
+            <label class="race-field-label-span" for="race-american-indian">American Indian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam. (Asian)|A"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text">
+            <label class="race-field-label-span" for="race-asian">Asian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "A person having origins in or ancestors from any of the black racial groups of Africa. (Black)|B"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text">
+            <label class="race-field-label-span" for="race-black">Black</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "A person having origins in or ancestors from any of the original peoples of Hawaii, Guam, Samoa, Tonga, or other Pacific Islands. (Pacific Islander)|P"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text">
+            <label class="race-field-label-span" for="race-pacific-islander">Pacific Islander</label>
+        </span>
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
 </tr>

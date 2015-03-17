@@ -567,12 +567,12 @@
         "fieldInputLabel": "No"
       }
     ],
-    "fieldValue": "~[gpv:hisp-latino]",
-    "fieldValueLabel": "~[gpv:hisp-latino-label]"
+    "fieldValue": "~[gpv:hisp-latino]"
   },
   {
-    "template": "form-element-checkbox-template",
+    "template": "form-element-checkbox-race-template",
     "fieldLabel": "What is the Student's race?",
+    "fieldName": "race",
     "inputs": [
       {
         "fieldId": "race-white",
@@ -657,7 +657,7 @@
     "fieldValue": "~[gpv:trib-affil]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-radio-count-birth-template",
     "fieldLabel": "Country or Territory of Student's Birth",
     "inputs": [
       {
