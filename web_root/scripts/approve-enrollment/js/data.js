@@ -113,7 +113,7 @@ define(function() {
         },
 
         insertTemplates: function() {
-            $j.get('/scripts/approve-enrollment/templates/form-element-row.hbs', function(formElementRow) {
+            $j.get('/scripts/approve-enrollment/templates/form-element-row.html', function(formElementRow) {
                 $j('body').append(formElementRow);
             });
         },
