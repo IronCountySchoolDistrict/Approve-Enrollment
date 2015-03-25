@@ -610,47 +610,41 @@
   {
     "template": "form-element-checkbox-template",
     "fieldLabel": "Tribal Affiliation",
+    "fieldName": "trib-affil",
     "inputs": [
       {
         "fieldId": "trib-affil-goshute",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TG",
         "fieldInputLabel": "Goshute"
       },
       {
         "fieldId": "trib-affil-navajo",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TN",
         "fieldInputLabel": "Navajo"
       },
       {
         "fieldId": "trib-affil-paiute",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TP",
         "fieldInputLabel": "Paiute"
       },
       {
         "fieldId": "trib-affil-shoshone-nwb",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TS",
         "fieldInputLabel": "Shoshone NWB"
       },
       {
         "fieldId": "trib-affil-ute",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TU",
         "fieldInputLabel": "Ute"
       },
       {
         "fieldId": "trib-affil-other",
-        "fieldName": "trib-affil",
         "fieldInputValue": "TO",
         "fieldInputLabel": "Other"
       },
       {
         "fieldId": "trib-affil-none",
-        "fieldName": "trib-affil",
-        "fieldInputValue": "",
+        "fieldInputValue": "None",
         "fieldInputLabel": "None"
       }
     ],

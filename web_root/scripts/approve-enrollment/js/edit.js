@@ -101,7 +101,7 @@ define(function() {
                     var editType = corresEditElems.eq(0).attr("type");
 
 
-                    if (editType === "radio") {
+                    if (editType === "radio" || editType === "checkbox") {
 
                         // Text value of the span label that displays the read-only value of the field
                         var fieldValueText = elem.innerText.replace(" ", "");
@@ -110,9 +110,8 @@ define(function() {
                         $j.each(corresEditElems, function(index, editElem) {
                             var editLabelText = $j(editElem).next().text();
 
-                            // Edit field label and read-only value span label must match for
-                            // the element to be checked.
-                            if (fieldValueText === editLabelText) {
+                            // Is the field's label present in the field value (meaning it should be checked)?
+                            if (fieldValueText.indexOf(editLabelText) !== -1) {
                                 $j(editElem).attr("checked", true);
                             }
                         });

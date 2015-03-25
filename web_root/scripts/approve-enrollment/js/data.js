@@ -53,6 +53,10 @@ define(function() {
                             if (field.fieldName === "race") {
                                 field.fieldValue = self.cleanRaceFieldValue(field.fieldValue);
                             }
+
+                            if (field.fieldName === "trib-affil") {
+                                field.fieldValue = self.cleanTribAffilFieldValue(field.fieldValue);
+                            }
                             formData.push(field);
 
                         });
@@ -61,6 +65,41 @@ define(function() {
                     });
                 });
             });
+        },
+
+        cleanTribAffilFieldValue: function(fieldValue) {
+            var cleanValue = [];
+            var goshuteValue = "Goshute|TG";
+            var navajoValue = "Navajo|TN";
+            var paiuteValue = "Paiute|TP";
+            var shoshoneValue = "Shoshone NWB|TS";
+            var uteValue = "Ute|TU";
+            var otherValue = "Other|TO";
+            var noneValue = "None";
+            if (fieldValue.indexOf(goshuteValue) > -1) {
+                cleanValue.push("Goshute");
+            }
+            if (fieldValue.indexOf(navajoValue) > -1) {
+                cleanValue.push("Navajo");
+            }
+            if (fieldValue.indexOf(paiuteValue) > -1) {
+                cleanValue.push("Paiute");
+            }
+            if (fieldValue.indexOf(shoshoneValue) > -1) {
+                cleanValue.push("Shoshone NWB");
+            }
+            if (fieldValue.indexOf(uteValue) > -1) {
+                cleanValue.push("Ute");
+            }
+            if (fieldValue.indexOf(otherValue) > -1) {
+                cleanValue.push("Other");
+            }
+            if (fieldValue.indexOf(noneValue) > -1) {
+                cleanValue.push("None");
+            }
+            
+            return cleanValue.join(", ");
+              
         },
 
         cleanRaceFieldValue: function(fieldValue) {
@@ -86,7 +125,7 @@ define(function() {
                 cleanValue.push("Pacific Islander");
             }
 
-            return cleanValue.join(', ');
+            return cleanValue.join(", ");
         },
 
         // Make sure all four fields for this address are not blank

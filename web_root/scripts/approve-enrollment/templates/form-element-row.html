@@ -101,7 +101,8 @@
 <!--
     @param fieldLabel
     @param fieldId
-    @param fieldValue
+    @param fieldValue - the actual value of the field as it would be seen from within the database
+    @param [fieldValueMask] - if the value of fieldValue is an "ugly" value, a cleaner representation of that value can be passed in here.
     @param fieldName
     @param inputs {object}
     @param inputs.fieldId
@@ -113,12 +114,20 @@
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>
         {{!-- Field value --}}
-        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">
+            {{#if fieldValueMask}}
+                {{fieldValueMask}}
+            {{else}}
+                {{fieldValue}}
+            {{/if}}
+        </span>
+
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label for="{{fieldId}}"></label>
+            <input {{#ifContains fieldValue fieldInputValue}}checked{{/ifCond}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+            <label for="{{fieldId}}">{{fieldInputValue}}</label>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
@@ -145,23 +154,66 @@
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="W">
+            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="">
             <label class="race-field-label-span" for="race-white">White</label>
         </span>
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text">
+            <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text" value="I">
             <label class="race-field-label-span" for="race-american-indian">American Indian</label>
         </span>
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text">
+            <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text" value="A">
             <label class="race-field-label-span" for="race-asian">Asian</label>
         </span>
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text">
+            <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text" value="B">
             <label class="race-field-label-span" for="race-black">Black</label>
         </span>
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text">
+            <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text" value="P">
+            <label class="race-field-label-span" for="race-pacific-islander">Pacific Islander</label>
+        </span>
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-checkbox-trib-affil-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="">
+            <label class="race-field-label-span" for="race-white">White</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text" value="I">
+            <label class="race-field-label-span" for="race-american-indian">American Indian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text" value="A">
+            <label class="race-field-label-span" for="race-asian">Asian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text" value="B">
+            <label class="race-field-label-span" for="race-black">Black</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text" value="P">
             <label class="race-field-label-span" for="race-pacific-islander">Pacific Islander</label>
         </span>
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
