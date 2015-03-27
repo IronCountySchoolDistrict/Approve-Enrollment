@@ -126,8 +126,10 @@
 
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifContains fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label for="{{fieldId}}">{{fieldInputValue}}</label>
+            <span class="edit block-edit">
+                <input {{#ifContains ../fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{../fieldName}}" id="{{fieldId}}" type="text">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
+            </span>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
@@ -146,49 +148,6 @@
     @param inputs.fieldInputValue
 -->
 <script id="form-element-checkbox-race-template" type="text/x-handlebars-template">
-<tr>
-    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
-    <td>
-        {{!-- Field value --}}
-        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">{{fieldValue}}</span>
-        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
-        {{!-- Field edit --}}
-        <span class="edit block-edit">
-            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="">
-            <label class="race-field-label-span" for="race-white">White</label>
-        </span>
-        <span class="edit block-edit">
-            <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text" value="I">
-            <label class="race-field-label-span" for="race-american-indian">American Indian</label>
-        </span>
-        <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text" value="A">
-            <label class="race-field-label-span" for="race-asian">Asian</label>
-        </span>
-        <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text" value="B">
-            <label class="race-field-label-span" for="race-black">Black</label>
-        </span>
-        <span class="edit block-edit">
-            <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text" value="P">
-            <label class="race-field-label-span" for="race-pacific-islander">Pacific Islander</label>
-        </span>
-        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
-    </td>
-</tr>
-</script>
-
-<!--
-    @param fieldLabel
-    @param fieldId
-    @param fieldValue
-    @param fieldName
-    @param inputs {object}
-    @param inputs.fieldId
-    @param inputs.fieldName
-    @param inputs.fieldInputValue
--->
-<script id="form-element-checkbox-trib-affil-template" type="text/x-handlebars-template">
 <tr>
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>

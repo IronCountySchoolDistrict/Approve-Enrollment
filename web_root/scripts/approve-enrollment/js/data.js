@@ -1,10 +1,10 @@
 /*global define, $j, console*/
-define(function () {
+define(function() {
     "use strict";
     return {
 
         // Top-most function that returns form data to be
-        getFormData: function () {
+        getFormData: function() {
 
             var self = this;
             var requests = [];
@@ -12,9 +12,9 @@ define(function () {
             requests.push(self.getFieldMap());
             requests.push(self.getStudentIds());
             requests.push(self.insertTemplates());
-            return $j.when.apply($j, requests).then(function (enrollment, fieldMap, studentIds) {
+            return $j.when.apply($j, requests).then(function(enrollment, fieldMap, studentIds) {
                 studentIds = studentIds[0];
-                return self.getCoreStudentData(studentIds).then(function (studentCoreData) {
+                return self.getCoreStudentData(studentIds).then(function(studentCoreData) {
                     var gpvObject = self.formToGpvObject(enrollment[0].form.elements, fieldMap[0]);
 
                     // Add coreStudentData fields to gpvObject
@@ -40,10 +40,10 @@ define(function () {
                     });
                     var gpvParam = $j.param(gpvObject);
 
-                    return $j.getJSON("/admin/students/approve-enrollment/json/approve-fields.json?" + gpvParam, function (fields) {
+                    return $j.getJSON("/admin/students/approve-enrollment/json/approve-fields.json?" + gpvParam, function(fields) {
 
                         var formData = [];
-                        $j.each(fields, function (index, field) {
+                        $j.each(fields, function(index, field) {
 
                             // Is the field an address field?
                             if (field.hasOwnProperty('addressFieldValue')) {
@@ -55,10 +55,9 @@ define(function () {
                             }
 
                             if (field.fieldName === "trib-affil") {
-                                field.fieldValue = self.cleanTribAffilFieldValue(field.fieldValue);
+                                field.fieldValueMask = self.cleanTribAffilFieldValueMask(field.fieldValue);
                             }
                             formData.push(field);
-
                         });
 
                         return formData;
@@ -67,7 +66,7 @@ define(function () {
             });
         },
 
-        cleanTribAffilFieldValue: function (fieldValue) {
+        cleanTribAffilFieldValueMask: function(fieldValue) {
             var cleanValue = [];
             var goshuteValue = "Goshute|TG";
             var navajoValue = "Navajo|TN";
@@ -99,10 +98,9 @@ define(function () {
             }
 
             return cleanValue.join(", ");
-
         },
 
-        cleanRaceFieldValue: function (fieldValue) {
+        cleanRaceFieldValue: function(fieldValue) {
             var cleanValue = [];
             var whiteValue = "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)";
             var aiValue = "A person having origins in or from any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment. (including American Indian)|I";
@@ -129,7 +127,7 @@ define(function () {
         },
 
         // Make sure all four fields for this address are not blank
-        cleanAddressField: function (field) {
+        cleanAddressField: function(field) {
             if (field.addressFieldValue === "" ||
                 field.cityFieldValue === "" ||
                 field.stateFieldValue === "" ||
@@ -147,20 +145,20 @@ define(function () {
             return field;
         },
 
-        getCoreStudentData: function (studentIds) {
+        getCoreStudentData: function(studentIds) {
             return $j.getJSON('/admin/students/approve-enrollment/json/enrollment.json.html?action=get.student.fields&student_id=' + studentIds.id);
         },
 
-        insertTemplates: function () {
-            $j.get('/scripts/approve-enrollment/templates/form-element-row.html', function (formElementRow) {
+        insertTemplates: function() {
+            $j.get('/scripts/approve-enrollment/templates/form-element-row.html', function(formElementRow) {
                 $j('body').append(formElementRow);
             });
         },
 
-        getFormObjectElemFromFieldMap: function (formObject, fieldMapElem) {
+        getFormObjectElemFromFieldMap: function(formObject, fieldMapElem) {
             var criteria = [];
 
-            $j.each(fieldMapElem, function (propertyName, valueOfProperty) {
+            $j.each(fieldMapElem, function(propertyName, valueOfProperty) {
                 if (propertyName !== "gpv_field_name") {
                     if (propertyName === "fb_title") {
                         criteria.push({
@@ -179,9 +177,9 @@ define(function () {
             });
 
             // Return the first match
-            return $j.grep(formObject, function (formObjectElem, index) {
+            return $j.grep(formObject, function(formObjectElem, index) {
                 var formObjectElemMatchFound = true;
-                $j.each(criteria, function (index, criteriaElem) {
+                $j.each(criteria, function(index, criteriaElem) {
                     var keyName = Object.keys(criteriaElem)[0];
                     formObjectElemMatchFound = formObjectElemMatchFound && (formObjectElem[keyName] === criteriaElem[keyName]);
                 });
@@ -189,10 +187,10 @@ define(function () {
             })[0];
         },
 
-        formToGpvObject: function (formObject, fieldMap) {
+        formToGpvObject: function(formObject, fieldMap) {
             var self = this;
             var gpvObjects = [];
-            $j.each(fieldMap, function (index, element) {
+            $j.each(fieldMap, function(index, element) {
                 var formObjectMatchingElem = self.getFormObjectElemFromFieldMap(formObject, element);
                 try {
                     var gpvObject = {
@@ -210,30 +208,30 @@ define(function () {
             return gpvObjects;
         },
 
-        getFieldMap: function () {
+        getFieldMap: function() {
             return $j.getJSON("/scripts/approve-enrollment/json/fb-field-map.json");
         },
 
-        getEnrollment: function () {
+        getEnrollment: function() {
             var requests = [],
                 self = this;
 
             requests.push(this.getStudentIds());
             requests.push(this.getFormId());
-            return $j.when.apply($j, requests).then(function (studentIds, formId) {
+            return $j.when.apply($j, requests).then(function(studentIds, formId) {
                 return self.getEnrollmentData(studentIds[0], formId[0]);
             });
         },
 
-        getStudentIds: function () {
+        getStudentIds: function() {
             return $j.getJSON("/admin/students/approve-enrollment/json/enrollment.json.html?action=get.studentids");
         },
 
-        getFormId: function () {
+        getFormId: function() {
             return $j.getJSON("/admin/students/approve-enrollment/json/enrollment.json.html?action=get.form.id");
         },
 
-        getEnrollmentData: function (studentIds, formId) {
+        getEnrollmentData: function(studentIds, formId) {
             return $j.getJSON("/admin/formbuilder/scripts/json/form.json?subjectid=" + studentIds.id + "&frn=" + studentIds.frn + "&formid=" + formId.id + "&formtype=P&action=get");
         }
     };
