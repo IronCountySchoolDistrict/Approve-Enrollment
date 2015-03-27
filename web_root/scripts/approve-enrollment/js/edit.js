@@ -1,5 +1,5 @@
 /*global $j,_,define*/
-define(function() {
+define(function () {
     "use strict";
     return {
 
@@ -11,7 +11,7 @@ define(function() {
          * @param {jQuery} field
          * @return String
          */
-        fieldToString: function(field) {
+        fieldToString: function (field) {
             var nodeName = field.prop("nodeName").toLowerCase();
             var nodeType = field.prop("type");
 
@@ -23,13 +23,13 @@ define(function() {
             if (nodeName === "input" && (nodeType === "radio" || nodeType === "checkbox")) {
                 // Since this is a radio or checkbox element, there are multiple DOM elements in the field var.
                 // Find out which elements in "field" are selected.
-                var selectedElems = _.filter(field, function(elem) {
+                var selectedElems = _.filter(field, function (elem) {
                     return $j(elem).prop("checked");
                 });
 
                 var textArray = [];
 
-                $j.each(selectedElems, function(key, elem) {
+                $j.each(selectedElems, function (key, elem) {
                     // Find the element's corresponding label by matching the for attribute of the label
                     // with the field's id
                     var label = $j('[for="' + $j(elem).prop("id") + '"]');
@@ -46,13 +46,13 @@ define(function() {
          *
          * @param target save button that was clicked by the user
          */
-        saveHandler: function(target, _this) {
+        saveHandler: function (target, _this) {
             var $saveBtn = $j(target);
             var $fieldValueElems = $saveBtn.siblings(".field-value");
             var $editElements = $saveBtn.siblings(".edit");
             var $editBtn = $saveBtn.siblings(".glyphicon-edit");
 
-            $j.each($fieldValueElems, function(key, elem) {
+            $j.each($fieldValueElems, function (key, elem) {
                 var corresEditSelector = $j(elem).data().editElem;
 
                 $j(elem).text(_this.fieldToString($j(corresEditSelector)));
@@ -79,17 +79,17 @@ define(function() {
             });
         },
 
-        bindEditHandler: function() {
+        bindEditHandler: function () {
             // "this" gets set to the element that triggered the event,
             // so save it here so it can be accessed in the callback
             var _this = this;
-            $j(document).on("click", ".glyphicon-edit", function(e) {
+            $j(document).on("click", ".glyphicon-edit", function (e) {
                 var $target = $j(e.target);
                 var $editElements = $target.siblings(".edit");
                 var $fieldValueElems = $target.siblings(".field-value");
                 var saveBtn = $target.siblings(".save");
 
-                $j.each($fieldValueElems, function(key, elem) {
+                $j.each($fieldValueElems, function (key, elem) {
 
                     // Every span that shows the value of a field (.field-value elements)
                     // has a corresponding element (input, checkbox, etc.) that will edit
@@ -107,7 +107,7 @@ define(function() {
                         var fieldValueText = elem.innerText.replace(" ", "");
 
                         // Iterate through form elements, set the correct radio to checked
-                        $j.each(corresEditElems, function(index, editElem) {
+                        $j.each(corresEditElems, function (index, editElem) {
                             var editLabelText = $j(editElem).next().text();
 
                             // Is the field's label present in the field value (meaning it should be checked)?
@@ -152,7 +152,7 @@ define(function() {
                     "display": "none"
                 });
 
-                $j(".save").on("click", function(e) {
+                $j(".save").on("click", function (e) {
                     _this.saveHandler(e.target, _this);
                 });
             });

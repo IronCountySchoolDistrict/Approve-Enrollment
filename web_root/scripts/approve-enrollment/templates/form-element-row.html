@@ -114,7 +114,7 @@
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>
         {{!-- Field value --}}
-        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
             {{#if fieldValueMask}}
                 {{fieldValueMask}}
             {{else}}
@@ -126,7 +126,7 @@
 
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifContains fieldValue fieldInputValue}}checked{{/ifCond}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+            <input {{#ifContains fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
             <label for="{{fieldId}}">{{fieldInputValue}}</label>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>

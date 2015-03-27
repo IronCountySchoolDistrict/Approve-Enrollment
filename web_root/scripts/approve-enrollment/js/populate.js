@@ -119,7 +119,7 @@ define(['underscore'], function (_) {
                     ];
                     _this.populateEmergConts(testEmergContsData);
                 },
-                error: function(resp) {
+                error: function (resp) {
                     // Mockup testing code
                     var testEmergContsData = [
                         {
@@ -246,12 +246,12 @@ define(['underscore'], function (_) {
                 // Find the state option that matches the value stored in the staging table
                 //TODO: Move this over to enroll.js, when user clicks edit for this field-value.
                 /*
-                var stagingAddressState = _.filter($j('#emerg-cont-address-state' + oneBasedIndex).find('option'), function(stateOption) {
-                    return elem.addressState === $j(stateOption).attr('value');
-                });
+                 var stagingAddressState = _.filter($j('#emerg-cont-address-state' + oneBasedIndex).find('option'), function(stateOption) {
+                 return elem.addressState === $j(stateOption).attr('value');
+                 });
 
-                $j(stagingAddressState).attr('selected', 'selected');
-                */
+                 $j(stagingAddressState).attr('selected', 'selected');
+                 */
 
                 $j('#emerg-cont-address-state' + oneBasedIndex + '-field-value').html(elem.addressState);
                 $j('#emerg-cont-address-zip' + oneBasedIndex + '-field-value').html(elem.addressZip);
@@ -293,7 +293,7 @@ define(['underscore'], function (_) {
             $j('#last-attended-grade-field-value').html(stagingData.lastAttendedGrade);
 
             $j('#current-grade-field-value').html(stagingData.currentGrade);
-            _.each($j('#current-grade').find('option'), function(grade) {
+            _.each($j('#current-grade').find('option'), function (grade) {
                 if ($j(grade).attr('value') === stagingData.currentGrade) {
                     $j(grade).attr('selected', true);
                 }
@@ -309,9 +309,9 @@ define(['underscore'], function (_) {
             $j('#student-cell-number-field-value').html(stagingData.studentCellNumber);
 
             $j('#mailing-address-field-value').html(stagingData.mailingAddress + ' ' +
-                stagingData.mailingCity + ' ' +
-                stagingData.mailingState + ' ' +
-                stagingData.mailingZip);
+            stagingData.mailingCity + ' ' +
+            stagingData.mailingState + ' ' +
+            stagingData.mailingZip);
 
             $j('#mailing-address').val(stagingData.mailingAddress);
             $j('#mailing-city').val(stagingData.mailingCity);
@@ -320,9 +320,9 @@ define(['underscore'], function (_) {
 
 
             $j('#residence-address-field-value').html(stagingData.residenceAddress + ' ' +
-                stagingData.residenceCity + ' ' +
-                stagingData.residenceState + ' ' +
-                stagingData.residenceZip);
+            stagingData.residenceCity + ' ' +
+            stagingData.residenceState + ' ' +
+            stagingData.residenceZip);
 
             $j('#residence-address').val(stagingData.residenceAddress);
             $j('#residence-city').val(stagingData.residenceCity);

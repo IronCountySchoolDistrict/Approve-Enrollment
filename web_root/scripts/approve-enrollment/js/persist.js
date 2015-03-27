@@ -1,14 +1,14 @@
 /*global define*/
 
-define(function() {
+define(function () {
     return {
-        main: function() {
+        main: function () {
             this.bindPostApi();
         },
 
-        bindPostApi: function() {
+        bindPostApi: function () {
             var _this = this;
-            $j('#submit').one('click', function(e) {
+            $j('#submit').one('click', function (e) {
                 _this.postApiFields();
             });
         },
@@ -17,7 +17,7 @@ define(function() {
          * Take the data from the #enroll-form and create a Student Entity object
          * @return {object} student entity (See: REST API -> Data Dictionary -> Student)
          */
-        _formToStudentEntity: function() {
+        _formToStudentEntity: function () {
             var studentEntity = {};
             studentEntity.client_uid = '1';
             studentEntity.action = 'INSERT';
@@ -28,7 +28,7 @@ define(function() {
             studentEntity.school_enrollment = {};
             studentEntity.grade_level = $('#current-grade-field-value').val();
 
-            
+
             studentEntity.addresses = {};
             if ($j('#mailing-address-field-value').val() &&
                 $j('#mailing-city-field-value').val() &&
@@ -59,8 +59,7 @@ define(function() {
         /**
          * Make the request that handles the enroll student REST call
          */
-        postApiFields: function() {
-            
+        postApiFields: function () {
 
 
         }
