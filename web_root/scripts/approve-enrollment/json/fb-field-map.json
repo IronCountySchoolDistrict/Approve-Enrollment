@@ -107,5 +107,5 @@
     "gpv_field_name": "physicians-name"
 }, {
     "fb_title": "Dentist's Name",
-    "gpv_field_name": "interventions"
+    "gpv_field_name": "dentists-name"
 }]

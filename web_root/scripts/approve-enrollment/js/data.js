@@ -46,7 +46,7 @@ define(function() {
                         $j.each(fields, function(index, field) {
 
                             // Is the field an address field?
-                            if (field.hasOwnProperty('addressFieldValue')) {
+                            if (field.hasOwnProperty("addressFieldValue")) {
                                 field = self.cleanAddressField(field);
                             }
 
@@ -56,6 +56,10 @@ define(function() {
 
                             if (field.fieldName === "trib-affil") {
                                 field.fieldValueMask = self.cleanTribAffilFieldValueMask(field.fieldValue);
+                            }
+
+                            if (field.template === "form-element-radio-template") {
+                                field.fieldValue = self.cleanBlankYesNoValue(field.fieldValue);
                             }
                             formData.push(field);
                         });
@@ -98,6 +102,15 @@ define(function() {
             }
 
             return cleanValue.join(", ");
+        },
+
+        // If an optional field was left blank, the fieldValue should be set to "No"
+        cleanBlankYesNoValue: function(fieldValue) {
+            if (fieldValue === "") {
+                return "No";
+            } else {
+                return fieldValue;
+            }
         },
 
         cleanRaceFieldValue: function(fieldValue) {

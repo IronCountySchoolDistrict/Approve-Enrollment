@@ -16,7 +16,8 @@ define(function () {
             var nodeType = field.prop("type");
 
             if (nodeName === "select" ||
-                (nodeName === "input" && (nodeType === "text" || !nodeType))) {
+                (nodeName === "input" && (nodeType === "text" || !nodeType)) ||
+                (nodeType === "textarea")) {
                 return field.val();
             }
 

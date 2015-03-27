@@ -58,6 +58,10 @@
     "zipFieldValue": "~[gpv:mailing-zip]",
     "options": [
       {
+        "label": "",
+        "value": ""
+      },
+      {
         "label": "Alabama",
         "value": "AL"
       },
@@ -653,6 +657,7 @@
   {
     "template": "form-element-radio-count-birth-template",
     "fieldLabel": "Country or Territory of Student's Birth",
+    "fieldName": "outside-us",
     "inputs": [
       {
         "fieldId": "outside-us-us",
@@ -705,16 +710,19 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Diabetes",
+    "fieldName": "diabetes",
     "inputs": [
       {
         "fieldId": "diabetes-yes",
         "fieldName": "diabetes",
-        "fieldInputValue": "Yes"
+        "fieldInputValue": "1",
+        "fieldInputLabel": "Yes"
       },
       {
         "fieldId": "diabetes-no",
         "fieldName": "diabetes",
-        "fieldInputValue": "No"
+        "fieldInputValue": "0",
+        "fieldInputLabel": "No"
       }
     ],
     "fieldName": "diabetes",
@@ -723,15 +731,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Heart",
+    "fieldName": "heart",
     "inputs": [
       {
         "fieldId": "heart-yes",
         "fieldName": "heart",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "heart-no",
         "fieldName": "heart",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -741,15 +752,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Seizures",
+    "fieldName": "seizures",
     "inputs": [
       {
         "fieldId": "seizures-yes",
         "fieldName": "seizures",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "seizures-no",
         "fieldName": "seizures",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -759,15 +773,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Hearing Impairment",
+    "fieldName": "~[gpv:hearing-impairment]",
     "inputs": [
       {
         "fieldId": "hearing-impairment-yes",
         "fieldName": "hearing-impairment",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "hearing-impairment-no",
         "fieldName": "hearing-impairment",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -777,15 +794,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Visual Impairment",
+    "fieldName": "~[gpv:visual-impairment]",
     "inputs": [
       {
         "fieldId": "visual-impairment-yes",
         "fieldName": "visual-impairment",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "visual-impairment-no",
         "fieldName": "visual-impairment",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -795,15 +815,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Wears Glasses",
+    "fieldName": "wears-glasses",
     "inputs": [
       {
         "fieldId": "wears-glasses-yes",
         "fieldName": "wears-glasses",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "wears-glasses-no",
         "fieldName": "wears-glasses",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -813,15 +836,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Asthma",
+    "fieldName": "asthma",
     "inputs": [
       {
         "fieldId": "asthma-yes",
         "fieldName": "asthma",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "asthma-no",
         "fieldName": "asthma",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -831,15 +857,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "ADD/ADHD",
+    "fieldName": "add-adhd",
     "inputs": [
       {
         "fieldId": "add-adhd-yes",
         "fieldName": "add-adhd",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "add-adhd-no",
         "fieldName": "add-adhd",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],
@@ -849,15 +878,18 @@
   {
     "template": "form-element-radio-template",
     "fieldLabel": "Allergies",
+    "fieldName": "allergies",
     "inputs": [
       {
         "fieldId": "allergies-yes",
         "fieldName": "allergies",
+        "fieldInputValue": "1",
         "fieldInputValue": "Yes"
       },
       {
         "fieldId": "allergies-no",
         "fieldName": "allergies",
+        "fieldInputValue": "0",
         "fieldInputValue": "No"
       }
     ],

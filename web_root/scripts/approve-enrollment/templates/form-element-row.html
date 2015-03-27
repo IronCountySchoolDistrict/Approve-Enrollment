@@ -12,7 +12,7 @@
         <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
-        <input name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
+        <input name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text" value="{{fieldValue}}">
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
 </tr>
@@ -32,13 +32,14 @@
         <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
-        <textarea name="{{fieldName}}" class="edit" id="{{fieldId}}">
+        <textarea name="{{fieldName}}" id="{{fieldId}}" class="edit" value="{{fieldValue}}"></textarea>
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
 </tr>
 </script>
 
 <!--
+    For boolean, or Yes(1)/No(0) questions only
     @param fieldLabel
     @param fieldId
     @param fieldValue
@@ -53,15 +54,16 @@
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>
         {{!-- Field value --}}
-        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
-            {{#ifCond fieldValue "0"}}No{{/ifCond}}
-            {{#ifCond fieldValue "1"}}Yes{{/ifCond}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            {{fieldValue}}
         </span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label class="edit" for="{{fieldId}}">{{fieldInputLabel}}</label>
+            <span class="edit block-edit">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
+            </span>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
@@ -83,15 +85,25 @@
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
     <td>
         {{!-- Field value --}}
-        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
-            {{#ifCond fieldValue "United States"}}United States{{/ifCond}}
-            {{#ifCond fieldValue "Other"}}Other{{/ifCond}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            {{fieldValue}}
         </span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         {{#each inputs}}
-            <input {{#ifCond fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text">
-            <label class="edit" for="{{fieldId}}">{{fieldInputLabel}}</label>
+            <span class="edit block-edit">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">
+                    {{!-- If the fieldInputLabel is provided, the fieldInputValue is an "ugly" value that shouldn't be used for the label. --}}
+                    {{#if fieldInputLabel}}
+                        {{fieldInputLabel}}
+
+                    {{!-- fieldInputLabel wasn't provided, so use the fieldInputValue as the label --}}
+                    {{else}}
+                        {{fieldInputValue}}
+                    {{/if}}
+                </label>
+            </span>
         {{/each}}
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
