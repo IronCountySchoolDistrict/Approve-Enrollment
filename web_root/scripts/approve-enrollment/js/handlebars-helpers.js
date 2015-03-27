@@ -9,7 +9,7 @@ define(['Handlebars'], function(Handlebars) {
             });
 
             Handlebars.registerHelper('ifContains', function(v1, v2, options) {
-                if (v1.indexOf(v2) > -1) {
+                if (v1.indexOf(v2) !== -1) {
                     return options.fn(this);
                 }
                 return options.inverse(this);

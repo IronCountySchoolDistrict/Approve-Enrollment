@@ -1,7 +1,3 @@
-/**
- * Generate the approve form fields from the approve-fields.json field definition file.
- */
-
 define(["Handlebars", "reg/handlebars-helpers", "reg/data"], function(Handlebars, handlebarsHelpers, data) {
     "use strict";
     return {

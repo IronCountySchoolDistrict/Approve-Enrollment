@@ -55,10 +55,9 @@ define(function() {
                             }
 
                             if (field.fieldName === "trib-affil") {
-                                field.fieldValue = self.cleanTribAffilFieldValue(field.fieldValue);
+                                field.fieldValueMask = self.cleanTribAffilFieldValueMask(field.fieldValue);
                             }
                             formData.push(field);
-
                         });
 
                         return formData;
@@ -67,7 +66,7 @@ define(function() {
             });
         },
 
-        cleanTribAffilFieldValue: function(fieldValue) {
+        cleanTribAffilFieldValueMask: function(fieldValue) {
             var cleanValue = [];
             var goshuteValue = "Goshute|TG";
             var navajoValue = "Navajo|TN";
@@ -99,7 +98,6 @@ define(function() {
             }
             
             return cleanValue.join(", ");
-              
         },
 
         cleanRaceFieldValue: function(fieldValue) {
