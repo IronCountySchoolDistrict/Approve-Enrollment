@@ -1,58 +1,101 @@
 /*global define*/
 
-define(function () {
+define(['jquery', 'underscore'], function ($, _) {
     return {
         main: function () {
-            this.bindPostApi();
+            //this.bindPostApi();
+            this.bindStudentApiUpdate();
         },
 
         bindPostApi: function () {
-            var _this = this;
-            $j('#submit').one('click', function (e) {
-                _this.postApiFields();
+            var self = this;
+            $('#submit').one('click', function (e) {
+                self.postApiFields();
+            });
+        },
+
+        bindStudentApiUpdate: function () {
+            var self = this;
+
+            $('#submit').one('click', function (e) {
+                e.preventDefault();
+                var studentEntity = self._formToStudentEntity();
+                console.dir(studentEntity);
             });
         },
 
         /**
          * Take the data from the #enroll-form and create a Student Entity object
          * @return {object} student entity (See: REST API -> Data Dictionary -> Student)
+         * return object format:
+         * {
+                "students": {
+                    "student": [
+                        // student obj
+                        {...}
+                     ]
+                }
+            }
          */
         _formToStudentEntity: function () {
-            var studentEntity = {};
-            studentEntity.client_uid = '1';
-            studentEntity.action = 'INSERT';
+            var apiPayload = {};
+            var studentsArray = [];
+
+            var studentEntityObject = {};
+            studentEntityObject.action = 'UPDATE';
+            studentEntityObject.client_uid = '1';
 
             // Personal Info
-            studentEntity.demographics.ssn = $('#ssn-field-value').val();
-
-            studentEntity.school_enrollment = {};
-            studentEntity.grade_level = $('#current-grade-field-value').val();
+            studentEntityObject.demographics = {};
+            studentEntityObject.demographics.ssn = $('#ssn').val();
 
 
-            studentEntity.addresses = {};
-            if ($j('#mailing-address-field-value').val() &&
-                $j('#mailing-city-field-value').val() &&
-                $j('#mailing-state-field-value').val() &&
-                $j('#mailing-zip-field-value').val()) {
+            studentEntityObject.addresses = {};
+            if ($('#mailing-address').val() &&
+                $('#mailing-city').val() &&
+                $('#mailing-state').val() &&
+                $('#mailing-zip').val()) {
 
-                studentEntity.addresses.mailing = {};
-                studentEntity.address.mailing.street = $j('#mailing-address-field-value').val();
-                studentEntity.address.mailing.city = $j('#mailing-city-field-value').val();
-                studentEntity.address.mailing.state_province = $j('#mailing-state-field-value').val();
-                studentEntity.address.mailing.postal_code = $j('#mailing-zip-field-value').val();
+                studentEntityObject.addresses.mailing = {};
+                studentEntityObject.addresses.mailing.street = $('#mailing-address').val();
+                studentEntityObject.addresses.mailing.city = $('#mailing-city').val();
+                studentEntityObject.addresses.mailing.state_province = $('#mailing-state').val();
+                studentEntityObject.addresses.mailing.postal_code = $('#mailing-zip').val();
             }
 
-            if ($j('#residence-address-field-value').val() &&
-                $j('#residence-city-field-value').val() &&
-                $j('#residence-state-field-value').val() &&
-                $j('#residence-zip-field-value').val()) {
+            if ($('#residence-address').val() &&
+                $('#residence-city').val() &&
+                $('#residence-state').val() &&
+                $('#residence-zip').val()) {
 
-                studentEntity.addresses.physical = {};
-                studentEntity.address.physical.street = $j('#mailing-address-field-value').val();
-                studentEntity.address.physical.city = $j('#mailing-city-field-value').val();
-                studentEntity.address.physical.state_province = $j('#mailing-state-field-value').val();
-                studentEntity.address.physical.postal_code = $j('#mailing-zip-field-value').val();
+                studentEntityObject.addresses.physical = {};
+                studentEntityObject.addresses.physical.street = $('#residence-address').val();
+                studentEntityObject.addresses.physical.city = $('#residence-city').val();
+                studentEntityObject.addresses.physical.state_province = $('#residence-state').val();
+                studentEntityObject.addresses.physical.postal_code = $('#residence-zip').val();
             }
+
+            studentEntityObject.ethnicity_race = {};
+            studentEntityObject.ethnicity_race.federal_ethnicity = $('[name=hisp-latino]:checked').val();
+
+            // Create an array of objects that matches the format:
+            // {district_race_code": "{race_code}"
+            var races = $('[name=race]:checked').serializeArray();
+            studentEntityObject.ethnicity_race.races = _.map(races, function (elem) {
+                return {"district_race_code": elem.value}
+            });
+
+            studentEntityObject.contact = {};
+            studentEntityObject.contact.doctor_name = $('#dentists-name').val();
+
+
+            studentsArray.push(studentEntityObject);
+
+            // Create the top-level object (apiPayload)
+            apiPayload.students = {};
+            apiPayload.students.student = studentsArray;
+
+            return apiPayload;
 
         },
 
@@ -60,7 +103,6 @@ define(function () {
          * Make the request that handles the enroll student REST call
          */
         postApiFields: function () {
-
 
         }
     };

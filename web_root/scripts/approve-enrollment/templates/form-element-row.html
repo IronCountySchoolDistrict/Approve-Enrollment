@@ -32,7 +32,7 @@
         <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
-        <textarea name="{{fieldName}}" id="{{fieldId}}" class="edit" value="{{fieldValue}}"></textarea>
+        <textarea name="{{fieldName}}" id="{{fieldId}}" class="edit">{{fieldValue}}</textarea>
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
 </tr>
@@ -55,13 +55,17 @@
     <td>
         {{!-- Field value --}}
         <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
-            {{fieldValue}}
+            {{#if fieldValueMask}}
+                {{fieldValueMask}}
+            {{else}}
+                {{fieldValue}}
+            {{/if}}
         </span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         {{#each inputs}}
             <span class="edit block-edit">
-                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text" value="{{fieldInputLabel}}">
                 <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
             </span>
         {{/each}}
@@ -92,7 +96,7 @@
         {{!-- Field edit --}}
         {{#each inputs}}
             <span class="edit block-edit">
-                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text" value="{{fieldInputValue}}">
                 <label for="{{fieldId}}" style="font-weight: normal !important;">
                     {{!-- If the fieldInputLabel is provided, the fieldInputValue is an "ugly" value that shouldn't be used for the label. --}}
                     {{#if fieldInputLabel}}
@@ -139,7 +143,7 @@
         {{!-- Field edit --}}
         {{#each inputs}}
             <span class="edit block-edit">
-                <input {{#ifContains ../fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{../fieldName}}" id="{{fieldId}}" type="text">
+                <input {{#ifContains ../fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{../fieldName}}" value="{{fieldInputValue}}" id="{{fieldId}}" type="text">
                 <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
             </span>
         {{/each}}
@@ -168,24 +172,24 @@
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
         {{!-- Field edit --}}
         <span class="edit block-edit">
-            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="">
-            <label class="race-field-label-span" for="race-white">White</label>
+            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="W">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-white">White</label>
         </span>
         <span class="edit block-edit">
             <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text" value="I">
-            <label class="race-field-label-span" for="race-american-indian">American Indian</label>
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-american-indian">American Indian</label>
         </span>
         <span class="edit block-edit">
             <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text" value="A">
-            <label class="race-field-label-span" for="race-asian">Asian</label>
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-asian">Asian</label>
         </span>
         <span class="edit block-edit">
             <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text" value="B">
-            <label class="race-field-label-span" for="race-black">Black</label>
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-black">Black</label>
         </span>
         <span class="edit block-edit">
             <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text" value="P">
-            <label class="race-field-label-span" for="race-pacific-islander">Pacific Islander</label>
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-pacific-islander">Pacific Islander</label>
         </span>
         <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
     </td>
@@ -268,14 +272,14 @@
         <span id="{{stateFieldId}}-field-value" class="field-value" data-edit-elem="#{{stateFieldId}}">{{stateFieldValue}}</span>
         <span id="{{zipFieldId}}-field-value" class="field-value" data-edit-elem="#{{zipFieldId}}">{{zipFieldValue}}</span>
         <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
-        <input class="edit" name="{{addressFieldName}}" id="{{addressFieldId}}">
-        <input class="edit" name="{{cityFieldName}}" id="{{cityFieldId}}">
-        <select class="edit" name="{{stateFieldName}}" id="{{stateFieldId}}">
+        <input class="edit" name="{{addressFieldName}}" id="{{addressFieldId}}" value="{{addressFieldValue}}">
+        <input class="edit" name="{{cityFieldName}}" id="{{cityFieldId}}" value="{{cityFieldValue}}">
+        <select class="edit" name="{{stateFieldName}}" id="{{stateFieldId}}" value="{{stateFieldValue}}">
             {{#each options}}
-                <option {{#if value}}value="{{value}}"{{/if}} {{#ifCond value stateFieldValue}}selected{{/ifCond}}>{{label}}</option>
+                <option {{#if value}}value="{{value}}"{{/if}} {{#ifCond value ../stateFieldValue}}selected{{/ifCond}}>{{label}}</option>
             {{/each}}
         </select>
-        <input class="edit" name="{{zipFieldName}}" id="{{zipFieldId}}">
+        <input class="edit" name="{{zipFieldName}}" id="{{zipFieldId}}" value="{{zipFieldValue}}">
         <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
     </td>
 </tr>

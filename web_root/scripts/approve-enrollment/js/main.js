@@ -5,9 +5,10 @@ require.config({
     }
 });
 
-require(["reg/form", "reg/edit"],
-    function (form, edit) {
+require(["reg/form", "reg/edit", "reg/persist"],
+    function (form, edit, persist) {
         "use strict";
         form.populateForm();
         edit.bindEditHandler();
+        persist.main();
     });

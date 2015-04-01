@@ -9,4 +9,10 @@
     <publisher name="Iron County School District Data Team">
         <contact email="data@ironmail.org"/>
     </publisher>
+
+    <oauth></oauth>
+
+    <access_request>
+        <field table="STUDENTS" field="SSN" access="FullAccess" />
+    </access_request>
 </plugin>

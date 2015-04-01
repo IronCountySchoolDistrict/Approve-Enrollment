@@ -581,7 +581,7 @@
       {
         "fieldId": "race-white",
         "fieldName": "race",
-        "fieldInputValue": "",
+        "fieldInputValue": "W",
         "fieldInputLabel": "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)"
       },
       {
@@ -708,191 +708,56 @@
     "fieldValue": "~[gpv:parent-lang]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Diabetes",
-    "fieldName": "diabetes",
-    "inputs": [
-      {
-        "fieldId": "diabetes-yes",
-        "fieldName": "diabetes",
-        "fieldInputValue": "1",
-        "fieldInputLabel": "Yes"
-      },
-      {
-        "fieldId": "diabetes-no",
-        "fieldName": "diabetes",
-        "fieldInputValue": "0",
-        "fieldInputLabel": "No"
-      }
-    ],
     "fieldName": "diabetes",
     "fieldValue": "~[gpv:diabetes]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Heart",
-    "fieldName": "heart",
-    "inputs": [
-      {
-        "fieldId": "heart-yes",
-        "fieldName": "heart",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "heart-no",
-        "fieldName": "heart",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "heart",
     "fieldValue": "~[gpv:heart]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Seizures",
-    "fieldName": "seizures",
-    "inputs": [
-      {
-        "fieldId": "seizures-yes",
-        "fieldName": "seizures",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "seizures-no",
-        "fieldName": "seizures",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "seizures",
     "fieldValue": "~[gpv:seizures]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Hearing Impairment",
-    "fieldName": "~[gpv:hearing-impairment]",
-    "inputs": [
-      {
-        "fieldId": "hearing-impairment-yes",
-        "fieldName": "hearing-impairment",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "hearing-impairment-no",
-        "fieldName": "hearing-impairment",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "hearing-impairment",
     "fieldValue": "~[gpv:hearing-impairment]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Visual Impairment",
-    "fieldName": "~[gpv:visual-impairment]",
-    "inputs": [
-      {
-        "fieldId": "visual-impairment-yes",
-        "fieldName": "visual-impairment",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "visual-impairment-no",
-        "fieldName": "visual-impairment",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "visual-impairment",
     "fieldValue": "~[gpv:visual-impairment]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Wears Glasses",
-    "fieldName": "wears-glasses",
-    "inputs": [
-      {
-        "fieldId": "wears-glasses-yes",
-        "fieldName": "wears-glasses",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "wears-glasses-no",
-        "fieldName": "wears-glasses",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "wears-glasses",
     "fieldValue": "~[gpv:wears-glasses]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Asthma",
-    "fieldName": "asthma",
-    "inputs": [
-      {
-        "fieldId": "asthma-yes",
-        "fieldName": "asthma",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "asthma-no",
-        "fieldName": "asthma",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "asthma",
     "fieldValue": "~[gpv:asthma]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "ADD/ADHD",
-    "fieldName": "add-adhd",
-    "inputs": [
-      {
-        "fieldId": "add-adhd-yes",
-        "fieldName": "add-adhd",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "add-adhd-no",
-        "fieldName": "add-adhd",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "add-adhd",
     "fieldValue": "~[gpv:add-adhd]"
   },
   {
-    "template": "form-element-radio-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "Allergies",
-    "fieldName": "allergies",
-    "inputs": [
-      {
-        "fieldId": "allergies-yes",
-        "fieldName": "allergies",
-        "fieldInputValue": "1",
-        "fieldInputValue": "Yes"
-      },
-      {
-        "fieldId": "allergies-no",
-        "fieldName": "allergies",
-        "fieldInputValue": "0",
-        "fieldInputValue": "No"
-      }
-    ],
     "fieldName": "allergies",
     "fieldValue": "~[gpv:allergies]"
   },

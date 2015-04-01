@@ -50,6 +50,10 @@ define(function() {
                                 field = self.cleanAddressField(field);
                             }
 
+                            if (field.fieldName === "hisp-latino") {
+                                field.fieldValueMask = self.cleanHispLatinoFieldValueMask(field.fieldValue);
+                            }
+
                             if (field.fieldName === "race") {
                                 field.fieldValue = self.cleanRaceFieldValue(field.fieldValue);
                             }
@@ -68,6 +72,17 @@ define(function() {
                     });
                 });
             });
+        },
+
+        cleanHispLatinoFieldValueMask: function (fieldValue) {
+            var yesValue = "1";
+            var noValue = "0";
+            if (fieldValue.indexOf(yesValue) !== -1) {
+                return "Yes";
+            }
+            if(fieldValue.indexOf(noValue) !== -1) {
+                return "No";
+            }
         },
 
         cleanTribAffilFieldValueMask: function(fieldValue) {
