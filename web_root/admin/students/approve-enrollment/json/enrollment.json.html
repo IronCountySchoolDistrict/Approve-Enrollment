@@ -1,0 +1,39 @@
+~[if.~[gpv:action]=get.studentids]
+	{
+		"id": ~(decode;~(curstudid);0;null;~(curstudid)),
+		"dcid": ~[tlist_sql;SELECT dcid FROM students WHERE id=~(curstudid) ;nonemessage={}]~(dcid)[/tlist_sql],
+		"frn": ~[tlist_sql; SELECT '001'||dcid FROM students WHERE id=~(curstudid);nonemessage={}]"~(dcid)"[/tlist_sql]
+	}
+[/if]
+
+~[if.~[gpv:action]=get.form.id]
+	~[tlist_sql;
+		SELECT id
+		FROM u_fb_form
+		WHERE form_title='Student Registration Form - Kindergarten'
+	;nonemessage={}]
+		{
+			"id": "~(id;js)"
+		}
+	[/tlist_sql]
+[/if]
+
+~[if.~[gpv:action]=get.student.fields]
+	~[tlist_sql;
+		SELECT first_name,
+		       middle_name,
+		       last_name,
+		       gender,
+		       dob
+		FROM students
+		WHERE id=~[gpv:student_id]
+	;nonemessage={}]
+		{
+			"first_name": "~(first_name;js)",
+			"middle_name": "~(middle_name;js)",
+			"last_name": "~(last_name;js)",
+			"gender": "~(gender;js)",
+			"dob": "~(dob;js)"
+		}
+	[/tlist_sql]
+[/if]

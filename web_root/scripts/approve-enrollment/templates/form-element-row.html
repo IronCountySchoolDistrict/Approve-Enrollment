@@ -1,0 +1,286 @@
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+-->
+<script id="form-element-input-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <input name="{{fieldName}}" class="edit" id="{{fieldId}}" type="text" value="{{fieldValue}}">
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+-->
+<script id="form-element-textarea-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <textarea name="{{fieldName}}" id="{{fieldId}}" class="edit">{{fieldValue}}</textarea>
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    For boolean, or Yes(1)/No(0) questions only
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-radio-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            {{#if fieldValueMask}}
+                {{fieldValueMask}}
+            {{else}}
+                {{fieldValue}}
+            {{/if}}
+        </span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <span class="edit block-edit">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text" value="{{fieldInputLabel}}">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
+            </span>
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-radio-count-birth-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            {{fieldValue}}
+        </span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <span class="edit block-edit">
+                <input {{#ifCond ../fieldValue fieldInputValue}}checked{{/ifCond}} type="radio" name="{{fieldName}}" id="{{fieldId}}" type="text" value="{{fieldInputValue}}">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">
+                    {{!-- If the fieldInputLabel is provided, the fieldInputValue is an "ugly" value that shouldn't be used for the label. --}}
+                    {{#if fieldInputLabel}}
+                        {{fieldInputLabel}}
+
+                    {{!-- fieldInputLabel wasn't provided, so use the fieldInputValue as the label --}}
+                    {{else}}
+                        {{fieldInputValue}}
+                    {{/if}}
+                </label>
+            </span>
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue - the actual value of the field as it would be seen from within the database
+    @param [fieldValueMask] - if the value of fieldValue is an "ugly" value, a cleaner representation of that value can be passed in here.
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-checkbox-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">
+            {{#if fieldValueMask}}
+                {{fieldValueMask}}
+            {{else}}
+                {{fieldValue}}
+            {{/if}}
+        </span>
+
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+
+        {{!-- Field edit --}}
+        {{#each inputs}}
+            <span class="edit block-edit">
+                <input {{#ifContains ../fieldValue fieldInputValue}}checked{{/ifContains}} type="checkbox" name="{{../fieldName}}" value="{{fieldInputValue}}" id="{{fieldId}}" type="text">
+                <label for="{{fieldId}}" style="font-weight: normal !important;">{{fieldInputLabel}}</label>
+            </span>
+        {{/each}}
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param inputs {object}
+    @param inputs.fieldId
+    @param inputs.fieldName
+    @param inputs.fieldInputValue
+-->
+<script id="form-element-checkbox-race-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldName}}-field-value" class="field-value" data-edit-elem="[name={{fieldName}}]">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "White"}}checked{{/ifContains}} type="checkbox" name="race" id="race-white" type="text" value="W">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-white">White</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "American Indian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-american-indian" type="text" value="I">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-american-indian">American Indian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Asian"}}checked{{/ifContains}} type="checkbox" name="race" id="race-asian" type="text" value="A">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-asian">Asian</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Black"}}checked{{/ifContains}} type="checkbox" name="race" id="race-black" type="text" value="B">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-black">Black</label>
+        </span>
+        <span class="edit block-edit">
+            <input {{#ifContains fieldValue "Pacific Islander"}}checked{{/ifContains}} type="checkbox" name="race" id="race-pacific-islander" type="text" value="P">
+            <label class="race-field-label-span" style="font-weight: normal !important;" for="race-pacific-islander">Pacific Islander</label>
+        </span>
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+-->
+<script id="form-element-input-readonly-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        <span id="{{fieldId}}-field-value" class="field-value">{{fieldValue}}</span>
+    </td>
+</tr>
+</script>
+
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+    @param options {object}
+    @param options.value {string}
+    @param options.label {string}
+-->
+<script id="form-element-select-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        <!-- Field value -->
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}"></span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        <!-- Field edit -->
+        <select class="edit" name="{{fieldName}}" id="{{fieldId}}" {{#if isMultiple}}multiple="multiple"{{/if}}>
+            {{#each options}}
+            <option {{#if value}}value="{{value}}"{{/if}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+
+<!--
+    @param addressFieldId
+    @param addressFieldName
+    @param addressFieldValue
+    @param cityFieldId
+    @param cityFieldName
+    @param cityFieldValue
+    @param stateFieldId
+    @param stateFieldName
+    @param stateFieldValue
+    @param zipFieldId
+    @param zipFieldName
+    @param zipFieldValue
+    @param options {object}
+    @param options.value {string}
+    @param options.label {string}
+-->
+<script id="form-element-address-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">
+        {{fieldLabel}}
+    </td>
+    <td>
+        <span id="{{addressFieldId}}-field-value" class="field-value"
+        data-edit-elem="#{{addressFieldId}}">{{addressFieldValue}}</span>
+        <span id="{{cityFieldId}}-field-value" class="field-value" data-edit-elem="#{{cityFieldId}}">{{cityFieldValue}}</span>
+        {{#unless hideComma}}
+            <span class="hide-on-edit">, </span>
+        {{/unless}}
+        <span id="{{stateFieldId}}-field-value" class="field-value" data-edit-elem="#{{stateFieldId}}">{{stateFieldValue}}</span>
+        <span id="{{zipFieldId}}-field-value" class="field-value" data-edit-elem="#{{zipFieldId}}">{{zipFieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        <input class="edit" name="{{addressFieldName}}" id="{{addressFieldId}}" value="{{addressFieldValue}}">
+        <input class="edit" name="{{cityFieldName}}" id="{{cityFieldId}}" value="{{cityFieldValue}}">
+        <select class="edit" name="{{stateFieldName}}" id="{{stateFieldId}}" value="{{stateFieldValue}}">
+            {{#each options}}
+                <option {{#if value}}value="{{value}}"{{/if}} {{#ifCond value ../stateFieldValue}}selected{{/ifCond}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <input class="edit" name="{{zipFieldName}}" id="{{zipFieldId}}" value="{{zipFieldValue}}">
+        <a style="background-color: transparent; display: none;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
