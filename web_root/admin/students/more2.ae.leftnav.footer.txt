@@ -1,6 +1,6 @@
 <script type="text/template" id="approve-enrollment-template">
     <li>
-        <a href="approve-enrollment/approve.html?frn=~(studentfrn)">Approve Enrollment</a>
+        <a href="approve.html?frn=~(studentfrn)">Approve Enrollment</a>
     </li>
 </script>
 

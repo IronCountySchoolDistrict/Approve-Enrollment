@@ -15,6 +15,7 @@ define(function() {
             return $j.when.apply($j, requests).then(function(enrollment, fieldMap, studentIds) {
                 studentIds = studentIds[0];
                 return self.getCoreStudentData(studentIds).then(function(studentCoreData) {
+                    window.fbResponseId = enrollment.form.response.id;
                     var gpvObject = self.formToGpvObject(enrollment[0].form.elements, fieldMap[0]);
 
                     // Add coreStudentData fields to gpvObject
