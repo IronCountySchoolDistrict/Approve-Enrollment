@@ -4,23 +4,99 @@ define(['jquery', 'underscore'], function ($, _) {
     return {
         main: function () {
             //this.bindPostApi();
-            this.bindStudentApiUpdate();
+            this.bindSubmitAction();
         },
 
-        bindPostApi: function () {
-            var self = this;
-            $('#submit').one('click', function (e) {
-                self.postApiFields();
+        gotoChangesRecorded: function () {
+            window.location.href = '/admin/changesrecorded.white.html'
+        },
+
+        updateStateFields: function () {
+            var studentFieldsData = {};
+            studentFieldsData['UF-'] = $('').val();
+            studentFieldsData['UF-'] = $('').val();
+            studentFieldsData['UF-'] = $('').val();
+            studentFieldsData['UF-'] = $('').val();
+
+            studentFieldsData = $.param(studentFieldsData);
+
+            return $.ajax({
+                type: 'POST',
+                url: '/admin/changesrecorded.white.html',
+                data: studentFieldsData
             });
         },
 
-        bindStudentApiUpdate: function () {
+        updateMedicalAlert: function() {
+            // Concatenate allergies, interventions and medications strings.
+            var medicalAlertString = '';
+
+            // Allergies
+            if ($('#').val() !== '') {
+                medicalAlertString += 'ALERGIES: ' + $('#').val();
+            }
+
+            //Interventions
+            if ($('#val').val() !== '') {
+                // If medicalAlertString is not empty at this point,
+                // add a line break tag to separate this text from the previous text
+                if (medicalAlertString !== '') {
+                    medicalAlertString += '<br>';
+                }
+
+                //
+                if ($('#').val() !== '') {
+                    medicalAlertString += 'INTERVENTIONS: ' + $('#').val();
+                }
+            }
+
+            //Medications
+            if ($('#val').val() !== '') {
+                // If medicalAlertString is not empty at this point,
+                // add a line break tag to separate this text from the previous text
+                if (medicalAlertString !== '') {
+                    medicalAlertString += '<br>';
+                }
+
+                //
+                if ($('#').val() !== '') {
+                    medicalAlertString += 'MEDICATIONS: ' + $('#').val();
+                }
+            }
+
+            var medicalAlertData = $.param({'Alert_Medical': medicalAlertString});
+
+            return $.ajax({
+                type: 'POST',
+                url: '/admin/changesrecorded.white.html',
+                data: medicalAlertData
+            });
+        },
+
+        updateApiFields: function () {
+            var studentEntity = self._formToStudentEntity();
+            console.dir(studentEntity);
+            return $.ajax({
+                type: 'POST',
+                url: 'https://psapi.irondistrict.org/update',
+                data: studentEntity,
+                dataType: 'json'
+            });
+        },
+
+        bindSubmitAction: function () {
             var self = this;
 
             $('#submit').one('click', function (e) {
                 e.preventDefault();
-                var studentEntity = self._formToStudentEntity();
-                console.dir(studentEntity);
+                var ajaxPromises = [];
+                ajaxPromises.push(self.updateApiFields());
+                ajaxPromises.push(self.updateStateFields());
+                ajaxPromises.push(self.updateMedicalAlert());
+
+                $.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateResp, updateMedicalResp) {
+                    self.gotoChangesRecorded();
+                });
             });
         },
 
@@ -96,13 +172,6 @@ define(['jquery', 'underscore'], function ($, _) {
             apiPayload.students.student = studentsArray;
 
             return apiPayload;
-
-        },
-
-        /**
-         * Make the request that handles the enroll student REST call
-         */
-        postApiFields: function () {
 
         }
     };
