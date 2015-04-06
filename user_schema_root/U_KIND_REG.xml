@@ -3,7 +3,7 @@
              xsi:schemaLocation="http://www.powerschool.com psextension.xsd">
     <extensionname>U_KIND_REG</extensionname>
     <extendedTable coreTable="Students" dbTableName="U_KIND_REG" comment="">
-        <field name="FB_ENROLL_RESP_ID" type="STRING" length="40" description="When a kindergartner's registration data has been approve by a secretary,
+        <field name="FB_ENROLL_RESP_ID" type="STRING" length="40" description="When a kindergartner's registration data has been approved by a secretary,
                the id of the FormBuilder form response is inserted here. This field is used to determine if the
                Approve Enrollment link should appear red. This value should match the id of the most recent
                FormBuilder response for this student, meaning that the approved response is the most recent one.

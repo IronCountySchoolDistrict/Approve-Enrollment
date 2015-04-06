@@ -73,14 +73,14 @@ define(['jquery', 'underscore', 'reg/data'], function ($, _, data) {
             });
         },
 
-        updateApiFields: function () {
+        updateApiFields: function (studentIds) {
 
-            var studentEntity = this._formToStudentEntity();
+            var studentEntity = this._formToStudentEntity(studentIds);
             console.dir(studentEntity);
             return $.ajax({
                 type: 'POST',
                 contentType: 'application/json',
-                url: 'https://pats.irondistrict.org/student',
+                url: 'https://pats.irondistrict.org/api/student',
                 data: JSON.stringify(studentEntity),
                 dataType: 'json'
             });
@@ -90,21 +90,20 @@ define(['jquery', 'underscore', 'reg/data'], function ($, _, data) {
             return $j.getJSON("/admin/students/approve-enrollment/json/enrollment.json.html?action=get.studentids");
         },
 
-        updateEnrollRespId: function () {
-            var self = this;
-            return self.getStudentIds().then(function(studentsIds) {
-                var keyName = 'EF-' + studentsIds.frn + + '-U_KIND_REG.FB_ENROLL_RESP_ID';
-                var data = {};
-                data['ac'] = 'prim';
-                data[keyName] = window.fbResponseId;
+        updateEnrollRespId: function (studentIds) {
+            var keyName = 'EF-' + studentIds.frn + '-U_KIND_REG.FB_ENROLL_RESP_ID';
+            var data = {};
+            data.ac = 'prim';
+            data[keyName] = window.fbResponseId;
 
-                return $.ajax({
-                    type: 'POST',
-                    url: '/admin/changesrecorded.white.html',
-                    data: data
-                });
+            keyName = 'UF-00103172560';
+            data[keyName] = $('#ssn').val();
+
+            return $.ajax({
+                type: 'POST',
+                url: '/admin/changesrecorded.white.html',
+                data: data
             });
-
         },
 
         bindSubmitAction: function () {
@@ -113,14 +112,16 @@ define(['jquery', 'underscore', 'reg/data'], function ($, _, data) {
             $('#submit').one('click', function (e) {
                 e.preventDefault();
                 var ajaxPromises = [];
-                ajaxPromises.push(self.updateApiFields());
-                //ajaxPromises.push(self.updateStateFields());
-                //ajaxPromises.push(self.updateMedicalAlert());
-                ajaxPromises.push(self.updateEnrollRespId());
+                self.getStudentIds().then(function(studentIds) {
+                    ajaxPromises.push(self.updateApiFields(studentIds));
+                    //ajaxPromises.push(self.updateStateFields());
+                    //ajaxPromises.push(self.updateMedicalAlert());
+                    ajaxPromises.push(self.updateEnrollRespId(studentIds));
 
-                //$.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateResp, updateMedicalResp, updateEnrollRespId) {
-                $.when.apply($, ajaxPromises).done(function(updateApiResp, updateEnrollRespId) {
-                    self.gotoChangesRecorded();
+                    //$.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateResp, updateMedicalResp, updateEnrollRespId) {
+                    $.when.apply($, ajaxPromises).done(function(updateApiResp, updateEnrollRespId) {
+                        self.gotoChangesRecorded();
+                    });
                 });
             });
         },
@@ -138,19 +139,14 @@ define(['jquery', 'underscore', 'reg/data'], function ($, _, data) {
                 }
             }
          */
-        _formToStudentEntity: function () {
+        _formToStudentEntity: function (studentIds) {
             var apiPayload = {};
             var studentsArray = [];
 
             var studentEntityObject = {};
             studentEntityObject.action = 'UPDATE';
             studentEntityObject.client_uid = '1';
-            studentEntityObject.id =
-
-            // Personal Info
-            studentEntityObject.demographics = {};
-            studentEntityObject.demographics.ssn = $('#ssn').val();
-
+            studentEntityObject.id = studentIds.dcid;
 
             studentEntityObject.addresses = {};
             if ($('#mailing-address').val() &&
@@ -198,7 +194,6 @@ define(['jquery', 'underscore', 'reg/data'], function ($, _, data) {
             apiPayload.students.student = studentsArray;
 
             return apiPayload;
-
         }
     };
 });
