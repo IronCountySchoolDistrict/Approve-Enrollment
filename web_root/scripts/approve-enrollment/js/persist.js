@@ -16,13 +16,12 @@ define(["jquery", "underscore"], function($, _) {
                 self.getStudentIds().then(function(studentIds) {
                     self.enableEf(studentIds).then(function() {
 
-                        //ajaxPromises.push(self.updateApiFields(studentIds));
-                        //ajaxPromises.push(self.updateStateFields(studentIds));
+                        ajaxPromises.push(self.updateApiFields(studentIds));
+                        ajaxPromises.push(self.updateStateFields(studentIds));
                         ajaxPromises.push(self.updateMedicalAlert(studentIds));
-                        //ajaxPromises.push(self.updateMiscFields(studentIds));
+                        ajaxPromises.push(self.updateMiscFields(studentIds));
 
-                        //$.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateResp, updateMedicalResp, updateMiscFieldsResp) {
-                        $.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateFieldsResp, updateMiscFieldsResp) {
+                        $.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateFieldsResp, updateMedicalResp, updateMiscFieldsResp) {
                             self.gotoChangesRecorded();
                         });
                     });
