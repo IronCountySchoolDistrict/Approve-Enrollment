@@ -687,21 +687,21 @@
     "fieldValue": "~[gpv:date-first-enrolled]"
   },
   {
-    "template": "form-element-input-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "What language(s) did your child use when he/she first begin to talk?",
     "fieldId": "prim-lang",
     "fieldName": "prim_lang",
     "fieldValue": "~[gpv:prim-lang]"
   },
   {
-    "template": "form-element-input-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "What language(s) does your child currently speak with you at home?",
     "fieldId": "cur-lang",
     "fieldName": "cur_lang",
     "fieldValue": "~[gpv:cur-lang]"
   },
   {
-    "template": "form-element-input-template",
+    "template": "form-element-input-readonly-template",
     "fieldLabel": "What language(s) do you (parents/guardians, or other adults who permanently reside in the home) use when you/they speak to your child?",
     "fieldId": "parent-lang",
     "fieldName": "parent_lang",
