@@ -1,15 +1,31 @@
+<style>
+    .unapproved {
+        font-weight: bold;
+        color: #FF0000;
+    }
+</style>
+
 <script type="text/template" id="approve-enrollment-template">
     <li>
-        <a href="approve.html?frn=~(studentfrn)">Approve Enrollment</a>
+        <a href="approve.html?frn=~(studentfrn)" id="approve-enrollment-link">Approve Enrollment</a>
     </li>
 </script>
 
 <script>
-    $j(function() {
-        var template = $j($j('#approve-enrollment-template').html());
+	require(['jquery', 'underscore'], function($, _) {
+		$(function() {
+	        var template = $($('#approve-enrollment-template').html());
 
-        // Select the link right after where Approve Enrollments will be inserted.
-        var select = $j('a:contains(Attachments)').parent('li');
-        template.insertBefore(select);
-    });
+	        // Select the link right after where Approve Enrollments will be inserted.
+	        var select = $('a:contains(Attachments)').parent('li');
+	        template.insertBefore(select);
+
+	        $.getJSON("/admin/approve-enrollment-loader/loader.json.html?action=get.student.ids", function(studentIds) {
+	        	var studentId = ~(curstudid);
+	        	if (_.contains(studentIds, studentId)) {
+	        		$("#approve-enrollment-link").addClass("unapproved");
+	        	}
+	        });
+	    });
+	});
 </script>

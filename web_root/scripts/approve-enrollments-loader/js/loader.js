@@ -19,7 +19,7 @@ $j(function() {
 
             $j('#approve-enrollments-link').on('click', function(event) {
                 event.preventDefault();
-                $j.getJSON('/admin/approve-enrollment-loader/loader.json.html?action=get.student.dcids', function(studentDcids) {
+                $j.getJSON('/admin/approve-enrollment-loader/loader.json.html?action=get.student.ids', function(studentDcids) {
                     
                     // Set the current select to all students with enrollments that need to be approved
 

@@ -22,11 +22,16 @@ define(["jquery", "underscore"], function($, _) {
                         ajaxPromises.push(self.updateMiscFields(studentIds));
 
                         $.when.apply($, ajaxPromises).done(function(updateApiResp, updateStateFieldsResp, updateMedicalResp, updateMiscFieldsResp) {
+                            self.clearUnapprovedClass();
                             self.gotoChangesRecorded();
                         });
                     });
                 });
             });
+        },
+
+        clearUnapprovedClass: function() {
+            $("#approve-enrollment-link", window.parent.frames['menu'].document).removeClass("unapproved");
         },
 
         gotoChangesRecorded: function() {
