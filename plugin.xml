@@ -11,8 +11,4 @@
     </publisher>
 
     <oauth></oauth>
-
-    <access_request>
-        <field table="STUDENTS" field="SSN" access="FullAccess" />
-    </access_request>
 </plugin>
