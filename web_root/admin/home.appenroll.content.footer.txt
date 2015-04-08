@@ -1,0 +1,26 @@
+<style>
+    .ae-link {
+        font-weight: bold;
+        color: #FF0000;
+    }
+</style>
+
+<script type="text/template" id="approve-enrollments-template">
+    <a class="ae-link" id="approve-enrollments-link">
+        Approve Enrollments
+    </a>
+</script>
+
+
+<script type="text/template" id="approve-enrollments-loading-template">
+    <span>Loading Approve Enrollment Verify...</span>
+</script>
+
+<script>
+    if (!psData) {
+        var psData = {};
+    }
+    psData.studentdcid = "~(studentfrn)".slice(3);
+</script>
+
+<script src="/scripts/approve-enrollments-loader/js/loader.js"></script>

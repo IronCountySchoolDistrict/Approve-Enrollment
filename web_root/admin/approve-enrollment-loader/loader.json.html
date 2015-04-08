@@ -1,0 +1,51 @@
+~[if.~[gpv:action]=get.student.dcids]
+	[
+		~[tlist_sql;
+			SELECT s.id,
+			       CASE
+			           WHEN row_number() OVER(ORDER BY NULL) = count(*) OVER() THEN ''
+			           ELSE ','
+			       END AS comma
+			FROM students s
+			INNER JOIN
+			  (SELECT student_id,
+			          MAX(datetime) MaxDate
+			   FROM u_fb_form_response
+			   GROUP BY student_id) MaxDates ON s.id = MaxDates.student_id
+			INNER JOIN u_fb_form_response resp ON MaxDates.student_id = resp.student_id
+			AND MaxDates.MaxDate = resp.datetime
+			INNER JOIN u_fb_form form ON form.id = resp.u_fb_form_id
+			WHERE resp.id NOT IN
+			    (SELECT fb_enroll_resp_id
+			     FROM u_kind_reg)
+			AND s.schoolid=~(curschoolid)
+			AND form.form_title='Student Registration Form - Kindergarten';nonemessage={}
+		]
+			~(dcid)~(comma)
+		[/tlist_sql]
+	]
+[/if]
+
+~[if.~[gpv:action]=get.approve.count]
+	~[tlist_sql;
+		SELECT count(*)
+		FROM students s
+		INNER JOIN
+		  (SELECT student_id,
+		          MAX(datetime) MaxDate
+		   FROM u_fb_form_response
+		   GROUP BY student_id) MaxDates ON s.id = MaxDates.student_id
+		INNER JOIN u_fb_form_response resp ON MaxDates.student_id = resp.student_id
+		AND MaxDates.MaxDate = resp.datetime
+		INNER JOIN u_fb_form form ON form.id = resp.u_fb_form_id
+		WHERE resp.id NOT IN
+		    (SELECT fb_enroll_resp_id
+		     FROM u_kind_reg)
+		AND s.schoolid=~(curschoolid)
+		AND form.form_title='Student Registration Form - Kindergarten';nonemessage={}
+	]
+		{
+			"count": "~(count)"
+		}
+	[/tlist_sql]
+[/if]
