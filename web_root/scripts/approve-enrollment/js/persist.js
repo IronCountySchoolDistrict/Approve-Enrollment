@@ -157,19 +157,21 @@ define(["jquery", "underscore"], function($, _) {
             var keyName = "EF-" + studentIds.frn + "-U_KIND_REG.FB_ENROLL_RESP_ID";
             data[keyName] = window.fbResponseId;
 
+            // dentist_name
+            keyName = "EF-" + studentIds.frn + "-StudentCoreFields.dentist_name";
+            data[keyName] = $("#dentists-name").val();
+
             // ssn
-            keyName = "UF-001031" + studentIds.dcid;
-            if ($("#ssn").val().indexOf("-") !== -1) {
-                data[keyName] = $("#ssn").val();
+            var ssnVal = $("#ssn").val();
+            if (ssnVal.indexOf("-") !== -1) {
+                data[keyName] = ssnVal;
             } else {
                 // Insert dashes into ssn
-                var ssnVal = $("#ssn").val();
                 var first = ssnVal.slice(0, 3);
                 var second = ssnVal.slice(3, 5);
                 var third = ssnVal.slice(5);
                 data[keyName] = first + "-" + second + "-" + third;
             }
-            
 
             // doctor name
             keyName = "UF-001062" + studentIds.dcid;
