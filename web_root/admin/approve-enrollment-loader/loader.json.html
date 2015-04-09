@@ -17,7 +17,7 @@
 			INNER JOIN u_fb_form form ON form.id = resp.u_fb_form_id
 			WHERE resp.id NOT IN
 			    (SELECT fb_enroll_resp_id
-			     FROM u_kind_reg)
+			     FROM u_kind_reg where fb_enroll_resp_id is not null)
 			AND s.schoolid=~(curschoolid)
 			AND form.form_title='Student Registration Form - Kindergarten';nonemessage={}
 		]
@@ -40,7 +40,7 @@
 		INNER JOIN u_fb_form form ON form.id = resp.u_fb_form_id
 		WHERE resp.id NOT IN
 		    (SELECT fb_enroll_resp_id
-		     FROM u_kind_reg)
+		     FROM u_kind_reg where fb_enroll_resp_id is not null)
 		AND s.schoolid=~(curschoolid)
 		AND form.form_title='Student Registration Form - Kindergarten';nonemessage={}
 	]

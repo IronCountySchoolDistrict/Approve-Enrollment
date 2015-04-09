@@ -157,9 +157,15 @@ define(["jquery", "underscore"], function($, _) {
             var keyName = "EF-" + studentIds.frn + "-U_KIND_REG.FB_ENROLL_RESP_ID";
             data[keyName] = window.fbResponseId;
 
+            // dentist_name
+            keyName = "EF-" + studentIds.frn + "-StudentCoreFields.dentist_name";
+            data[keyName] = $("#dentists-name").val();
+
             // ssn
-            keyName = "UF-001031" + studentIds.dcid;
+            if ($("#ssn").val()) {
+                keyName = "UF-001031" + studentIds.dcid;
             data[keyName] = $("#ssn").val();
+            }
 
             // doctor name
             keyName = "UF-001062" + studentIds.dcid;

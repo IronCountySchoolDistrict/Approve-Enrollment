@@ -24,7 +24,7 @@
 		       middle_name,
 		       last_name,
 		       gender,
-		       dob
+		       to_char(dob, 'mm/dd/yyyy')
 		FROM students
 		WHERE id=~[gpv:student_id]
 	;nonemessage={}]
