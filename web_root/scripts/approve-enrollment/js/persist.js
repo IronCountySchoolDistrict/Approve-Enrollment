@@ -31,7 +31,7 @@ define(["jquery", "underscore"], function($, _) {
         },
 
         clearUnapprovedClass: function() {
-            $("#approve-enrollment-link", window.parent.frames['menu'].document).removeClass("unapproved");
+            $("#approve-enrollment-link", window.parent.frames.menu.document).removeClass("unapproved");
         },
 
         gotoChangesRecorded: function() {
@@ -163,15 +163,19 @@ define(["jquery", "underscore"], function($, _) {
 
             // ssn
             var ssnVal = $("#ssn").val();
-            if (ssnVal.indexOf("-") !== -1) {
-                data[keyName] = ssnVal;
-            } else {
-                // Insert dashes into ssn
-                var first = ssnVal.slice(0, 3);
-                var second = ssnVal.slice(3, 5);
-                var third = ssnVal.slice(5);
-                data[keyName] = first + "-" + second + "-" + third;
+            if (ssnVal !== "") {
+                keyName = "UF-001031" + studentIds.dcid;
+                if (ssnVal.indexOf("-") !== -1) {
+                    data[keyName] = ssnVal;
+                } else {
+                    // Insert dashes into ssn
+                    var first = ssnVal.slice(0, 3);
+                    var second = ssnVal.slice(3, 5);
+                    var third = ssnVal.slice(5);
+                    data[keyName] = first + "-" + second + "-" + third;
+                }
             }
+            
 
             // doctor name
             keyName = "UF-001062" + studentIds.dcid;
