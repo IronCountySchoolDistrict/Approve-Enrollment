@@ -2,8 +2,7 @@
 require.config({
     paths: {
         reg: "approve-enrollment/js"
-    },
-    urlArgs: "_=" + (new Date()).getTime()
+    }
 });
 
 require(["reg/form", "reg/edit", "reg/persist"],
