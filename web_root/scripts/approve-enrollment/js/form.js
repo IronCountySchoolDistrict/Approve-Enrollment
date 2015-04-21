@@ -1,4 +1,4 @@
-define(["Handlebars", "reg/handlebars-helpers", "reg/data"], function(Handlebars, handlebarsHelpers, data) {
+define(["underscore", "Handlebars", "reg/handlebars-helpers", "reg/data"], function(_, Handlebars, handlebarsHelpers, data) {
     "use strict";
     return {
         populateForm: function() {
