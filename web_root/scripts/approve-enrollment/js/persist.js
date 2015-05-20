@@ -31,7 +31,7 @@ define(["jquery", "underscore"], function($, _) {
         },
 
         clearUnapprovedClass: function() {
-            $("#approve-enrollment-link", window.parent.frames['menu'].document).removeClass("unapproved");
+            $("#approve-enrollment-link", window.parent.frames.menu.document).removeClass("unapproved");
         },
 
         gotoChangesRecorded: function() {
@@ -130,7 +130,7 @@ define(["jquery", "underscore"], function($, _) {
             return $.ajax({
                 type: "POST",
                 contentType: "application/json",
-                url: "https://pats.irondistrict.org/api/student",
+                url: "https://psapi.irondistrict.org/api/student",
                 data: JSON.stringify(studentEntity),
                 dataType: "json"
             });
@@ -162,10 +162,20 @@ define(["jquery", "underscore"], function($, _) {
             data[keyName] = $("#dentists-name").val();
 
             // ssn
-            if ($("#ssn").val()) {
+            var ssnVal = $("#ssn").val();
+            if (ssnVal !== "") {
                 keyName = "UF-001031" + studentIds.dcid;
-                data[keyName] = $("#ssn").val();
+                if (ssnVal.indexOf("-") !== -1) {
+                    data[keyName] = ssnVal;
+                } else {
+                    // Insert dashes into ssn
+                    var first = ssnVal.slice(0, 3);
+                    var second = ssnVal.slice(3, 5);
+                    var third = ssnVal.slice(5);
+                    data[keyName] = first + "-" + second + "-" + third;
+                }
             }
+            
 
             // doctor name
             keyName = "UF-001062" + studentIds.dcid;
@@ -233,11 +243,16 @@ define(["jquery", "underscore"], function($, _) {
             // Create an array of objects that matches the format:
             // {district_race_code": "{race_code}"
             var races = $("[name=race]:checked, [name=trib-affil]:checked").serializeArray();
-            studentEntityObject.ethnicity_race.races = _.map(races, function(elem) {
-                return {
-                    "district_race_code": elem.value
-                };
+            var raceArr = [];
+            studentEntityObject.ethnicity_race.races = _.each(races, function(elem) {
+                if (elem.value !== "None") {
+                    raceArr.push({
+                        "district_race_code": elem.value
+                    });    
+                }
             });
+
+            studentEntityObject.ethnicity_race.races = raceArr;
 
             studentsArray.push(studentEntityObject);
 
