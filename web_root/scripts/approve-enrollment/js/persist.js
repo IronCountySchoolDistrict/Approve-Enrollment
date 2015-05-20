@@ -69,7 +69,7 @@ define(["jquery", "underscore"], function($, _) {
                     type: "POST",
                     url: "/admin/changesrecorded.white.html",
                     data: studentFieldsData
-                });    
+                });
             }
         },
 
@@ -164,7 +164,7 @@ define(["jquery", "underscore"], function($, _) {
             // ssn
             if ($("#ssn").val()) {
                 keyName = "UF-001031" + studentIds.dcid;
-            data[keyName] = $("#ssn").val();
+                data[keyName] = $("#ssn").val();
             }
 
             // doctor name
