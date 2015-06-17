@@ -179,7 +179,7 @@ define(function() {
         },
 
         insertTemplates: function() {
-            $j.get('/scripts/approve-enrollment/templates/form-element-row.html', function(formElementRow) {
+            $j.get('/* @echo IMAGE_SERVER_URL */' + '/approve-enrollment/templates/form-element-row.html', function(formElementRow) {
                 $j('body').append(formElementRow);
             });
         },
@@ -238,7 +238,7 @@ define(function() {
         },
 
         getFieldMap: function() {
-            return $j.getJSON("/scripts/approve-enrollment/json/fb-field-map.json");
+            return $j.getJSON("/* @echo IMAGE_SERVER_URL */" + "/approve-enrollment/json/fb-field-map.json");
         },
 
         getEnrollment: function() {

@@ -23,4 +23,4 @@
     psData.studentdcid = "~(studentfrn)".slice(3);
 </script>
 
-<script src="/scripts/approve-enrollments-loader/js/loader.js"></script>
+<script src="<!-- @echo IMAGE_SERVER_URL -->/approve-enrollments-loader/js/loader.js"></script>

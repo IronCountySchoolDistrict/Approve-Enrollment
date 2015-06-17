@@ -1,7 +1,7 @@
 /*global require*/
 require.config({
     paths: {
-        reg: "approve-enrollment/js"
+        reg: "/* @echo IMAGE_SERVER_URL */" + "/approve-enrollment/js"
     }
 });
 
