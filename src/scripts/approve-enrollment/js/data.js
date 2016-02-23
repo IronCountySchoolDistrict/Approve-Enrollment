@@ -131,7 +131,7 @@ define(function() {
 
         cleanRaceFieldValue: function(fieldValue) {
             var cleanValue = [];
-            var whiteValue = "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)";
+            var whiteValue = "A person having origins in or ancestors from any of the original peoples of Europe, the Middle East, or North Africa.(White)|W";
             var aiValue = "A person having origins in or from any of the original peoples of North and South America (including Central America), and who maintains tribal affiliation or community attachment. (including American Indian)|I";
             var asianValue = "A person having origins in or ancestors from any of the original peoples of the Far East, Southeast Asia, or the Indian subcontinent including, for example, Cambodia, China, India, Japan, Korea, Malaysia, Pakistan, the Philippine Islands, Thailand, and Vietnam. (Asian)|A";
             var blackValue = "A person having origins in or ancestors from any of the black racial groups of Africa. (Black)|B";

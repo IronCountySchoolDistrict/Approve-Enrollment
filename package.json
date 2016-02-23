@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/IronCountySchoolDistrict/approve-enrollment/issues"
   },
-  "homepage": "https://github.com/IronCountySchoolDistrict/approve-enrollment#readme"
+  "homepage": "https://github.com/IronCountySchoolDistrict/approve-enrollment#readme",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.5.2",
+    "babel-register": "^6.5.2",
+    "gulp": "^3.9.1",
+    "gulp-ps-tasks": "^0.3.3"
+  }
 }

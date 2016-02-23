@@ -24,6 +24,31 @@
     @param fieldValue
     @param fieldName
 -->
+<script id="form-element-dropdown-template" type="text/x-handlebars-template">
+<tr>
+    <td class="bold" style="width: 30%;">{{fieldLabel}}</td>
+    <td>
+        {{!-- Field value --}}
+        <span id="{{fieldId}}-field-value" class="field-value" data-edit-elem="#{{fieldId}}">{{fieldValue}}</span>
+        <span style="margin-left: 5px;" class="glyphicon glyphicon-edit"></span>
+        {{!-- Field edit --}}
+        <!-- Field edit -->
+        <select class="edit" name="{{fieldName}}" id="{{fieldId}}" {{#if isMultiple}}multiple="multiple"{{/if}}>
+            {{#each options}}
+            <option {{#if value}}value="{{value}}"{{/if}}>{{label}}</option>
+            {{/each}}
+        </select>
+        <a style="background-color: transparent;" class="btn btn-default btn-xs save">Save</a>
+    </td>
+</tr>
+</script>
+
+<!--
+    @param fieldLabel
+    @param fieldId
+    @param fieldValue
+    @param fieldName
+-->
 <script id="form-element-textarea-template" type="text/x-handlebars-template">
 <tr>
     <td class="bold" style="width: 30%;">{{fieldLabel}}</td>

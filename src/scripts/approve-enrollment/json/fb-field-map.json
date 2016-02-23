@@ -10,6 +10,24 @@
     "fb_title": "Social Security Number",
     "gpv_field_name": "ssn"
 }, {
+    "fb_title": "Parent/Guardian #1 Name",
+    "gpv_field_name": "par-guar-1-name"
+}, {
+    "fb_title": "Parent/Guardian #1 Day Phone",
+    "gpv_field_name": "par-guar-1-day-phone"
+}, {
+    "fb_title": "Parent/Guardian #2 Name",
+    "gpv_field_name": "par-guar-2-name"
+}, {
+    "fb_title": "Parent/Guardian #2 Day Phone",
+    "gpv_field_name": "par-guar-2-day-phone"
+}, {
+    "fb_title": "Home Phone",
+    "gpv_field_name": "home-phone"
+}, {
+    "fb_title": "E-Mail address",
+    "gpv_field_name": "email-address"
+}, {
     "fb_title": "Mailing Address",
     "gpv_field_name": "mailing-address"
 }, {
