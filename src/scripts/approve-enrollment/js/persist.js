@@ -254,6 +254,61 @@ define(["jquery", "underscore"], function($, _) {
 
             studentEntityObject.ethnicity_race.races = raceArr;
 
+            if ($("#home-phone").val()) {
+                studentEntityObject.phones = {};
+                studentEntityObject.phones.main = {};
+                studentEntityObject.phones.main.number = $("#home-phone").val();
+            }
+
+            if ($("#email-address").val()) {
+                if (!studentEntityObject.contact) {
+                    studentEntityObject.contact = {};
+                }
+                studentEntityObject.contact.guardian_email = $("#email-address").val();
+            }
+
+            var parGuar1Rel = $("#par-guar-1-relationship").val();
+            var parGuar2Rel = $("#par-guar-2-relationship").val();
+
+            if (parGuar1Rel || parGuar2Rel) {
+                studentEntityObject._extension_data = {};
+                studentEntityObject._extension_data._table_extension = {};
+                studentEntityObject._extension_data._table_extension.name = 'studentcorefields';
+                studentEntityObject._extension_data._table_extension._field = [];
+            }
+            
+            if (parGuar1Rel) {
+                if ($("#par-guar-1-day-phone").val()) {
+                    studentEntityObject._extension_data._table_extension._field.push({
+                        name: parGuar1Rel + "dayphone",
+                        value: $("#par-guar-1-day-phone").val()
+                    });
+                }
+                
+                if ($("#par-guar-1-name").val()) {
+                    if (!studentEntityObject.contact) {
+                        studentEntityObject.contact = {};
+                    }
+                    studentEntityObject.contact[parGuar1Rel] = $("#par-guar-1-name").val();
+                }
+            }
+
+            if (parGuar2Rel) {
+                if ($("#par-guar-2-day-phone").val()) {
+                    studentEntityObject._extension_data._table_extension._field.push({
+                        name: parGuar2Rel + "dayphone",
+                        value: $("#par-guar-2-day-phone").val()
+                    });
+                }
+                
+                if ($("#par-guar-2-name").val()) {
+                    if (!studentEntityObject.contact) {
+                        studentEntityObject.contact = {};
+                    }
+                    studentEntityObject.contact[parGuar2Rel] = $("#par-guar-2-name").val();
+                }
+            }
+
             studentsArray.push(studentEntityObject);
 
             // Create the top-level object (apiPayload)

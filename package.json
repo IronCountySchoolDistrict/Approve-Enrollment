@@ -1,0 +1,26 @@
+{
+  "name": "approve-enrollment",
+  "version": "1.0.1",
+  "description": "Admin Dual Line Login is a customization that splits the single login field into separated Username and Password fields in PowerSchool Administrator.",
+  "main": "",
+  "scripts": {
+    "test": "mocha-casperjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IronCountySchoolDistrict/approve-enrollment.git"
+  },
+  "author": "IronCountySchoolDistrict",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/IronCountySchoolDistrict/approve-enrollment/issues"
+  },
+  "homepage": "https://github.com/IronCountySchoolDistrict/approve-enrollment#readme",
+  "devDependencies": {
+    "babel-cli": "^6.5.1",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.5.2",
+    "babel-register": "^6.5.2",
+    "gulp": "^3.9.1",
+    "gulp-ps-tasks": "^0.3.3"
+  }
+}

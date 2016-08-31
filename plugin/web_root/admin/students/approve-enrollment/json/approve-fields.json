@@ -42,6 +42,90 @@
     "fieldName": "ssn"
   },
   {
+    "template": "form-element-input-template",
+    "fieldLabel": "Parent/Guardian #1 Name",
+    "fieldId": "par-guar-1-name",
+    "fieldValue": "~[gpv:par-guar-1-name]",
+    "fieldName": "par-guar-1-name"
+  },
+  {
+    "template": "form-element-input-template",
+    "fieldLabel": "Parent/Guardian #1 Day Phone",
+    "fieldId": "par-guar-1-day-phone",
+    "fieldValue": "~[gpv:par-guar-1-day-phone]",
+    "fieldName": "par-guar-1-day-phone"
+  },
+  {
+    "template": "form-element-dropdown-template",
+    "fieldLabel": "Parent/Guardian #1 Relationship",
+    "fieldId": "par-guar-1-relationship",
+    "fieldValue": "",
+    "fieldName": "par-guar-1-relationship",
+    "options": [
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "Mother",
+        "value": "mother"
+      },
+      {
+        "label": "Father",
+        "value": "father"
+      }
+    ]
+  },
+  {
+    "template": "form-element-input-template",
+    "fieldLabel": "Parent/Guardian #2 Name",
+    "fieldId": "par-guar-2-name",
+    "fieldValue": "~[gpv:par-guar-2-name]",
+    "fieldName": "par-guar-2-name"
+  },
+  {
+    "template": "form-element-input-template",
+    "fieldLabel": "Parent/Guardian #2 Day Phone",
+    "fieldId": "par-guar-2-day-phone",
+    "fieldValue": "~[gpv:par-guar-2-day-phone]",
+    "fieldName": "par-guar-2-day-phone"
+  },
+  {
+    "template": "form-element-dropdown-template",
+    "fieldLabel": "Parent/Guardian #2 Relationship",
+    "fieldId": "par-guar-2-relationship",
+    "fieldValue": "",
+    "fieldName": "par-guar-2-relationship",
+    "options": [
+      {
+        "label": "",
+        "value": ""
+      },
+      {
+        "label": "Mother",
+        "value": "mother"
+      },
+      {
+        "label": "Father",
+        "value": "father"
+      }
+    ]
+  },
+  {
+    "template": "form-element-input-template",
+    "fieldLabel": "Home Phone",
+    "fieldId": "home-phone",
+    "fieldValue": "~[gpv:home-phone]",
+    "fieldName": "home-phone"
+  },
+  {
+    "template": "form-element-input-template",
+    "fieldLabel": "E-Mail address",
+    "fieldId": "email-address",
+    "fieldValue": "~[gpv:email-address]",
+    "fieldName": "email-address"
+  },
+  {
     "template": "form-element-address-template",
     "fieldLabel": "Mailing Address",
     "addressFieldId": "mailing-address",
